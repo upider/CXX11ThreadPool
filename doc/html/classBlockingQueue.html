@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ThreadPool: BlockingQueue&lt; T &gt; 模板类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ThreadPool
+   </div>
+   <div id="projectbrief">C++11线程池</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classBlockingQueue-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">BlockingQueue&lt; T &gt; 模板类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><a class="el" href="classBlockingQueue.html" title="BlockingQueue ">BlockingQueue</a>  
+ <a href="classBlockingQueue.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="blockingqueue_8hpp_source.html">blockingqueue.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a6b5553396530a9e0a8c6656aaf05e6b2"><td class="memItemLeft" align="right" valign="top"><a id="a6b5553396530a9e0a8c6656aaf05e6b2"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>MutexLockGuard</b> = std::lock_guard&lt; std::mutex &gt;</td></tr>
+<tr class="separator:a6b5553396530a9e0a8c6656aaf05e6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a4d1bbabd0a1212ab77b3a24614b6b0c1"><td class="memItemLeft" align="right" valign="top"><a id="a4d1bbabd0a1212ab77b3a24614b6b0c1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BlockingQueue</b> (std::initializer_list&lt; T &gt; args)</td></tr>
+<tr class="separator:a4d1bbabd0a1212ab77b3a24614b6b0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f2b1e4d887d77a81fddabd44c5cdbfd"><td class="memItemLeft" align="right" valign="top"><a id="a2f2b1e4d887d77a81fddabd44c5cdbfd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BlockingQueue</b> (const <a class="el" href="classBlockingQueue.html">BlockingQueue</a> &amp;)</td></tr>
+<tr class="separator:a2f2b1e4d887d77a81fddabd44c5cdbfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7dbc308989dda7bef2f884a2703c806"><td class="memItemLeft" align="right" valign="top"><a id="ab7dbc308989dda7bef2f884a2703c806"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BlockingQueue</b> (const <a class="el" href="classBlockingQueue.html">BlockingQueue</a> &amp;&amp;)</td></tr>
+<tr class="separator:ab7dbc308989dda7bef2f884a2703c806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaee07bb9044a01b4cb0af75748795325"><td class="memItemLeft" align="right" valign="top"><a id="aaee07bb9044a01b4cb0af75748795325"></a>
+<a class="el" href="classBlockingQueue.html">BlockingQueue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classBlockingQueue.html">BlockingQueue</a> &amp;)</td></tr>
+<tr class="separator:aaee07bb9044a01b4cb0af75748795325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe4440d6ed06d175925bba1f3c02312"><td class="memItemLeft" align="right" valign="top"><a id="abbe4440d6ed06d175925bba1f3c02312"></a>
+<a class="el" href="classBlockingQueue.html">BlockingQueue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classBlockingQueue.html">BlockingQueue</a> &amp;&amp;)</td></tr>
+<tr class="separator:abbe4440d6ed06d175925bba1f3c02312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c824f8d644951d25bed9825794ddeae"><td class="memItemLeft" align="right" valign="top"><a id="a1c824f8d644951d25bed9825794ddeae"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>put</b> (const T &amp;x)</td></tr>
+<tr class="separator:a1c824f8d644951d25bed9825794ddeae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acedd6887a4af752440fb2dcd04292fa3"><td class="memItemLeft" align="right" valign="top"><a id="acedd6887a4af752440fb2dcd04292fa3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>put</b> (const T &amp;&amp;x)</td></tr>
+<tr class="separator:acedd6887a4af752440fb2dcd04292fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac788baea510940fc40961a285bacc5f"><td class="memItemLeft" align="right" valign="top"><a id="aac788baea510940fc40961a285bacc5f"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>take</b> ()</td></tr>
+<tr class="separator:aac788baea510940fc40961a285bacc5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8efc43c38666a38402c39f772da63fcf"><td class="memItemLeft" align="right" valign="top"><a id="a8efc43c38666a38402c39f772da63fcf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>wait_and_pop</b> (T &amp;value)</td></tr>
+<tr class="separator:a8efc43c38666a38402c39f772da63fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47a2d7726112b4e2d7b3f65a4e84aa06"><td class="memItemLeft" align="right" valign="top"><a id="a47a2d7726112b4e2d7b3f65a4e84aa06"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>try_pop</b> (T &amp;value)</td></tr>
+<tr class="separator:a47a2d7726112b4e2d7b3f65a4e84aa06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733361d5721c6ba64af3e129921c43b0"><td class="memItemLeft" align="right" valign="top"><a id="a733361d5721c6ba64af3e129921c43b0"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
+<tr class="separator:a733361d5721c6ba64af3e129921c43b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acec723bb67906e85da1999f9072eb0c8"><td class="memItemLeft" align="right" valign="top"><a id="acec723bb67906e85da1999f9072eb0c8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEmpty</b> () const</td></tr>
+<tr class="separator:acec723bb67906e85da1999f9072eb0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class BlockingQueue&lt; T &gt;</h3>
+
+<p><a class="el" href="classBlockingQueue.html" title="BlockingQueue ">BlockingQueue</a> </p>
+</div><hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="blockingqueue_8hpp_source.html">blockingqueue.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

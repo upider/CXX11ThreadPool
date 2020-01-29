@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ThreadPool: ThreadPoolExecutor类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ThreadPool
+   </div>
+   <div id="projectbrief">C++11线程池</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classThreadPoolExecutor-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">ThreadPoolExecutor类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a0a499781117adfc3827134a15446a561"><td class="memItemLeft" align="right" valign="top"><a id="a0a499781117adfc3827134a15446a561"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ThreadPoolExecutor</b> (int32_t corePoolSize, int32_t maxPoolSize, long keepAliveTime, TimeUnit unit, <a class="el" href="classBlockingQueue.html">BlockingQueue</a>&lt; <a class="el" href="classRunnable.html">Runnable</a> &gt; workQueue, <a class="el" href="classRejectedExecutionHandler.html">RejectedExecutionHandler</a> handler)</td></tr>
+<tr class="separator:a0a499781117adfc3827134a15446a561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed1c726fb67fcd064c88e65bedf942d"><td class="memItemLeft" align="right" valign="top"><a id="a2ed1c726fb67fcd064c88e65bedf942d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ThreadPoolExecutor</b> (int32_t corePoolSize, int32_t maxPoolSize, long keepAliveTime, TimeUnit unit, <a class="el" href="classBlockingQueue.html">BlockingQueue</a>&lt; <a class="el" href="classRunnable.html">Runnable</a> &gt; *workQueue)</td></tr>
+<tr class="separator:a2ed1c726fb67fcd064c88e65bedf942d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb920195bb39c64c97ed0644693a3592"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#acb920195bb39c64c97ed0644693a3592">allowsCoreThreadTimeOut</a> () const</td></tr>
+<tr class="memdesc:acb920195bb39c64c97ed0644693a3592"><td class="mdescLeft">&#160;</td><td class="mdescRight">allowsCoreThreadTimeOut 判断是否允许core thread超时并且在没有任务时终止  <a href="#acb920195bb39c64c97ed0644693a3592">更多...</a><br /></td></tr>
+<tr class="separator:acb920195bb39c64c97ed0644693a3592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa700bdf61ac6f9a67411560af2871ee7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#aa700bdf61ac6f9a67411560af2871ee7">allowCoreThreadTimeOut</a> (bool value)</td></tr>
+<tr class="memdesc:aa700bdf61ac6f9a67411560af2871ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">allowCoreThreadTimeOut 设置是否允许core thread超时并且在没有任务时终止  <a href="#aa700bdf61ac6f9a67411560af2871ee7">更多...</a><br /></td></tr>
+<tr class="separator:aa700bdf61ac6f9a67411560af2871ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25870bab59f0bdf17627f08b42f802f1"><td class="memItemLeft" align="right" valign="top"><a id="a25870bab59f0bdf17627f08b42f802f1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a25870bab59f0bdf17627f08b42f802f1">interruptIdleWorkers</a> ()</td></tr>
+<tr class="memdesc:a25870bab59f0bdf17627f08b42f802f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">interruptIdleWorkers 终止所有线程,不管是否空闲 <br /></td></tr>
+<tr class="separator:a25870bab59f0bdf17627f08b42f802f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e73a64e24e93e9dc25cf2baeda4a0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a7e73a64e24e93e9dc25cf2baeda4a0cb">interruptIdleWorkers</a> (bool onlyOne)</td></tr>
+<tr class="memdesc:a7e73a64e24e93e9dc25cf2baeda4a0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interruptIdleWorkers 中断等待任务(空闲)线程  <a href="#a7e73a64e24e93e9dc25cf2baeda4a0cb">更多...</a><br /></td></tr>
+<tr class="separator:a7e73a64e24e93e9dc25cf2baeda4a0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04e334b5d7f3b383aa01fbac80120feb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a04e334b5d7f3b383aa01fbac80120feb">execute</a> (const <a class="el" href="classRunnable.html">Runnable</a> command)</td></tr>
+<tr class="memdesc:a04e334b5d7f3b383aa01fbac80120feb"><td class="mdescLeft">&#160;</td><td class="mdescRight">execute 在将来某个时候执行给定的任务,无返回值, 任务可以在新线程或现有的合并的线程中执行, 向任务队列提交的是任务副本  <a href="#a04e334b5d7f3b383aa01fbac80120feb">更多...</a><br /></td></tr>
+<tr class="separator:a04e334b5d7f3b383aa01fbac80120feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaef92fe45f7f5a8b659187c15881ca3"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:aaaef92fe45f7f5a8b659187c15881ca3"><td class="memTemplItemLeft" align="right" valign="top">std::future&lt; typename std::result_of&lt; F()&gt;::type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#aaaef92fe45f7f5a8b659187c15881ca3">submit</a> (F f, bool core=false)</td></tr>
+<tr class="memdesc:aaaef92fe45f7f5a8b659187c15881ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">submit 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 可以有返回值,向任务队列提交的是任务副本  <a href="#aaaef92fe45f7f5a8b659187c15881ca3">更多...</a><br /></td></tr>
+<tr class="separator:aaaef92fe45f7f5a8b659187c15881ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85a124c9169a546bfbd725725024527"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#af85a124c9169a546bfbd725725024527">toString</a> () const</td></tr>
+<tr class="memdesc:af85a124c9169a546bfbd725725024527"><td class="mdescLeft">&#160;</td><td class="mdescRight">toString 返回标识此池的字符串及其状态，包括运行状态和估计的Worker和任务计数的指示  <a href="#af85a124c9169a546bfbd725725024527">更多...</a><br /></td></tr>
+<tr class="separator:af85a124c9169a546bfbd725725024527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4a5262dc8db7933c27dbbc267d4825"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a1a4a5262dc8db7933c27dbbc267d4825">getActiveCount</a> () const</td></tr>
+<tr class="memdesc:a1a4a5262dc8db7933c27dbbc267d4825"><td class="mdescLeft">&#160;</td><td class="mdescRight">getActiveCount 返回正在执行任务的线程的大概数量  <a href="#a1a4a5262dc8db7933c27dbbc267d4825">更多...</a><br /></td></tr>
+<tr class="separator:a1a4a5262dc8db7933c27dbbc267d4825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c40e5f4ae67709ae163e3a72eb4054"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a08c40e5f4ae67709ae163e3a72eb4054">setKeepAliveTime</a> (long time, TimeUnit unit)</td></tr>
+<tr class="memdesc:a08c40e5f4ae67709ae163e3a72eb4054"><td class="mdescLeft">&#160;</td><td class="mdescRight">setKeepAliveTime 设置线程在终止之前可能保持空闲的时间限制。 如果存在超过当前在池中的线程核心数量，则在等待这段时间而不处理任务之后，多余的线程将被终止。 这将覆盖在构造函数中设置的任何值  <a href="#a08c40e5f4ae67709ae163e3a72eb4054">更多...</a><br /></td></tr>
+<tr class="separator:a08c40e5f4ae67709ae163e3a72eb4054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83e9e3715fdacc5b2f08b563d39bb62b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a83e9e3715fdacc5b2f08b563d39bb62b">setMaxPoolSize</a> (int maxPoolSize)</td></tr>
+<tr class="memdesc:a83e9e3715fdacc5b2f08b563d39bb62b"><td class="mdescLeft">&#160;</td><td class="mdescRight">setMaxPoolSize 设置允许的最大线程数。 这将覆盖在构造函数中设置的任何值。 如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止  <a href="#a83e9e3715fdacc5b2f08b563d39bb62b">更多...</a><br /></td></tr>
+<tr class="separator:a83e9e3715fdacc5b2f08b563d39bb62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af67082427f76bd9b14b2dabf43f96300"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#af67082427f76bd9b14b2dabf43f96300">getPoolSize</a> () const</td></tr>
+<tr class="memdesc:af67082427f76bd9b14b2dabf43f96300"><td class="mdescLeft">&#160;</td><td class="mdescRight">getPoolSize 返回池中当前的线程数  <a href="#af67082427f76bd9b14b2dabf43f96300">更多...</a><br /></td></tr>
+<tr class="separator:af67082427f76bd9b14b2dabf43f96300"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7dd8949ce60dd7b835dae26ea4e7e88"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#ad7dd8949ce60dd7b835dae26ea4e7e88">prestartAllCoreThreads</a> ()</td></tr>
+<tr class="memdesc:ad7dd8949ce60dd7b835dae26ea4e7e88"><td class="mdescLeft">&#160;</td><td class="mdescRight">prestartAllCoreThreads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略  <a href="#ad7dd8949ce60dd7b835dae26ea4e7e88">更多...</a><br /></td></tr>
+<tr class="separator:ad7dd8949ce60dd7b835dae26ea4e7e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9099318ba5cab5dd05f219babba4b6b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a9099318ba5cab5dd05f219babba4b6b7">getCorePoolSize</a> () const</td></tr>
+<tr class="memdesc:a9099318ba5cab5dd05f219babba4b6b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">getCorePoolSize 返回核心线程数  <a href="#a9099318ba5cab5dd05f219babba4b6b7">更多...</a><br /></td></tr>
+<tr class="separator:a9099318ba5cab5dd05f219babba4b6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfe18006cc84a2f314114d0a8626aa08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#abfe18006cc84a2f314114d0a8626aa08">setCorePoolSize</a> (int32_t corePoolSize)</td></tr>
+<tr class="memdesc:abfe18006cc84a2f314114d0a8626aa08"><td class="mdescLeft">&#160;</td><td class="mdescRight">setCorePoolSize 设置核心线程数。 这将覆盖在构造函数中设置的任何值。 如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止。 如果更大，则如果需要，新线程将被启动以执行任何排队的任务。  <a href="#abfe18006cc84a2f314114d0a8626aa08">更多...</a><br /></td></tr>
+<tr class="separator:abfe18006cc84a2f314114d0a8626aa08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04796913a932a6e465696d7b2656e86"><td class="memItemLeft" align="right" valign="top"><a id="ad04796913a932a6e465696d7b2656e86"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#ad04796913a932a6e465696d7b2656e86">shutdown</a> ()</td></tr>
+<tr class="memdesc:ad04796913a932a6e465696d7b2656e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">shutdown 不在接受新任务,并且在所有任务执行完后终止线程池 <br /></td></tr>
+<tr class="separator:ad04796913a932a6e465696d7b2656e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2306274cb488e3bcf4d14f6042373f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#ab2306274cb488e3bcf4d14f6042373f7">isShutDown</a> ()</td></tr>
+<tr class="memdesc:ab2306274cb488e3bcf4d14f6042373f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">isShutDown 判断线程池是否shutdown  <a href="#ab2306274cb488e3bcf4d14f6042373f7">更多...</a><br /></td></tr>
+<tr class="separator:ab2306274cb488e3bcf4d14f6042373f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50e41a2102a9c5193b419e382f383620"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a50e41a2102a9c5193b419e382f383620">isTerminated</a> ()</td></tr>
+<tr class="memdesc:a50e41a2102a9c5193b419e382f383620"><td class="mdescLeft">&#160;</td><td class="mdescRight">isTerminated 判断线程池是否terminated  <a href="#a50e41a2102a9c5193b419e382f383620">更多...</a><br /></td></tr>
+<tr class="separator:a50e41a2102a9c5193b419e382f383620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:aa7ca2a35d562746df0d77bd043bb75f0"><td class="memItemLeft" align="right" valign="top"><a id="aa7ca2a35d562746df0d77bd043bb75f0"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>runStateOf</b> (int32_t c)</td></tr>
+<tr class="separator:aa7ca2a35d562746df0d77bd043bb75f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af00080b50ff18ef719078b14b3df7291"><td class="memItemLeft" align="right" valign="top"><a id="af00080b50ff18ef719078b14b3df7291"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>workerCountOf</b> (int32_t c)</td></tr>
+<tr class="separator:af00080b50ff18ef719078b14b3df7291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73773038a4cce87d62e1c7715670aee7"><td class="memItemLeft" align="right" valign="top"><a id="a73773038a4cce87d62e1c7715670aee7"></a>
+static int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ctlOf</b> (int32_t rs, int32_t wc)</td></tr>
+<tr class="separator:a73773038a4cce87d62e1c7715670aee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="aa700bdf61ac6f9a67411560af2871ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa700bdf61ac6f9a67411560af2871ee7">&#9670;&nbsp;</a></span>allowCoreThreadTimeOut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadPoolExecutor::allowCoreThreadTimeOut </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>allowCoreThreadTimeOut 设置是否允许core thread超时并且在没有任务时终止 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>ture或false </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acb920195bb39c64c97ed0644693a3592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb920195bb39c64c97ed0644693a3592">&#9670;&nbsp;</a></span>allowsCoreThreadTimeOut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ThreadPoolExecutor::allowsCoreThreadTimeOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>allowsCoreThreadTimeOut 判断是否允许core thread超时并且在没有任务时终止 </p>
+<dl class="section return"><dt>返回</dt><dd>ture - 允许core thread超时并且在没有任务时终止 </dd></dl>
+
+</div>
+</div>
+<a id="a04e334b5d7f3b383aa01fbac80120feb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04e334b5d7f3b383aa01fbac80120feb">&#9670;&nbsp;</a></span>execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ThreadPoolExecutor::execute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classRunnable.html">Runnable</a>&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>execute 在将来某个时候执行给定的任务,无返回值, 任务可以在新线程或现有的合并的线程中执行, 向任务队列提交的是任务副本 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>要执行的任务(Runnable或函数或lambda)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true - 添加成功 </dd></dl>
+
+</div>
+</div>
+<a id="a1a4a5262dc8db7933c27dbbc267d4825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4a5262dc8db7933c27dbbc267d4825">&#9670;&nbsp;</a></span>getActiveCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ThreadPoolExecutor::getActiveCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getActiveCount 返回正在执行任务的线程的大概数量 </p>
+<dl class="section return"><dt>返回</dt><dd>线程数 </dd></dl>
+
+</div>
+</div>
+<a id="a9099318ba5cab5dd05f219babba4b6b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9099318ba5cab5dd05f219babba4b6b7">&#9670;&nbsp;</a></span>getCorePoolSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ThreadPoolExecutor::getCorePoolSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getCorePoolSize 返回核心线程数 </p>
+<dl class="section return"><dt>返回</dt><dd>核心线程数 </dd></dl>
+
+</div>
+</div>
+<a id="af67082427f76bd9b14b2dabf43f96300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af67082427f76bd9b14b2dabf43f96300">&#9670;&nbsp;</a></span>getPoolSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ThreadPoolExecutor::getPoolSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getPoolSize 返回池中当前的线程数 </p>
+<dl class="section return"><dt>返回</dt><dd>线程数 </dd></dl>
+
+</div>
+</div>
+<a id="a7e73a64e24e93e9dc25cf2baeda4a0cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e73a64e24e93e9dc25cf2baeda4a0cb">&#9670;&nbsp;</a></span>interruptIdleWorkers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadPoolExecutor::interruptIdleWorkers </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>onlyOne</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>interruptIdleWorkers 中断等待任务(空闲)线程 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">onlyOne</td><td>是否至终止一个空闲线程 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab2306274cb488e3bcf4d14f6042373f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2306274cb488e3bcf4d14f6042373f7">&#9670;&nbsp;</a></span>isShutDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ThreadPoolExecutor::isShutDown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>isShutDown 判断线程池是否shutdown </p>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a50e41a2102a9c5193b419e382f383620"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50e41a2102a9c5193b419e382f383620">&#9670;&nbsp;</a></span>isTerminated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ThreadPoolExecutor::isTerminated </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>isTerminated 判断线程池是否terminated </p>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ad7dd8949ce60dd7b835dae26ea4e7e88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7dd8949ce60dd7b835dae26ea4e7e88">&#9670;&nbsp;</a></span>prestartAllCoreThreads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ThreadPoolExecutor::prestartAllCoreThreads </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>prestartAllCoreThreads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略 </p>
+<dl class="section return"><dt>返回</dt><dd>线程数已启动 </dd></dl>
+
+</div>
+</div>
+<a id="abfe18006cc84a2f314114d0a8626aa08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfe18006cc84a2f314114d0a8626aa08">&#9670;&nbsp;</a></span>setCorePoolSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadPoolExecutor::setCorePoolSize </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>corePoolSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setCorePoolSize 设置核心线程数。 这将覆盖在构造函数中设置的任何值。 如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止。 如果更大，则如果需要，新线程将被启动以执行任何排队的任务。 </p>
+<dl class="section return"><dt>返回</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a08c40e5f4ae67709ae163e3a72eb4054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08c40e5f4ae67709ae163e3a72eb4054">&#9670;&nbsp;</a></span>setKeepAliveTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadPoolExecutor::setKeepAliveTime </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimeUnit&#160;</td>
+          <td class="paramname"><em>unit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setKeepAliveTime 设置线程在终止之前可能保持空闲的时间限制。 如果存在超过当前在池中的线程核心数量，则在等待这段时间而不处理任务之后，多余的线程将被终止。 这将覆盖在构造函数中设置的任何值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>等待的时间 </td></tr>
+    <tr><td class="paramname">unit</td><td>time参数的时间单位 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a83e9e3715fdacc5b2f08b563d39bb62b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e9e3715fdacc5b2f08b563d39bb62b">&#9670;&nbsp;</a></span>setMaxPoolSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ThreadPoolExecutor::setMaxPoolSize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxPoolSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setMaxPoolSize 设置允许的最大线程数。 这将覆盖在构造函数中设置的任何值。 如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxPoolSize</td><td>新的最大值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaaef92fe45f7f5a8b659187c15881ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaef92fe45f7f5a8b659187c15881ca3">&#9670;&nbsp;</a></span>submit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::future&lt;typename std::result_of&lt;F()&gt;::type&gt; ThreadPoolExecutor::submit </td>
+          <td>(</td>
+          <td class="paramtype">F&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>core</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>submit 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 可以有返回值,向任务队列提交的是任务副本 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>要提交的任务(Runnable或函数或lambda)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>res 任务返回值的future </dd></dl>
+
+</div>
+</div>
+<a id="af85a124c9169a546bfbd725725024527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85a124c9169a546bfbd725725024527">&#9670;&nbsp;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ThreadPoolExecutor::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>toString 返回标识此池的字符串及其状态，包括运行状态和估计的Worker和任务计数的指示 </p>
+<dl class="section return"><dt>返回</dt><dd>一个标识这个池的字符串，以及它的状态 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="threadpool_8hpp_source.html">threadpool.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

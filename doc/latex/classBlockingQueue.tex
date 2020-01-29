@@ -1,0 +1,67 @@
+\hypertarget{classBlockingQueue}{}\section{Blocking\+Queue$<$ T $>$ 模板类 参考}
+\label{classBlockingQueue}\index{Blocking\+Queue$<$ T $>$@{Blocking\+Queue$<$ T $>$}}
+
+
+\hyperlink{classBlockingQueue}{Blocking\+Queue}  
+
+
+
+
+{\ttfamily \#include $<$blockingqueue.\+hpp$>$}
+
+\subsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBlockingQueue_a6b5553396530a9e0a8c6656aaf05e6b2}\label{classBlockingQueue_a6b5553396530a9e0a8c6656aaf05e6b2}} 
+using {\bfseries Mutex\+Lock\+Guard} = std\+::lock\+\_\+guard$<$ std\+::mutex $>$
+\end{DoxyCompactItemize}
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBlockingQueue_a4d1bbabd0a1212ab77b3a24614b6b0c1}\label{classBlockingQueue_a4d1bbabd0a1212ab77b3a24614b6b0c1}} 
+{\bfseries Blocking\+Queue} (std\+::initializer\+\_\+list$<$ T $>$ args)
+\item 
+\mbox{\Hypertarget{classBlockingQueue_a2f2b1e4d887d77a81fddabd44c5cdbfd}\label{classBlockingQueue_a2f2b1e4d887d77a81fddabd44c5cdbfd}} 
+{\bfseries Blocking\+Queue} (const \hyperlink{classBlockingQueue}{Blocking\+Queue} \&)
+\item 
+\mbox{\Hypertarget{classBlockingQueue_ab7dbc308989dda7bef2f884a2703c806}\label{classBlockingQueue_ab7dbc308989dda7bef2f884a2703c806}} 
+{\bfseries Blocking\+Queue} (const \hyperlink{classBlockingQueue}{Blocking\+Queue} \&\&)
+\item 
+\mbox{\Hypertarget{classBlockingQueue_aaee07bb9044a01b4cb0af75748795325}\label{classBlockingQueue_aaee07bb9044a01b4cb0af75748795325}} 
+\hyperlink{classBlockingQueue}{Blocking\+Queue} \& {\bfseries operator=} (const \hyperlink{classBlockingQueue}{Blocking\+Queue} \&)
+\item 
+\mbox{\Hypertarget{classBlockingQueue_abbe4440d6ed06d175925bba1f3c02312}\label{classBlockingQueue_abbe4440d6ed06d175925bba1f3c02312}} 
+\hyperlink{classBlockingQueue}{Blocking\+Queue} \& {\bfseries operator=} (const \hyperlink{classBlockingQueue}{Blocking\+Queue} \&\&)
+\item 
+\mbox{\Hypertarget{classBlockingQueue_a1c824f8d644951d25bed9825794ddeae}\label{classBlockingQueue_a1c824f8d644951d25bed9825794ddeae}} 
+void {\bfseries put} (const T \&x)
+\item 
+\mbox{\Hypertarget{classBlockingQueue_acedd6887a4af752440fb2dcd04292fa3}\label{classBlockingQueue_acedd6887a4af752440fb2dcd04292fa3}} 
+void {\bfseries put} (const T \&\&x)
+\item 
+\mbox{\Hypertarget{classBlockingQueue_aac788baea510940fc40961a285bacc5f}\label{classBlockingQueue_aac788baea510940fc40961a285bacc5f}} 
+T {\bfseries take} ()
+\item 
+\mbox{\Hypertarget{classBlockingQueue_a8efc43c38666a38402c39f772da63fcf}\label{classBlockingQueue_a8efc43c38666a38402c39f772da63fcf}} 
+void {\bfseries wait\+\_\+and\+\_\+pop} (T \&value)
+\item 
+\mbox{\Hypertarget{classBlockingQueue_a47a2d7726112b4e2d7b3f65a4e84aa06}\label{classBlockingQueue_a47a2d7726112b4e2d7b3f65a4e84aa06}} 
+bool {\bfseries try\+\_\+pop} (T \&value)
+\item 
+\mbox{\Hypertarget{classBlockingQueue_a733361d5721c6ba64af3e129921c43b0}\label{classBlockingQueue_a733361d5721c6ba64af3e129921c43b0}} 
+size\+\_\+t {\bfseries size} () const
+\item 
+\mbox{\Hypertarget{classBlockingQueue_acec723bb67906e85da1999f9072eb0c8}\label{classBlockingQueue_acec723bb67906e85da1999f9072eb0c8}} 
+bool {\bfseries is\+Empty} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{详细描述}
+\subsubsection*{template$<$typename T$>$\newline
+class Blocking\+Queue$<$ T $>$}
+
+\hyperlink{classBlockingQueue}{Blocking\+Queue} 
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+blockingqueue.\+hpp\end{DoxyCompactItemize}

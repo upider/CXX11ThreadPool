@@ -16,10 +16,8 @@ class R: public Runnable {
 int main(void)
 {
     R r1, r2;
-    BlockingQueue<Runnable> bq{r1, r2};
-    RejectedExecutionHandler rj;
 
-    ThreadPoolExecutor tpe(1, 1, bq, rj);
+    ThreadPoolExecutor tpe(1, 1);
     std::future<int> f;
     std::future<int> f2;
     for (int i = 0; i < 1; ++i) {
@@ -29,6 +27,9 @@ int main(void)
         });
     }
 
+    tpe.interruptIdleWorkers();
+
+    //tpe.stop();
     std::this_thread::sleep_for(std::chrono::seconds(1));
     std::cout << tpe.toString() << std::endl;
     return 0;

@@ -74,7 +74,7 @@ class BlockingQueue {
             return _queue.size();
         }
 
-        bool isEmpty() const {
+        bool is_empty() const {
             std::lock_guard<std::mutex> lk(_mutex);
             return _queue.empty();
         }

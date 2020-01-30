@@ -28,7 +28,7 @@ int main(void)
     BlockingQueue<Runnable> bq;
     RejectedExecutionHandler rj;
 
-    ThreadPoolExecutor tpe(1, 1, 1, TimeUnit::seconds, bq, rj);
+    ThreadPoolExecutor tpe(1, 1, bq, rj);
     std::future<int> f;
     std::future<int> f2;
     for (int i = 0; i < 1; ++i) {

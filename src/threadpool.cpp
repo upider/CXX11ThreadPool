@@ -1,24 +1,20 @@
 #include <sstream>
 #include <stdexcept>
+#include <signal.h>
 
 #include "threadpool.hpp"
 
 ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
                                        int32_t maxPoolSize,
-                                       long keepAliveTime,
-                                       TimeUnit unit,
                                        BlockingQueue<Runnable> workQueue,
                                        RejectedExecutionHandler handler)
     : _corePoolSize(corePoolSize),
       _maxPoolSize(maxPoolSize),
-      _keepAliveTime(keepAliveTime),
-      _unit(unit),
       _ctl(ctlOf(RUNNING, 0)) {
 
     if (corePoolSize < 0               ||
             maxPoolSize <= 0           ||
-            maxPoolSize < corePoolSize ||
-            keepAliveTime < 0)
+            maxPoolSize < corePoolSize)
         throw std::logic_error("parameter value is wrong");
 
     this->_workQueue.reset(new BlockingQueue<Runnable>(workQueue));
@@ -28,25 +24,38 @@ ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
 
 ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
                                        int32_t maxPoolSize,
-                                       long keepAliveTime,
-                                       TimeUnit unit,
-                                       BlockingQueue<Runnable>* workQueue)
+                                       BlockingQueue<Runnable>* workQueue,
+                                       RejectedExecutionHandler* handler)
     : _corePoolSize(corePoolSize),
       _maxPoolSize(maxPoolSize),
-      _keepAliveTime(keepAliveTime),
-      _unit(unit),
       _ctl(ctlOf(RUNNING, 0)) {
 
     if (corePoolSize < 0               ||
             maxPoolSize <= 0           ||
-            maxPoolSize < corePoolSize ||
-            keepAliveTime < 0)
+            maxPoolSize < corePoolSize)
         throw std::logic_error("parameter value is wrong");
 
     this->_workQueue.reset(workQueue);
+    this->_handler.reset(handler);
+    start();
+}
+
+ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
+                                       int32_t maxPoolSize)
+    : _corePoolSize(corePoolSize),
+      _maxPoolSize(maxPoolSize),
+      _ctl(ctlOf(RUNNING, 0)) {
+
+    if (corePoolSize < 0               ||
+            maxPoolSize <= 0           ||
+            maxPoolSize < corePoolSize)
+        throw std::logic_error("parameter value is wrong");
+
+    this->_workQueue.reset(new BlockingQueue<Runnable>);
     this->_handler.reset(new RejectedExecutionHandler);
     start();
 }
+
 ThreadPoolExecutor::~ThreadPoolExecutor() {
     advanceRunState(TERMINATED);
     for (std::thread& thread : _threads) {
@@ -60,18 +69,44 @@ bool ThreadPoolExecutor::allowsCoreThreadTimeOut() const {
 }
 
 void ThreadPoolExecutor::allowCoreThreadTimeOut(bool value) {
-    if (value && _keepAliveTime <= 0)
-        return;
     if (value != _allowCoreThreadTimeOut) {
         _allowCoreThreadTimeOut = value;
-        if (value)
-            interruptIdleWorkers();
+    }
+    if (value) {
+        interruptIdleWorkers();
     }
 }
 
-void ThreadPoolExecutor::interruptIdleWorkers() {}
+void ThreadPoolExecutor::interruptIdleWorkers(bool onlyOne) {
+    std::stringstream ss;
+    std::lock_guard<std::mutex> lock(_mutex);
+    for (int i = _corePoolSize; i < _maxPoolSize; ++i) {
+        if (_threads[i].joinable()) {
+            _threads[i].join();
+        }
+        _threads.pop_back();
+        if (onlyOne)
+            break;
+    }
+    _threads.shrink_to_fit();
+}
 
-void ThreadPoolExecutor::interruptIdleWorkers(bool onlyOne) {}
+void ThreadPoolExecutor::interruptWorkers() {
+    std::lock_guard<std::mutex> lock(_mutex);
+    std::stringstream ss;
+    for (int i = 0; i < _maxPoolSize; ++i) {
+        if (i <= _corePoolSize) {
+            if (_threads[i].joinable()) {
+                _threads[i].join();
+            }
+        } else {
+            if (_threads[i].joinable()) {
+                _threads[i].join();
+            }
+            _threads.pop_back();
+        }
+    }
+}
 
 bool ThreadPoolExecutor::addWorker(const Runnable firstTask, bool core) {
     for (;;) {
@@ -79,7 +114,7 @@ bool ThreadPoolExecutor::addWorker(const Runnable firstTask, bool core) {
         int rs = runStateOf(c);
 
         // Check if queue empty only if necessary.
-        if (rs >= SHUTDOWN && !(rs == SHUTDOWN && !_workQueue->isEmpty()))
+        if (rs >= SHUTDOWN && !(rs == SHUTDOWN && !_workQueue->is_empty()))
             return false;
 
         for (;;) {
@@ -108,7 +143,6 @@ goon:
 
     if (rs < SHUTDOWN) {
         _workQueue->put(std::move(firstTask));
-        int s = _workQueue->size();
         workerAdded = true;
     }
     return workerAdded;
@@ -154,12 +188,21 @@ bool ThreadPoolExecutor::execute(const Runnable command) {
     return false;
 }
 
+void ThreadPoolExecutor::setRejectedExecutionHandler(RejectedExecutionHandler handler) {
+    _handler.reset(new RejectedExecutionHandler(handler));
+}
+
 std::string ThreadPoolExecutor::toString() const {
+    int c = _ctl.load();
+    std::string rs = (runStateLessThan(c, SHUTDOWN) ? "Running" :
+                      (runStateAtLeast(c, TERMINATED) ? "Terminated" :
+                       "Shutting down"));
     std::stringstream ss;
-    ss << "pool_size=" << getPoolSize()
+    ss << "state="           << rs
+       << " pool_size="      << _threads.size()
        << " core_pool_size=" << _corePoolSize
-       << " max_pool_size=" << _maxPoolSize
-       << " task_size=" << _workQueue->size();
+       << " max_pool_size="  << _maxPoolSize
+       << " task_size="      << _workQueue->size();
     return ss.str();
 }
 
@@ -168,23 +211,24 @@ int ThreadPoolExecutor::getActiveCount() const {
     return _threadNum;
 }
 
-void ThreadPoolExecutor::setKeepAliveTime(long time, TimeUnit unit) {
-    if (time < 0)
-        return;
-    if (time == 0 && allowsCoreThreadTimeOut())
-        return;
-    long delta = time - this->_keepAliveTime;
-    this->_keepAliveTime = time;
-    if (delta < 0)
-        interruptIdleWorkers();
+long ThreadPoolExecutor::getTaskCount() {
+    std::lock_guard<std::mutex> lock(_mutex);
+    return _workQueue->size();
+}
+
+std::string ThreadPoolExecutor::getKeepAliveTime() const {
+    std::stringstream ss;
+
+    return ss.str();
 }
 
 void ThreadPoolExecutor::setMaxPoolSize(int32_t maxPoolSize) {
     if (maxPoolSize <= 0 || maxPoolSize < _corePoolSize)
         return;
     this->_maxPoolSize = maxPoolSize;
-    if (workerCountOf(_ctl.load()) > _maxPoolSize)
+    if (workerCountOf(_ctl.load()) > _maxPoolSize) {
         interruptIdleWorkers();
+    }
 }
 
 int ThreadPoolExecutor::getPoolSize() const {
@@ -205,11 +249,65 @@ int ThreadPoolExecutor::getCorePoolSize() const {
     return _corePoolSize;
 }
 
-void ThreadPoolExecutor::setCorePoolSize(int32_t corePoolSize) {}
+bool ThreadPoolExecutor::setCorePoolSize(int32_t corePoolSize) {
+    if (corePoolSize < 0)
+        return false;
+    size_t delta = corePoolSize - this->_corePoolSize;
+    this->_corePoolSize = corePoolSize;
+    if (workerCountOf(_ctl.load()) > corePoolSize) {
+        interruptIdleWorkers();
+        return true;
+    }
+    else if (delta > 0) {
+        // We don't really know how many new threads are "needed".
+        // As a heuristic, prestart enough new workers (up to new
+        // core size) to handle the current number of tasks in
+        // queue, but stop if queue becomes empty while doing so.
+        int k = std::min(delta, (size_t)_workQueue->size());
+        while (k-- > 0) {
+            int c = _ctl.load();
+            _threads.push_back(
+                std::thread(&ThreadPoolExecutor::workerThread, this));
+            compareAndIncrementWorkerCount(c);
+            if (_workQueue->is_empty())
+                break;
+        }
+    }
+    return true;
+}
 
 void ThreadPoolExecutor::shutdown() {
     std::lock_guard<std::mutex> lock(_mutex);
     advanceRunState(SHUTDOWN);
+}
+
+void ThreadPoolExecutor::stop() {
+    {
+        std::lock_guard<std::mutex> lock(_mutex);
+        advanceRunState(STOP);
+    }
+    interruptWorkers();
+    tryTerminate();
+}
+
+void ThreadPoolExecutor::tryTerminate() {
+    for (;;) {
+        int c = _ctl.load();
+        if (isRunning(c) || runStateAtLeast(c, TIDYING) ||
+                (runStateOf(c) == SHUTDOWN && ! _workQueue->is_empty()))
+            return;
+        if (workerCountOf(c) != 0) { // Eligible to terminate
+            interruptIdleWorkers(true);
+            return;
+        }
+
+        std::lock_guard<std::mutex> lock(_mutex);
+        if (_ctl.compare_exchange_strong(c, ctlOf(TIDYING, 0))) {
+            terminated();
+            _ctl = ctlOf(TERMINATED, 0);
+            return;
+        }
+    }
 }
 
 bool ThreadPoolExecutor::isShutDown() {
@@ -231,7 +329,6 @@ void ThreadPoolExecutor::advanceRunState(int32_t targetState) {
 
 void ThreadPoolExecutor::start() {
     try {
-        std::lock_guard<std::mutex> lock(_mutex);
         int c = _ctl.load();
         for(int32_t i = 0; i < _corePoolSize; ++i) {
             _threads.push_back(
@@ -256,5 +353,31 @@ void ThreadPoolExecutor::workerThread() {
         else {
             std::this_thread::yield();
         }
+    }
+}
+
+void ThreadPoolExecutor::workerThreadAdded() {
+    while(runStateOf(_ctl.load()) == RUNNING) {
+        Runnable task;
+        if(_workQueue->try_pop(task)) {
+            _threadNum++;
+            task();
+            _threadNum--;
+            processWorkerExit();
+        }
+        else {
+            std::this_thread::yield();
+        }
+    }
+}
+
+void ThreadPoolExecutor::processWorkerExit() {
+    int c = _ctl.load();
+    if (runStateLessThan(c, STOP)) {
+        int min = _allowCoreThreadTimeOut ? 0 : _corePoolSize;
+        if (min == 0)
+            return;
+        if (workerCountOf(c) >= min)
+            return interruptIdleWorkers(); // replacement not needed
     }
 }

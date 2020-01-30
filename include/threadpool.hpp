@@ -13,37 +13,6 @@
 #include "blockingqueue.hpp"
 #include "runnable.hpp"
 
-/// @brief TimeUnit
-enum class TimeUnit {
-    nanoseconds = 0,
-    microseconds = 1,
-    milliseconds = 2,
-    seconds = 3,
-    minutes = 4,
-    hours = 5,
-    days = 6
-};
-
-using days = std::chrono::duration<int, std::ratio<3600 * 24>>;
-
-/// @brief TimeUnitArray store TimeUnit
-///
-/// @param std::chrono::nanoseconds nanoseconds
-/// @param std::chrono::microseconds microseconds
-/// @param std::chrono::milliseconds milliseconds
-/// @param std::chrono::seconds seconds
-/// @param days days
-///
-/// @return null
-std::tuple<> TimeUnitArray(
-    std::chrono::nanoseconds,
-    std::chrono::microseconds,
-    std::chrono::milliseconds,
-    std::chrono::seconds,
-    std::chrono::hours
-    days
-);
-
 class RejectedExecutionHandler {
     public:
         RejectedExecutionHandler()          = default;
@@ -55,18 +24,45 @@ class RejectedExecutionHandler {
 
 class ThreadPoolExecutor {
     public:
+        /**
+         * @brief ThreadPoolExecutor 构造函数
+         *                           会抛出异常
+         *
+         * @param corePoolSize 核心线程数
+         * @param maxPoolSize 最大线程数
+         * @param keepAliveTime 空闲线程最大存活时间
+         * @param unit 时间单位
+         * @param workQueue 任务队列
+         * @param handler 拒绝任务句柄
+         */
         explicit ThreadPoolExecutor(int32_t corePoolSize,
                                     int32_t maxPoolSize,
-                                    long keepAliveTime,
-                                    TimeUnit unit,
                                     BlockingQueue<Runnable> workQueue,
                                     RejectedExecutionHandler handler);
 
+        /**
+         * @brief ThreadPoolExecutor 构造函数
+         *                           会抛出异常
+         *
+         * @param corePoolSize 核心线程数
+         * @param maxPoolSize 最大线程数
+         */
+        explicit ThreadPoolExecutor(int32_t corePoolSize,
+                                    int32_t maxPoolSize);
+
+        /**
+         * @brief ThreadPoolExecutor 构造函数
+         *                           会抛出异常
+         *
+         * @param corePoolSize 核心线程数
+         * @param maxPoolSize 最大线程数
+         * @param workQueue 任务队列
+         * @param handler 拒绝任务句柄
+         */
         explicit ThreadPoolExecutor(int32_t corePoolSize,
                                     int32_t maxPoolSize,
-                                    long keepAliveTime,
-                                    TimeUnit unit,
-                                    BlockingQueue<Runnable>* workQueue);
+                                    BlockingQueue<Runnable>* workQueue,
+                                    RejectedExecutionHandler* handler);
         virtual ~ThreadPoolExecutor ();
 
     public:
@@ -85,16 +81,23 @@ class ThreadPoolExecutor {
         void allowCoreThreadTimeOut(bool value);
 
         /**
-         * @brief interruptIdleWorkers 终止所有线程,不管是否空闲
+         * @brief interruptWorkers 释放所有线程(释放线程资源,并弹出线程队列)
          */
-        void interruptIdleWorkers();
+        void interruptWorkers();
 
         /**
-         * @brief interruptIdleWorkers 中断等待任务(空闲)线程
+         * @brief interruptIdleWorkers 释放空闲线程(释放线程资源,并弹出线程队列)
          *
-         * @param onlyOne 是否至终止一个空闲线程
+         * @param onlyOne 是否至终止一个空闲线程,默认终止所有线程
          */
-        void interruptIdleWorkers(bool onlyOne);
+        void interruptIdleWorkers(bool onlyOne = false);
+
+        /**
+         * @brief setRejectedExecutionHandler 设置新的任务拒绝策略
+         *
+         * @param handler RejectedExecutionHandler类对象
+         */
+        void setRejectedExecutionHandler(RejectedExecutionHandler handler);
 
         /**
          * @brief execute 在将来某个时候执行给定的任务,无返回值,
@@ -169,15 +172,33 @@ class ThreadPoolExecutor {
         int getActiveCount() const;
 
         /**
-         * @brief setKeepAliveTime 设置线程在终止之前可能保持空闲的时间限制。 如果存在超过当前在池中的线程核心数量，则在等待这段时间而不处理任务之后，多余的线程将被终止。 这将覆盖在构造函数中设置的任何值
+         * @brief getTaskCount 得到任务队列大小
          *
-         * @param time 等待的时间
-         * @param unit time参数的时间单位
+         * @return 任务队列大小
          */
-        void setKeepAliveTime(long time, TimeUnit unit);
+        long getTaskCount();
 
         /**
-         * @brief setMaxPoolSize 设置允许的最大线程数。 这将覆盖在构造函数中设置的任何值。 如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止
+         * @brief setKeepAliveTime 设置线程在终止之前可能保持空闲的时间限制.
+         *                         如果存在超过当前在池中的线程核心数量,
+         *                         则在等待这段时间而不处理任务之后,
+         *                         多余的线程将被终止,这将覆盖在构造函数中设置的任何值
+         *
+         * @param time 等待的时间
+         */
+        //void setKeepAliveTime(long time);
+
+        /**
+         * @brief getKeepAliveTime 得到线程存活时间
+         *
+         * @return 线程存活时间
+         */
+        std::string getKeepAliveTime() const;
+
+        /**
+         * @brief setMaxPoolSize 设置允许的最大线程数。
+         *                       这将覆盖在构造函数中设置的任何值。
+         *                       如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止
          *
          * @param maxPoolSize 新的最大值
          */
@@ -206,16 +227,29 @@ class ThreadPoolExecutor {
         int getCorePoolSize() const;
 
         /**
-         * @brief setCorePoolSize 设置核心线程数。 这将覆盖在构造函数中设置的任何值。 如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止。 如果更大，则如果需要，新线程将被启动以执行任何排队的任务。
+         * @brief setCorePoolSize 设置核心线程数。
+         *                        这将覆盖在构造函数中设置的任何值。
+         *                        如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止。
+         *                        如果更大，则如果需要，新线程将被启动以执行任何排队的任务。
          *
          * @return void
          */
-        void setCorePoolSize(int32_t corePoolSize);
+        bool setCorePoolSize(int32_t corePoolSize);
 
         /**
          * @brief shutdown 不在接受新任务,并且在所有任务执行完后终止线程池
          */
         void shutdown();
+
+        /**
+         * @brief stop 不在接受新任务,终止旧任务,释放正在运行的线程
+         */
+        void stop();
+
+        /**
+         * @brief tryTerminate 尝试terminate线程池
+         */
+        void tryTerminate();
 
         /**
          * @brief isShutDown 判断线程池是否shutdown
@@ -241,6 +275,12 @@ class ThreadPoolExecutor {
         static int32_t ctlOf(int32_t rs, int32_t wc) {
             return rs | wc;
         }
+
+    protected:
+        /**
+         * @brief terminated 线程池终止时执行
+         */
+        virtual void terminated() {}
 
     private :
         /**
@@ -269,6 +309,16 @@ class ThreadPoolExecutor {
          * @brief workerThread 线程池主循环
          */
         void workerThread();
+
+        /**
+         * @brief workerThreadAdded submit或execute加入的线程循环
+         */
+        void workerThreadAdded();
+
+        /**
+         * @brief processWorkerExit 线程执行完任务后清理线程资源
+         */
+        void processWorkerExit();
 
         /**
          * @brief reject 将任务抛弃
@@ -321,10 +371,10 @@ class ThreadPoolExecutor {
     private:
         int											  _corePoolSize;
         int											  _maxPoolSize;
-        long										  _keepAliveTime;
+        //long										  _keepAliveTime;
         size_t										  _threadNum;
-        TimeUnit									  _unit;
-        mutable std::mutex                                    _mutex;
+        //TimeUnit									  _unit;
+        mutable std::mutex                            _mutex;
         volatile bool                                 _allowCoreThreadTimeOut = false;
         std::atomic_int32_t                           _ctl;
         std::vector<std::thread>                      _threads;
@@ -337,9 +387,9 @@ class ThreadPoolExecutor {
         static const int32_t						  CAPACITY;
         static const int32_t                          RUNNING;        ///运行状态
         static const int32_t                          SHUTDOWN;       ///不再接受新任务
-        static const int32_t                          STOP;           ///不再接受新任务,直接(不再执行)销毁旧任务
-        static const int32_t                          TIDYING;        ///所有任务已经终止,任务队列为空
-        static const int32_t                          TERMINATED;     ///线程池关闭
+        static const int32_t                          STOP;           ///不再接受新任务,不再执行旧任务,并且打断正在运行的线程
+        static const int32_t                          TIDYING;        ///所有任务已经终止,任务队列为空,会调用terminated()
+        static const int32_t                          TERMINATED;     ///线程池关闭,terminated()函数已经执行
 };
 
 const int32_t ThreadPoolExecutor::COUNT_BITS = sizeof(COUNT_BITS) * 8 - 3;

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CPP11ThreadPool: 文件列表</title>
+<title>CPP11ThreadPool: Thread类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,7 +44,6 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,19 +58,38 @@ $(function() {
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classThread-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
-<div class="title">文件列表</div>  </div>
+<div class="title">Thread类 参考</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">这里列出了所有文档化的文件，并附带简要说明:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="blockingqueue_8hpp_source.html"><span class="icondoc"></span></a><b>blockingqueue.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="runnable_8hpp_source.html"><span class="icondoc"></span></a><b>runnable.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="thread_8hpp_source.html"><span class="icondoc"></span></a><b>thread.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="threadpool_8hpp_source.html"><span class="icondoc"></span></a><b>threadpool.hpp</b></td><td class="desc"></td></tr>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aeb80f8682b8130910e650acae12326d6"><td class="memTemplParams" colspan="2"><a id="aeb80f8682b8130910e650acae12326d6"></a>
+template&lt;typename FunctionType &gt; </td></tr>
+<tr class="memitem:aeb80f8682b8130910e650acae12326d6"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Thread</b> (FunctionType f)</td></tr>
+<tr class="separator:aeb80f8682b8130910e650acae12326d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d9d788e98388a3217831a9046709deb"><td class="memItemLeft" align="right" valign="top"><a id="a4d9d788e98388a3217831a9046709deb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>join</b> ()</td></tr>
+<tr class="separator:a4d9d788e98388a3217831a9046709deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94278838e3bdd68971be803924e63bca"><td class="memItemLeft" align="right" valign="top"><a id="a94278838e3bdd68971be803924e63bca"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>detach</b> ()</td></tr>
+<tr class="separator:a94278838e3bdd68971be803924e63bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ec2dd465859670d1bd7e654890bc4b8"><td class="memItemLeft" align="right" valign="top"><a id="a9ec2dd465859670d1bd7e654890bc4b8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>joinable</b> () const</td></tr>
+<tr class="separator:a9ec2dd465859670d1bd7e654890bc4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da77fcda48cbee7ae54bd47ecc7bcf5"><td class="memItemLeft" align="right" valign="top"><a id="a1da77fcda48cbee7ae54bd47ecc7bcf5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>interrupt</b> ()</td></tr>
+<tr class="separator:a1da77fcda48cbee7ae54bd47ecc7bcf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- directory -->
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="thread_8hpp_source.html">thread.hpp</a></li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

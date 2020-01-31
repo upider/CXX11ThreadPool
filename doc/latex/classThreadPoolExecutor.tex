@@ -1,5 +1,14 @@
 \hypertarget{classThreadPoolExecutor}{}\section{Thread\+Pool\+Executor类 参考}
 \label{classThreadPoolExecutor}\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
+
+
+线程池基本实现  
+
+
+
+
+{\ttfamily \#include $<$threadpool.\+hpp$>$}
+
 \subsection*{Public 成员函数}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,11 +22,11 @@ bool \hyperlink{classThreadPoolExecutor_acb920195bb39c64c97ed0644693a3592}{allow
 \begin{DoxyCompactList}\small\item\em allows\+Core\+Thread\+Time\+Out 判断是否允许core thread超时并且在没有任务时终止 \end{DoxyCompactList}\item 
 void \hyperlink{classThreadPoolExecutor_aa700bdf61ac6f9a67411560af2871ee7}{allow\+Core\+Thread\+Time\+Out} (bool value)
 \begin{DoxyCompactList}\small\item\em allow\+Core\+Thread\+Time\+Out 设置是否允许core thread超时并且在没有任务时终止 \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classThreadPoolExecutor_aad69159d8b4aa6b5a2ff042e392be456}\label{classThreadPoolExecutor_aad69159d8b4aa6b5a2ff042e392be456}} 
-void \hyperlink{classThreadPoolExecutor_aad69159d8b4aa6b5a2ff042e392be456}{interrupt\+Workers} ()
-\begin{DoxyCompactList}\small\item\em interrupt\+Workers 释放所有线程(释放线程资源,并弹出线程队列) \end{DoxyCompactList}\item 
-void \hyperlink{classThreadPoolExecutor_a83bf8bbd11a4dfe12b843dac846a825d}{interrupt\+Idle\+Workers} (bool only\+One=false)
-\begin{DoxyCompactList}\small\item\em interrupt\+Idle\+Workers 释放空闲线程(释放线程资源,并弹出线程队列) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a61be4f92c8aff50aaaf1cdc27a75beed}\label{classThreadPoolExecutor_a61be4f92c8aff50aaaf1cdc27a75beed}} 
+void \hyperlink{classThreadPoolExecutor_a61be4f92c8aff50aaaf1cdc27a75beed}{releaset\+Workers} ()
+\begin{DoxyCompactList}\small\item\em releaset\+Workers 释放所有线程(释放线程资源,并弹出线程队列) \end{DoxyCompactList}\item 
+void \hyperlink{classThreadPoolExecutor_a0993336e51299da4b9c18d31e45610fe}{release\+Idle\+Workers} (bool only\+One=false)
+\begin{DoxyCompactList}\small\item\em release\+Idle\+Workers 释放空闲线程(释放线程资源,并弹出线程队列) \end{DoxyCompactList}\item 
 void \hyperlink{classThreadPoolExecutor_ab04e6a91b39073eaafffa8fc22eae325}{set\+Rejected\+Execution\+Handler} (\hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} handler)
 \begin{DoxyCompactList}\small\item\em set\+Rejected\+Execution\+Handler 设置新的任务拒绝策略 \end{DoxyCompactList}\item 
 bool \hyperlink{classThreadPoolExecutor_a04e334b5d7f3b383aa01fbac80120feb}{execute} (const \hyperlink{classRunnable}{Runnable} command)
@@ -34,8 +43,8 @@ std\+::string \hyperlink{classThreadPoolExecutor_aeb35f2475788af6b98d1ca1bf8d055
 \begin{DoxyCompactList}\small\item\em set\+Keep\+Alive\+Time 设置线程在终止之前可能保持空闲的时间限制. 如果存在超过当前在池中的线程核心数量, 则在等待这段时间而不处理任务之后, 多余的线程将被终止,这将覆盖在构造函数中设置的任何值 \end{DoxyCompactList}\item 
 void \hyperlink{classThreadPoolExecutor_a83e9e3715fdacc5b2f08b563d39bb62b}{set\+Max\+Pool\+Size} (int max\+Pool\+Size)
 \begin{DoxyCompactList}\small\item\em set\+Max\+Pool\+Size 设置允许的最大线程数。 这将覆盖在构造函数中设置的任何值。 如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止 \end{DoxyCompactList}\item 
-int \hyperlink{classThreadPoolExecutor_af67082427f76bd9b14b2dabf43f96300}{get\+Pool\+Size} () const
-\begin{DoxyCompactList}\small\item\em get\+Pool\+Size 返回池中当前的线程数 \end{DoxyCompactList}\item 
+int \hyperlink{classThreadPoolExecutor_a884aecf32f12775eb713aacef9ddded0}{get\+Largest\+Pool\+Size} () const
+\begin{DoxyCompactList}\small\item\em get\+Largest\+Pool\+Size 返回池中使用过的线程数 \end{DoxyCompactList}\item 
 int \hyperlink{classThreadPoolExecutor_ad7dd8949ce60dd7b835dae26ea4e7e88}{prestart\+All\+Core\+Threads} ()
 \begin{DoxyCompactList}\small\item\em prestart\+All\+Core\+Threads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略 \end{DoxyCompactList}\item 
 int \hyperlink{classThreadPoolExecutor_a9099318ba5cab5dd05f219babba4b6b7}{get\+Core\+Pool\+Size} () const
@@ -55,18 +64,6 @@ bool \hyperlink{classThreadPoolExecutor_ab2306274cb488e3bcf4d14f6042373f7}{is\+S
 \begin{DoxyCompactList}\small\item\em is\+Shut\+Down 判断线程池是否shutdown \end{DoxyCompactList}\item 
 bool \hyperlink{classThreadPoolExecutor_a50e41a2102a9c5193b419e382f383620}{is\+Terminated} ()
 \begin{DoxyCompactList}\small\item\em is\+Terminated 判断线程池是否terminated \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{静态 Public 成员函数}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classThreadPoolExecutor_aa7ca2a35d562746df0d77bd043bb75f0}\label{classThreadPoolExecutor_aa7ca2a35d562746df0d77bd043bb75f0}} 
-static int {\bfseries run\+State\+Of} (int32\+\_\+t c)
-\item 
-\mbox{\Hypertarget{classThreadPoolExecutor_af00080b50ff18ef719078b14b3df7291}\label{classThreadPoolExecutor_af00080b50ff18ef719078b14b3df7291}} 
-static int {\bfseries worker\+Count\+Of} (int32\+\_\+t c)
-\item 
-\mbox{\Hypertarget{classThreadPoolExecutor_a73773038a4cce87d62e1c7715670aee7}\label{classThreadPoolExecutor_a73773038a4cce87d62e1c7715670aee7}} 
-static int32\+\_\+t {\bfseries ctl\+Of} (int32\+\_\+t rs, int32\+\_\+t wc)
-\end{DoxyCompactItemize}
 \subsection*{Protected 成员函数}
 \begin{DoxyCompactItemize}
 \item 
@@ -74,6 +71,9 @@ static int32\+\_\+t {\bfseries ctl\+Of} (int32\+\_\+t rs, int32\+\_\+t wc)
 virtual void \hyperlink{classThreadPoolExecutor_a61774315237123faf8e7fcc9d35ae47d}{terminated} ()
 \begin{DoxyCompactList}\small\item\em terminated 线程池终止时执行 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{详细描述}
+线程池基本实现 
 
 \subsection{构造及析构函数说明}
 \mbox{\Hypertarget{classThreadPoolExecutor_adc2bbcf28a95be1ba7fea937f6ba7998}\label{classThreadPoolExecutor_adc2bbcf28a95be1ba7fea937f6ba7998}} 
@@ -232,15 +232,15 @@ set\+Keep\+Alive\+Time 设置线程在终止之前可能保持空闲的时间限
 \begin{DoxyReturn}{返回}
 线程存活时间 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_af67082427f76bd9b14b2dabf43f96300}\label{classThreadPoolExecutor_af67082427f76bd9b14b2dabf43f96300}} 
-\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!get\+Pool\+Size@{get\+Pool\+Size}}
-\index{get\+Pool\+Size@{get\+Pool\+Size}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
-\subsubsection{\texorpdfstring{get\+Pool\+Size()}{getPoolSize()}}
-{\footnotesize\ttfamily int Thread\+Pool\+Executor\+::get\+Pool\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{classThreadPoolExecutor_a884aecf32f12775eb713aacef9ddded0}\label{classThreadPoolExecutor_a884aecf32f12775eb713aacef9ddded0}} 
+\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!get\+Largest\+Pool\+Size@{get\+Largest\+Pool\+Size}}
+\index{get\+Largest\+Pool\+Size@{get\+Largest\+Pool\+Size}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{get\+Largest\+Pool\+Size()}{getLargestPoolSize()}}
+{\footnotesize\ttfamily int Thread\+Pool\+Executor\+::get\+Largest\+Pool\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
-get\+Pool\+Size 返回池中当前的线程数 
+get\+Largest\+Pool\+Size 返回池中使用过的线程数 
 
 \begin{DoxyReturn}{返回}
 线程数 
@@ -258,21 +258,6 @@ get\+Task\+Count 得到任务队列大小
 \begin{DoxyReturn}{返回}
 任务队列大小 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a83bf8bbd11a4dfe12b843dac846a825d}\label{classThreadPoolExecutor_a83bf8bbd11a4dfe12b843dac846a825d}} 
-\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!interrupt\+Idle\+Workers@{interrupt\+Idle\+Workers}}
-\index{interrupt\+Idle\+Workers@{interrupt\+Idle\+Workers}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
-\subsubsection{\texorpdfstring{interrupt\+Idle\+Workers()}{interruptIdleWorkers()}}
-{\footnotesize\ttfamily void Thread\+Pool\+Executor\+::interrupt\+Idle\+Workers (\begin{DoxyParamCaption}\item[{bool}]{only\+One = {\ttfamily false} }\end{DoxyParamCaption})}
-
-
-
-interrupt\+Idle\+Workers 释放空闲线程(释放线程资源,并弹出线程队列) 
-
-
-\begin{DoxyParams}{参数}
-{\em only\+One} & 是否至终止一个空闲线程,默认终止所有线程 \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{classThreadPoolExecutor_ab2306274cb488e3bcf4d14f6042373f7}\label{classThreadPoolExecutor_ab2306274cb488e3bcf4d14f6042373f7}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!is\+Shut\+Down@{is\+Shut\+Down}}
 \index{is\+Shut\+Down@{is\+Shut\+Down}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
@@ -312,6 +297,21 @@ prestart\+All\+Core\+Threads 启动所有核心线程，导致他们等待工作
 \begin{DoxyReturn}{返回}
 线程数已启动 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classThreadPoolExecutor_a0993336e51299da4b9c18d31e45610fe}\label{classThreadPoolExecutor_a0993336e51299da4b9c18d31e45610fe}} 
+\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!release\+Idle\+Workers@{release\+Idle\+Workers}}
+\index{release\+Idle\+Workers@{release\+Idle\+Workers}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{release\+Idle\+Workers()}{releaseIdleWorkers()}}
+{\footnotesize\ttfamily void Thread\+Pool\+Executor\+::release\+Idle\+Workers (\begin{DoxyParamCaption}\item[{bool}]{only\+One = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+release\+Idle\+Workers 释放空闲线程(释放线程资源,并弹出线程队列) 
+
+
+\begin{DoxyParams}{参数}
+{\em only\+One} & 是否至终止一个空闲线程,默认终止所有线程 \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classThreadPoolExecutor_aaada9deadf7c0f72bca5076deaa8c92f}\label{classThreadPoolExecutor_aaada9deadf7c0f72bca5076deaa8c92f}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!set\+Core\+Pool\+Size@{set\+Core\+Pool\+Size}}
 \index{set\+Core\+Pool\+Size@{set\+Core\+Pool\+Size}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
@@ -368,7 +368,9 @@ submit 在将来某个时候执行给定的任务, 任务可以在新线程或�
 
 
 \begin{DoxyParams}{参数}
-{\em f} & 要提交的任务(Runnable或函数或lambda)\\
+{\em f} & 要提交的任务(Runnable或函数或lambda) \\
+\hline
+{\em core} & 是否使用核心线程(默认值false),默认会增加新线程\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{返回}

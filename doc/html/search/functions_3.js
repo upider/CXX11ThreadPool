@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['interruptidleworkers',['interruptIdleWorkers',['../classThreadPoolExecutor.html#a83bf8bbd11a4dfe12b843dac846a825d',1,'ThreadPoolExecutor']]],
-  ['interruptworkers',['interruptWorkers',['../classThreadPoolExecutor.html#aad69159d8b4aa6b5a2ff042e392be456',1,'ThreadPoolExecutor']]],
-  ['isshutdown',['isShutDown',['../classThreadPoolExecutor.html#ab2306274cb488e3bcf4d14f6042373f7',1,'ThreadPoolExecutor']]],
-  ['isterminated',['isTerminated',['../classThreadPoolExecutor.html#a50e41a2102a9c5193b419e382f383620',1,'ThreadPoolExecutor']]]
+  ['getactivecount',['getActiveCount',['../classThreadPoolExecutor.html#a1a4a5262dc8db7933c27dbbc267d4825',1,'ThreadPoolExecutor']]],
+  ['getcorepoolsize',['getCorePoolSize',['../classThreadPoolExecutor.html#a9099318ba5cab5dd05f219babba4b6b7',1,'ThreadPoolExecutor']]],
+  ['getkeepalivetime',['getKeepAliveTime',['../classThreadPoolExecutor.html#aeb35f2475788af6b98d1ca1bf8d05536',1,'ThreadPoolExecutor']]],
+  ['getlargestpoolsize',['getLargestPoolSize',['../classThreadPoolExecutor.html#a884aecf32f12775eb713aacef9ddded0',1,'ThreadPoolExecutor']]],
+  ['gettaskcount',['getTaskCount',['../classThreadPoolExecutor.html#a50b63440d1d93f3c5c19082ca538edb6',1,'ThreadPoolExecutor']]]
 ];

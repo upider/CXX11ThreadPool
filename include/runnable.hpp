@@ -7,20 +7,54 @@
 class Runnable {
     public:
         template<typename F>
+        /**
+         * @brief Runnable 构造函数
+         *
+         * @param new functor_t(std::move(f))
+         */
         Runnable(F&& f): _functor_uptr(new functor_t<F>(std::move(f))) {}
 
         template<typename F>
+        /**
+         * @brief Runnable 构造函数
+         *
+         * @param new functor_t(std::move(f))
+         */
         Runnable(F& f): _functor_uptr(new functor_t<F>(std::move(f))) {}
 
+        /**
+         * @brief Runnable 构造函数
+         *
+         * @param new functor_t(std::move(f))
+         */
         Runnable(Runnable&& other): _functor_uptr(std::move(other._functor_uptr)) {}
 
+        /**
+         * @brief Runnable 构造函数
+         *
+         * @param new functor_t(std::move(f))
+         */
         Runnable(const Runnable& other): _functor_uptr(other._functor_uptr) {}
 
+        /**
+         * @brief operator= 赋值运算符
+         *
+         * @param other
+         *
+         * @return Runnable&
+         */
         Runnable& operator=(Runnable&& other) {
             _functor_uptr = std::move(other._functor_uptr);
             return *this;
         }
 
+        /**
+         * @brief operator= 赋值运算符
+         *
+         * @param other
+         *
+         * @return Runnable&
+         */
         Runnable& operator=(const Runnable& other) {
             this->_functor_uptr = other._functor_uptr;
             return *this;
@@ -29,6 +63,9 @@ class Runnable {
         Runnable()  = default;
         ~Runnable() = default;
 
+        /**
+         * @brief operator() 重载实现操作
+         */
         virtual void operator()() {
             _functor_uptr->call();
         }

@@ -13,6 +13,9 @@
 #include "blockingqueue.hpp"
 #include "runnable.hpp"
 
+/**
+ * @brief 不再接受任务时的拒绝策略
+ */
 class RejectedExecutionHandler {
     public:
         RejectedExecutionHandler()          = default;
@@ -22,6 +25,9 @@ class RejectedExecutionHandler {
         virtual void rejectedExecution(const Runnable& r) {}
 };
 
+/**
+ * @brief 线程池基本实现
+ */
 class ThreadPoolExecutor {
     public:
         /**
@@ -81,16 +87,16 @@ class ThreadPoolExecutor {
         void allowCoreThreadTimeOut(bool value);
 
         /**
-         * @brief interruptWorkers 释放所有线程(释放线程资源,并弹出线程队列)
+         * @brief releasetWorkers 释放所有线程(释放线程资源,并弹出线程队列)
          */
-        void interruptWorkers();
+        void releasetWorkers();
 
         /**
-         * @brief interruptIdleWorkers 释放空闲线程(释放线程资源,并弹出线程队列)
+         * @brief releaseIdleWorkers 释放空闲线程(释放线程资源,并弹出线程队列)
          *
          * @param onlyOne 是否至终止一个空闲线程,默认终止所有线程
          */
-        void interruptIdleWorkers(bool onlyOne = false);
+        void releaseIdleWorkers(bool onlyOne = false);
 
         /**
          * @brief setRejectedExecutionHandler 设置新的任务拒绝策略
@@ -116,6 +122,7 @@ class ThreadPoolExecutor {
          *               可以有返回值,向任务队列提交的是任务副本
          *
          * @param f 要提交的任务(Runnable或函数或lambda)
+         * @param core 是否使用核心线程(默认值false),默认会增加新线程
          *
          * @return res 任务返回值的future
          */
@@ -146,7 +153,7 @@ class ThreadPoolExecutor {
                     if(rs < SHUTDOWN) {
                         if(!compareAndIncrementWorkerCount(c))
                             continue;
-                        _threads.push_back(std::thread(&ThreadPoolExecutor::workerThread, this));
+                        _threads.push_back(std::thread(&ThreadPoolExecutor::workerThreadAdded, this));
                         using result_type = typename std::result_of<F()>::type;
                         std::packaged_task<result_type()> task(std::move(f));
                         std::future<result_type> res(task.get_future());
@@ -206,11 +213,11 @@ class ThreadPoolExecutor {
 
 
         /**
-         * @brief getPoolSize 返回池中当前的线程数
+         * @brief getLargestPoolSize 返回池中使用过的线程数
          *
          * @return 线程数
          */
-        int getPoolSize() const;
+        int getLargestPoolSize() const;
 
         /**
          * @brief prestartAllCoreThreads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略
@@ -265,17 +272,6 @@ class ThreadPoolExecutor {
          */
         bool isTerminated();
 
-        //打包和拆包ctl
-        inline static int runStateOf(int32_t c)     {
-            return c & ~CAPACITY;
-        }
-        inline static int workerCountOf(int32_t c)  {
-            return c & CAPACITY;
-        }
-        static int32_t ctlOf(int32_t rs, int32_t wc) {
-            return rs | wc;
-        }
-
     protected:
         /**
          * @brief terminated 线程池终止时执行
@@ -283,6 +279,40 @@ class ThreadPoolExecutor {
         virtual void terminated() {}
 
     private :
+        /**
+         * @brief runStateOf 得到线程池状态
+         *
+         * @param c 控制变量
+         *
+         * @return 运行状态
+         */
+        inline static int runStateOf(int32_t c)     {
+            return c & ~CAPACITY;
+        }
+
+        /**
+         * @brief workerCountOf 得到工作线程数量
+         *
+         * @param c 控制变量
+         *
+         * @return 工作线程数量
+         */
+        inline static int workerCountOf(int32_t c)  {
+            return c & CAPACITY;
+        }
+
+        /**
+         * @brief ctlOf 控制变量初始化
+         *
+         * @param rs 运行状态
+         * @param wc 工作线程数量
+         *
+         * @return 控制变量的值
+         */
+        static int32_t ctlOf(int32_t rs, int32_t wc) {
+            return rs | wc;
+        }
+
         /**
          * @brief addWorker 将任务添加到队列
          *
@@ -314,11 +344,6 @@ class ThreadPoolExecutor {
          * @brief workerThreadAdded submit或execute加入的线程循环
          */
         void workerThreadAdded();
-
-        /**
-         * @brief processWorkerExit 线程执行完任务后清理线程资源
-         */
-        void processWorkerExit();
 
         /**
          * @brief reject 将任务抛弃
@@ -387,8 +412,8 @@ class ThreadPoolExecutor {
         static const int32_t						  CAPACITY;
         static const int32_t                          RUNNING;        ///运行状态
         static const int32_t                          SHUTDOWN;       ///不再接受新任务
-        static const int32_t                          STOP;           ///不再接受新任务,不再执行旧任务,并且打断正在运行的线程
-        static const int32_t                          TIDYING;        ///所有任务已经终止,任务队列为空,会调用terminated()
+        static const int32_t                          STOP;           ///不再接受新任务,清空任务队列
+        static const int32_t                          TIDYING;        ///所有线程已经释放,任务队列为空,会调用terminated()
         static const int32_t                          TERMINATED;     ///线程池关闭,terminated()函数已经执行
 };
 

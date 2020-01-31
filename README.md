@@ -2,11 +2,14 @@
 
 ## 已经实现的功能
 
-	1. core个数的核心线程,并根据任务量最大扩展到max个
-	2. 可以设置线程数量
-	3. 可以判断线程池状态
-	4. 可以使用execute和submit提交任务
-	5. 可以设置线程回收策略也可以手动回收非core线程
+	1. corePoolSize个数的核心线程(核心线程不会退出),并根据任务量最大扩展到maxPoolSize个
+	2. 线程池线程数=corePoolSize+提交的线程数量(submit和execute),不会超过maxPoolSize
+	3. 可以设置线程数量
+	4. 可以判断线程池状态
+	6. 可以使用execute和submit提交任务(两种方式有差别)
+	7. 可以设置线程回收策略也可以手动回收非core线程
+	8. 线程回收策略使用的是thread.join(),可以避免线程资源无法释放
+	9. largestPoolSize是线程池使用过的线程数
 
 ## TODO
 
@@ -15,7 +18,9 @@
 	3. 实现Executors工厂函数
 	4. 实现ScheduledThreadPool 
 
-## 用法类似Java Executor
+## 用法
+	1. 类似Java Executor
+	2. 例子:example文件夹下
 
 ## 参考
 	1. JDK1.8源码

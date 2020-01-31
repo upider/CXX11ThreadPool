@@ -1,5 +1,6 @@
 #include <sstream>
 #include <stdexcept>
+#include <pthread.h>
 #include <signal.h>
 
 #include "threadpool.hpp"
@@ -73,25 +74,23 @@ void ThreadPoolExecutor::allowCoreThreadTimeOut(bool value) {
         _allowCoreThreadTimeOut = value;
     }
     if (value) {
-        interruptIdleWorkers();
+        releaseIdleWorkers();
     }
 }
 
-void ThreadPoolExecutor::interruptIdleWorkers(bool onlyOne) {
+void ThreadPoolExecutor::releaseIdleWorkers(bool onlyOne) {
     std::stringstream ss;
     std::lock_guard<std::mutex> lock(_mutex);
     for (int i = _corePoolSize; i < _maxPoolSize; ++i) {
         if (_threads[i].joinable()) {
             _threads[i].join();
         }
-        _threads.pop_back();
         if (onlyOne)
             break;
     }
-    _threads.shrink_to_fit();
 }
 
-void ThreadPoolExecutor::interruptWorkers() {
+void ThreadPoolExecutor::releasetWorkers() {
     std::lock_guard<std::mutex> lock(_mutex);
     std::stringstream ss;
     for (int i = 0; i < _maxPoolSize; ++i) {
@@ -103,7 +102,6 @@ void ThreadPoolExecutor::interruptWorkers() {
             if (_threads[i].joinable()) {
                 _threads[i].join();
             }
-            _threads.pop_back();
         }
     }
 }
@@ -123,7 +121,7 @@ bool ThreadPoolExecutor::addWorker(const Runnable firstTask, bool core) {
                 goto goon;
             if(compareAndIncrementWorkerCount(c)) {
                 std::lock_guard<std::mutex> lock(_mutex);
-                _threads.push_back(std::thread(&ThreadPoolExecutor::workerThread, this));
+                _threads.push_back(std::thread(&ThreadPoolExecutor::workerThreadAdded, this));
                 goto goon;
             }
             c = _ctl.load();  // Re-read ctl
@@ -198,11 +196,11 @@ std::string ThreadPoolExecutor::toString() const {
                       (runStateAtLeast(c, TERMINATED) ? "Terminated" :
                        "Shutting down"));
     std::stringstream ss;
-    ss << "state="           << rs
-       << " pool_size="      << _threads.size()
-       << " core_pool_size=" << _corePoolSize
-       << " max_pool_size="  << _maxPoolSize
-       << " task_size="      << _workQueue->size();
+    ss << "STATE="           << rs
+       << " LARGEST_POOL_SIZE="      << _threads.size()
+       << " CORE_POOL_SIZE=" << _corePoolSize
+       << " MAX_POOL_SIZE="  << _maxPoolSize
+       << " TASK_SIZE="      << _workQueue->size();
     return ss.str();
 }
 
@@ -227,11 +225,11 @@ void ThreadPoolExecutor::setMaxPoolSize(int32_t maxPoolSize) {
         return;
     this->_maxPoolSize = maxPoolSize;
     if (workerCountOf(_ctl.load()) > _maxPoolSize) {
-        interruptIdleWorkers();
+        releaseIdleWorkers();
     }
 }
 
-int ThreadPoolExecutor::getPoolSize() const {
+int ThreadPoolExecutor::getLargestPoolSize() const {
     std::lock_guard<std::mutex> lock(_mutex);
     return _threads.size();
 }
@@ -255,7 +253,7 @@ bool ThreadPoolExecutor::setCorePoolSize(int32_t corePoolSize) {
     size_t delta = corePoolSize - this->_corePoolSize;
     this->_corePoolSize = corePoolSize;
     if (workerCountOf(_ctl.load()) > corePoolSize) {
-        interruptIdleWorkers();
+        releaseIdleWorkers();
         return true;
     }
     else if (delta > 0) {
@@ -286,7 +284,7 @@ void ThreadPoolExecutor::stop() {
         std::lock_guard<std::mutex> lock(_mutex);
         advanceRunState(STOP);
     }
-    interruptWorkers();
+    releasetWorkers();
     tryTerminate();
 }
 
@@ -297,7 +295,7 @@ void ThreadPoolExecutor::tryTerminate() {
                 (runStateOf(c) == SHUTDOWN && ! _workQueue->is_empty()))
             return;
         if (workerCountOf(c) != 0) { // Eligible to terminate
-            interruptIdleWorkers(true);
+            releaseIdleWorkers(true);
             return;
         }
 
@@ -363,21 +361,15 @@ void ThreadPoolExecutor::workerThreadAdded() {
             _threadNum++;
             task();
             _threadNum--;
-            processWorkerExit();
         }
         else {
-            std::this_thread::yield();
+            int min = _allowCoreThreadTimeOut ? 0 : _corePoolSize;
+            if (min == 0) {
+                std::this_thread::yield();
+            }
+            else {
+                return;
+            }
         }
-    }
-}
-
-void ThreadPoolExecutor::processWorkerExit() {
-    int c = _ctl.load();
-    if (runStateLessThan(c, STOP)) {
-        int min = _allowCoreThreadTimeOut ? 0 : _corePoolSize;
-        if (min == 0)
-            return;
-        if (workerCountOf(c) >= min)
-            return interruptIdleWorkers(); // replacement not needed
     }
 }

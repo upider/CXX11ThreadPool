@@ -19,8 +19,6 @@ add_executable(test04 ./example/test04.cpp)
 target_link_libraries(test04 pthread thread_pool)
 add_executable(test05 ./example/test05.cpp)
 target_link_libraries(test05 pthread thread_pool)
-add_executable(test06 ./example/test06.cpp)
-target_link_libraries(test06 pthread thread_pool)
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

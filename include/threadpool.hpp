@@ -87,9 +87,9 @@ class ThreadPoolExecutor {
         void allowCoreThreadTimeOut(bool value);
 
         /**
-         * @brief releasetWorkers 释放所有线程(释放线程资源,并弹出线程队列)
+         * @brief releaseWorkers 释放所有线程(释放线程资源,并弹出线程队列)
          */
-        void releasetWorkers();
+        void releaseWorkers();
 
         /**
          * @brief releaseIdleWorkers 释放空闲线程(释放线程资源,并弹出线程队列)

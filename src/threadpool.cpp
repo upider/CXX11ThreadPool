@@ -90,7 +90,7 @@ void ThreadPoolExecutor::releaseIdleWorkers(bool onlyOne) {
     }
 }
 
-void ThreadPoolExecutor::releasetWorkers() {
+void ThreadPoolExecutor::releaseWorkers() {
     std::lock_guard<std::mutex> lock(_mutex);
     std::stringstream ss;
     for (int i = 0; i < _maxPoolSize; ++i) {
@@ -284,7 +284,7 @@ void ThreadPoolExecutor::stop() {
         std::lock_guard<std::mutex> lock(_mutex);
         advanceRunState(STOP);
     }
-    releasetWorkers();
+    releaseWorkers();
     tryTerminate();
 }
 

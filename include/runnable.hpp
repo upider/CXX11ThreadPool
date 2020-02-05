@@ -70,6 +70,10 @@ class Runnable {
             _functor_uptr->call();
         }
 
+        bool empty() const {
+            return _functor_uptr == nullptr;
+        }
+
     private:
         struct functor_base {
             functor_base() = default;

@@ -25,7 +25,7 @@ RR rrrrrr;
 
 int main(void)
 {
-    BlockingQueue<Runnable> bq;
+    std::vector<BlockingQueue<Runnable>> bq;
     RejectedExecutionHandler rj;
 
     ThreadPoolExecutor tpe(1, 1, bq, rj);

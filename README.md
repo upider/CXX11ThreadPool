@@ -9,14 +9,14 @@
 	6. 可以使用execute和submit提交任务(两种方式有差别)
 	7. 可以设置线程回收策略也可以手动回收非core线程
 	8. 线程回收策略使用的是thread.join(),可以避免线程资源无法释放
-	9. largestPoolSize是线程池使用过的线程数
+	9. everPoolSize是线程池出现过的线程数
+	10. 每个线程有自己的工作队列
 
 ## TODO
 
-	1. 实现interruptible_thread--不使用interruptible_thread
-	2. 实现workStealingThreadPool
+	1. 实现workStealingThreadPool
+	2. 实现ScheduledThreadPool 
 	3. 实现Executors工厂函数
-	4. 实现ScheduledThreadPool 
 
 ## 用法
 	1. 类似Java Executor
@@ -29,3 +29,5 @@
 ## change log
 
 	1. 实现线程池动态可伸缩--未使用interruptible_thread,利用join()将线程释放后移出线程队列
+	2. 实现Thread类--不使用interruptible_thread,Thread类通过重写run()可以实现想要的操作
+	3. 完善了ThreadPoolExecutor,每个线程有自己的工作队列,可以批量添加任务

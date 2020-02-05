@@ -54,8 +54,4 @@ void interruptible_wait(std::condition_variable& cv,
     interruption_point();
 }
 
-
-
-
-
 #endif /* INTERRUPTTHREAD_HPP */

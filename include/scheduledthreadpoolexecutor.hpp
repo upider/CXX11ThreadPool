@@ -1,7 +1,9 @@
 #ifndef SCHEDULEDTHREADPOOLEXECUTOR_H
 #define SCHEDULEDTHREADPOOLEXECUTOR_H
 
-class ScheduledThreadPoolExecutor {
+#include "threadpoolexecutor.hpp"
+
+class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
     public:
         ScheduledThreadPoolExecutor();
         virtual ~ScheduledThreadPoolExecutor ();

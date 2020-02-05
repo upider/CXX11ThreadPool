@@ -11,6 +11,7 @@
 	8. 线程回收策略使用的是thread.join(),可以避免线程资源无法释放
 	9. everPoolSize是线程池出现过的线程数
 	10. 每个线程有自己的工作队列
+	11. Thread类丰富了std::thread的功能,设置名称,id,检查是否存活等等
 
 ## TODO
 
@@ -31,3 +32,4 @@
 	1. 实现线程池动态可伸缩--未使用interruptible_thread,利用join()将线程释放后移出线程队列
 	2. 实现Thread类--不使用interruptible_thread,Thread类通过重写run()可以实现想要的操作
 	3. 完善了ThreadPoolExecutor,每个线程有自己的工作队列,可以批量添加任务
+	4. interruptible_thread功能可能会考虑以后添加

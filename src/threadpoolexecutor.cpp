@@ -10,9 +10,12 @@ using namespace std::placeholders;
 ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
                                        int32_t maxPoolSize,
                                        const std::vector<BlockingQueue<Runnable>>& workQueue,
-                                       const RejectedExecutionHandler& handler)
+                                       const RejectedExecutionHandler& handler,
+                                       std::string prefix
+                                      )
     : corePoolSize_(corePoolSize),
       maxPoolSize_(maxPoolSize),
+      prefix_(prefix),
       ctl_(ctlOf(RUNNING, 0)) {
 
     if (corePoolSize < 0               ||
@@ -28,9 +31,12 @@ ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
 ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
                                        int32_t maxPoolSize,
                                        std::vector<BlockingQueue<Runnable>>* workQueue,
-                                       RejectedExecutionHandler* handler)
+                                       RejectedExecutionHandler* handler,
+                                       std::string prefix
+                                      )
     : corePoolSize_(corePoolSize),
       maxPoolSize_(maxPoolSize),
+      prefix_(prefix),
       ctl_(ctlOf(RUNNING, 0)) {
 
     if (corePoolSize < 0               ||
@@ -44,9 +50,12 @@ ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
 }
 
 ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
-                                       int32_t maxPoolSize)
+                                       int32_t maxPoolSize,
+                                       std::string prefix
+                                      )
     : corePoolSize_(corePoolSize),
       maxPoolSize_(maxPoolSize),
+      prefix_(prefix),
       ctl_(ctlOf(RUNNING, 0)) {
 
     if (corePoolSize < 0               ||
@@ -201,7 +210,7 @@ bool ThreadPoolExecutor::execute(BlockingQueue<Runnable>& commands, bool core) {
             return false;
         if (compareAndIncrementWorkerCount(c)) {
             std::lock_guard<std::mutex> lock(mutex_);
-            workQueues_->push_back(BlockingQueue<Runnable>());
+            workQueues_->push_back(commands);
             threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::workerThread, this, workQueues_->size() - 1)));
             threads_[threads_.size() - 1]->start();
             everPoolSize_++;
@@ -359,6 +368,7 @@ void ThreadPoolExecutor::advanceRunState(int32_t targetState) {
 }
 
 void ThreadPoolExecutor::coreWorkerThread(size_t queueIdex) {
+    setCurrentThreadName(prefix_);
     int c = ctl_.load();
     Runnable task;
     std::unique_lock<std::mutex> lk(threadMutex_);
@@ -379,6 +389,7 @@ void ThreadPoolExecutor::coreWorkerThread(size_t queueIdex) {
 }
 
 void ThreadPoolExecutor::workerThread(size_t queueIdex) {
+    setCurrentThreadName(prefix_);
     Runnable task;
     std::unique_lock<std::mutex> lk(threadMutex_);
     while(runStateOf(ctl_.load()) == RUNNING) {

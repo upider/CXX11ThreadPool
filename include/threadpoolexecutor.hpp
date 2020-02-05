@@ -38,11 +38,14 @@ class ThreadPoolExecutor {
          * @param maxPoolSize 最大线程数
          * @param workQueue 任务队列
          * @param handler 拒绝任务句柄
+         * @param prefix  线程名前缀
          */
         explicit ThreadPoolExecutor(int32_t corePoolSize,
                                     int32_t maxPoolSize,
                                     const std::vector<BlockingQueue<Runnable>>& workQueue,
-                                    const RejectedExecutionHandler& handler);
+                                    const RejectedExecutionHandler& handler,
+                                    std::string prefix = ""
+                                   );
 
         /**
          * @brief ThreadPoolExecutor 构造函数,workQueue的大小要不大于corePoolSize
@@ -54,11 +57,14 @@ class ThreadPoolExecutor {
          * @param maxPoolSize 最大线程数
          * @param workQueue 任务队列
          * @param handler 拒绝任务句柄
+         * @param prefix 线程名前缀
          */
         explicit ThreadPoolExecutor(int32_t corePoolSize,
                                     int32_t maxPoolSize,
                                     std::vector<BlockingQueue<Runnable>>* workQueue,
-                                    RejectedExecutionHandler* handler);
+                                    RejectedExecutionHandler* handler,
+                                    std::string prefix = ""
+                                   );
 
         /**
          * @brief ThreadPoolExecutor 构造函数,根据corePoolSize构造相同大小的workQueue
@@ -68,9 +74,11 @@ class ThreadPoolExecutor {
          *
          * @param corePoolSize 核心线程数
          * @param maxPoolSize 最大线程数
+         * @param prefix  线程名前缀
          */
         explicit ThreadPoolExecutor(int32_t corePoolSize,
-                                    int32_t maxPoolSize);
+                                    int32_t maxPoolSize,
+                                    std::string prefix = "");
 
         /**
          * @brief ~ThreadPoolExecutor 析构函数
@@ -120,6 +128,7 @@ class ThreadPoolExecutor {
          *                不会抛出异常
          *
          * @param command 要执行的任务(Runnable或函数或lambda)
+         * @param core    是否使用核心线程
          *
          * @return          true - 添加成功
          */
@@ -322,9 +331,16 @@ class ThreadPoolExecutor {
 
         /**
          * @brief coreWorkerThread 线程池主循环
+         *
+         * @param queueIdex 任务队列位置
          */
         virtual void coreWorkerThread(size_t queueIdex);
 
+        /**
+         * @brief workerThread 非核心线程循环
+         *
+         * @param queueIdex 任务队列位置
+         */
         virtual void workerThread(size_t queueIdex);
 
         //virtual void runnableWorkerThread(Runnable);
@@ -338,37 +354,65 @@ class ThreadPoolExecutor {
             rejectHandler_->rejectedExecution(command);
         }
 
+        /**
+         * @brief runStateLessThan 状态低于
+         *
+         * @param c 控制变量
+         * @param s 比较对象
+         *
+         * @return bool c < s
+         */
         static bool runStateLessThan(int c, int s) {
             return c < s;
         }
 
+        /**
+         * @brief runStateAtLeast 运行状态最少是
+         *
+         * @param c 控制变量
+         * @param s 比较对象
+         *
+         * @return bool c < s
+         */
         static bool runStateAtLeast(int c, int s) {
             return c >= s;
         }
 
+        /**
+         * @brief isRunning 是否还在运行
+         *
+         * @param c
+         *
+         * @return
+         */
         static bool isRunning(int c) {
             return c < SHUTDOWN;
         }
 
         /*
-         *  @brief Attempts to CAS-increment the workerCount field of ctl.
+         * @brief compareAndIncrementWorkerCount 尝试CAS递增ctl的workerCount字段.
          *
-        */
+         * @param expect 控制变量
+         *
+         * @return bool
+         */
         virtual bool compareAndIncrementWorkerCount(int expect) {
             return ctl_.compare_exchange_strong(expect, expect + 1);
         }
 
         /*
-         *   @brief Attempts to CAS-decrement the workerCount field of ctl.
+         * @brief compareAndDecrementWorkerCount 尝试CAS递减ctl的workerCount字段.
+         *
+         * @param expect 控制变量
+         *
+         * @return bool
         */
         virtual bool compareAndDecrementWorkerCount(int expect) {
             return ctl_.compare_exchange_strong(expect, expect - 1);
         }
 
         /**
-         *   @brief Decrements the workerCount field of ctl. This is called only on
-         *    abrupt termination of a thread (see processWorkerExit). Other
-         *    decrements are performed within getTask.
+         *   @brief decrementWorkerCount 减少ctl的workerCount字段
          *
         */
         virtual void decrementWorkerCount() {
@@ -381,6 +425,7 @@ class ThreadPoolExecutor {
         int											                 corePoolSize_;
         int											                 maxPoolSize_;
         size_t                                                       submitId_{0};
+        std::string                                                  prefix_;
         volatile bool                                                nonCoreThreadAlive_{false};
         std::atomic<int>                                             everPoolSize_{0};
         mutable std::mutex                                           mutex_;

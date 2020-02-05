@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CPP11ThreadPool: Thread类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="CPP.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CPP11ThreadPool
+   </div>
+   <div id="projectbrief">C++11线程池</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="#pro-static-attribs">静态 Protected 属性</a> &#124;
+<a href="classThread-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">Thread类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structThread_1_1Func__base.html">Func_base</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structThread_1_1Func__t.html">Func_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a430059e402325caaf1ed185fb520c9d2"><td class="memItemLeft" align="right" valign="top"><a id="a430059e402325caaf1ed185fb520c9d2"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>sptr</b> = std::shared_ptr&lt; <a class="el" href="classThread.html">Thread</a> &gt;</td></tr>
+<tr class="separator:a430059e402325caaf1ed185fb520c9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a2375aeb8a227668652d593b180bac64e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a2375aeb8a227668652d593b180bac64e">Thread</a> (int pro, <a class="el" href="classThreadPoolExecutor.html">ThreadPoolExecutor</a> *tpe=nullptr)</td></tr>
+<tr class="memdesc:a2375aeb8a227668652d593b180bac64e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThread.html">Thread</a> 构造函数  <a href="#a2375aeb8a227668652d593b180bac64e">更多...</a><br /></td></tr>
+<tr class="separator:a2375aeb8a227668652d593b180bac64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa32c32f43d92d235c9e795bea80e9058"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#aa32c32f43d92d235c9e795bea80e9058">Thread</a> (const std::string &amp;name=&quot;&quot;, int pro=20, <a class="el" href="classThreadPoolExecutor.html">ThreadPoolExecutor</a> *tpe=nullptr)</td></tr>
+<tr class="memdesc:aa32c32f43d92d235c9e795bea80e9058"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThread.html">Thread</a> 构造函数  <a href="#aa32c32f43d92d235c9e795bea80e9058">更多...</a><br /></td></tr>
+<tr class="separator:aa32c32f43d92d235c9e795bea80e9058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67eed36a7c4cb621651a6ce40939cf44"><td class="memTemplParams" colspan="2">template&lt;typename FunctionType &gt; </td></tr>
+<tr class="memitem:a67eed36a7c4cb621651a6ce40939cf44"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classThread.html#a67eed36a7c4cb621651a6ce40939cf44">Thread</a> (FunctionType f, const std::string &amp;name=&quot;&quot;, int pro=20, <a class="el" href="classThreadPoolExecutor.html">ThreadPoolExecutor</a> *tpe=nullptr)</td></tr>
+<tr class="memdesc:a67eed36a7c4cb621651a6ce40939cf44"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThread.html">Thread</a> 构造函数  <a href="#a67eed36a7c4cb621651a6ce40939cf44">更多...</a><br /></td></tr>
+<tr class="separator:a67eed36a7c4cb621651a6ce40939cf44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a957c601b090d6c2798c3cceb4ae5dc0f"><td class="memItemLeft" align="right" valign="top"><a id="a957c601b090d6c2798c3cceb4ae5dc0f"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a957c601b090d6c2798c3cceb4ae5dc0f">~Thread</a> ()=default</td></tr>
+<tr class="memdesc:a957c601b090d6c2798c3cceb4ae5dc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">~Thread 析构函数 <br /></td></tr>
+<tr class="separator:a957c601b090d6c2798c3cceb4ae5dc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a36451e02a15180624cdd88212cb1ba"><td class="memItemLeft" align="right" valign="top"><a id="a3a36451e02a15180624cdd88212cb1ba"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a3a36451e02a15180624cdd88212cb1ba">start</a> () final</td></tr>
+<tr class="memdesc:a3a36451e02a15180624cdd88212cb1ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">start 开始执行线程,如果构造函数传入了Func, 那么重写的run方法不会执行 <br /></td></tr>
+<tr class="separator:a3a36451e02a15180624cdd88212cb1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07b23d8d75300651cba3eb79652c77fd"><td class="memItemLeft" align="right" valign="top"><a id="a07b23d8d75300651cba3eb79652c77fd"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a07b23d8d75300651cba3eb79652c77fd">join</a> () final</td></tr>
+<tr class="memdesc:a07b23d8d75300651cba3eb79652c77fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">join 释放线程资源 <br /></td></tr>
+<tr class="separator:a07b23d8d75300651cba3eb79652c77fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affb34b8590eab79785627ae48cbd297d"><td class="memItemLeft" align="right" valign="top"><a id="affb34b8590eab79785627ae48cbd297d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#affb34b8590eab79785627ae48cbd297d">detach</a> () final</td></tr>
+<tr class="memdesc:affb34b8590eab79785627ae48cbd297d"><td class="mdescLeft">&#160;</td><td class="mdescRight">detach 释放线程 <br /></td></tr>
+<tr class="separator:affb34b8590eab79785627ae48cbd297d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac09e8b8ff4fb0a97315b5a501e722783"><td class="memItemLeft" align="right" valign="top"><a id="ac09e8b8ff4fb0a97315b5a501e722783"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#ac09e8b8ff4fb0a97315b5a501e722783">yield</a> () final</td></tr>
+<tr class="memdesc:ac09e8b8ff4fb0a97315b5a501e722783"><td class="mdescLeft">&#160;</td><td class="mdescRight">yield 让出时间片 <br /></td></tr>
+<tr class="separator:ac09e8b8ff4fb0a97315b5a501e722783"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86d1c278c0b9fea63037c437a909064f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a86d1c278c0b9fea63037c437a909064f">joinable</a> () const final</td></tr>
+<tr class="memdesc:a86d1c278c0b9fea63037c437a909064f"><td class="mdescLeft">&#160;</td><td class="mdescRight">joinable  <a href="#a86d1c278c0b9fea63037c437a909064f">更多...</a><br /></td></tr>
+<tr class="separator:a86d1c278c0b9fea63037c437a909064f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a554185abbfacbcc4bf2e953cdddcbbba"><td class="memItemLeft" align="right" valign="top">virtual std::thread::native_handle_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a554185abbfacbcc4bf2e953cdddcbbba">self</a> () final</td></tr>
+<tr class="memdesc:a554185abbfacbcc4bf2e953cdddcbbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">self 返回线程底层句柄  <a href="#a554185abbfacbcc4bf2e953cdddcbbba">更多...</a><br /></td></tr>
+<tr class="separator:a554185abbfacbcc4bf2e953cdddcbbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19bc237f8a86727a5a4b516122fe20f6"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a19bc237f8a86727a5a4b516122fe20f6">getName</a> () const final</td></tr>
+<tr class="memdesc:a19bc237f8a86727a5a4b516122fe20f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">getName 得到线程名称  <a href="#a19bc237f8a86727a5a4b516122fe20f6">更多...</a><br /></td></tr>
+<tr class="separator:a19bc237f8a86727a5a4b516122fe20f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae816904b2a3e248472813e17c2b12a71"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#ae816904b2a3e248472813e17c2b12a71">setName</a> (const std::string &amp;name) final</td></tr>
+<tr class="memdesc:ae816904b2a3e248472813e17c2b12a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">setName 设置线程名称  <a href="#ae816904b2a3e248472813e17c2b12a71">更多...</a><br /></td></tr>
+<tr class="separator:ae816904b2a3e248472813e17c2b12a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2940721084b607bbc2981e8754ea2d9c"><td class="memItemLeft" align="right" valign="top">virtual pid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a2940721084b607bbc2981e8754ea2d9c">getCurrentPid</a> () const final</td></tr>
+<tr class="memdesc:a2940721084b607bbc2981e8754ea2d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">getCurrentPid 获取Linux底层线程id, start之后才有效,-1表示线程已经结束  <a href="#a2940721084b607bbc2981e8754ea2d9c">更多...</a><br /></td></tr>
+<tr class="separator:a2940721084b607bbc2981e8754ea2d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23de6830557bdbe18a0baf17db58aec6"><td class="memItemLeft" align="right" valign="top">virtual std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a23de6830557bdbe18a0baf17db58aec6">getLastActiveTime</a> () const final</td></tr>
+<tr class="memdesc:a23de6830557bdbe18a0baf17db58aec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">getLastActiveTime 上一次活跃时间  <a href="#a23de6830557bdbe18a0baf17db58aec6">更多...</a><br /></td></tr>
+<tr class="separator:a23de6830557bdbe18a0baf17db58aec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe37a59eed637eebb11d4ce75f4d95c7"><td class="memItemLeft" align="right" valign="top">virtual uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#abe37a59eed637eebb11d4ce75f4d95c7">uniqueId</a> () const final</td></tr>
+<tr class="memdesc:abe37a59eed637eebb11d4ce75f4d95c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">uniqueId 获取线程uniqueId  <a href="#abe37a59eed637eebb11d4ce75f4d95c7">更多...</a><br /></td></tr>
+<tr class="separator:abe37a59eed637eebb11d4ce75f4d95c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a231da16ab1825ee982c4aa43f78c1b22"><td class="memItemLeft" align="right" valign="top">virtual std::thread::id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a231da16ab1825ee982c4aa43f78c1b22">stdId</a> () final</td></tr>
+<tr class="memdesc:a231da16ab1825ee982c4aa43f78c1b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">stdId 获取线程thread::id  <a href="#a231da16ab1825ee982c4aa43f78c1b22">更多...</a><br /></td></tr>
+<tr class="separator:a231da16ab1825ee982c4aa43f78c1b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb6c590deecea4778a855459f080060a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#acb6c590deecea4778a855459f080060a">isIdle</a> () const final</td></tr>
+<tr class="memdesc:acb6c590deecea4778a855459f080060a"><td class="mdescLeft">&#160;</td><td class="mdescRight">isIdle 查看线程是否空闲,使用的是类内部成员变量,与isRunning不同  <a href="#acb6c590deecea4778a855459f080060a">更多...</a><br /></td></tr>
+<tr class="separator:acb6c590deecea4778a855459f080060a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4c718f3ca4aa7514c7e89e38f9da894"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#ab4c718f3ca4aa7514c7e89e38f9da894">isRunning</a> () final</td></tr>
+<tr class="memdesc:ab4c718f3ca4aa7514c7e89e38f9da894"><td class="mdescLeft">&#160;</td><td class="mdescRight">isRunning 查看线程是否还在运行,使用pthread_kill向线程发信号  <a href="#ab4c718f3ca4aa7514c7e89e38f9da894">更多...</a><br /></td></tr>
+<tr class="separator:ab4c718f3ca4aa7514c7e89e38f9da894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96661f80f5fbd26042a24eafd675cd91"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a96661f80f5fbd26042a24eafd675cd91">setPrio</a> (int prio) final</td></tr>
+<tr class="memdesc:a96661f80f5fbd26042a24eafd675cd91"><td class="mdescLeft">&#160;</td><td class="mdescRight">setPrio 设置优先级  <a href="#a96661f80f5fbd26042a24eafd675cd91">更多...</a><br /></td></tr>
+<tr class="separator:a96661f80f5fbd26042a24eafd675cd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712ab58b9e89f458427b213b1197a666"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a712ab58b9e89f458427b213b1197a666">getPrio</a> () final</td></tr>
+<tr class="memdesc:a712ab58b9e89f458427b213b1197a666"><td class="mdescLeft">&#160;</td><td class="mdescRight">getPrio 获取线程优先级  <a href="#a712ab58b9e89f458427b213b1197a666">更多...</a><br /></td></tr>
+<tr class="separator:a712ab58b9e89f458427b213b1197a666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c8be569889e6acc065a9db76f738952"><td class="memItemLeft" align="right" valign="top"><a id="a9c8be569889e6acc065a9db76f738952"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Thread</b> (const <a class="el" href="classThread.html">Thread</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:a9c8be569889e6acc065a9db76f738952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6968c245fad4970965b3bf9f6027642"><td class="memItemLeft" align="right" valign="top"><a id="ab6968c245fad4970965b3bf9f6027642"></a>
+<a class="el" href="classThread.html">Thread</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classThread.html">Thread</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:ab6968c245fad4970965b3bf9f6027642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71c9b9c8fb2e87eb14279f6233a83143"><td class="memItemLeft" align="right" valign="top"><a id="a71c9b9c8fb2e87eb14279f6233a83143"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Thread</b> (const <a class="el" href="classThread.html">Thread</a> &amp;)=delete</td></tr>
+<tr class="separator:a71c9b9c8fb2e87eb14279f6233a83143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a832b2ddff787923f27430d95df55c83d"><td class="memItemLeft" align="right" valign="top"><a id="a832b2ddff787923f27430d95df55c83d"></a>
+<a class="el" href="classThread.html">Thread</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classThread.html">Thread</a> &amp;)=delete</td></tr>
+<tr class="separator:a832b2ddff787923f27430d95df55c83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a7e6f38efc79df2e36e0ac9e0f7c1a833"><td class="memItemLeft" align="right" valign="top"><a id="a7e6f38efc79df2e36e0ac9e0f7c1a833"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>getNextId</b> ()</td></tr>
+<tr class="separator:a7e6f38efc79df2e36e0ac9e0f7c1a833"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a23541f34356cb161bb5fe6026bb3000a"><td class="memItemLeft" align="right" valign="top"><a id="a23541f34356cb161bb5fe6026bb3000a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>idle_</b> {true}</td></tr>
+<tr class="separator:a23541f34356cb161bb5fe6026bb3000a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8c342b34fb001cfcf57619b7150840"><td class="memItemLeft" align="right" valign="top"><a id="ada8c342b34fb001cfcf57619b7150840"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>prio_</b></td></tr>
+<tr class="separator:ada8c342b34fb001cfcf57619b7150840"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c0878a96696bbb092a69bc2f1f812fd"><td class="memItemLeft" align="right" valign="top"><a id="a0c0878a96696bbb092a69bc2f1f812fd"></a>
+pid_t&#160;</td><td class="memItemRight" valign="bottom"><b>currentPid_</b> {-1}</td></tr>
+<tr class="separator:a0c0878a96696bbb092a69bc2f1f812fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6087bbfff90554d609fa22b4e4893afb"><td class="memItemLeft" align="right" valign="top"><a id="a6087bbfff90554d609fa22b4e4893afb"></a>
+uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a6087bbfff90554d609fa22b4e4893afb">uniqueId_</a> {nextId_++}</td></tr>
+<tr class="memdesc:a6087bbfff90554d609fa22b4e4893afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">-1表明线程已经执行完任务,unix底层的线程已经不存在了 <br /></td></tr>
+<tr class="separator:a6087bbfff90554d609fa22b4e4893afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa222eb32e5fc8f386d9fb018607acd9c"><td class="memItemLeft" align="right" valign="top"><a id="aa222eb32e5fc8f386d9fb018607acd9c"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#aa222eb32e5fc8f386d9fb018607acd9c">name_</a></td></tr>
+<tr class="memdesc:aa222eb32e5fc8f386d9fb018607acd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前线程id与系统无关 <br /></td></tr>
+<tr class="separator:aa222eb32e5fc8f386d9fb018607acd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad313ba812a7875c743dd0d37d565acfb"><td class="memItemLeft" align="right" valign="top"><a id="ad313ba812a7875c743dd0d37d565acfb"></a>
+std::thread&#160;</td><td class="memItemRight" valign="bottom"><b>thread_</b></td></tr>
+<tr class="separator:ad313ba812a7875c743dd0d37d565acfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8ebc3f208496db3052de7a56eb6e895"><td class="memItemLeft" align="right" valign="top"><a id="ae8ebc3f208496db3052de7a56eb6e895"></a>
+std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>yield_</b> {false}</td></tr>
+<tr class="separator:ae8ebc3f208496db3052de7a56eb6e895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ed71c6b1f7782ecd4186005fd70760"><td class="memItemLeft" align="right" valign="top"><a id="ae7ed71c6b1f7782ecd4186005fd70760"></a>
+std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><b>lastActiveTime_</b> {std::chrono::steady_clock::now()}</td></tr>
+<tr class="separator:ae7ed71c6b1f7782ecd4186005fd70760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a677202a7d90ebc5a6d4f8b1eab1a1eac"><td class="memItemLeft" align="right" valign="top"><a id="a677202a7d90ebc5a6d4f8b1eab1a1eac"></a>
+std::unique_ptr&lt; <a class="el" href="structThread_1_1Func__base.html">Func_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>func_uptr_</b></td></tr>
+<tr class="separator:a677202a7d90ebc5a6d4f8b1eab1a1eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
+静态 Protected 属性</h2></td></tr>
+<tr class="memitem:ab6f45a9de088d45853895ff98a5db0e8"><td class="memItemLeft" align="right" valign="top"><a id="ab6f45a9de088d45853895ff98a5db0e8"></a>
+static std::atomic&lt; uint64_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nextId_</b></td></tr>
+<tr class="separator:ab6f45a9de088d45853895ff98a5db0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a2375aeb8a227668652d593b180bac64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2375aeb8a227668652d593b180bac64e">&#9670;&nbsp;</a></span>Thread() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Thread::Thread </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classThreadPoolExecutor.html">ThreadPoolExecutor</a> *&#160;</td>
+          <td class="paramname"><em>tpe</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classThread.html">Thread</a> 构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pro</td><td>优先级 </td></tr>
+    <tr><td class="paramname">tpe</td><td>线程池(nullptr) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa32c32f43d92d235c9e795bea80e9058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa32c32f43d92d235c9e795bea80e9058">&#9670;&nbsp;</a></span>Thread() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Thread::Thread </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pro</em> = <code>20</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classThreadPoolExecutor.html">ThreadPoolExecutor</a> *&#160;</td>
+          <td class="paramname"><em>tpe</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classThread.html">Thread</a> 构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>线程名 </td></tr>
+    <tr><td class="paramname">pro</td><td>优先级 </td></tr>
+    <tr><td class="paramname">tpe</td><td>线程池(nullptr) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a67eed36a7c4cb621651a6ce40939cf44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67eed36a7c4cb621651a6ce40939cf44">&#9670;&nbsp;</a></span>Thread() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Thread::Thread </td>
+          <td>(</td>
+          <td class="paramtype">FunctionType&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pro</em> = <code>20</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classThreadPoolExecutor.html">ThreadPoolExecutor</a> *&#160;</td>
+          <td class="paramname"><em>tpe</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classThread.html">Thread</a> 构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>要执行的任务 </td></tr>
+    <tr><td class="paramname">name</td><td>线程名 </td></tr>
+    <tr><td class="paramname">pro</td><td>优先级 </td></tr>
+    <tr><td class="paramname">tpe</td><td>线程池(nullptr) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a2940721084b607bbc2981e8754ea2d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2940721084b607bbc2981e8754ea2d9c">&#9670;&nbsp;</a></span>getCurrentPid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual pid_t Thread::getCurrentPid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getCurrentPid 获取Linux底层线程id, start之后才有效,-1表示线程已经结束 </p>
+<dl class="section return"><dt>返回</dt><dd>pid_t Linux底层线程id </dd></dl>
+
+</div>
+</div>
+<a id="a23de6830557bdbe18a0baf17db58aec6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23de6830557bdbe18a0baf17db58aec6">&#9670;&nbsp;</a></span>getLastActiveTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::chrono::steady_clock::time_point Thread::getLastActiveTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getLastActiveTime 上一次活跃时间 </p>
+<dl class="section return"><dt>返回</dt><dd>std::chrono::steady_clock::time_point 上一次活跃时间 </dd></dl>
+
+</div>
+</div>
+<a id="a19bc237f8a86727a5a4b516122fe20f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19bc237f8a86727a5a4b516122fe20f6">&#9670;&nbsp;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string Thread::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getName 得到线程名称 </p>
+<dl class="section return"><dt>返回</dt><dd>std::string name线程名称 </dd></dl>
+
+</div>
+</div>
+<a id="a712ab58b9e89f458427b213b1197a666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712ab58b9e89f458427b213b1197a666">&#9670;&nbsp;</a></span>getPrio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Thread::getPrio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getPrio 获取线程优先级 </p>
+<dl class="section return"><dt>返回</dt><dd>prio 优先级 </dd></dl>
+
+</div>
+</div>
+<a id="acb6c590deecea4778a855459f080060a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb6c590deecea4778a855459f080060a">&#9670;&nbsp;</a></span>isIdle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Thread::isIdle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>isIdle 查看线程是否空闲,使用的是类内部成员变量,与isRunning不同 </p>
+<dl class="section return"><dt>返回</dt><dd>bool true-线程空闲 </dd></dl>
+
+</div>
+</div>
+<a id="ab4c718f3ca4aa7514c7e89e38f9da894"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4c718f3ca4aa7514c7e89e38f9da894">&#9670;&nbsp;</a></span>isRunning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Thread::isRunning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>isRunning 查看线程是否还在运行,使用pthread_kill向线程发信号 </p>
+<dl class="section return"><dt>返回</dt><dd>bool true-还在运行 </dd></dl>
+
+</div>
+</div>
+<a id="a86d1c278c0b9fea63037c437a909064f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86d1c278c0b9fea63037c437a909064f">&#9670;&nbsp;</a></span>joinable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Thread::joinable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>joinable </p>
+<dl class="section return"><dt>返回</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="a554185abbfacbcc4bf2e953cdddcbbba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a554185abbfacbcc4bf2e953cdddcbbba">&#9670;&nbsp;</a></span>self()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::thread::native_handle_type Thread::self </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>self 返回线程底层句柄 </p>
+<dl class="section return"><dt>返回</dt><dd>handler std::thread::native_handle_type类型的线程句柄 </dd></dl>
+
+</div>
+</div>
+<a id="ae816904b2a3e248472813e17c2b12a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae816904b2a3e248472813e17c2b12a71">&#9670;&nbsp;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Thread::setName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>setName 设置线程名称 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>线程名称 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a96661f80f5fbd26042a24eafd675cd91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96661f80f5fbd26042a24eafd675cd91">&#9670;&nbsp;</a></span>setPrio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Thread::setPrio </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>prio</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>setPrio 设置优先级 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prio</td><td>要设置的优先级 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a231da16ab1825ee982c4aa43f78c1b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a231da16ab1825ee982c4aa43f78c1b22">&#9670;&nbsp;</a></span>stdId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::thread::id Thread::stdId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>stdId 获取线程thread::id </p>
+<dl class="section return"><dt>返回</dt><dd>std::thread::id 线程thread::id </dd></dl>
+
+</div>
+</div>
+<a id="abe37a59eed637eebb11d4ce75f4d95c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe37a59eed637eebb11d4ce75f4d95c7">&#9670;&nbsp;</a></span>uniqueId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint64_t Thread::uniqueId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>uniqueId 获取线程uniqueId </p>
+<dl class="section return"><dt>返回</dt><dd>uint64_t 线程uniqueId,便于表示,与操作系统无关 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="thread_8hpp_source.html">thread.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

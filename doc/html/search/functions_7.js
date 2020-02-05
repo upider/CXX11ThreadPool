@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['releaseidleworkers',['releaseIdleWorkers',['../classThreadPoolExecutor.html#a0993336e51299da4b9c18d31e45610fe',1,'ThreadPoolExecutor']]],
-  ['releaseworkers',['releaseWorkers',['../classThreadPoolExecutor.html#af30ac53dafced53fc2c39db7c0633378',1,'ThreadPoolExecutor']]],
-  ['runnable',['Runnable',['../classRunnable.html#ab052afa8b53dd1e7c28e978962839446',1,'Runnable::Runnable(F &amp;&amp;f)'],['../classRunnable.html#aaac34b8a861ab506499f8ec791e7cc16',1,'Runnable::Runnable(F &amp;f)'],['../classRunnable.html#af028c95562f219c2af2439ae69e44755',1,'Runnable::Runnable(Runnable &amp;&amp;other)'],['../classRunnable.html#a316ac005c1584a21b458fc673c04aed8',1,'Runnable::Runnable(const Runnable &amp;other)']]]
+  ['join',['join',['../classThread.html#a07b23d8d75300651cba3eb79652c77fd',1,'Thread']]],
+  ['joinable',['joinable',['../classThread.html#a86d1c278c0b9fea63037c437a909064f',1,'Thread']]]
 ];

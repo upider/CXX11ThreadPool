@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['allowcorethreadtimeout',['allowCoreThreadTimeOut',['../classThreadPoolExecutor.html#aa700bdf61ac6f9a67411560af2871ee7',1,'ThreadPoolExecutor']]],
-  ['allowscorethreadtimeout',['allowsCoreThreadTimeOut',['../classThreadPoolExecutor.html#acb920195bb39c64c97ed0644693a3592',1,'ThreadPoolExecutor']]]
+  ['addworker',['addWorker',['../classThreadPoolExecutor.html#af961c5c8f699e77673627a19aad363f6',1,'ThreadPoolExecutor']]],
+  ['advancerunstate',['advanceRunState',['../classThreadPoolExecutor.html#a554449ac43b629a1daced2000d730ecf',1,'ThreadPoolExecutor']]]
 ];

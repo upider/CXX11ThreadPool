@@ -49,8 +49,6 @@ class BlockingQueue {
         /**
          * @brief operator= 赋值运算符
          *
-         * @param BlockingQueue 阻塞队列
-         *
          * @return BlockingQueue 阻塞队列的引用
          */
         BlockingQueue& operator=(const BlockingQueue &);

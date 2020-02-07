@@ -13,7 +13,6 @@ template <typename T>
 /// @brief BlockingQueue 阻塞队列(FIFO)
 class BlockingQueue {
     public:
-        using sptr = std::shared_ptr<BlockingQueue<T>>;
         /**
          * @brief BlockingQueue 默认构造函数
          */
@@ -27,7 +26,7 @@ class BlockingQueue {
          *
          * @param args
          */
-        BlockingQueue(std::initializer_list<T> args)
+        BlockingQueue(std::initializer_list<T>& args)
             : _mutex(),
               _notEmpty(),
               _queue{args} {}

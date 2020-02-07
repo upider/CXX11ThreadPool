@@ -1,3 +1,4 @@
+//测试Thread类
 #include <stdexcept>
 #include <iostream>
 #include "thread.hpp"

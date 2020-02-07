@@ -7,13 +7,13 @@ class WorkStealingPoolExecutor: public ThreadPoolExecutor {
     public:
         WorkStealingPoolExecutor(int32_t corePoolSize,
                                  int32_t maxPoolSize,
-                                 std::vector<BlockingQueue<Runnable>>& workQueue,
+                                 const std::vector<BlockingQueue<Runnable::sptr>>& workQueue,
                                  const RejectedExecutionHandler& handler,
                                  const std::string& prefix = "");
 
         WorkStealingPoolExecutor(int32_t corePoolSize,
                                  int32_t maxPoolSize,
-                                 std::vector<BlockingQueue<Runnable>>* workQueue,
+                                 const std::vector<BlockingQueue<Runnable::sptr>>& workQueue,
                                  RejectedExecutionHandler* handler,
                                  const std::string& prefix = "");
 
@@ -41,19 +41,29 @@ class WorkStealingPoolExecutor: public ThreadPoolExecutor {
             using result_type = typename std::result_of<F()>::type;
             std::packaged_task<result_type()> task(std::move(f));
             std::future<result_type> res(task.get_future());
-            if(addWorker(std::move(task), core)) {
+            if(addWorker(Runnable(std::move(task)), core)) {
                 return res;
             } else {
                 int c = ctl_.load();
                 if (!isRunning(c)) {
-                    reject(std::move(task));
+                    reject(Runnable(std::move(task)));
                     return res;
                 }
             }
         }
 
+        /**
+         * @brief workerThread 核心工作线程
+         *
+         * @param queueIdex 线程队列位置
+         */
         virtual void workerThread(size_t queueIdex) override;
 
+        /**
+         * @brief workerThread 非核心工作线程
+         *
+         * @param queueIdex 线程队列位置
+         */
         virtual void coreWorkerThread(size_t queueIdex) override;
 };
 

@@ -6,13 +6,7 @@
 /// @brief Runnable interface 需要重写operator()
 class Runnable {
     public:
-        template<typename F>
-        /**
-         * @brief Runnable 构造函数
-         *
-         * @param new functor_t(std::move(f))
-         */
-        Runnable(F&& f): _functor_uptr(new functor_t<F>(std::move(f))) {}
+        using sptr = std::shared_ptr<Runnable>;
 
         template<typename F>
         /**
@@ -20,59 +14,66 @@ class Runnable {
          *
          * @param new functor_t(std::move(f))
          */
-        Runnable(F& f): _functor_uptr(new functor_t<F>(std::move(f))) {}
+        Runnable(F&& f): functor_(new functor_t<F>(std::move(f))) {}
 
         /**
-         * @brief Runnable 构造函数
+         * @brief Runnable 复制构造
          *
-         * @param new functor_t(std::move(f))
+         * @param rth Runnable右值引用
          */
-        Runnable(Runnable&& other): _functor_uptr(std::move(other._functor_uptr)) {}
+        Runnable(Runnable && rth) : functor_(std::move(rth.functor_)) {}
 
+        template <typename F = Runnable>
         /**
-         * @brief Runnable 构造函数
+         * @brief Runnable 拷贝构造不会复制functor_
          *
-         * @param new functor_t(std::move(f))
+         * @param f Runnable引用
          */
-        Runnable(const Runnable& other): _functor_uptr(other._functor_uptr) {}
+        Runnable(F& f) {}
 
         /**
-         * @brief operator= 赋值运算符
+         * @brief operator= 复制
          *
-         * @param other
+         * @param rth 被复制的Runnable
          *
          * @return Runnable&
          */
-        Runnable& operator=(Runnable&& other) {
-            _functor_uptr = std::move(other._functor_uptr);
+        Runnable & operator=(Runnable && rth) {
+            functor_ = std::move(rth.functor_);
             return *this;
         }
 
         /**
-         * @brief operator= 赋值运算符
-         *
-         * @param other
-         *
-         * @return Runnable&
+         * @brief Runnable 默认构造
          */
-        Runnable& operator=(const Runnable& other) {
-            this->_functor_uptr = other._functor_uptr;
-            return *this;
-        }
-
-        Runnable()  = default;
-        ~Runnable() = default;
+        Runnable() = default;
+        /**
+         * @brief ~Runnable 析构函数
+         */
+        virtual ~Runnable() = default;
 
         /**
          * @brief operator() 重载实现操作
          */
         virtual void operator()() {
-            _functor_uptr->call();
+            if (functor_ != nullptr) {
+                functor_->call();
+            }
         }
 
+        /**
+         * @brief empty 判断内部的函数包装器是否为空
+         *
+         * @return bool true-空
+         */
         bool empty() const {
-            return _functor_uptr == nullptr;
+            return functor_ == nullptr;
         }
+
+    public:
+        template<typename F>
+        Runnable(Runnable & rth) = delete;
+        Runnable& operator=(Runnable& rth) = delete;
 
     private:
         struct functor_base {
@@ -90,7 +91,7 @@ class Runnable {
             F _f;
         };
 
-        std::shared_ptr<functor_base> _functor_uptr;
+        std::unique_ptr<functor_base> functor_;
 };
 
 #endif /* RUNNABLE_HPP */

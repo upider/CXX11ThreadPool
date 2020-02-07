@@ -1,3 +1,4 @@
+//测试workstealingpoolexecutor
 #include "workstealingpoolexecutor.hpp"
 
 int main(void)
@@ -10,12 +11,14 @@ int main(void)
     wsThreadPool.submit([]() {
         std::cout << syscall(__NR_gettid) << std::endl;
     });
-    wsThreadPool.submit([]() {
-        std::cout << syscall(__NR_gettid) << std::endl;
-    }, false);
-    //sleep(2);
+    for (int i = 0; i < 10; ++i) {
+        wsThreadPool.submit([]() {
+            std::cout << syscall(__NR_gettid) << std::endl;
+        }, false);
+    }
     std::cout << wsThreadPool.toString() << std::endl;
     wsThreadPool.shutdown();
+    sleep(2);
     wsThreadPool.stop();
     std::cout << wsThreadPool.toString() << std::endl;
     return 0;

@@ -20,6 +20,10 @@ class RejectedExecutionHandler {
         virtual ~RejectedExecutionHandler() {}
 
     public:
+        virtual void rejectedExecution(const Runnable::sptr r) {
+            throw std::logic_error("thread pool is not RUNNING");
+        }
+
         virtual void rejectedExecution(const Runnable& r) {
             throw std::logic_error("thread pool is not RUNNING");
         }
@@ -44,7 +48,7 @@ class ThreadPoolExecutor {
          */
         explicit ThreadPoolExecutor(int32_t corePoolSize,
                                     int32_t maxPoolSize,
-                                    std::vector<BlockingQueue<Runnable>>& workQueue,
+                                    const std::vector<BlockingQueue<Runnable::sptr>>& workQueue,
                                     const RejectedExecutionHandler& handler,
                                     const std::string& prefix = ""
                                    );
@@ -63,7 +67,7 @@ class ThreadPoolExecutor {
          */
         explicit ThreadPoolExecutor(int32_t corePoolSize,
                                     int32_t maxPoolSize,
-                                    std::vector<BlockingQueue<Runnable>>* workQueue,
+                                    const std::vector<BlockingQueue<Runnable::sptr>>& workQueue,
                                     RejectedExecutionHandler* handler,
                                     const std::string& prefix = ""
                                    );
@@ -124,17 +128,31 @@ class ThreadPoolExecutor {
         virtual void setRejectedExecutionHandler(RejectedExecutionHandler handler) final;
 
         /**
+            * @brief execute 在将来某个时候执行给定的任务,无返回值,
+            *                任务可以在新线程或现有的合并的线程中执行,
+            *                向任务队列提交的是任务副本
+            *                不会抛出异常
+            *
+            * @param command 要执行的任务(Runnable的子类shared_ptr),任务执行完依然能够拿到结果
+            * @param core    是否使用核心线程
+            *
+            * @return          true - 添加成功
+            */
+        bool execute(Runnable::sptr command, bool core = true);
+
+        /**
          * @brief execute 在将来某个时候执行给定的任务,无返回值,
          *                任务可以在新线程或现有的合并的线程中执行,
          *                向任务队列提交的是任务副本
          *                不会抛出异常
          *
-         * @param command 要执行的任务(Runnable或函数或lambda)
+         * @param command 要执行的任务(Runnable或函数或lambda),任务会被用std::move(转移),
+         *                任务结束后就会消失
          * @param core    是否使用核心线程
          *
          * @return          true - 添加成功
          */
-        virtual bool execute(const Runnable& command, bool core = true);
+        virtual bool execute(Runnable& command, bool core = true);
 
         /**
          * @brief execute 在将来某个时候执行给定的任务,无返回值,
@@ -148,7 +166,7 @@ class ThreadPoolExecutor {
          *
          * @return true - 任务全部放入执行队列
          */
-        virtual bool execute(BlockingQueue<Runnable>& commands, bool core = true);
+        virtual bool execute(BlockingQueue<Runnable::sptr>& commands, bool core = true);
 
         /**
          * @brief submit 在将来某个时候执行给定的任务,
@@ -167,12 +185,12 @@ class ThreadPoolExecutor {
             using result_type = typename std::result_of<F()>::type;
             std::packaged_task<result_type()> task(std::move(f));
             std::future<result_type> res(task.get_future());
-            if(addWorker(std::move(task), core)) {
+            if(addWorker(Runnable(std::move(task)), core)) {
                 return res;
             } else {
                 int c = ctl_.load();
                 if (!isRunning(c)) {
-                    reject(std::move(task));
+                    reject(Runnable(std::move(task)));
                     return res;
                 }
             }
@@ -307,12 +325,22 @@ class ThreadPoolExecutor {
         /**
          * @brief addWorker 将任务添加到队列
          *
-         * @param firstTask 任务
+         * @param task 任务
          * @param core      是否使用核心线程
          *
          * @return          true - 添加成功
          */
-        virtual bool addWorker(const Runnable firstTask, bool core = true) final;
+        virtual bool addWorker(Runnable task, bool core = true) final;
+
+        /**
+            * @brief addWorker 将任务添加到队列
+            *
+            * @param task 任务
+            * @param core      是否使用核心线程
+            *
+            * @return          true - 添加成功
+            */
+        virtual bool addWorker(Runnable::sptr task, bool core = true) final;
 
         /**
          * @brief advanceRunState 改变线程池状态
@@ -343,6 +371,15 @@ class ThreadPoolExecutor {
          * @param command 要抛弃的任务
          */
         virtual inline void reject(const Runnable & command) final {
+            rejectHandler_->rejectedExecution(command);
+        }
+
+        /**
+         * @brief reject 将任务抛弃
+         *
+         * @param command 要抛弃的任务
+         */
+        virtual inline void reject(const Runnable::sptr command) final {
             rejectHandler_->rejectedExecution(command);
         }
 
@@ -434,8 +471,8 @@ class ThreadPoolExecutor {
         std::atomic_int32_t                                          ctl_;
         std::condition_variable                                      notEmpty_;
         std::vector<Thread::sptr>                                    threads_;
+        std::vector<BlockingQueue<Runnable::sptr>>	                     workQueues_;
         std::unique_ptr<RejectedExecutionHandler>	                 rejectHandler_;
-        std::unique_ptr<std::vector<BlockingQueue<Runnable>>>	     workQueues_;
 
 };
 

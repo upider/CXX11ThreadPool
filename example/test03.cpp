@@ -25,10 +25,7 @@ RR rrrrrr;
 
 int main(void)
 {
-    std::vector<BlockingQueue<Runnable>> bq;
-    RejectedExecutionHandler rj;
-
-    ThreadPoolExecutor tpe(1, 1, bq, rj);
+    ThreadPoolExecutor tpe(1, 1);
     std::future<int> f;
     std::future<int> f2;
     for (int i = 0; i < 1; ++i) {

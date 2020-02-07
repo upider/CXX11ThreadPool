@@ -16,11 +16,13 @@
  */
 class RejectedExecutionHandler {
     public:
-        RejectedExecutionHandler()          = default;
+        RejectedExecutionHandler() = default;
         virtual ~RejectedExecutionHandler() {}
 
     public:
-        virtual void rejectedExecution(const Runnable& r) {}
+        virtual void rejectedExecution(const Runnable& r) {
+            throw std::logic_error("thread pool is not RUNNING");
+        }
 };
 
 /**
@@ -42,9 +44,9 @@ class ThreadPoolExecutor {
          */
         explicit ThreadPoolExecutor(int32_t corePoolSize,
                                     int32_t maxPoolSize,
-                                    const std::vector<BlockingQueue<Runnable>>& workQueue,
+                                    std::vector<BlockingQueue<Runnable>>& workQueue,
                                     const RejectedExecutionHandler& handler,
-                                    std::string prefix = ""
+                                    const std::string& prefix = ""
                                    );
 
         /**
@@ -63,7 +65,7 @@ class ThreadPoolExecutor {
                                     int32_t maxPoolSize,
                                     std::vector<BlockingQueue<Runnable>>* workQueue,
                                     RejectedExecutionHandler* handler,
-                                    std::string prefix = ""
+                                    const std::string& prefix = ""
                                    );
 
         /**
@@ -78,7 +80,7 @@ class ThreadPoolExecutor {
          */
         explicit ThreadPoolExecutor(int32_t corePoolSize,
                                     int32_t maxPoolSize,
-                                    std::string prefix = "");
+                                    const std::string& prefix = "");
 
         /**
          * @brief ~ThreadPoolExecutor 析构函数
@@ -92,14 +94,14 @@ class ThreadPoolExecutor {
          *
          * @return ture - 允许非核心thread超时
          */
-        bool nonCoreThreadAlive () const;
+        virtual bool keepNonCoreThreadAlive () const final;
 
         /**
          * @brief nonCoreThreadAlive 设置是否允许非核心thread超时并且在没有任务时终止
          *
          * @param value ture或false
          */
-        void nonCoreThreadAlive(bool value);
+        virtual void keepNonCoreThreadAlive(bool value) final;
 
         /**
          * @brief releaseWorkers 释放所有线程(释放线程资源,并弹出线程队列)
@@ -119,7 +121,7 @@ class ThreadPoolExecutor {
          *
          * @param handler RejectedExecutionHandler类对象
          */
-        virtual void setRejectedExecutionHandler(RejectedExecutionHandler handler);
+        virtual void setRejectedExecutionHandler(RejectedExecutionHandler handler) final;
 
         /**
          * @brief execute 在将来某个时候执行给定的任务,无返回值,
@@ -165,19 +167,15 @@ class ThreadPoolExecutor {
             using result_type = typename std::result_of<F()>::type;
             std::packaged_task<result_type()> task(std::move(f));
             std::future<result_type> res(task.get_future());
-            int c = ctl_.load();
-            if(isRunning(c)) {
-                if(addWorker(std::move(task), core)) {
-                    notEmpty_.notify_one();
-                    return res;
-                }
-                c = ctl_.load();
+            if(addWorker(std::move(task), core)) {
+                return res;
+            } else {
+                int c = ctl_.load();
                 if (!isRunning(c)) {
                     reject(std::move(task));
                     return res;
                 }
             }
-            return res;
         }
 
         /**
@@ -192,14 +190,14 @@ class ThreadPoolExecutor {
          *
          * @return 线程数
          */
-        virtual int getActiveCount() const;
+        virtual int getActiveCount() const final;
 
         /**
          * @brief getTaskCount 得到任务队列大小
          *
          * @return 任务队列大小
          */
-        virtual long getTaskCount() const;
+        virtual long getTaskCount() const final;
 
         /**
          * @brief setMaxPoolSize 设置允许的最大线程数。
@@ -208,29 +206,28 @@ class ThreadPoolExecutor {
          *
          * @param maxPoolSize 新的最大值
          */
-        void setMaxPoolSize(int maxPoolSize);
-
+        virtual void setMaxPoolSize(int maxPoolSize) final;
 
         /**
          * @brief getLargestPoolSize 返回池中使用过的线程数
          *
          * @return 线程数
          */
-        virtual int getEverPoolSize() const;
+        virtual int getEverPoolSize() const final;
 
         /**
          * @brief startCoreThreads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略
          *
          * @return 线程数已启动
          */
-        int startCoreThreads();
+        virtual int startCoreThreads() final;
 
         /**
          * @brief getCorePoolSize 返回核心线程数
          *
          * @return 核心线程数
          */
-        int getCorePoolSize() const;
+        virtual int getCorePoolSize() const final;
 
         /**
          * @brief setCorePoolSize 设置核心线程数。
@@ -240,36 +237,31 @@ class ThreadPoolExecutor {
          *
          * @return void
          */
-        bool setCorePoolSize(int32_t corePoolSize);
+        virtual bool setCorePoolSize(int32_t corePoolSize) final;
 
         /**
          * @brief shutdown 不在接受新任务,并且在所有任务执行完后终止线程池
          */
-        virtual void shutdown();
+        virtual void shutdown() final;
 
         /**
          * @brief stop 不在接受新任务,终止旧任务,释放正在运行的线程
          */
-        virtual void stop();
-
-        /**
-         * @brief tryTerminate 尝试terminate线程池
-         */
-        virtual void tryTerminate();
+        virtual void stop() final;
 
         /**
          * @brief isShutDown 判断线程池是否shutdown
          *
          * @return
          */
-        virtual bool isShutDown();
+        virtual bool isShutDown() final;
 
         /**
          * @brief isTerminated 判断线程池是否terminated
          *
          * @return
          */
-        virtual bool isTerminated();
+        virtual bool isTerminated() final;
 
     protected:
         /**
@@ -285,7 +277,7 @@ class ThreadPoolExecutor {
          *
          * @return 运行状态
          */
-        inline static int runStateOf(int32_t c)     {
+        virtual inline int runStateOf(int32_t c) const final {
             return c & ~CAPACITY;
         }
 
@@ -296,7 +288,7 @@ class ThreadPoolExecutor {
          *
          * @return 工作线程数量
          */
-        inline static int workerCountOf(int32_t c)  {
+        virtual inline int workerCountOf(int32_t c) const final {
             return c & CAPACITY;
         }
 
@@ -308,7 +300,7 @@ class ThreadPoolExecutor {
          *
          * @return 控制变量的值
          */
-        static int32_t ctlOf(int32_t rs, int32_t wc) {
+        virtual inline int32_t ctlOf(int32_t rs, int32_t wc) const final {
             return rs | wc;
         }
 
@@ -320,14 +312,14 @@ class ThreadPoolExecutor {
          *
          * @return          true - 添加成功
          */
-        bool addWorker(const Runnable firstTask, bool core = true);
+        virtual bool addWorker(const Runnable firstTask, bool core = true) final;
 
         /**
          * @brief advanceRunState 改变线程池状态
          *
          * @param targetState 目标状态
          */
-        virtual void advanceRunState(int32_t targetState);
+        virtual void advanceRunState(int32_t targetState) final;
 
         /**
          * @brief coreWorkerThread 线程池主循环
@@ -350,7 +342,7 @@ class ThreadPoolExecutor {
          *
          * @param command 要抛弃的任务
          */
-        virtual inline void reject(const Runnable & command) {
+        virtual inline void reject(const Runnable & command) final {
             rejectHandler_->rejectedExecution(command);
         }
 
@@ -362,7 +354,7 @@ class ThreadPoolExecutor {
          *
          * @return bool c < s
          */
-        static bool runStateLessThan(int c, int s) {
+        virtual inline bool runStateLessThan(int c, int s)const final {
             return c < s;
         }
 
@@ -374,7 +366,7 @@ class ThreadPoolExecutor {
          *
          * @return bool c < s
          */
-        static bool runStateAtLeast(int c, int s) {
+        virtual inline bool runStateAtLeast(int c, int s)const final {
             return c >= s;
         }
 
@@ -385,7 +377,7 @@ class ThreadPoolExecutor {
          *
          * @return
          */
-        static bool isRunning(int c) {
+        virtual inline bool isRunning(int c) const final {
             return c < SHUTDOWN;
         }
 
@@ -396,7 +388,7 @@ class ThreadPoolExecutor {
          *
          * @return bool
          */
-        virtual bool compareAndIncrementWorkerCount(int expect) {
+        virtual bool compareAndIncrementWorkerCount(int expect) final {
             return ctl_.compare_exchange_strong(expect, expect + 1);
         }
 
@@ -407,7 +399,7 @@ class ThreadPoolExecutor {
          *
          * @return bool
         */
-        virtual bool compareAndDecrementWorkerCount(int expect) {
+        virtual bool compareAndDecrementWorkerCount(int expect)final {
             return ctl_.compare_exchange_strong(expect, expect - 1);
         }
 
@@ -421,7 +413,16 @@ class ThreadPoolExecutor {
             } while (! compareAndDecrementWorkerCount(ctl_.load()));
         }
 
-    private:
+    protected:
+        //RUNNING一定要初始化在ctl_之前,因为crl_用其初始化
+        const int32_t COUNT_BITS = 29;
+        const int32_t CAPACITY   = (1 << COUNT_BITS) - 1;
+        const int32_t RUNNING    = (-1 << COUNT_BITS);               ///运行状态
+        const int32_t SHUTDOWN   = 0 << COUNT_BITS;                ///不再接受新任务
+        const int32_t STOP       = 1 << COUNT_BITS;                ///不再接受新任务,队列中的任务将比抛弃
+        const int32_t TIDYING    = 2 << COUNT_BITS;                ///所有线程已经释放,任务队列为空,会调用terminated()
+        const int32_t TERMINATED = 3 << COUNT_BITS;                ///线程池关闭,terminated()函数已经执行
+
         int											                 corePoolSize_;
         int											                 maxPoolSize_;
         size_t                                                       submitId_{0};
@@ -432,29 +433,10 @@ class ThreadPoolExecutor {
         mutable std::mutex                                           threadMutex_;
         std::atomic_int32_t                                          ctl_;
         std::condition_variable                                      notEmpty_;
-        //使用QueueThread--带有本地任务队列
         std::vector<Thread::sptr>                                    threads_;
         std::unique_ptr<RejectedExecutionHandler>	                 rejectHandler_;
         std::unique_ptr<std::vector<BlockingQueue<Runnable>>>	     workQueues_;
 
-        /// runState is stored in the high-order bits
-        /// 我们可以看出有5种runState状态，证明至少需要3位来表示runState状态
-        /// 所以高三位就是表示runState了
-        static const int32_t						  COUNT_BITS;
-        static const int32_t						  CAPACITY;
-        static const int32_t                          RUNNING;        ///运行状态
-        static const int32_t                          SHUTDOWN;       ///不再接受新任务
-        static const int32_t                          STOP;           ///不再接受新任务,清空任务队列
-        static const int32_t                          TIDYING;        ///所有线程已经释放,任务队列为空,会调用terminated()
-        static const int32_t                          TERMINATED;     ///线程池关闭,terminated()函数已经执行
 };
-
-const int32_t ThreadPoolExecutor::COUNT_BITS = sizeof(COUNT_BITS) * 8 - 3;
-const int32_t ThreadPoolExecutor::CAPACITY   = (1 << COUNT_BITS) - 1;
-const int32_t ThreadPoolExecutor::RUNNING    = -1 << COUNT_BITS;
-const int32_t ThreadPoolExecutor::SHUTDOWN   = 0 << COUNT_BITS;
-const int32_t ThreadPoolExecutor::STOP       = 1 << COUNT_BITS;
-const int32_t ThreadPoolExecutor::TIDYING    =  2 << COUNT_BITS;
-const int32_t ThreadPoolExecutor::TERMINATED = 3 << COUNT_BITS;
 
 #endif /* THREADPOOLEXECUTOR_HPP */

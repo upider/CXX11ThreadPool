@@ -1,18 +1,22 @@
-#include <functional>
-#include <vector>
-#include <iostream>
-#include "thread.hpp"
+#include "workstealingpoolexecutor.hpp"
 
-class Pool {
-    public:
-        void start() {
-            std::bind(&Pool::runInThread, this);
-        }
+int main(void)
+{
+    WorkStealingPoolExecutor wsThreadPool(1, 2);
 
-        void runInThread() {
-            std::cout << syscall(__NR_gettid) << std::endl;
-        }
-
-    private:
-        std::vector<Thread::sptr> v;
-};
+    wsThreadPool.submit([]() {
+        std::cout << syscall(__NR_gettid) << std::endl;
+    });
+    wsThreadPool.submit([]() {
+        std::cout << syscall(__NR_gettid) << std::endl;
+    });
+    wsThreadPool.submit([]() {
+        std::cout << syscall(__NR_gettid) << std::endl;
+    }, false);
+    //sleep(2);
+    std::cout << wsThreadPool.toString() << std::endl;
+    wsThreadPool.shutdown();
+    wsThreadPool.stop();
+    std::cout << wsThreadPool.toString() << std::endl;
+    return 0;
+}

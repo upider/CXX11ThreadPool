@@ -22,8 +22,8 @@ int main(void)
 
     t.start();
     tt.start();
-    std::cout << "tt--" << t.getCurrentPid() << std::endl;
-    std::cout << "t--" << tt.getCurrentPid() << std::endl;
+    std::cout << "tt--" << t.getPid() << std::endl;
+    std::cout << "t--" << tt.getPid() << std::endl;
 
     std::cout << std::chrono::duration<double>(std::chrono::steady_clock::now() - tt.getLastActiveTime()).count() << std::endl;
 

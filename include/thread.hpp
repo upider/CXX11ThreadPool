@@ -122,11 +122,9 @@ class Thread {
         bool                                   idle_{true};
         int                                    prio_;
         pid_t                                  currentPid_{-1};      ///-1表明线程已经执行完任务,unix底层的线程已经不存在了
-        uint64_t                               uniqueId_{nextId_++}; ///当前线程id与系统无关
         std::string                            name_;
         std::thread                            thread_;
         std::atomic<bool>                      yield_{false};
-        static std::atomic<uint64_t>           nextId_;
         std::chrono::steady_clock::time_point  lastActiveTime_{std::chrono::steady_clock::now()};
 
     protected:
@@ -283,10 +281,6 @@ class Thread {
             return thread_.native_handle();
         }
 
-        static int getNextId() {
-            return nextId_;
-        }
-
         /**
          * @brief getName 得到线程名称
          *
@@ -311,7 +305,7 @@ class Thread {
          *
          * @return pid_t Linux底层线程id
          */
-        virtual pid_t getCurrentPid() const final {
+        virtual pid_t getPid() const final {
             return currentPid_;
         }
 
@@ -323,15 +317,6 @@ class Thread {
         virtual std::chrono::steady_clock::time_point
         getLastActiveTime()const final {
             return lastActiveTime_;
-        }
-
-        /**
-         * @brief uniqueId 获取线程uniqueId
-         *
-         * @return uint64_t 线程uniqueId,便于表示,与操作系统无关
-         */
-        virtual uint64_t uniqueId() const final {
-            return uniqueId_;
         }
 
         /**
@@ -385,7 +370,5 @@ class Thread {
         Thread(const Thread&) = delete;
         Thread& operator=(const Thread&) = delete;
 };
-
-std::atomic<uint64_t> Thread::nextId_(0);
 
 #endif /* THREAD_HPP */

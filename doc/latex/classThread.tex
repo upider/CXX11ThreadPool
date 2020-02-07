@@ -45,12 +45,10 @@ virtual std\+::string \hyperlink{classThread_a19bc237f8a86727a5a4b516122fe20f6}{
 \begin{DoxyCompactList}\small\item\em get\+Name 得到线程名称 \end{DoxyCompactList}\item 
 virtual void \hyperlink{classThread_ae816904b2a3e248472813e17c2b12a71}{set\+Name} (const std\+::string \&name) final
 \begin{DoxyCompactList}\small\item\em set\+Name 设置线程名称 \end{DoxyCompactList}\item 
-virtual pid\+\_\+t \hyperlink{classThread_a2940721084b607bbc2981e8754ea2d9c}{get\+Current\+Pid} () const final
+virtual pid\+\_\+t \hyperlink{classThread_ad7fd4dfa0edff93d118b2edf5ab7be2c}{get\+Pid} () const final
 \begin{DoxyCompactList}\small\item\em get\+Current\+Pid 获取\+Linux底层线程id, start之后才有效,-\/1表示线程已经结束 \end{DoxyCompactList}\item 
 virtual std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \hyperlink{classThread_a23de6830557bdbe18a0baf17db58aec6}{get\+Last\+Active\+Time} () const final
 \begin{DoxyCompactList}\small\item\em get\+Last\+Active\+Time 上一次活跃时间 \end{DoxyCompactList}\item 
-virtual uint64\+\_\+t \hyperlink{classThread_abe37a59eed637eebb11d4ce75f4d95c7}{unique\+Id} () const final
-\begin{DoxyCompactList}\small\item\em unique\+Id 获取线程unique\+Id \end{DoxyCompactList}\item 
 virtual std\+::thread\+::id \hyperlink{classThread_a231da16ab1825ee982c4aa43f78c1b22}{std\+Id} () final
 \begin{DoxyCompactList}\small\item\em std\+Id 获取线程thread\+::id \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classThread_acb6c590deecea4778a855459f080060a}{is\+Idle} () const final
@@ -73,12 +71,6 @@ virtual int \hyperlink{classThread_a712ab58b9e89f458427b213b1197a666}{get\+Prio}
 \mbox{\Hypertarget{classThread_a832b2ddff787923f27430d95df55c83d}\label{classThread_a832b2ddff787923f27430d95df55c83d}} 
 \hyperlink{classThread}{Thread} \& {\bfseries operator=} (const \hyperlink{classThread}{Thread} \&)=delete
 \end{DoxyCompactItemize}
-\subsection*{静态 Public 成员函数}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classThread_a7e6f38efc79df2e36e0ac9e0f7c1a833}\label{classThread_a7e6f38efc79df2e36e0ac9e0f7c1a833}} 
-static int {\bfseries get\+Next\+Id} ()
-\end{DoxyCompactItemize}
 \subsection*{Protected 属性}
 \begin{DoxyCompactItemize}
 \item 
@@ -91,12 +83,9 @@ int {\bfseries prio\+\_\+}
 \mbox{\Hypertarget{classThread_a0c0878a96696bbb092a69bc2f1f812fd}\label{classThread_a0c0878a96696bbb092a69bc2f1f812fd}} 
 pid\+\_\+t {\bfseries current\+Pid\+\_\+} \{-\/1\}
 \item 
-\mbox{\Hypertarget{classThread_a6087bbfff90554d609fa22b4e4893afb}\label{classThread_a6087bbfff90554d609fa22b4e4893afb}} 
-uint64\+\_\+t \hyperlink{classThread_a6087bbfff90554d609fa22b4e4893afb}{unique\+Id\+\_\+} \{next\+Id\+\_\+++\}
-\begin{DoxyCompactList}\small\item\em -\/1表明线程已经执行完任务,unix底层的线程已经不存在了 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_aa222eb32e5fc8f386d9fb018607acd9c}\label{classThread_aa222eb32e5fc8f386d9fb018607acd9c}} 
 std\+::string \hyperlink{classThread_aa222eb32e5fc8f386d9fb018607acd9c}{name\+\_\+}
-\begin{DoxyCompactList}\small\item\em 当前线程id与系统无关 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em -\/1表明线程已经执行完任务,unix底层的线程已经不存在了 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_ad313ba812a7875c743dd0d37d565acfb}\label{classThread_ad313ba812a7875c743dd0d37d565acfb}} 
 std\+::thread {\bfseries thread\+\_\+}
 \item 
@@ -108,12 +97,6 @@ std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point {\bfseries last\+Active\+T
 \item 
 \mbox{\Hypertarget{classThread_a677202a7d90ebc5a6d4f8b1eab1a1eac}\label{classThread_a677202a7d90ebc5a6d4f8b1eab1a1eac}} 
 std\+::unique\+\_\+ptr$<$ \hyperlink{structThread_1_1Func__base}{Func\+\_\+base} $>$ {\bfseries func\+\_\+uptr\+\_\+}
-\end{DoxyCompactItemize}
-\subsection*{静态 Protected 属性}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classThread_ab6f45a9de088d45853895ff98a5db0e8}\label{classThread_ab6f45a9de088d45853895ff98a5db0e8}} 
-static std\+::atomic$<$ uint64\+\_\+t $>$ {\bfseries next\+Id\+\_\+}
 \end{DoxyCompactItemize}
 
 
@@ -179,19 +162,6 @@ Thread\+::\+Thread (\begin{DoxyParamCaption}\item[{Function\+Type}]{f,  }\item[{
 
 
 \subsection{成员函数说明}
-\mbox{\Hypertarget{classThread_a2940721084b607bbc2981e8754ea2d9c}\label{classThread_a2940721084b607bbc2981e8754ea2d9c}} 
-\index{Thread@{Thread}!get\+Current\+Pid@{get\+Current\+Pid}}
-\index{get\+Current\+Pid@{get\+Current\+Pid}!Thread@{Thread}}
-\subsubsection{\texorpdfstring{get\+Current\+Pid()}{getCurrentPid()}}
-{\footnotesize\ttfamily virtual pid\+\_\+t Thread\+::get\+Current\+Pid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}}
-
-
-
-get\+Current\+Pid 获取\+Linux底层线程id, start之后才有效,-\/1表示线程已经结束 
-
-\begin{DoxyReturn}{返回}
-pid\+\_\+t Linux底层线程id 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classThread_a23de6830557bdbe18a0baf17db58aec6}\label{classThread_a23de6830557bdbe18a0baf17db58aec6}} 
 \index{Thread@{Thread}!get\+Last\+Active\+Time@{get\+Last\+Active\+Time}}
 \index{get\+Last\+Active\+Time@{get\+Last\+Active\+Time}!Thread@{Thread}}
@@ -217,6 +187,19 @@ get\+Name 得到线程名称
 
 \begin{DoxyReturn}{返回}
 std\+::string name线程名称 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classThread_ad7fd4dfa0edff93d118b2edf5ab7be2c}\label{classThread_ad7fd4dfa0edff93d118b2edf5ab7be2c}} 
+\index{Thread@{Thread}!get\+Pid@{get\+Pid}}
+\index{get\+Pid@{get\+Pid}!Thread@{Thread}}
+\subsubsection{\texorpdfstring{get\+Pid()}{getPid()}}
+{\footnotesize\ttfamily virtual pid\+\_\+t Thread\+::get\+Pid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+get\+Current\+Pid 获取\+Linux底层线程id, start之后才有效,-\/1表示线程已经结束 
+
+\begin{DoxyReturn}{返回}
+pid\+\_\+t Linux底层线程id 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classThread_a712ab58b9e89f458427b213b1197a666}\label{classThread_a712ab58b9e89f458427b213b1197a666}} 
 \index{Thread@{Thread}!get\+Prio@{get\+Prio}}
@@ -325,19 +308,6 @@ std\+Id 获取线程thread\+::id
 
 \begin{DoxyReturn}{返回}
 std\+::thread\+::id 线程thread\+::id 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classThread_abe37a59eed637eebb11d4ce75f4d95c7}\label{classThread_abe37a59eed637eebb11d4ce75f4d95c7}} 
-\index{Thread@{Thread}!unique\+Id@{unique\+Id}}
-\index{unique\+Id@{unique\+Id}!Thread@{Thread}}
-\subsubsection{\texorpdfstring{unique\+Id()}{uniqueId()}}
-{\footnotesize\ttfamily virtual uint64\+\_\+t Thread\+::unique\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [virtual]}}
-
-
-
-unique\+Id 获取线程unique\+Id 
-
-\begin{DoxyReturn}{返回}
-uint64\+\_\+t 线程unique\+Id,便于表示,与操作系统无关 
 \end{DoxyReturn}
 
 

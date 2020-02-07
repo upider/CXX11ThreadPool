@@ -9,63 +9,72 @@
 
 {\ttfamily \#include $<$threadpoolexecutor.\+hpp$>$}
 
+
+
+类 Thread\+Pool\+Executor 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classThreadPoolExecutor__inherit__graph}
+\end{center}
+\end{figure}
 \subsection*{Public 成员函数}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classThreadPoolExecutor_a23c3df3798fd2141637fc57b7de601d0}{Thread\+Pool\+Executor} (int32\+\_\+t core\+Pool\+Size, int32\+\_\+t max\+Pool\+Size, const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable}{Runnable} $>$$>$ \&work\+Queue, const \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} \&handler, std\+::string prefix=\char`\"{}\char`\"{})
+\hyperlink{classThreadPoolExecutor_a212b34b7e25e9eba4e096473a1b81f9e}{Thread\+Pool\+Executor} (int32\+\_\+t core\+Pool\+Size, int32\+\_\+t max\+Pool\+Size, const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ Runnable\+::sptr $>$$>$ \&work\+Queue, const \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} \&handler, const std\+::string \&prefix=\char`\"{}\char`\"{})
 \begin{DoxyCompactList}\small\item\em \hyperlink{classThreadPoolExecutor}{Thread\+Pool\+Executor} 构造函数,work\+Queue的大小要不大于core\+Pool\+Size 每个线程根据顺序将对应位置的\+Blocking\+Queue$<$\+Runnable$>$ 作为自己的任务队列 会抛出异常 \end{DoxyCompactList}\item 
-\hyperlink{classThreadPoolExecutor_afe143198e44e4d896b0ada2307514d67}{Thread\+Pool\+Executor} (int32\+\_\+t core\+Pool\+Size, int32\+\_\+t max\+Pool\+Size, std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable}{Runnable} $>$$>$ $\ast$work\+Queue, \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} $\ast$handler, std\+::string prefix=\char`\"{}\char`\"{})
+\hyperlink{classThreadPoolExecutor_ab750236e7b95489a1cb66d4b026717fc}{Thread\+Pool\+Executor} (int32\+\_\+t core\+Pool\+Size, int32\+\_\+t max\+Pool\+Size, const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ Runnable\+::sptr $>$$>$ \&work\+Queue, \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} $\ast$handler, const std\+::string \&prefix=\char`\"{}\char`\"{})
 \begin{DoxyCompactList}\small\item\em \hyperlink{classThreadPoolExecutor}{Thread\+Pool\+Executor} 构造函数,work\+Queue的大小要不大于core\+Pool\+Size 每个线程根据顺序将对应位置的\+Blocking\+Queue$<$\+Runnable$>$ 作为自己的任务队列 会抛出异常 \end{DoxyCompactList}\item 
-\hyperlink{classThreadPoolExecutor_a1d65f9842fd50425cf3ba82c4ffee246}{Thread\+Pool\+Executor} (int32\+\_\+t core\+Pool\+Size, int32\+\_\+t max\+Pool\+Size, std\+::string prefix=\char`\"{}\char`\"{})
+\hyperlink{classThreadPoolExecutor_a071bcc9eb42b365e2ce28a32938d422e}{Thread\+Pool\+Executor} (int32\+\_\+t core\+Pool\+Size, int32\+\_\+t max\+Pool\+Size, const std\+::string \&prefix=\char`\"{}\char`\"{})
 \begin{DoxyCompactList}\small\item\em \hyperlink{classThreadPoolExecutor}{Thread\+Pool\+Executor} 构造函数,根据core\+Pool\+Size构造相同大小的work\+Queue 每个线程根据顺序将对应位置的\+Blocking\+Queue$<$\+Runnable$>$ 作为自己的任务队列 会抛出异常 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThreadPoolExecutor_a1d5a1c3330593f243959256d32068c15}\label{classThreadPoolExecutor_a1d5a1c3330593f243959256d32068c15}} 
 virtual \hyperlink{classThreadPoolExecutor_a1d5a1c3330593f243959256d32068c15}{$\sim$\+Thread\+Pool\+Executor} ()
 \begin{DoxyCompactList}\small\item\em $\sim$\+Thread\+Pool\+Executor 析构函数 \end{DoxyCompactList}\item 
-bool \hyperlink{classThreadPoolExecutor_a334329e0226ed0e540bc3ebc52e8817e}{non\+Core\+Thread\+Alive} () const
+virtual bool \hyperlink{classThreadPoolExecutor_ac2aa11f7cde6e6082eb0dde8f2385dce}{keep\+Non\+Core\+Thread\+Alive} () const final
 \begin{DoxyCompactList}\small\item\em non\+Core\+Thread\+Alive 是否允许非核心线程超时,若允许则线程执行完 一个任务后不会退出,会继续存在 \end{DoxyCompactList}\item 
-void \hyperlink{classThreadPoolExecutor_a0079d82c3ef52770771f5954debcdfd7}{non\+Core\+Thread\+Alive} (bool value)
+virtual void \hyperlink{classThreadPoolExecutor_a7e6ed2d088147377d1e82018ac3dac1d}{keep\+Non\+Core\+Thread\+Alive} (bool value) final
 \begin{DoxyCompactList}\small\item\em non\+Core\+Thread\+Alive 设置是否允许非核心thread超时并且在没有任务时终止 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThreadPoolExecutor_a7d4bfa422c41a11fcdd33e7a1b2bcec8}\label{classThreadPoolExecutor_a7d4bfa422c41a11fcdd33e7a1b2bcec8}} 
 virtual void \hyperlink{classThreadPoolExecutor_a7d4bfa422c41a11fcdd33e7a1b2bcec8}{release\+Workers} ()
 \begin{DoxyCompactList}\small\item\em release\+Workers 释放所有线程(释放线程资源,并弹出线程队列) \end{DoxyCompactList}\item 
 void \hyperlink{classThreadPoolExecutor_a5d2d340118dd847534533f8bf2e9ae94}{release\+Non\+Core\+Threads} (bool only\+One=false)
 \begin{DoxyCompactList}\small\item\em release\+Non\+Core\+Threads 释放空闲线程(释放线程资源,并弹出线程队列) 只有在non\+Core\+Thread\+Alive为true时才有作用 \end{DoxyCompactList}\item 
-virtual void \hyperlink{classThreadPoolExecutor_a0e8838b0dcb195c2b4693bdab1eacf39}{set\+Rejected\+Execution\+Handler} (\hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} handler)
+virtual void \hyperlink{classThreadPoolExecutor_a0a471dc0a68b70d99d8215565a4df688}{set\+Rejected\+Execution\+Handler} (\hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} handler) final
 \begin{DoxyCompactList}\small\item\em set\+Rejected\+Execution\+Handler 设置新的任务拒绝策略 \end{DoxyCompactList}\item 
-virtual bool \hyperlink{classThreadPoolExecutor_adb3c813875b9abfad2e6d67dabab2d53}{execute} (const \hyperlink{classRunnable}{Runnable} \&command, bool core=true)
+bool \hyperlink{classThreadPoolExecutor_a4dac3c2435919af5d77aa36069d35bc7}{execute} (Runnable\+::sptr command, bool core=true)
 \begin{DoxyCompactList}\small\item\em execute 在将来某个时候执行给定的任务,无返回值, 任务可以在新线程或现有的合并的线程中执行, 向任务队列提交的是任务副本 不会抛出异常 \end{DoxyCompactList}\item 
-virtual bool \hyperlink{classThreadPoolExecutor_ae24770a14741a5d320da4cc78f01c2d6}{execute} (\hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable}{Runnable} $>$ \&commands, bool core=true)
+virtual bool \hyperlink{classThreadPoolExecutor_a523df0545790ef03a82623b05e3b20f9}{execute} (\hyperlink{classRunnable}{Runnable} \&command, bool core=true)
+\begin{DoxyCompactList}\small\item\em execute 在将来某个时候执行给定的任务,无返回值, 任务可以在新线程或现有的合并的线程中执行, 向任务队列提交的是任务副本 不会抛出异常 \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classThreadPoolExecutor_a451bba3f90dbed2ba7e491ebc391b3c6}{execute} (\hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ Runnable\+::sptr $>$ \&commands, bool core=true)
 \begin{DoxyCompactList}\small\item\em execute 在将来某个时候执行给定的任务,无返回值, 任务可以在新线程或现有的合并的线程中执行, 向任务队列提交的是任务副本 不会抛出异常 \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename F $>$ }\\std\+::future$<$ typename std\+::result\+\_\+of$<$ F()$>$\+::type $>$ \hyperlink{classThreadPoolExecutor_a94834ab6bedcc75111524fec4e928b3f}{submit} (F f, bool core=true)
 \begin{DoxyCompactList}\small\item\em submit 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 可以有返回值,向任务队列提交的是任务副本 会抛出异常 \end{DoxyCompactList}\item 
 virtual std\+::string \hyperlink{classThreadPoolExecutor_a8e340cec3bb976f7773db103d73189c2}{to\+String} () const
 \begin{DoxyCompactList}\small\item\em to\+String 返回标识此池的字符串及其状态，包括运行状态和估计的\+Worker和任务计数的指示 \end{DoxyCompactList}\item 
-virtual int \hyperlink{classThreadPoolExecutor_aff3ba9327ffbc4d5660f7600f1199c76}{get\+Active\+Count} () const
+virtual int \hyperlink{classThreadPoolExecutor_ac9345329aa167200bec31951d2f5a690}{get\+Active\+Count} () const final
 \begin{DoxyCompactList}\small\item\em get\+Active\+Count 返回正在执行任务的线程的大概数量 \end{DoxyCompactList}\item 
-virtual long \hyperlink{classThreadPoolExecutor_a61e8321202e6b0f6ea014485e8e10450}{get\+Task\+Count} () const
+virtual long \hyperlink{classThreadPoolExecutor_a396d50079b39787928ead5f122781de6}{get\+Task\+Count} () const final
 \begin{DoxyCompactList}\small\item\em get\+Task\+Count 得到任务队列大小 \end{DoxyCompactList}\item 
-void \hyperlink{classThreadPoolExecutor_a83e9e3715fdacc5b2f08b563d39bb62b}{set\+Max\+Pool\+Size} (int max\+Pool\+Size)
+virtual void \hyperlink{classThreadPoolExecutor_ac5a10d336958ca43530b31bff81c9c4b}{set\+Max\+Pool\+Size} (int max\+Pool\+Size) final
 \begin{DoxyCompactList}\small\item\em set\+Max\+Pool\+Size 设置允许的最大线程数。 这将覆盖在构造函数中设置的任何值。 如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止 \end{DoxyCompactList}\item 
-virtual int \hyperlink{classThreadPoolExecutor_a95b11de2c239d02800cc388f2f20bc4b}{get\+Ever\+Pool\+Size} () const
+virtual int \hyperlink{classThreadPoolExecutor_af630e5117b4f67428a4fcbee5c15a7d9}{get\+Ever\+Pool\+Size} () const final
 \begin{DoxyCompactList}\small\item\em get\+Largest\+Pool\+Size 返回池中使用过的线程数 \end{DoxyCompactList}\item 
-int \hyperlink{classThreadPoolExecutor_a560e912bb988292e81d16274e3d4a5d8}{start\+Core\+Threads} ()
+virtual int \hyperlink{classThreadPoolExecutor_a1ee7a201ac0a8c9bd246a83939e39194}{start\+Core\+Threads} () final
 \begin{DoxyCompactList}\small\item\em start\+Core\+Threads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略 \end{DoxyCompactList}\item 
-int \hyperlink{classThreadPoolExecutor_a9099318ba5cab5dd05f219babba4b6b7}{get\+Core\+Pool\+Size} () const
+virtual int \hyperlink{classThreadPoolExecutor_af29377a50af53031bb06aeacf9ef27f7}{get\+Core\+Pool\+Size} () const final
 \begin{DoxyCompactList}\small\item\em get\+Core\+Pool\+Size 返回核心线程数 \end{DoxyCompactList}\item 
-bool \hyperlink{classThreadPoolExecutor_aaada9deadf7c0f72bca5076deaa8c92f}{set\+Core\+Pool\+Size} (int32\+\_\+t core\+Pool\+Size)
+virtual bool \hyperlink{classThreadPoolExecutor_a56311f5d8aefa64b8c67fd9ff89c204c}{set\+Core\+Pool\+Size} (int32\+\_\+t core\+Pool\+Size) final
 \begin{DoxyCompactList}\small\item\em set\+Core\+Pool\+Size 设置核心线程数。 这将覆盖在构造函数中设置的任何值。 如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止。 如果更大，则如果需要，新线程将被启动以执行任何排队的任务。 \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classThreadPoolExecutor_a1963a058c29d90e1f7cdb755b83fdff0}\label{classThreadPoolExecutor_a1963a058c29d90e1f7cdb755b83fdff0}} 
-virtual void \hyperlink{classThreadPoolExecutor_a1963a058c29d90e1f7cdb755b83fdff0}{shutdown} ()
+\mbox{\Hypertarget{classThreadPoolExecutor_aaa834c4350d6b12826803bb13dd467ea}\label{classThreadPoolExecutor_aaa834c4350d6b12826803bb13dd467ea}} 
+virtual void \hyperlink{classThreadPoolExecutor_aaa834c4350d6b12826803bb13dd467ea}{shutdown} () final
 \begin{DoxyCompactList}\small\item\em shutdown 不在接受新任务,并且在所有任务执行完后终止线程池 \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classThreadPoolExecutor_aaea5ac0ff50c7e198cb3f2a542a706c9}\label{classThreadPoolExecutor_aaea5ac0ff50c7e198cb3f2a542a706c9}} 
-virtual void \hyperlink{classThreadPoolExecutor_aaea5ac0ff50c7e198cb3f2a542a706c9}{stop} ()
+\mbox{\Hypertarget{classThreadPoolExecutor_a588ec33baf402afd0e1c52b11d9234da}\label{classThreadPoolExecutor_a588ec33baf402afd0e1c52b11d9234da}} 
+virtual void \hyperlink{classThreadPoolExecutor_a588ec33baf402afd0e1c52b11d9234da}{stop} () final
 \begin{DoxyCompactList}\small\item\em stop 不在接受新任务,终止旧任务,释放正在运行的线程 \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classThreadPoolExecutor_a6b09fafdffb979e7b422d67cb1958c20}\label{classThreadPoolExecutor_a6b09fafdffb979e7b422d67cb1958c20}} 
-virtual void \hyperlink{classThreadPoolExecutor_a6b09fafdffb979e7b422d67cb1958c20}{try\+Terminate} ()
-\begin{DoxyCompactList}\small\item\em try\+Terminate 尝试terminate线程池 \end{DoxyCompactList}\item 
-virtual bool \hyperlink{classThreadPoolExecutor_a37702302c7a946b998ce92048ce68e2f}{is\+Shut\+Down} ()
+virtual bool \hyperlink{classThreadPoolExecutor_ac33c356670eabe5345992331e615348c}{is\+Shut\+Down} () final
 \begin{DoxyCompactList}\small\item\em is\+Shut\+Down 判断线程池是否shutdown \end{DoxyCompactList}\item 
-virtual bool \hyperlink{classThreadPoolExecutor_a7febfdf06752de6e4114f1de3ae9b135}{is\+Terminated} ()
+virtual bool \hyperlink{classThreadPoolExecutor_a89ed68d6c67ad6fbde73b7883c8107a7}{is\+Terminated} () final
 \begin{DoxyCompactList}\small\item\em is\+Terminated 判断线程池是否terminated \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected 成员函数}
 \begin{DoxyCompactItemize}
@@ -73,51 +82,115 @@ virtual bool \hyperlink{classThreadPoolExecutor_a7febfdf06752de6e4114f1de3ae9b13
 \mbox{\Hypertarget{classThreadPoolExecutor_a61774315237123faf8e7fcc9d35ae47d}\label{classThreadPoolExecutor_a61774315237123faf8e7fcc9d35ae47d}} 
 virtual void \hyperlink{classThreadPoolExecutor_a61774315237123faf8e7fcc9d35ae47d}{terminated} ()
 \begin{DoxyCompactList}\small\item\em terminated 线程池终止时执行 \end{DoxyCompactList}\item 
-bool \hyperlink{classThreadPoolExecutor_af961c5c8f699e77673627a19aad363f6}{add\+Worker} (const \hyperlink{classRunnable}{Runnable} first\+Task, bool core=true)
+virtual int \hyperlink{classThreadPoolExecutor_acdb626fdcb6ed4c7822508d1e0a3fcf5}{run\+State\+Of} (int32\+\_\+t c) const final
+\begin{DoxyCompactList}\small\item\em run\+State\+Of 得到线程池状态 \end{DoxyCompactList}\item 
+virtual int \hyperlink{classThreadPoolExecutor_a4f842d070a584bbc16a693207a947aac}{worker\+Count\+Of} (int32\+\_\+t c) const final
+\begin{DoxyCompactList}\small\item\em worker\+Count\+Of 得到工作线程数量 \end{DoxyCompactList}\item 
+virtual int32\+\_\+t \hyperlink{classThreadPoolExecutor_a31ed7a73571c79c8dbb486f27a4df4eb}{ctl\+Of} (int32\+\_\+t rs, int32\+\_\+t wc) const final
+\begin{DoxyCompactList}\small\item\em ctl\+Of 控制变量初始化 \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classThreadPoolExecutor_aec8e7c250025db138cde555d759c8194}{add\+Worker} (\hyperlink{classRunnable}{Runnable} task, bool core=true) final
 \begin{DoxyCompactList}\small\item\em add\+Worker 将任务添加到队列 \end{DoxyCompactList}\item 
-virtual void \hyperlink{classThreadPoolExecutor_a554449ac43b629a1daced2000d730ecf}{advance\+Run\+State} (int32\+\_\+t target\+State)
+virtual bool \hyperlink{classThreadPoolExecutor_ac2615dd9c245049110104603289beb54}{add\+Worker} (Runnable\+::sptr task, bool core=true) final
+\begin{DoxyCompactList}\small\item\em add\+Worker 将任务添加到队列 \end{DoxyCompactList}\item 
+virtual void \hyperlink{classThreadPoolExecutor_abaa3926310766a93b7fe1d83b77efdae}{advance\+Run\+State} (int32\+\_\+t target\+State) final
 \begin{DoxyCompactList}\small\item\em advance\+Run\+State 改变线程池状态 \end{DoxyCompactList}\item 
 virtual void \hyperlink{classThreadPoolExecutor_a5e40839bf4191b5eab9d81227ddb62c3}{core\+Worker\+Thread} (size\+\_\+t queue\+Idex)
 \begin{DoxyCompactList}\small\item\em core\+Worker\+Thread 线程池主循环 \end{DoxyCompactList}\item 
 virtual void \hyperlink{classThreadPoolExecutor_a844902ce61fb16b11a569b8ee56e80e9}{worker\+Thread} (size\+\_\+t queue\+Idex)
 \begin{DoxyCompactList}\small\item\em worker\+Thread 非核心线程循环 \end{DoxyCompactList}\item 
-virtual void \hyperlink{classThreadPoolExecutor_a23a7c5908db3ef6f0e2afba6f0ca0450}{reject} (const \hyperlink{classRunnable}{Runnable} \&command)
+virtual void \hyperlink{classThreadPoolExecutor_a14c4e3d786dcf22e858b11a95d2f77ef}{reject} (const \hyperlink{classRunnable}{Runnable} \&command) final
 \begin{DoxyCompactList}\small\item\em reject 将任务抛弃 \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classThreadPoolExecutor_aa07228718089dc67885806cd663c1df1}\label{classThreadPoolExecutor_aa07228718089dc67885806cd663c1df1}} 
-virtual bool {\bfseries compare\+And\+Increment\+Worker\+Count} (int expect)
+virtual void \hyperlink{classThreadPoolExecutor_a353e65b77bb3c0950ed79939473d4852}{reject} (const Runnable\+::sptr command) final
+\begin{DoxyCompactList}\small\item\em reject 将任务抛弃 \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classThreadPoolExecutor_aa12a3efb879080453fb7abc486585698}{run\+State\+Less\+Than} (int c, int s) const final
+\begin{DoxyCompactList}\small\item\em run\+State\+Less\+Than 状态低于 \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classThreadPoolExecutor_a44ee48ed44faa12fc6373074e9059e4e}{run\+State\+At\+Least} (int c, int s) const final
+\begin{DoxyCompactList}\small\item\em run\+State\+At\+Least 运行状态最少是 \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classThreadPoolExecutor_a841ae2189d6f85b9df9f69dec5375341}{is\+Running} (int c) const final
+\begin{DoxyCompactList}\small\item\em is\+Running 是否还在运行 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_ac1bcafe65f800aeb9feade5f31b64fde}\label{classThreadPoolExecutor_ac1bcafe65f800aeb9feade5f31b64fde}} 
+virtual bool {\bfseries compare\+And\+Increment\+Worker\+Count} (int expect) final
 \item 
-\mbox{\Hypertarget{classThreadPoolExecutor_a3786ea6be7685ab4e6674014fbff35cd}\label{classThreadPoolExecutor_a3786ea6be7685ab4e6674014fbff35cd}} 
-virtual bool {\bfseries compare\+And\+Decrement\+Worker\+Count} (int expect)
+\mbox{\Hypertarget{classThreadPoolExecutor_ac40053b88cd669526a0a6225b5e1a86e}\label{classThreadPoolExecutor_ac40053b88cd669526a0a6225b5e1a86e}} 
+virtual bool {\bfseries compare\+And\+Decrement\+Worker\+Count} (int expect) final
 \item 
 \mbox{\Hypertarget{classThreadPoolExecutor_ab19dcfa8af5864274e66bccf40255484}\label{classThreadPoolExecutor_ab19dcfa8af5864274e66bccf40255484}} 
 virtual void \hyperlink{classThreadPoolExecutor_ab19dcfa8af5864274e66bccf40255484}{decrement\+Worker\+Count} ()
 \begin{DoxyCompactList}\small\item\em decrement\+Worker\+Count 减少ctl的worker\+Count字段 \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{静态 Protected 成员函数}
+\subsection*{Protected 属性}
 \begin{DoxyCompactItemize}
 \item 
-static int \hyperlink{classThreadPoolExecutor_aa7ca2a35d562746df0d77bd043bb75f0}{run\+State\+Of} (int32\+\_\+t c)
-\begin{DoxyCompactList}\small\item\em run\+State\+Of 得到线程池状态 \end{DoxyCompactList}\item 
-static int \hyperlink{classThreadPoolExecutor_af00080b50ff18ef719078b14b3df7291}{worker\+Count\+Of} (int32\+\_\+t c)
-\begin{DoxyCompactList}\small\item\em worker\+Count\+Of 得到工作线程数量 \end{DoxyCompactList}\item 
-static int32\+\_\+t \hyperlink{classThreadPoolExecutor_a73773038a4cce87d62e1c7715670aee7}{ctl\+Of} (int32\+\_\+t rs, int32\+\_\+t wc)
-\begin{DoxyCompactList}\small\item\em ctl\+Of 控制变量初始化 \end{DoxyCompactList}\item 
-static bool \hyperlink{classThreadPoolExecutor_a697d1afa93650fe597228fd5fb7b725b}{run\+State\+Less\+Than} (int c, int s)
-\begin{DoxyCompactList}\small\item\em run\+State\+Less\+Than 状态低于 \end{DoxyCompactList}\item 
-static bool \hyperlink{classThreadPoolExecutor_a5c20cff76deba933ace0f5a9f19ed5fd}{run\+State\+At\+Least} (int c, int s)
-\begin{DoxyCompactList}\small\item\em run\+State\+At\+Least 运行状态最少是 \end{DoxyCompactList}\item 
-static bool \hyperlink{classThreadPoolExecutor_a6a08024efe3dd52349a4c3cc3e816223}{is\+Running} (int c)
-\begin{DoxyCompactList}\small\item\em is\+Running 是否还在运行 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classThreadPoolExecutor_af82bff422304406f59a14b5b638c2b42}\label{classThreadPoolExecutor_af82bff422304406f59a14b5b638c2b42}} 
+const int32\+\_\+t {\bfseries C\+O\+U\+N\+T\+\_\+\+B\+I\+TS} = 29
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_aac96b726327ad0d07709085ab49c4f58}\label{classThreadPoolExecutor_aac96b726327ad0d07709085ab49c4f58}} 
+const int32\+\_\+t {\bfseries C\+A\+P\+A\+C\+I\+TY} = (1 $<$$<$ C\+O\+U\+N\+T\+\_\+\+B\+I\+TS) -\/ 1
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a9e28d5aa0cb4500921f7244565b8bed8}\label{classThreadPoolExecutor_a9e28d5aa0cb4500921f7244565b8bed8}} 
+const int32\+\_\+t {\bfseries R\+U\+N\+N\+I\+NG} = (-\/1 $<$$<$ C\+O\+U\+N\+T\+\_\+\+B\+I\+TS)
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_aa0958f2bf040bf2f199c629ec9145b44}\label{classThreadPoolExecutor_aa0958f2bf040bf2f199c629ec9145b44}} 
+const int32\+\_\+t \hyperlink{classThreadPoolExecutor_aa0958f2bf040bf2f199c629ec9145b44}{S\+H\+U\+T\+D\+O\+WN} = 0 $<$$<$ C\+O\+U\+N\+T\+\_\+\+B\+I\+TS
+\begin{DoxyCompactList}\small\item\em 运行状态 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_ae3c0ff657b3c0d8bbaf7f10bfdf587ca}\label{classThreadPoolExecutor_ae3c0ff657b3c0d8bbaf7f10bfdf587ca}} 
+const int32\+\_\+t \hyperlink{classThreadPoolExecutor_ae3c0ff657b3c0d8bbaf7f10bfdf587ca}{S\+T\+OP} = 1 $<$$<$ C\+O\+U\+N\+T\+\_\+\+B\+I\+TS
+\begin{DoxyCompactList}\small\item\em 不再接受新任务 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a3d2a0964f6bce420433491da80000c4c}\label{classThreadPoolExecutor_a3d2a0964f6bce420433491da80000c4c}} 
+const int32\+\_\+t \hyperlink{classThreadPoolExecutor_a3d2a0964f6bce420433491da80000c4c}{T\+I\+D\+Y\+I\+NG} = 2 $<$$<$ C\+O\+U\+N\+T\+\_\+\+B\+I\+TS
+\begin{DoxyCompactList}\small\item\em 不再接受新任务,队列中的任务将比抛弃 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a15bb29c714876435f3c59cd0137ac074}\label{classThreadPoolExecutor_a15bb29c714876435f3c59cd0137ac074}} 
+const int32\+\_\+t \hyperlink{classThreadPoolExecutor_a15bb29c714876435f3c59cd0137ac074}{T\+E\+R\+M\+I\+N\+A\+T\+ED} = 3 $<$$<$ C\+O\+U\+N\+T\+\_\+\+B\+I\+TS
+\begin{DoxyCompactList}\small\item\em 所有线程已经释放,任务队列为空,会调用terminated() \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_ac4496adc7a7ff18b97464a863fcf4a73}\label{classThreadPoolExecutor_ac4496adc7a7ff18b97464a863fcf4a73}} 
+int \hyperlink{classThreadPoolExecutor_ac4496adc7a7ff18b97464a863fcf4a73}{core\+Pool\+Size\+\_\+}
+\begin{DoxyCompactList}\small\item\em 线程池关闭,\hyperlink{classThreadPoolExecutor_a61774315237123faf8e7fcc9d35ae47d}{terminated()}函数已经执行 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a7fb9fd51e0a4b27277012c16596b9137}\label{classThreadPoolExecutor_a7fb9fd51e0a4b27277012c16596b9137}} 
+int {\bfseries max\+Pool\+Size\+\_\+}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a34c5c9c9178c0d60c196e803afa641fe}\label{classThreadPoolExecutor_a34c5c9c9178c0d60c196e803afa641fe}} 
+size\+\_\+t {\bfseries submit\+Id\+\_\+} \{0\}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_acf28232c8314da96403992137fdd1c2f}\label{classThreadPoolExecutor_acf28232c8314da96403992137fdd1c2f}} 
+std\+::string {\bfseries prefix\+\_\+}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a8d4f00a5fe63b64cd1b90da33dffc128}\label{classThreadPoolExecutor_a8d4f00a5fe63b64cd1b90da33dffc128}} 
+volatile bool {\bfseries non\+Core\+Thread\+Alive\+\_\+} \{false\}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_ad8f4e68f28d617749537036f6e688b8c}\label{classThreadPoolExecutor_ad8f4e68f28d617749537036f6e688b8c}} 
+std\+::atomic$<$ int $>$ {\bfseries ever\+Pool\+Size\+\_\+} \{0\}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a2ef0eea2a8ca7a03bd9d361ced31f71b}\label{classThreadPoolExecutor_a2ef0eea2a8ca7a03bd9d361ced31f71b}} 
+std\+::mutex {\bfseries mutex\+\_\+}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_af4f94013afa2ddf003b2f8ff7f7a8fad}\label{classThreadPoolExecutor_af4f94013afa2ddf003b2f8ff7f7a8fad}} 
+std\+::mutex {\bfseries thread\+Mutex\+\_\+}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a010113b7aac17ef364d417c485263873}\label{classThreadPoolExecutor_a010113b7aac17ef364d417c485263873}} 
+std\+::atomic\+\_\+int32\+\_\+t {\bfseries ctl\+\_\+}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_ad523af8548ca8f1dae80cb295ee567b3}\label{classThreadPoolExecutor_ad523af8548ca8f1dae80cb295ee567b3}} 
+std\+::condition\+\_\+variable {\bfseries not\+Empty\+\_\+}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a47dd74330fa41d01067943b1db74818a}\label{classThreadPoolExecutor_a47dd74330fa41d01067943b1db74818a}} 
+std\+::vector$<$ Thread\+::sptr $>$ {\bfseries threads\+\_\+}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a415491f8f40c0fcb99e7ec25cdd209d0}\label{classThreadPoolExecutor_a415491f8f40c0fcb99e7ec25cdd209d0}} 
+std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ Runnable\+::sptr $>$ $>$ {\bfseries work\+Queues\+\_\+}
+\item 
+\mbox{\Hypertarget{classThreadPoolExecutor_a347041db412b03aa09dd4e9b3beaa391}\label{classThreadPoolExecutor_a347041db412b03aa09dd4e9b3beaa391}} 
+std\+::unique\+\_\+ptr$<$ \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} $>$ {\bfseries reject\+Handler\+\_\+}
+\end{DoxyCompactItemize}
 
 
 \subsection{详细描述}
 线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务 
 
 \subsection{构造及析构函数说明}
-\mbox{\Hypertarget{classThreadPoolExecutor_a23c3df3798fd2141637fc57b7de601d0}\label{classThreadPoolExecutor_a23c3df3798fd2141637fc57b7de601d0}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a212b34b7e25e9eba4e096473a1b81f9e}\label{classThreadPoolExecutor_a212b34b7e25e9eba4e096473a1b81f9e}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{Thread\+Pool\+Executor()}{ThreadPoolExecutor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily Thread\+Pool\+Executor\+::\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size,  }\item[{int32\+\_\+t}]{max\+Pool\+Size,  }\item[{const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable}{Runnable} $>$$>$ \&}]{work\+Queue,  }\item[{const \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} \&}]{handler,  }\item[{std\+::string}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily Thread\+Pool\+Executor\+::\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size,  }\item[{int32\+\_\+t}]{max\+Pool\+Size,  }\item[{const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ Runnable\+::sptr $>$$>$ \&}]{work\+Queue,  }\item[{const \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} \&}]{handler,  }\item[{const std\+::string \&}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
@@ -136,11 +209,11 @@ static bool \hyperlink{classThreadPoolExecutor_a6a08024efe3dd52349a4c3cc3e816223
 {\em prefix} & 线程名前缀 \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classThreadPoolExecutor_afe143198e44e4d896b0ada2307514d67}\label{classThreadPoolExecutor_afe143198e44e4d896b0ada2307514d67}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_ab750236e7b95489a1cb66d4b026717fc}\label{classThreadPoolExecutor_ab750236e7b95489a1cb66d4b026717fc}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{Thread\+Pool\+Executor()}{ThreadPoolExecutor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily Thread\+Pool\+Executor\+::\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size,  }\item[{int32\+\_\+t}]{max\+Pool\+Size,  }\item[{std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable}{Runnable} $>$$>$ $\ast$}]{work\+Queue,  }\item[{\hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} $\ast$}]{handler,  }\item[{std\+::string}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily Thread\+Pool\+Executor\+::\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size,  }\item[{int32\+\_\+t}]{max\+Pool\+Size,  }\item[{const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ Runnable\+::sptr $>$$>$ \&}]{work\+Queue,  }\item[{\hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} $\ast$}]{handler,  }\item[{const std\+::string \&}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
@@ -159,11 +232,11 @@ static bool \hyperlink{classThreadPoolExecutor_a6a08024efe3dd52349a4c3cc3e816223
 {\em prefix} & 线程名前缀 \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classThreadPoolExecutor_a1d65f9842fd50425cf3ba82c4ffee246}\label{classThreadPoolExecutor_a1d65f9842fd50425cf3ba82c4ffee246}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a071bcc9eb42b365e2ce28a32938d422e}\label{classThreadPoolExecutor_a071bcc9eb42b365e2ce28a32938d422e}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{Thread\+Pool\+Executor()}{ThreadPoolExecutor()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily Thread\+Pool\+Executor\+::\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size,  }\item[{int32\+\_\+t}]{max\+Pool\+Size,  }\item[{std\+::string}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily Thread\+Pool\+Executor\+::\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size,  }\item[{int32\+\_\+t}]{max\+Pool\+Size,  }\item[{const std\+::string \&}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
@@ -181,11 +254,11 @@ static bool \hyperlink{classThreadPoolExecutor_a6a08024efe3dd52349a4c3cc3e816223
 
 
 \subsection{成员函数说明}
-\mbox{\Hypertarget{classThreadPoolExecutor_af961c5c8f699e77673627a19aad363f6}\label{classThreadPoolExecutor_af961c5c8f699e77673627a19aad363f6}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_aec8e7c250025db138cde555d759c8194}\label{classThreadPoolExecutor_aec8e7c250025db138cde555d759c8194}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!add\+Worker@{add\+Worker}}
 \index{add\+Worker@{add\+Worker}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
-\subsubsection{\texorpdfstring{add\+Worker()}{addWorker()}}
-{\footnotesize\ttfamily bool Thread\+Pool\+Executor\+::add\+Worker (\begin{DoxyParamCaption}\item[{const \hyperlink{classRunnable}{Runnable}}]{first\+Task,  }\item[{bool}]{core = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+\subsubsection{\texorpdfstring{add\+Worker()}{addWorker()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::add\+Worker (\begin{DoxyParamCaption}\item[{\hyperlink{classRunnable}{Runnable}}]{task,  }\item[{bool}]{core = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -193,7 +266,7 @@ add\+Worker 将任务添加到队列
 
 
 \begin{DoxyParams}{参数}
-{\em first\+Task} & 任务 \\
+{\em task} & 任务 \\
 \hline
 {\em core} & 是否使用核心线程\\
 \hline
@@ -201,11 +274,31 @@ add\+Worker 将任务添加到队列
 \begin{DoxyReturn}{返回}
 true -\/ 添加成功 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a554449ac43b629a1daced2000d730ecf}\label{classThreadPoolExecutor_a554449ac43b629a1daced2000d730ecf}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_ac2615dd9c245049110104603289beb54}\label{classThreadPoolExecutor_ac2615dd9c245049110104603289beb54}} 
+\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!add\+Worker@{add\+Worker}}
+\index{add\+Worker@{add\+Worker}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{add\+Worker()}{addWorker()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::add\+Worker (\begin{DoxyParamCaption}\item[{Runnable\+::sptr}]{task,  }\item[{bool}]{core = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+add\+Worker 将任务添加到队列 
+
+
+\begin{DoxyParams}{参数}
+{\em task} & 任务 \\
+\hline
+{\em core} & 是否使用核心线程\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true -\/ 添加成功 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classThreadPoolExecutor_abaa3926310766a93b7fe1d83b77efdae}\label{classThreadPoolExecutor_abaa3926310766a93b7fe1d83b77efdae}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!advance\+Run\+State@{advance\+Run\+State}}
 \index{advance\+Run\+State@{advance\+Run\+State}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{advance\+Run\+State()}{advanceRunState()}}
-{\footnotesize\ttfamily virtual void Thread\+Pool\+Executor\+::advance\+Run\+State (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{target\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual void Thread\+Pool\+Executor\+::advance\+Run\+State (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{target\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -231,11 +324,15 @@ core\+Worker\+Thread 线程池主循环
 {\em queue\+Idex} & 任务队列位置 \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classThreadPoolExecutor_a73773038a4cce87d62e1c7715670aee7}\label{classThreadPoolExecutor_a73773038a4cce87d62e1c7715670aee7}} 
+
+
+被 \hyperlink{classWorkStealingPoolExecutor_ae0445ee114ceec03cf9513c394df7c89}{Work\+Stealing\+Pool\+Executor} 重载.
+
+\mbox{\Hypertarget{classThreadPoolExecutor_a31ed7a73571c79c8dbb486f27a4df4eb}\label{classThreadPoolExecutor_a31ed7a73571c79c8dbb486f27a4df4eb}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!ctl\+Of@{ctl\+Of}}
 \index{ctl\+Of@{ctl\+Of}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{ctl\+Of()}{ctlOf()}}
-{\footnotesize\ttfamily static int32\+\_\+t Thread\+Pool\+Executor\+::ctl\+Of (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{rs,  }\item[{int32\+\_\+t}]{wc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily virtual int32\+\_\+t Thread\+Pool\+Executor\+::ctl\+Of (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{rs,  }\item[{int32\+\_\+t}]{wc }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -251,11 +348,11 @@ ctl\+Of 控制变量初始化
 \begin{DoxyReturn}{返回}
 控制变量的值 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_adb3c813875b9abfad2e6d67dabab2d53}\label{classThreadPoolExecutor_adb3c813875b9abfad2e6d67dabab2d53}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a4dac3c2435919af5d77aa36069d35bc7}\label{classThreadPoolExecutor_a4dac3c2435919af5d77aa36069d35bc7}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!execute@{execute}}
 \index{execute@{execute}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
-\subsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::execute (\begin{DoxyParamCaption}\item[{const \hyperlink{classRunnable}{Runnable} \&}]{command,  }\item[{bool}]{core = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+\subsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool Thread\+Pool\+Executor\+::execute (\begin{DoxyParamCaption}\item[{Runnable\+::sptr}]{command,  }\item[{bool}]{core = {\ttfamily true} }\end{DoxyParamCaption})}
 
 
 
@@ -263,7 +360,7 @@ execute 在将来某个时候执行给定的任务,无返回值, 任务可以在
 
 
 \begin{DoxyParams}{参数}
-{\em command} & 要执行的任务(Runnable或函数或lambda) \\
+{\em command} & 要执行的任务(Runnable的子类shared\+\_\+ptr),任务执行完依然能够拿到结果 \\
 \hline
 {\em core} & 是否使用核心线程\\
 \hline
@@ -271,11 +368,31 @@ execute 在将来某个时候执行给定的任务,无返回值, 任务可以在
 \begin{DoxyReturn}{返回}
 true -\/ 添加成功 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_ae24770a14741a5d320da4cc78f01c2d6}\label{classThreadPoolExecutor_ae24770a14741a5d320da4cc78f01c2d6}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a523df0545790ef03a82623b05e3b20f9}\label{classThreadPoolExecutor_a523df0545790ef03a82623b05e3b20f9}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!execute@{execute}}
 \index{execute@{execute}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
-\subsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::execute (\begin{DoxyParamCaption}\item[{\hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable}{Runnable} $>$ \&}]{commands,  }\item[{bool}]{core = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+\subsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::execute (\begin{DoxyParamCaption}\item[{\hyperlink{classRunnable}{Runnable} \&}]{command,  }\item[{bool}]{core = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+execute 在将来某个时候执行给定的任务,无返回值, 任务可以在新线程或现有的合并的线程中执行, 向任务队列提交的是任务副本 不会抛出异常 
+
+
+\begin{DoxyParams}{参数}
+{\em command} & 要执行的任务(Runnable或函数或lambda),任务会被用std\+::move(转移), 任务结束后就会消失 \\
+\hline
+{\em core} & 是否使用核心线程\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true -\/ 添加成功 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classThreadPoolExecutor_a451bba3f90dbed2ba7e491ebc391b3c6}\label{classThreadPoolExecutor_a451bba3f90dbed2ba7e491ebc391b3c6}} 
+\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!execute@{execute}}
+\index{execute@{execute}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{execute()}{execute()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::execute (\begin{DoxyParamCaption}\item[{\hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ Runnable\+::sptr $>$ \&}]{commands,  }\item[{bool}]{core = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -291,11 +408,11 @@ execute 在将来某个时候执行给定的任务,无返回值, 任务可以在
 \begin{DoxyReturn}{返回}
 true -\/ 任务全部放入执行队列 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_aff3ba9327ffbc4d5660f7600f1199c76}\label{classThreadPoolExecutor_aff3ba9327ffbc4d5660f7600f1199c76}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_ac9345329aa167200bec31951d2f5a690}\label{classThreadPoolExecutor_ac9345329aa167200bec31951d2f5a690}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!get\+Active\+Count@{get\+Active\+Count}}
 \index{get\+Active\+Count@{get\+Active\+Count}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{get\+Active\+Count()}{getActiveCount()}}
-{\footnotesize\ttfamily virtual int Thread\+Pool\+Executor\+::get\+Active\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual int Thread\+Pool\+Executor\+::get\+Active\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -304,11 +421,11 @@ get\+Active\+Count 返回正在执行任务的线程的大概数量
 \begin{DoxyReturn}{返回}
 线程数 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a9099318ba5cab5dd05f219babba4b6b7}\label{classThreadPoolExecutor_a9099318ba5cab5dd05f219babba4b6b7}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_af29377a50af53031bb06aeacf9ef27f7}\label{classThreadPoolExecutor_af29377a50af53031bb06aeacf9ef27f7}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!get\+Core\+Pool\+Size@{get\+Core\+Pool\+Size}}
 \index{get\+Core\+Pool\+Size@{get\+Core\+Pool\+Size}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{get\+Core\+Pool\+Size()}{getCorePoolSize()}}
-{\footnotesize\ttfamily int Thread\+Pool\+Executor\+::get\+Core\+Pool\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily virtual int Thread\+Pool\+Executor\+::get\+Core\+Pool\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -317,11 +434,11 @@ get\+Core\+Pool\+Size 返回核心线程数
 \begin{DoxyReturn}{返回}
 核心线程数 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a95b11de2c239d02800cc388f2f20bc4b}\label{classThreadPoolExecutor_a95b11de2c239d02800cc388f2f20bc4b}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_af630e5117b4f67428a4fcbee5c15a7d9}\label{classThreadPoolExecutor_af630e5117b4f67428a4fcbee5c15a7d9}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!get\+Ever\+Pool\+Size@{get\+Ever\+Pool\+Size}}
 \index{get\+Ever\+Pool\+Size@{get\+Ever\+Pool\+Size}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{get\+Ever\+Pool\+Size()}{getEverPoolSize()}}
-{\footnotesize\ttfamily virtual int Thread\+Pool\+Executor\+::get\+Ever\+Pool\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual int Thread\+Pool\+Executor\+::get\+Ever\+Pool\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -330,11 +447,11 @@ get\+Largest\+Pool\+Size 返回池中使用过的线程数
 \begin{DoxyReturn}{返回}
 线程数 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a61e8321202e6b0f6ea014485e8e10450}\label{classThreadPoolExecutor_a61e8321202e6b0f6ea014485e8e10450}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a396d50079b39787928ead5f122781de6}\label{classThreadPoolExecutor_a396d50079b39787928ead5f122781de6}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!get\+Task\+Count@{get\+Task\+Count}}
 \index{get\+Task\+Count@{get\+Task\+Count}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{get\+Task\+Count()}{getTaskCount()}}
-{\footnotesize\ttfamily virtual long Thread\+Pool\+Executor\+::get\+Task\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual long Thread\+Pool\+Executor\+::get\+Task\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -343,11 +460,11 @@ get\+Task\+Count 得到任务队列大小
 \begin{DoxyReturn}{返回}
 任务队列大小 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a6a08024efe3dd52349a4c3cc3e816223}\label{classThreadPoolExecutor_a6a08024efe3dd52349a4c3cc3e816223}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a841ae2189d6f85b9df9f69dec5375341}\label{classThreadPoolExecutor_a841ae2189d6f85b9df9f69dec5375341}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!is\+Running@{is\+Running}}
 \index{is\+Running@{is\+Running}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{is\+Running()}{isRunning()}}
-{\footnotesize\ttfamily static bool Thread\+Pool\+Executor\+::is\+Running (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::is\+Running (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -361,11 +478,11 @@ is\+Running 是否还在运行
 \begin{DoxyReturn}{返回}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a37702302c7a946b998ce92048ce68e2f}\label{classThreadPoolExecutor_a37702302c7a946b998ce92048ce68e2f}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_ac33c356670eabe5345992331e615348c}\label{classThreadPoolExecutor_ac33c356670eabe5345992331e615348c}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!is\+Shut\+Down@{is\+Shut\+Down}}
 \index{is\+Shut\+Down@{is\+Shut\+Down}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{is\+Shut\+Down()}{isShutDown()}}
-{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::is\+Shut\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::is\+Shut\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -374,11 +491,11 @@ is\+Shut\+Down 判断线程池是否shutdown
 \begin{DoxyReturn}{返回}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a7febfdf06752de6e4114f1de3ae9b135}\label{classThreadPoolExecutor_a7febfdf06752de6e4114f1de3ae9b135}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a89ed68d6c67ad6fbde73b7883c8107a7}\label{classThreadPoolExecutor_a89ed68d6c67ad6fbde73b7883c8107a7}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!is\+Terminated@{is\+Terminated}}
 \index{is\+Terminated@{is\+Terminated}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{is\+Terminated()}{isTerminated()}}
-{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::is\+Terminated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::is\+Terminated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -387,11 +504,11 @@ is\+Terminated 判断线程池是否terminated
 \begin{DoxyReturn}{返回}
 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a334329e0226ed0e540bc3ebc52e8817e}\label{classThreadPoolExecutor_a334329e0226ed0e540bc3ebc52e8817e}} 
-\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!non\+Core\+Thread\+Alive@{non\+Core\+Thread\+Alive}}
-\index{non\+Core\+Thread\+Alive@{non\+Core\+Thread\+Alive}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
-\subsubsection{\texorpdfstring{non\+Core\+Thread\+Alive()}{nonCoreThreadAlive()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily bool Thread\+Pool\+Executor\+::non\+Core\+Thread\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{classThreadPoolExecutor_ac2aa11f7cde6e6082eb0dde8f2385dce}\label{classThreadPoolExecutor_ac2aa11f7cde6e6082eb0dde8f2385dce}} 
+\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!keep\+Non\+Core\+Thread\+Alive@{keep\+Non\+Core\+Thread\+Alive}}
+\index{keep\+Non\+Core\+Thread\+Alive@{keep\+Non\+Core\+Thread\+Alive}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{keep\+Non\+Core\+Thread\+Alive()}{keepNonCoreThreadAlive()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::keep\+Non\+Core\+Thread\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -400,11 +517,11 @@ non\+Core\+Thread\+Alive 是否允许非核心线程超时,若允许则线程执
 \begin{DoxyReturn}{返回}
 ture -\/ 允许非核心thread超时 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a0079d82c3ef52770771f5954debcdfd7}\label{classThreadPoolExecutor_a0079d82c3ef52770771f5954debcdfd7}} 
-\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!non\+Core\+Thread\+Alive@{non\+Core\+Thread\+Alive}}
-\index{non\+Core\+Thread\+Alive@{non\+Core\+Thread\+Alive}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
-\subsubsection{\texorpdfstring{non\+Core\+Thread\+Alive()}{nonCoreThreadAlive()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Thread\+Pool\+Executor\+::non\+Core\+Thread\+Alive (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classThreadPoolExecutor_a7e6ed2d088147377d1e82018ac3dac1d}\label{classThreadPoolExecutor_a7e6ed2d088147377d1e82018ac3dac1d}} 
+\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!keep\+Non\+Core\+Thread\+Alive@{keep\+Non\+Core\+Thread\+Alive}}
+\index{keep\+Non\+Core\+Thread\+Alive@{keep\+Non\+Core\+Thread\+Alive}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{keep\+Non\+Core\+Thread\+Alive()}{keepNonCoreThreadAlive()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Thread\+Pool\+Executor\+::keep\+Non\+Core\+Thread\+Alive (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -415,11 +532,26 @@ non\+Core\+Thread\+Alive 设置是否允许非核心thread超时并且在没有�
 {\em value} & ture或false \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classThreadPoolExecutor_a23a7c5908db3ef6f0e2afba6f0ca0450}\label{classThreadPoolExecutor_a23a7c5908db3ef6f0e2afba6f0ca0450}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a14c4e3d786dcf22e858b11a95d2f77ef}\label{classThreadPoolExecutor_a14c4e3d786dcf22e858b11a95d2f77ef}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!reject@{reject}}
 \index{reject@{reject}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
-\subsubsection{\texorpdfstring{reject()}{reject()}}
-{\footnotesize\ttfamily virtual void Thread\+Pool\+Executor\+::reject (\begin{DoxyParamCaption}\item[{const \hyperlink{classRunnable}{Runnable} \&}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+\subsubsection{\texorpdfstring{reject()}{reject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Thread\+Pool\+Executor\+::reject (\begin{DoxyParamCaption}\item[{const \hyperlink{classRunnable}{Runnable} \&}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+reject 将任务抛弃 
+
+
+\begin{DoxyParams}{参数}
+{\em command} & 要抛弃的任务 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classThreadPoolExecutor_a353e65b77bb3c0950ed79939473d4852}\label{classThreadPoolExecutor_a353e65b77bb3c0950ed79939473d4852}} 
+\index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!reject@{reject}}
+\index{reject@{reject}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{reject()}{reject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Thread\+Pool\+Executor\+::reject (\begin{DoxyParamCaption}\item[{const Runnable\+::sptr}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -445,11 +577,11 @@ release\+Non\+Core\+Threads 释放空闲线程(释放线程资源,并弹出线�
 {\em only\+One} & 是否至终止一个空闲线程,默认终止所有线程 \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classThreadPoolExecutor_a5c20cff76deba933ace0f5a9f19ed5fd}\label{classThreadPoolExecutor_a5c20cff76deba933ace0f5a9f19ed5fd}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a44ee48ed44faa12fc6373074e9059e4e}\label{classThreadPoolExecutor_a44ee48ed44faa12fc6373074e9059e4e}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!run\+State\+At\+Least@{run\+State\+At\+Least}}
 \index{run\+State\+At\+Least@{run\+State\+At\+Least}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{run\+State\+At\+Least()}{runStateAtLeast()}}
-{\footnotesize\ttfamily static bool Thread\+Pool\+Executor\+::run\+State\+At\+Least (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::run\+State\+At\+Least (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -465,11 +597,11 @@ run\+State\+At\+Least 运行状态最少是
 \begin{DoxyReturn}{返回}
 bool c $<$ s 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a697d1afa93650fe597228fd5fb7b725b}\label{classThreadPoolExecutor_a697d1afa93650fe597228fd5fb7b725b}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_aa12a3efb879080453fb7abc486585698}\label{classThreadPoolExecutor_aa12a3efb879080453fb7abc486585698}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!run\+State\+Less\+Than@{run\+State\+Less\+Than}}
 \index{run\+State\+Less\+Than@{run\+State\+Less\+Than}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{run\+State\+Less\+Than()}{runStateLessThan()}}
-{\footnotesize\ttfamily static bool Thread\+Pool\+Executor\+::run\+State\+Less\+Than (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::run\+State\+Less\+Than (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -485,11 +617,11 @@ run\+State\+Less\+Than 状态低于
 \begin{DoxyReturn}{返回}
 bool c $<$ s 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_aa7ca2a35d562746df0d77bd043bb75f0}\label{classThreadPoolExecutor_aa7ca2a35d562746df0d77bd043bb75f0}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_acdb626fdcb6ed4c7822508d1e0a3fcf5}\label{classThreadPoolExecutor_acdb626fdcb6ed4c7822508d1e0a3fcf5}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!run\+State\+Of@{run\+State\+Of}}
 \index{run\+State\+Of@{run\+State\+Of}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{run\+State\+Of()}{runStateOf()}}
-{\footnotesize\ttfamily static int Thread\+Pool\+Executor\+::run\+State\+Of (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily virtual int Thread\+Pool\+Executor\+::run\+State\+Of (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -503,11 +635,11 @@ run\+State\+Of 得到线程池状态
 \begin{DoxyReturn}{返回}
 运行状态 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_aaada9deadf7c0f72bca5076deaa8c92f}\label{classThreadPoolExecutor_aaada9deadf7c0f72bca5076deaa8c92f}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a56311f5d8aefa64b8c67fd9ff89c204c}\label{classThreadPoolExecutor_a56311f5d8aefa64b8c67fd9ff89c204c}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!set\+Core\+Pool\+Size@{set\+Core\+Pool\+Size}}
 \index{set\+Core\+Pool\+Size@{set\+Core\+Pool\+Size}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{set\+Core\+Pool\+Size()}{setCorePoolSize()}}
-{\footnotesize\ttfamily bool Thread\+Pool\+Executor\+::set\+Core\+Pool\+Size (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual bool Thread\+Pool\+Executor\+::set\+Core\+Pool\+Size (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -516,11 +648,11 @@ set\+Core\+Pool\+Size 设置核心线程数。 这将覆盖在构造函数中设
 \begin{DoxyReturn}{返回}
 void 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_a83e9e3715fdacc5b2f08b563d39bb62b}\label{classThreadPoolExecutor_a83e9e3715fdacc5b2f08b563d39bb62b}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_ac5a10d336958ca43530b31bff81c9c4b}\label{classThreadPoolExecutor_ac5a10d336958ca43530b31bff81c9c4b}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!set\+Max\+Pool\+Size@{set\+Max\+Pool\+Size}}
 \index{set\+Max\+Pool\+Size@{set\+Max\+Pool\+Size}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{set\+Max\+Pool\+Size()}{setMaxPoolSize()}}
-{\footnotesize\ttfamily void Thread\+Pool\+Executor\+::set\+Max\+Pool\+Size (\begin{DoxyParamCaption}\item[{int}]{max\+Pool\+Size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual void Thread\+Pool\+Executor\+::set\+Max\+Pool\+Size (\begin{DoxyParamCaption}\item[{int}]{max\+Pool\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -531,11 +663,11 @@ set\+Max\+Pool\+Size 设置允许的最大线程数。 这将覆盖在构造函�
 {\em max\+Pool\+Size} & 新的最大值 \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classThreadPoolExecutor_a0e8838b0dcb195c2b4693bdab1eacf39}\label{classThreadPoolExecutor_a0e8838b0dcb195c2b4693bdab1eacf39}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a0a471dc0a68b70d99d8215565a4df688}\label{classThreadPoolExecutor_a0a471dc0a68b70d99d8215565a4df688}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!set\+Rejected\+Execution\+Handler@{set\+Rejected\+Execution\+Handler}}
 \index{set\+Rejected\+Execution\+Handler@{set\+Rejected\+Execution\+Handler}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{set\+Rejected\+Execution\+Handler()}{setRejectedExecutionHandler()}}
-{\footnotesize\ttfamily virtual void Thread\+Pool\+Executor\+::set\+Rejected\+Execution\+Handler (\begin{DoxyParamCaption}\item[{\hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler}}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual void Thread\+Pool\+Executor\+::set\+Rejected\+Execution\+Handler (\begin{DoxyParamCaption}\item[{\hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler}}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -546,11 +678,11 @@ set\+Rejected\+Execution\+Handler 设置新的任务拒绝策略
 {\em handler} & Rejected\+Execution\+Handler类对象 \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classThreadPoolExecutor_a560e912bb988292e81d16274e3d4a5d8}\label{classThreadPoolExecutor_a560e912bb988292e81d16274e3d4a5d8}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a1ee7a201ac0a8c9bd246a83939e39194}\label{classThreadPoolExecutor_a1ee7a201ac0a8c9bd246a83939e39194}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!start\+Core\+Threads@{start\+Core\+Threads}}
 \index{start\+Core\+Threads@{start\+Core\+Threads}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{start\+Core\+Threads()}{startCoreThreads()}}
-{\footnotesize\ttfamily int Thread\+Pool\+Executor\+::start\+Core\+Threads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual int Thread\+Pool\+Executor\+::start\+Core\+Threads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
@@ -593,11 +725,11 @@ to\+String 返回标识此池的字符串及其状态，包括运行状态和估
 \begin{DoxyReturn}{返回}
 一个标识这个池的字符串，以及它的状态 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classThreadPoolExecutor_af00080b50ff18ef719078b14b3df7291}\label{classThreadPoolExecutor_af00080b50ff18ef719078b14b3df7291}} 
+\mbox{\Hypertarget{classThreadPoolExecutor_a4f842d070a584bbc16a693207a947aac}\label{classThreadPoolExecutor_a4f842d070a584bbc16a693207a947aac}} 
 \index{Thread\+Pool\+Executor@{Thread\+Pool\+Executor}!worker\+Count\+Of@{worker\+Count\+Of}}
 \index{worker\+Count\+Of@{worker\+Count\+Of}!Thread\+Pool\+Executor@{Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{worker\+Count\+Of()}{workerCountOf()}}
-{\footnotesize\ttfamily static int Thread\+Pool\+Executor\+::worker\+Count\+Of (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily virtual int Thread\+Pool\+Executor\+::worker\+Count\+Of (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [final]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -626,6 +758,10 @@ worker\+Thread 非核心线程循环
 {\em queue\+Idex} & 任务队列位置 \\
 \hline
 \end{DoxyParams}
+
+
+被 \hyperlink{classWorkStealingPoolExecutor_ad00399d153ba5d77704dae2c1816b566}{Work\+Stealing\+Pool\+Executor} 重载.
+
 
 
 该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}

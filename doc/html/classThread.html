@@ -64,9 +64,7 @@ $(function() {
 <a href="#nested-classes">类</a> &#124;
 <a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
-<a href="#pro-static-attribs">静态 Protected 属性</a> &#124;
 <a href="classThread-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
 <div class="title">Thread类 参考</div>  </div>
@@ -130,15 +128,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:ae816904b2a3e248472813e17c2b12a71"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#ae816904b2a3e248472813e17c2b12a71">setName</a> (const std::string &amp;name) final</td></tr>
 <tr class="memdesc:ae816904b2a3e248472813e17c2b12a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">setName 设置线程名称  <a href="#ae816904b2a3e248472813e17c2b12a71">更多...</a><br /></td></tr>
 <tr class="separator:ae816904b2a3e248472813e17c2b12a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2940721084b607bbc2981e8754ea2d9c"><td class="memItemLeft" align="right" valign="top">virtual pid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a2940721084b607bbc2981e8754ea2d9c">getCurrentPid</a> () const final</td></tr>
-<tr class="memdesc:a2940721084b607bbc2981e8754ea2d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">getCurrentPid 获取Linux底层线程id, start之后才有效,-1表示线程已经结束  <a href="#a2940721084b607bbc2981e8754ea2d9c">更多...</a><br /></td></tr>
-<tr class="separator:a2940721084b607bbc2981e8754ea2d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7fd4dfa0edff93d118b2edf5ab7be2c"><td class="memItemLeft" align="right" valign="top">virtual pid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#ad7fd4dfa0edff93d118b2edf5ab7be2c">getPid</a> () const final</td></tr>
+<tr class="memdesc:ad7fd4dfa0edff93d118b2edf5ab7be2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">getCurrentPid 获取Linux底层线程id, start之后才有效,-1表示线程已经结束  <a href="#ad7fd4dfa0edff93d118b2edf5ab7be2c">更多...</a><br /></td></tr>
+<tr class="separator:ad7fd4dfa0edff93d118b2edf5ab7be2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23de6830557bdbe18a0baf17db58aec6"><td class="memItemLeft" align="right" valign="top">virtual std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a23de6830557bdbe18a0baf17db58aec6">getLastActiveTime</a> () const final</td></tr>
 <tr class="memdesc:a23de6830557bdbe18a0baf17db58aec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">getLastActiveTime 上一次活跃时间  <a href="#a23de6830557bdbe18a0baf17db58aec6">更多...</a><br /></td></tr>
 <tr class="separator:a23de6830557bdbe18a0baf17db58aec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe37a59eed637eebb11d4ce75f4d95c7"><td class="memItemLeft" align="right" valign="top">virtual uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#abe37a59eed637eebb11d4ce75f4d95c7">uniqueId</a> () const final</td></tr>
-<tr class="memdesc:abe37a59eed637eebb11d4ce75f4d95c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">uniqueId 获取线程uniqueId  <a href="#abe37a59eed637eebb11d4ce75f4d95c7">更多...</a><br /></td></tr>
-<tr class="separator:abe37a59eed637eebb11d4ce75f4d95c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a231da16ab1825ee982c4aa43f78c1b22"><td class="memItemLeft" align="right" valign="top">virtual std::thread::id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a231da16ab1825ee982c4aa43f78c1b22">stdId</a> () final</td></tr>
 <tr class="memdesc:a231da16ab1825ee982c4aa43f78c1b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">stdId 获取线程thread::id  <a href="#a231da16ab1825ee982c4aa43f78c1b22">更多...</a><br /></td></tr>
 <tr class="separator:a231da16ab1825ee982c4aa43f78c1b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,12 +162,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <a class="el" href="classThread.html">Thread</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classThread.html">Thread</a> &amp;)=delete</td></tr>
 <tr class="separator:a832b2ddff787923f27430d95df55c83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a7e6f38efc79df2e36e0ac9e0f7c1a833"><td class="memItemLeft" align="right" valign="top"><a id="a7e6f38efc79df2e36e0ac9e0f7c1a833"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>getNextId</b> ()</td></tr>
-<tr class="separator:a7e6f38efc79df2e36e0ac9e0f7c1a833"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
 <tr class="memitem:a23541f34356cb161bb5fe6026bb3000a"><td class="memItemLeft" align="right" valign="top"><a id="a23541f34356cb161bb5fe6026bb3000a"></a>
@@ -184,13 +173,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>prio_</b></td></tr>
 <tr class="memitem:a0c0878a96696bbb092a69bc2f1f812fd"><td class="memItemLeft" align="right" valign="top"><a id="a0c0878a96696bbb092a69bc2f1f812fd"></a>
 pid_t&#160;</td><td class="memItemRight" valign="bottom"><b>currentPid_</b> {-1}</td></tr>
 <tr class="separator:a0c0878a96696bbb092a69bc2f1f812fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6087bbfff90554d609fa22b4e4893afb"><td class="memItemLeft" align="right" valign="top"><a id="a6087bbfff90554d609fa22b4e4893afb"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a6087bbfff90554d609fa22b4e4893afb">uniqueId_</a> {nextId_++}</td></tr>
-<tr class="memdesc:a6087bbfff90554d609fa22b4e4893afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">-1表明线程已经执行完任务,unix底层的线程已经不存在了 <br /></td></tr>
-<tr class="separator:a6087bbfff90554d609fa22b4e4893afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa222eb32e5fc8f386d9fb018607acd9c"><td class="memItemLeft" align="right" valign="top"><a id="aa222eb32e5fc8f386d9fb018607acd9c"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#aa222eb32e5fc8f386d9fb018607acd9c">name_</a></td></tr>
-<tr class="memdesc:aa222eb32e5fc8f386d9fb018607acd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前线程id与系统无关 <br /></td></tr>
+<tr class="memdesc:aa222eb32e5fc8f386d9fb018607acd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">-1表明线程已经执行完任务,unix底层的线程已经不存在了 <br /></td></tr>
 <tr class="separator:aa222eb32e5fc8f386d9fb018607acd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad313ba812a7875c743dd0d37d565acfb"><td class="memItemLeft" align="right" valign="top"><a id="ad313ba812a7875c743dd0d37d565acfb"></a>
 std::thread&#160;</td><td class="memItemRight" valign="bottom"><b>thread_</b></td></tr>
@@ -204,12 +189,6 @@ std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign=
 <tr class="memitem:a677202a7d90ebc5a6d4f8b1eab1a1eac"><td class="memItemLeft" align="right" valign="top"><a id="a677202a7d90ebc5a6d4f8b1eab1a1eac"></a>
 std::unique_ptr&lt; <a class="el" href="structThread_1_1Func__base.html">Func_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>func_uptr_</b></td></tr>
 <tr class="separator:a677202a7d90ebc5a6d4f8b1eab1a1eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
-静态 Protected 属性</h2></td></tr>
-<tr class="memitem:ab6f45a9de088d45853895ff98a5db0e8"><td class="memItemLeft" align="right" valign="top"><a id="ab6f45a9de088d45853895ff98a5db0e8"></a>
-static std::atomic&lt; uint64_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nextId_</b></td></tr>
-<tr class="separator:ab6f45a9de088d45853895ff98a5db0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a2375aeb8a227668652d593b180bac64e"></a>
@@ -371,34 +350,6 @@ template&lt;typename FunctionType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="a2940721084b607bbc2981e8754ea2d9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2940721084b607bbc2981e8754ea2d9c">&#9670;&nbsp;</a></span>getCurrentPid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual pid_t Thread::getCurrentPid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>getCurrentPid 获取Linux底层线程id, start之后才有效,-1表示线程已经结束 </p>
-<dl class="section return"><dt>返回</dt><dd>pid_t Linux底层线程id </dd></dl>
-
-</div>
-</div>
 <a id="a23de6830557bdbe18a0baf17db58aec6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23de6830557bdbe18a0baf17db58aec6">&#9670;&nbsp;</a></span>getLastActiveTime()</h2>
 
@@ -452,6 +403,34 @@ template&lt;typename FunctionType &gt; </div>
 
 <p>getName 得到线程名称 </p>
 <dl class="section return"><dt>返回</dt><dd>std::string name线程名称 </dd></dl>
+
+</div>
+</div>
+<a id="ad7fd4dfa0edff93d118b2edf5ab7be2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7fd4dfa0edff93d118b2edf5ab7be2c">&#9670;&nbsp;</a></span>getPid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual pid_t Thread::getPid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getCurrentPid 获取Linux底层线程id, start之后才有效,-1表示线程已经结束 </p>
+<dl class="section return"><dt>返回</dt><dd>pid_t Linux底层线程id </dd></dl>
 
 </div>
 </div>
@@ -688,34 +667,6 @@ template&lt;typename FunctionType &gt; </div>
 
 <p>stdId 获取线程thread::id </p>
 <dl class="section return"><dt>返回</dt><dd>std::thread::id 线程thread::id </dd></dl>
-
-</div>
-</div>
-<a id="abe37a59eed637eebb11d4ce75f4d95c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe37a59eed637eebb11d4ce75f4d95c7">&#9670;&nbsp;</a></span>uniqueId()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual uint64_t Thread::uniqueId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>uniqueId 获取线程uniqueId </p>
-<dl class="section return"><dt>返回</dt><dd>uint64_t 线程uniqueId,便于表示,与操作系统无关 </dd></dl>
 
 </div>
 </div>

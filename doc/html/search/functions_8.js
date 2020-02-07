@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['noncorethreadalive',['nonCoreThreadAlive',['../classThreadPoolExecutor.html#a334329e0226ed0e540bc3ebc52e8817e',1,'ThreadPoolExecutor::nonCoreThreadAlive() const'],['../classThreadPoolExecutor.html#a0079d82c3ef52770771f5954debcdfd7',1,'ThreadPoolExecutor::nonCoreThreadAlive(bool value)']]]
+  ['keepnoncorethreadalive',['keepNonCoreThreadAlive',['../classThreadPoolExecutor.html#ac2aa11f7cde6e6082eb0dde8f2385dce',1,'ThreadPoolExecutor::keepNonCoreThreadAlive() const final'],['../classThreadPoolExecutor.html#a7e6ed2d088147377d1e82018ac3dac1d',1,'ThreadPoolExecutor::keepNonCoreThreadAlive(bool value) final']]]
 ];

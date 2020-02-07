@@ -1,3 +1,4 @@
 <map id="类继承关系图" name="类继承关系图">
-<area shape="rect" id="node1" href="$classScheduledThreadPoolExecutor.html" title="ScheduledThreadPoolExecutor" alt="" coords="5,5,207,32"/>
+<area shape="rect" id="node1" href="$structThread_1_1Func__base.html" title="Thread::Func_base" alt="" coords="5,13,140,39"/>
+<area shape="rect" id="node2" href="$structThread_1_1Func__t.html" title="Thread::Func_t\&lt; Function\lType \&gt;" alt="" coords="188,5,360,47"/>
 </map>

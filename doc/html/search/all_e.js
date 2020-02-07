@@ -1,10 +1,17 @@
 var searchData=
 [
-  ['take',['take',['../classBlockingQueue.html#aac788baea510940fc40961a285bacc5f',1,'BlockingQueue']]],
-  ['terminated',['terminated',['../classThreadPoolExecutor.html#a61774315237123faf8e7fcc9d35ae47d',1,'ThreadPoolExecutor']]],
-  ['thread',['Thread',['../classThread.html',1,'Thread'],['../classThread.html#a2375aeb8a227668652d593b180bac64e',1,'Thread::Thread(int pro, ThreadPoolExecutor *tpe=nullptr)'],['../classThread.html#aa32c32f43d92d235c9e795bea80e9058',1,'Thread::Thread(const std::string &amp;name=&quot;&quot;, int pro=20, ThreadPoolExecutor *tpe=nullptr)'],['../classThread.html#a67eed36a7c4cb621651a6ce40939cf44',1,'Thread::Thread(FunctionType f, const std::string &amp;name=&quot;&quot;, int pro=20, ThreadPoolExecutor *tpe=nullptr)']]],
-  ['threadpoolexecutor',['ThreadPoolExecutor',['../classThreadPoolExecutor.html',1,'ThreadPoolExecutor'],['../classThreadPoolExecutor.html#a23c3df3798fd2141637fc57b7de601d0',1,'ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize, int32_t maxPoolSize, const std::vector&lt; BlockingQueue&lt; Runnable &gt;&gt; &amp;workQueue, const RejectedExecutionHandler &amp;handler, std::string prefix=&quot;&quot;)'],['../classThreadPoolExecutor.html#afe143198e44e4d896b0ada2307514d67',1,'ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize, int32_t maxPoolSize, std::vector&lt; BlockingQueue&lt; Runnable &gt;&gt; *workQueue, RejectedExecutionHandler *handler, std::string prefix=&quot;&quot;)'],['../classThreadPoolExecutor.html#a1d65f9842fd50425cf3ba82c4ffee246',1,'ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize, int32_t maxPoolSize, std::string prefix=&quot;&quot;)']]],
-  ['tostring',['toString',['../classThreadPoolExecutor.html#a8e340cec3bb976f7773db103d73189c2',1,'ThreadPoolExecutor']]],
-  ['try_5fpop',['try_pop',['../classBlockingQueue.html#a47a2d7726112b4e2d7b3f65a4e84aa06',1,'BlockingQueue']]],
-  ['tryterminate',['tryTerminate',['../classThreadPoolExecutor.html#a6b09fafdffb979e7b422d67cb1958c20',1,'ThreadPoolExecutor']]]
+  ['scheduledthreadpoolexecutor',['ScheduledThreadPoolExecutor',['../classScheduledThreadPoolExecutor.html',1,'']]],
+  ['self',['self',['../classThread.html#a554185abbfacbcc4bf2e953cdddcbbba',1,'Thread']]],
+  ['setcorepoolsize',['setCorePoolSize',['../classThreadPoolExecutor.html#a56311f5d8aefa64b8c67fd9ff89c204c',1,'ThreadPoolExecutor']]],
+  ['setmaxpoolsize',['setMaxPoolSize',['../classThreadPoolExecutor.html#ac5a10d336958ca43530b31bff81c9c4b',1,'ThreadPoolExecutor']]],
+  ['setname',['setName',['../classThread.html#ae816904b2a3e248472813e17c2b12a71',1,'Thread']]],
+  ['setprio',['setPrio',['../classThread.html#a96661f80f5fbd26042a24eafd675cd91',1,'Thread']]],
+  ['setrejectedexecutionhandler',['setRejectedExecutionHandler',['../classThreadPoolExecutor.html#a0a471dc0a68b70d99d8215565a4df688',1,'ThreadPoolExecutor']]],
+  ['shutdown',['SHUTDOWN',['../classThreadPoolExecutor.html#aa0958f2bf040bf2f199c629ec9145b44',1,'ThreadPoolExecutor::SHUTDOWN()'],['../classThreadPoolExecutor.html#aaa834c4350d6b12826803bb13dd467ea',1,'ThreadPoolExecutor::shutdown() final']]],
+  ['size',['size',['../classBlockingQueue.html#a733361d5721c6ba64af3e129921c43b0',1,'BlockingQueue']]],
+  ['start',['start',['../classThread.html#a3a36451e02a15180624cdd88212cb1ba',1,'Thread']]],
+  ['startcorethreads',['startCoreThreads',['../classThreadPoolExecutor.html#a1ee7a201ac0a8c9bd246a83939e39194',1,'ThreadPoolExecutor']]],
+  ['stdid',['stdId',['../classThread.html#a231da16ab1825ee982c4aa43f78c1b22',1,'Thread']]],
+  ['stop',['STOP',['../classThreadPoolExecutor.html#ae3c0ff657b3c0d8bbaf7f10bfdf587ca',1,'ThreadPoolExecutor::STOP()'],['../classThreadPoolExecutor.html#a588ec33baf402afd0e1c52b11d9234da',1,'ThreadPoolExecutor::stop() final']]],
+  ['submit',['submit',['../classThreadPoolExecutor.html#a94834ab6bedcc75111524fec4e928b3f',1,'ThreadPoolExecutor::submit()'],['../classWorkStealingPoolExecutor.html#a84571339d5bafe81925c10d27f020ab4',1,'WorkStealingPoolExecutor::submit()']]]
 ];

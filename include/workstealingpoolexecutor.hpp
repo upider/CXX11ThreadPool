@@ -3,6 +3,9 @@
 
 #include "threadpoolexecutor.hpp"
 
+/**
+ * @brief 任务窃取线程池,从下一个线程的任务队列窃取任务
+ */
 class WorkStealingPoolExecutor: public ThreadPoolExecutor {
     public:
         WorkStealingPoolExecutor(int32_t corePoolSize,

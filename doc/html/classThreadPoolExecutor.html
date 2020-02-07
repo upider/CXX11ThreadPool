@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务  
+<p>线程池基本实现,每个线程都有一个任务队列  
  <a href="classThreadPoolExecutor.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="threadpoolexecutor_8hpp_source.html">threadpoolexecutor.hpp</a>&gt;</code></p>
@@ -80,20 +80,20 @@ $(function() {
 <div class="center"><img src="classThreadPoolExecutor__inherit__graph.png" border="0" usemap="#ThreadPoolExecutor_inherit__map" alt="Inheritance graph"/></div>
 <map name="ThreadPoolExecutor_inherit__map" id="ThreadPoolExecutor_inherit__map">
 <area shape="rect" id="node2" href="classScheduledThreadPoolExecutor.html" title="ScheduledThreadPoolExecutor" alt="" coords="5,80,207,107"/>
-<area shape="rect" id="node3" href="classWorkStealingPoolExecutor.html" title="WorkStealingPoolExecutor" alt="" coords="231,80,410,107"/>
+<area shape="rect" id="node3" href="classWorkStealingPoolExecutor.html" title="任务窃取线程池,从下一个线程的任务队列窃取任务 " alt="" coords="231,80,410,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a212b34b7e25e9eba4e096473a1b81f9e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a212b34b7e25e9eba4e096473a1b81f9e">ThreadPoolExecutor</a> (int32_t corePoolSize, int32_t maxPoolSize, const std::vector&lt; <a class="el" href="classBlockingQueue.html">BlockingQueue</a>&lt; Runnable::sptr &gt;&gt; &amp;workQueue, const <a class="el" href="classRejectedExecutionHandler.html">RejectedExecutionHandler</a> &amp;handler, const std::string &amp;prefix=&quot;&quot;)</td></tr>
-<tr class="memdesc:a212b34b7e25e9eba4e096473a1b81f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务 ">ThreadPoolExecutor</a> 构造函数,workQueue的大小要不大于corePoolSize 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常  <a href="#a212b34b7e25e9eba4e096473a1b81f9e">更多...</a><br /></td></tr>
+<tr class="memdesc:a212b34b7e25e9eba4e096473a1b81f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,每个线程都有一个任务队列 ">ThreadPoolExecutor</a> 构造函数,workQueue的大小要不大于corePoolSize 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常  <a href="#a212b34b7e25e9eba4e096473a1b81f9e">更多...</a><br /></td></tr>
 <tr class="separator:a212b34b7e25e9eba4e096473a1b81f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab750236e7b95489a1cb66d4b026717fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#ab750236e7b95489a1cb66d4b026717fc">ThreadPoolExecutor</a> (int32_t corePoolSize, int32_t maxPoolSize, const std::vector&lt; <a class="el" href="classBlockingQueue.html">BlockingQueue</a>&lt; Runnable::sptr &gt;&gt; &amp;workQueue, <a class="el" href="classRejectedExecutionHandler.html">RejectedExecutionHandler</a> *handler, const std::string &amp;prefix=&quot;&quot;)</td></tr>
-<tr class="memdesc:ab750236e7b95489a1cb66d4b026717fc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务 ">ThreadPoolExecutor</a> 构造函数,workQueue的大小要不大于corePoolSize 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常  <a href="#ab750236e7b95489a1cb66d4b026717fc">更多...</a><br /></td></tr>
+<tr class="memdesc:ab750236e7b95489a1cb66d4b026717fc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,每个线程都有一个任务队列 ">ThreadPoolExecutor</a> 构造函数,workQueue的大小要不大于corePoolSize 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常  <a href="#ab750236e7b95489a1cb66d4b026717fc">更多...</a><br /></td></tr>
 <tr class="separator:ab750236e7b95489a1cb66d4b026717fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a071bcc9eb42b365e2ce28a32938d422e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a071bcc9eb42b365e2ce28a32938d422e">ThreadPoolExecutor</a> (int32_t corePoolSize, int32_t maxPoolSize, const std::string &amp;prefix=&quot;&quot;)</td></tr>
-<tr class="memdesc:a071bcc9eb42b365e2ce28a32938d422e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务 ">ThreadPoolExecutor</a> 构造函数,根据corePoolSize构造相同大小的workQueue 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常  <a href="#a071bcc9eb42b365e2ce28a32938d422e">更多...</a><br /></td></tr>
+<tr class="memdesc:a071bcc9eb42b365e2ce28a32938d422e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,每个线程都有一个任务队列 ">ThreadPoolExecutor</a> 构造函数,根据corePoolSize构造相同大小的workQueue 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常  <a href="#a071bcc9eb42b365e2ce28a32938d422e">更多...</a><br /></td></tr>
 <tr class="separator:a071bcc9eb42b365e2ce28a32938d422e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d5a1c3330593f243959256d32068c15"><td class="memItemLeft" align="right" valign="top"><a id="a1d5a1c3330593f243959256d32068c15"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a1d5a1c3330593f243959256d32068c15">~ThreadPoolExecutor</a> ()</td></tr>
@@ -292,7 +292,7 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 <tr class="separator:a347041db412b03aa09dd4e9b3beaa391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p>线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务 </p>
+<div class="textblock"><p>线程池基本实现,每个线程都有一个任务队列 </p>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a212b34b7e25e9eba4e096473a1b81f9e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a212b34b7e25e9eba4e096473a1b81f9e">&#9670;&nbsp;</a></span>ThreadPoolExecutor() <span class="overload">[1/3]</span></h2>
@@ -346,7 +346,7 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务 ">ThreadPoolExecutor</a> 构造函数,workQueue的大小要不大于corePoolSize 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常 </p>
+<p><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,每个线程都有一个任务队列 ">ThreadPoolExecutor</a> 构造函数,workQueue的大小要不大于corePoolSize 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">corePoolSize</td><td>核心线程数 </td></tr>
@@ -412,7 +412,7 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务 ">ThreadPoolExecutor</a> 构造函数,workQueue的大小要不大于corePoolSize 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常 </p>
+<p><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,每个线程都有一个任务队列 ">ThreadPoolExecutor</a> 构造函数,workQueue的大小要不大于corePoolSize 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">corePoolSize</td><td>核心线程数 </td></tr>
@@ -466,7 +466,7 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务 ">ThreadPoolExecutor</a> 构造函数,根据corePoolSize构造相同大小的workQueue 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常 </p>
+<p><a class="el" href="classThreadPoolExecutor.html" title="线程池基本实现,每个线程都有一个任务队列 ">ThreadPoolExecutor</a> 构造函数,根据corePoolSize构造相同大小的workQueue 每个线程根据顺序将对应位置的BlockingQueue&lt;Runnable&gt; 作为自己的任务队列 会抛出异常 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">corePoolSize</td><td>核心线程数 </td></tr>

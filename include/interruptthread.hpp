@@ -5,6 +5,9 @@
 #include <stdexcept>
 #include <condition_variable>
 
+/**
+ * @brief 线程中断要使用的类,未完成
+ */
 class interrupt_flag {
         std::atomic<bool> flag;
         std::condition_variable* thread_cond;

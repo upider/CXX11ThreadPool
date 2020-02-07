@@ -3,7 +3,9 @@
 
 #include <memory>
 
-/// @brief Runnable interface 需要重写operator()
+/// @brief Runnable interface 重写operator()
+//                            或传进lambda
+//                            执行operator()可以运行任务
 class Runnable {
     public:
         using sptr = std::shared_ptr<Runnable>;

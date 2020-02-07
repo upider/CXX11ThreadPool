@@ -2,7 +2,17 @@
 \label{structThread_1_1Func__t}\index{Thread\+::\+Func\+\_\+t$<$ Function\+Type $>$@{Thread\+::\+Func\+\_\+t$<$ Function\+Type $>$}}
 
 
-类 Thread\+:\+:Func\+\_\+t$<$ Function\+Type $>$ 继承关系图\+:\nopagebreak
+包装传进来的lambda函数  
+
+
+
+
+{\ttfamily \#include $<$thread.\+hpp$>$}
+
+
+
+类 Thread\+:\+:Func\+\_\+t$<$ Function\+Type $>$ 继承关系图\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +21,8 @@
 \end{figure}
 
 
-Thread\+:\+:Func\+\_\+t$<$ Function\+Type $>$ 的协作图\+:\nopagebreak
+Thread\+:\+:Func\+\_\+t$<$ Function\+Type $>$ 的协作图\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -34,6 +45,12 @@ void {\bfseries call} () override
 Function\+Type {\bfseries \+\_\+f}
 \end{DoxyCompactItemize}
 
+
+\subsection{详细描述}
+\subsubsection*{template$<$typename Function\+Type$>$\newline
+struct Thread\+::\+Func\+\_\+t$<$ Function\+Type $>$}
+
+包装传进来的lambda函数 
 
 该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
 \item 

@@ -117,6 +117,10 @@ static bool setCurrentThreadName(const std::string& name) {
 }
 
 class ThreadPoolExecutor;
+
+/**
+ * @brief C++11线程封装类,包含更丰富功能
+ */
 class Thread {
     protected:
         bool                                   idle_{true};
@@ -128,6 +132,9 @@ class Thread {
         std::chrono::steady_clock::time_point  lastActiveTime_{std::chrono::steady_clock::now()};
 
     protected:
+        /**
+         * @brief 包装传进来的lambda函数的虚基类
+         */
         struct Func_base {
             Func_base() = default;
             virtual void call() = 0;
@@ -135,6 +142,9 @@ class Thread {
         };
 
         template<typename FunctionType>
+        /**
+         * @brief 包装传进来的lambda函数
+         */
         struct Func_t: Func_base {
             Func_t(FunctionType&& f): _f(std::move(f)) {}
             void call() override {

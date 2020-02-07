@@ -30,7 +30,7 @@ class RejectedExecutionHandler {
 };
 
 /**
- * @brief 线程池基本实现,任务被放在一个全局队列中,各个线程抢占式执行任务
+ * @brief 线程池基本实现,每个线程都有一个任务队列
  */
 class ThreadPoolExecutor {
     public:

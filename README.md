@@ -11,12 +11,12 @@
 	8. 线程回收策略使用的是thread.join(),可以避免线程资源无法释放
 	9. everPoolSize是线程池出现过的线程数
 	10. 每个线程有自己的工作队列
-	11. Thread类丰富了std::thread的功能,设置名称,id,检查是否存活等等
+	11. Thread类丰富了std::thread的功能,设置名称,id,检查是否存活,是否空闲等等
 	12. 任务窃取线程池
 
 ## TODO
 
-	1. 实现ScheduledThreadPool,会从下一个线程的工作队列窃取任务
+	1. 实现ScheduledThreadPool
 	2. 实现Executors工厂函数
 
 ## 用法
@@ -35,5 +35,6 @@
 	2. 实现Thread类--不使用interruptible_thread,Thread类通过重写run()可以实现想要的操作
 	3. 完善了ThreadPoolExecutor,每个线程有自己的工作队列,可以批量添加任务
 	4. interruptible_thread功能可能会考虑以后添加
-	5. 实现workStealingThreadPool
+	5. 实现WorkStealingThreadPool
 	6. 修改BlockingQueue<Runable>为BlockingQueue<Runable::sptr>,这样任务提交后仍然能够拿到结果
+	7. Runnable类的复制构造函数不会复制原来Runnable对象初始化的lambda

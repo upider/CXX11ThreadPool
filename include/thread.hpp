@@ -1,14 +1,17 @@
 #ifndef THREAD_HPP
 #define THREAD_HPP
 
-#include <string>
-#include <cstring>
-#include <thread>
-#include <memory>
-#include <chrono>
-#include <memory>
 #include <atomic>
-#include <queue>
+#include <chrono>
+#include <condition_variable>
+#include <cstring>
+#include <future>
+#include <memory>
+#include <mutex>
+#include <string>
+#include <thread>
+
+#include <iostream>
 
 #include <sys/syscall.h>
 #include <sys/signal.h>
@@ -123,12 +126,14 @@ class ThreadPoolExecutor;
  */
 class Thread {
     protected:
-        bool                                   idle_{true};
         int                                    prio_;
         pid_t                                  currentPid_{-1};      ///-1表明线程已经执行完任务,unix底层的线程已经不存在了
+        std::mutex                             mutex_;
         std::string                            name_;
         std::thread                            thread_;
-        std::atomic<bool>                      yield_{false};
+        std::atomic_bool                       stop_{true};
+        std::atomic_bool                       idle_{true};
+        std::atomic_bool                       yield_{false};
         std::chrono::steady_clock::time_point  lastActiveTime_{std::chrono::steady_clock::now()};
 
     protected:
@@ -193,40 +198,41 @@ class Thread {
          */
         virtual ~Thread() = default;
 
-    private:
+    protected:
         /**
-                 * @brief run 重载实现操作
-                 */
+         * @brief run 重载实现操作
+         */
         virtual void run() {}
 
+    private:
         virtual void executeRun() final {
             setCurrentThreadName(name_ + std::to_string(syscall(__NR_gettid)));
-            idle_ = false;
-            lastActiveTime_ = std::chrono::steady_clock::now();
             currentPid_ = syscall(__NR_gettid);
+            idle_.store(false, std::memory_order_relaxed);
+            lastActiveTime_ = std::chrono::steady_clock::now();
             pthread_setschedprio(pthread_self(), prio_);
             try {
                 run();
             } catch(...) {
-                idle_ = true;
+                idle_.store(true, std::memory_order_relaxed);
                 throw;
             }
-            idle_ = true;
+            idle_.store(true, std::memory_order_relaxed);
         }
 
         virtual void executeFunc() final {
             setCurrentThreadName(name_ + std::to_string(syscall(__NR_gettid)));
-            idle_ = false;
-            lastActiveTime_ = std::chrono::steady_clock::now();
             currentPid_ = syscall(__NR_gettid);
+            idle_.store(false, std::memory_order_relaxed);
+            lastActiveTime_ = std::chrono::steady_clock::now();
             pthread_setschedprio(pthread_self(), prio_);
             try {
                 func_uptr_->call();
             } catch(...) {
-                idle_ = true;
+                idle_.store(true, std::memory_order_relaxed);
                 throw;
             }
-            idle_ = true;
+            idle_.store(true, std::memory_order_relaxed);
         }
 
     public:
@@ -235,32 +241,33 @@ class Thread {
          *              那么重写的run方法不会执行
          */
         virtual void start() final {
+            if (!stop_.load(std::memory_order_relaxed))
+                throw std::logic_error("thread already started");
+            stop_.store(false, std::memory_order_relaxed);
             thread_ = std::thread([this]() {
                 if (yield_) {
                     std::this_thread::yield();
                     yield_ = false;
                 }
-
                 if (func_uptr_ != nullptr) {
                     executeFunc();
-                    func_uptr_.release();
+                    delete func_uptr_.release();
                 } else {
                     executeRun();
                 }
-
                 currentPid_ = -1;
             });
         }
 
         /**
-         * @brief join 释放线程资源
+         * @brief join 释放线程资源,如果线程此时是空闲的,那么线程会退出
          */
         virtual void join() final {
             thread_.join();
         }
 
         /**
-         * @brief detach 释放线程
+         * @brief detach 释放线程,如果线程此时是空闲的,那么线程会退出
          */
         virtual void detach() final {
             thread_.detach();
@@ -276,7 +283,7 @@ class Thread {
         /**
          * @brief joinable
          *
-         * @return bool
+         * @return bool true-可以执行join或detach
          */
         virtual bool joinable() const final {
             return thread_.joinable();

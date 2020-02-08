@@ -15,7 +15,7 @@ var menudata={children:[
 {text:"i",url:"functions.html#index_i"},
 {text:"j",url:"functions.html#index_j"},
 {text:"k",url:"functions.html#index_k"},
-{text:"n",url:"functions.html#index_n"},
+{text:"m",url:"functions.html#index_m"},
 {text:"o",url:"functions.html#index_o"},
 {text:"p",url:"functions.html#index_p"},
 {text:"r",url:"functions.html#index_r"},
@@ -42,6 +42,7 @@ var menudata={children:[
 {text:"w",url:"functions_func.html#index_w"},
 {text:"y",url:"functions_func.html#index_y"},
 {text:"~",url:"functions_func.html#index_0x7e"}]},
-{text:"变量",url:"functions_vars.html"}]}]},
+{text:"变量",url:"functions_vars.html"},
+{text:"类型定义",url:"functions_type.html"}]}]},
 {text:"文件",url:"files.html",children:[
 {text:"文件列表",url:"files.html"}]}]}

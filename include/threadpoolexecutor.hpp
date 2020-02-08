@@ -101,7 +101,7 @@ class ThreadPoolExecutor {
         virtual bool keepNonCoreThreadAlive () const final;
 
         /**
-         * @brief nonCoreThreadAlive 设置是否允许非核心thread超时并且在没有任务时终止
+         * @brief keepNonCoreThreadAlive 设置是否允许非核心thread超时并且在没有任务时终止
          *
          * @param value ture或false
          */
@@ -113,12 +113,13 @@ class ThreadPoolExecutor {
         virtual void releaseWorkers();
 
         /**
-         * @brief releaseNonCoreThreads 释放空闲线程(释放线程资源,并弹出线程队列)
-         *							    只有在nonCoreThreadAlive为true时才有作用
-         *
-         * @param onlyOne 是否至终止一个空闲线程,默认终止所有线程
+         * @brief releaseNonCoreThreads 释放非核心线程(释放线程资源,并弹出线程队列)
+         *								如果keepNonCoreThreadAlive=false,
+         *								那么非核心线程会自动退出
+         *								执行时会将keepNonCoreThreadAlive设为false,
+         *								释放所有非核心线程
          */
-        void releaseNonCoreThreads(bool onlyOne = false);
+        void releaseNonCoreThreads();
 
         /**
          * @brief setRejectedExecutionHandler 设置新的任务拒绝策略
@@ -246,16 +247,6 @@ class ThreadPoolExecutor {
          * @return 核心线程数
          */
         virtual int getCorePoolSize() const final;
-
-        /**
-         * @brief setCorePoolSize 设置核心线程数。
-         *                        这将覆盖在构造函数中设置的任何值。
-         *                        如果新值小于当前值，则过多的现有线程在下一个空闲时将被终止。
-         *                        如果更大，则如果需要，新线程将被启动以执行任何排队的任务。
-         *
-         * @return void
-         */
-        virtual bool setCorePoolSize(int32_t corePoolSize) final;
 
         /**
          * @brief shutdown 不在接受新任务,并且在所有任务执行完后终止线程池
@@ -418,18 +409,18 @@ class ThreadPoolExecutor {
             return c < SHUTDOWN;
         }
 
-        /*
+        /**
          * @brief compareAndIncrementWorkerCount 尝试CAS递增ctl的workerCount字段.
          *
          * @param expect 控制变量
          *
-         * @return bool
+         * @return true-成功
          */
         virtual bool compareAndIncrementWorkerCount(int expect) final {
             return ctl_.compare_exchange_strong(expect, expect + 1);
         }
 
-        /*
+        /**
          * @brief compareAndDecrementWorkerCount 尝试CAS递减ctl的workerCount字段.
          *
          * @param expect 控制变量
@@ -464,14 +455,14 @@ class ThreadPoolExecutor {
         int											                 maxPoolSize_;
         size_t                                                       submitId_{0};
         std::string                                                  prefix_;
-        volatile bool                                                nonCoreThreadAlive_{false};
+        volatile bool                                                keepNonCoreThreadAlive_{false};
         std::atomic<int>                                             everPoolSize_{0};
         mutable std::mutex                                           mutex_;
         mutable std::mutex                                           threadMutex_;
         std::atomic_int32_t                                          ctl_;
         std::condition_variable                                      notEmpty_;
         std::vector<Thread::sptr>                                    threads_;
-        std::vector<BlockingQueue<Runnable::sptr>>	                     workQueues_;
+        std::vector<BlockingQueue<Runnable::sptr>>	                 workQueues_;
         std::unique_ptr<RejectedExecutionHandler>	                 rejectHandler_;
 
 };

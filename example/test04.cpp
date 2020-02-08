@@ -7,45 +7,56 @@
 class R: public Runnable {
     public:
         virtual void operator()() {
-            std::cout << syscall(__NR_gettid)  << std::endl;
-            //std::cout << "Runnable" << __LINE__ << std::endl;
+            std::cout << "Runnable" << "--R" << std::endl;
         }
-
-    private:
-        std::string name = "RRRRRRRRRRRRRRRRRRRRR";
 };
+
+void test(int a) {
+    std::cout << "a = " << a << std::endl;
+}
 
 int main(void)
 {
     std::cout << "main--" << syscall(__NR_gettid)  << std::endl;
-    R r1, r2;
+
+    R r1;
+    auto r2 = std::make_shared<R>();
 
     ThreadPoolExecutor tpe(1, 2);
-    std::future<int> f;
-    std::future<int> f2;
     for (int i = 0; i < 1; ++i) {
         tpe.submit([]() {
             std::cout << syscall(__NR_gettid)  << std::endl;
         });
-        f = tpe.submit([]()->int {
+        tpe.submit([]()->int {
             std::cout << syscall(__NR_gettid)  << std::endl;
             return 999;
         });
     }
 
-    //std::cout << tpe.toString() << std::endl;
-    //std::cout << f.get() << std::endl;
-    //std::this_thread::sleep_for(std::chrono::seconds(5));
+    //测试std::bind
+    Runnable r3(std::bind(test, 10));
+    r3();
 
-    f2 = tpe.submit([]() ->int {
+    //测试execute--execute对Runnable使用std::move,
+    //原来的Runnable的对象将会不存在
+    //对于std::shared_ptr<Runnable>不会使用std::move
+    tpe.execute(r1);
+    //无效操作
+    r1();
+    //使用std::shared_ptr<Runnable>
+    tpe.execute(r2);
+    //有效操作
+    r2->operator()();
+
+    tpe.submit([]() ->int {
         std::cout << syscall(__NR_gettid)  << std::endl;
         std::cout << __FILE__ << "-" << __LINE__ << std::endl;
         return 999;
     }, false);
-    //tpe.releaseNonCoreThreads();
+
     sleep(1);
     tpe.shutdown();
     tpe.stop();
-    //std::cout << tpe.toString() << std::endl;
+    std::cout << tpe.toString() << std::endl;
     return 0;
 }

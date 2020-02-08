@@ -39,10 +39,10 @@ virtual void \hyperlink{classThread_a3a36451e02a15180624cdd88212cb1ba}{start} ()
 \begin{DoxyCompactList}\small\item\em start 开始执行线程,如果构造函数传入了\+Func, 那么重写的run方法不会执行 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_a07b23d8d75300651cba3eb79652c77fd}\label{classThread_a07b23d8d75300651cba3eb79652c77fd}} 
 virtual void \hyperlink{classThread_a07b23d8d75300651cba3eb79652c77fd}{join} () final
-\begin{DoxyCompactList}\small\item\em join 释放线程资源 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em join 释放线程资源,如果线程此时是空闲的,那么线程会退出 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_affb34b8590eab79785627ae48cbd297d}\label{classThread_affb34b8590eab79785627ae48cbd297d}} 
 virtual void \hyperlink{classThread_affb34b8590eab79785627ae48cbd297d}{detach} () final
-\begin{DoxyCompactList}\small\item\em detach 释放线程 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em detach 释放线程,如果线程此时是空闲的,那么线程会退出 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_ac09e8b8ff4fb0a97315b5a501e722783}\label{classThread_ac09e8b8ff4fb0a97315b5a501e722783}} 
 virtual void \hyperlink{classThread_ac09e8b8ff4fb0a97315b5a501e722783}{yield} () final
 \begin{DoxyCompactList}\small\item\em yield 让出时间片 \end{DoxyCompactList}\item 
@@ -80,11 +80,14 @@ virtual int \hyperlink{classThread_a712ab58b9e89f458427b213b1197a666}{get\+Prio}
 \mbox{\Hypertarget{classThread_a832b2ddff787923f27430d95df55c83d}\label{classThread_a832b2ddff787923f27430d95df55c83d}} 
 \hyperlink{classThread}{Thread} \& {\bfseries operator=} (const \hyperlink{classThread}{Thread} \&)=delete
 \end{DoxyCompactItemize}
-\subsection*{Protected 属性}
+\subsection*{Protected 成员函数}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classThread_a23541f34356cb161bb5fe6026bb3000a}\label{classThread_a23541f34356cb161bb5fe6026bb3000a}} 
-bool {\bfseries idle\+\_\+} \{true\}
+\mbox{\Hypertarget{classThread_a7574ff300357f9d3193db03b83937eac}\label{classThread_a7574ff300357f9d3193db03b83937eac}} 
+virtual void \hyperlink{classThread_a7574ff300357f9d3193db03b83937eac}{run} ()
+\begin{DoxyCompactList}\small\item\em run 重载实现操作 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected 属性}
+\begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classThread_ada8c342b34fb001cfcf57619b7150840}\label{classThread_ada8c342b34fb001cfcf57619b7150840}} 
 int {\bfseries prio\+\_\+}
@@ -92,14 +95,23 @@ int {\bfseries prio\+\_\+}
 \mbox{\Hypertarget{classThread_a0c0878a96696bbb092a69bc2f1f812fd}\label{classThread_a0c0878a96696bbb092a69bc2f1f812fd}} 
 pid\+\_\+t {\bfseries current\+Pid\+\_\+} \{-\/1\}
 \item 
-\mbox{\Hypertarget{classThread_aa222eb32e5fc8f386d9fb018607acd9c}\label{classThread_aa222eb32e5fc8f386d9fb018607acd9c}} 
-std\+::string \hyperlink{classThread_aa222eb32e5fc8f386d9fb018607acd9c}{name\+\_\+}
+\mbox{\Hypertarget{classThread_a82164d41222eaed95bdf85bcc15a6f1a}\label{classThread_a82164d41222eaed95bdf85bcc15a6f1a}} 
+std\+::mutex \hyperlink{classThread_a82164d41222eaed95bdf85bcc15a6f1a}{mutex\+\_\+}
 \begin{DoxyCompactList}\small\item\em -\/1表明线程已经执行完任务,unix底层的线程已经不存在了 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThread_aa222eb32e5fc8f386d9fb018607acd9c}\label{classThread_aa222eb32e5fc8f386d9fb018607acd9c}} 
+std\+::string {\bfseries name\+\_\+}
+\item 
 \mbox{\Hypertarget{classThread_ad313ba812a7875c743dd0d37d565acfb}\label{classThread_ad313ba812a7875c743dd0d37d565acfb}} 
 std\+::thread {\bfseries thread\+\_\+}
 \item 
-\mbox{\Hypertarget{classThread_ae8ebc3f208496db3052de7a56eb6e895}\label{classThread_ae8ebc3f208496db3052de7a56eb6e895}} 
-std\+::atomic$<$ bool $>$ {\bfseries yield\+\_\+} \{false\}
+\mbox{\Hypertarget{classThread_a091bdad0a084b3f2c659f8cdd5369d53}\label{classThread_a091bdad0a084b3f2c659f8cdd5369d53}} 
+std\+::atomic\+\_\+bool {\bfseries stop\+\_\+} \{true\}
+\item 
+\mbox{\Hypertarget{classThread_a13aa04a60328060dec3a25b286c933a2}\label{classThread_a13aa04a60328060dec3a25b286c933a2}} 
+std\+::atomic\+\_\+bool {\bfseries idle\+\_\+} \{true\}
+\item 
+\mbox{\Hypertarget{classThread_a535df3b8fc4ff9ca48f5a6d561162a36}\label{classThread_a535df3b8fc4ff9ca48f5a6d561162a36}} 
+std\+::atomic\+\_\+bool {\bfseries yield\+\_\+} \{false\}
 \item 
 \mbox{\Hypertarget{classThread_ae7ed71c6b1f7782ecd4186005fd70760}\label{classThread_ae7ed71c6b1f7782ecd4186005fd70760}} 
 std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point {\bfseries last\+Active\+Time\+\_\+} \{std\+::chrono\+::steady\+\_\+clock\+::now()\}
@@ -263,7 +275,7 @@ bool true-\/还在运行
 joinable 
 
 \begin{DoxyReturn}{返回}
-bool 
+bool true-\/可以执行join或detach 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classThread_a554185abbfacbcc4bf2e953cdddcbbba}\label{classThread_a554185abbfacbcc4bf2e953cdddcbbba}} 
 \index{Thread@{Thread}!self@{self}}

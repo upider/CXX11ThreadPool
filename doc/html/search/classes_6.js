@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['workstealingpoolexecutor',['WorkStealingPoolExecutor',['../classWorkStealingPoolExecutor.html',1,'']]]
+  ['workstealingthreadpoolexecutor',['WorkStealingThreadPoolExecutor',['../classWorkStealingThreadPoolExecutor.html',1,'']]]
 ];

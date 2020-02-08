@@ -1,4 +1,4 @@
-//测试submit方法
+//测试releaseNonCoreThreads,以及线程动态增加方法
 #include <iostream>
 #include <chrono>
 #include "runnable.hpp"
@@ -6,33 +6,43 @@
 
 int main(void)
 {
-    ThreadPoolExecutor tpe(1, 5);
-    //tpe.startCoreThreads();
-    std::future<int> f;
-    std::future<int> f2;
-    for (int i = 0; i < 1; ++i) {
-        tpe.submit([]() {
-            std::cout << __LINE__ << "--tid : " << syscall(__NR_gettid) << std::endl;
-        });
-    }
+    ThreadPoolExecutor tpe(1, 2);
+    tpe.submit([]() {
+        std::cout << "task01" << "--tid : " << syscall(__NR_gettid) << std::endl;
+    });
+    tpe.keepNonCoreThreadAlive(true);
 
-    //std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+
+    tpe.submit([]() {
+        std::cout << "task02" << "--tid : " << syscall(__NR_gettid) << std::endl;
+    }, false);
+
+    tpe.submit([]() {
+        std::cout << "task03" << "--tid : " << syscall(__NR_gettid) << std::endl;
+    }, false);
+
+    //让非核心线程退出,
     //tpe.releaseNonCoreThreads();
-    //std::this_thread::sleep_for(std::chrono::seconds(1));
 
     tpe.submit([]() {
-        std::cout << __LINE__ << "--tid : " << syscall(__NR_gettid) << std::endl;
-        //std::this_thread::sleep_for(std::chrono::seconds(2));
-        //std::cout << std::this_thread::get_id() << std::endl;
-    });
+        std::cout << "task04" << "--tid : " << syscall(__NR_gettid) << std::endl;
+    }, false);
+
     tpe.submit([]() {
-        std::cout << __LINE__ << "--tid : " << syscall(__NR_gettid) << std::endl;
-        //std::this_thread::sleep_for(std::chrono::seconds(2));
-        //std::cout << std::this_thread::get_id() << std::endl;
+        std::cout << "task05" << "--tid : " << syscall(__NR_gettid) << std::endl;
+    }, false);
+
+    tpe.submit([]() {
+        std::cout << "task06" << "--tid : " << syscall(__NR_gettid) << std::endl;
     });
 
-    //tpe.stop();
-    //std::this_thread::sleep_for(std::chrono::seconds(3));
+    tpe.submit([]() {
+        std::cout << "task07" << "--tid : " << syscall(__NR_gettid) << std::endl;
+    }, false);
+
+    sleep(1);
     std::cout << tpe.toString() << std::endl;
+    tpe.stop();
     return 0;
 }

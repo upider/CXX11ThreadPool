@@ -64,6 +64,7 @@ $(function() {
 <a href="#nested-classes">类</a> &#124;
 <a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
 <a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classThread-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
@@ -113,11 +114,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="separator:a3a36451e02a15180624cdd88212cb1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07b23d8d75300651cba3eb79652c77fd"><td class="memItemLeft" align="right" valign="top"><a id="a07b23d8d75300651cba3eb79652c77fd"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a07b23d8d75300651cba3eb79652c77fd">join</a> () final</td></tr>
-<tr class="memdesc:a07b23d8d75300651cba3eb79652c77fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">join 释放线程资源 <br /></td></tr>
+<tr class="memdesc:a07b23d8d75300651cba3eb79652c77fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">join 释放线程资源,如果线程此时是空闲的,那么线程会退出 <br /></td></tr>
 <tr class="separator:a07b23d8d75300651cba3eb79652c77fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affb34b8590eab79785627ae48cbd297d"><td class="memItemLeft" align="right" valign="top"><a id="affb34b8590eab79785627ae48cbd297d"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#affb34b8590eab79785627ae48cbd297d">detach</a> () final</td></tr>
-<tr class="memdesc:affb34b8590eab79785627ae48cbd297d"><td class="mdescLeft">&#160;</td><td class="mdescRight">detach 释放线程 <br /></td></tr>
+<tr class="memdesc:affb34b8590eab79785627ae48cbd297d"><td class="mdescLeft">&#160;</td><td class="mdescRight">detach 释放线程,如果线程此时是空闲的,那么线程会退出 <br /></td></tr>
 <tr class="separator:affb34b8590eab79785627ae48cbd297d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac09e8b8ff4fb0a97315b5a501e722783"><td class="memItemLeft" align="right" valign="top"><a id="ac09e8b8ff4fb0a97315b5a501e722783"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#ac09e8b8ff4fb0a97315b5a501e722783">yield</a> () final</td></tr>
@@ -169,27 +170,40 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <a class="el" href="classThread.html">Thread</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classThread.html">Thread</a> &amp;)=delete</td></tr>
 <tr class="separator:a832b2ddff787923f27430d95df55c83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a7574ff300357f9d3193db03b83937eac"><td class="memItemLeft" align="right" valign="top"><a id="a7574ff300357f9d3193db03b83937eac"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a7574ff300357f9d3193db03b83937eac">run</a> ()</td></tr>
+<tr class="memdesc:a7574ff300357f9d3193db03b83937eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">run 重载实现操作 <br /></td></tr>
+<tr class="separator:a7574ff300357f9d3193db03b83937eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected 属性</h2></td></tr>
-<tr class="memitem:a23541f34356cb161bb5fe6026bb3000a"><td class="memItemLeft" align="right" valign="top"><a id="a23541f34356cb161bb5fe6026bb3000a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>idle_</b> {true}</td></tr>
-<tr class="separator:a23541f34356cb161bb5fe6026bb3000a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada8c342b34fb001cfcf57619b7150840"><td class="memItemLeft" align="right" valign="top"><a id="ada8c342b34fb001cfcf57619b7150840"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>prio_</b></td></tr>
 <tr class="separator:ada8c342b34fb001cfcf57619b7150840"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c0878a96696bbb092a69bc2f1f812fd"><td class="memItemLeft" align="right" valign="top"><a id="a0c0878a96696bbb092a69bc2f1f812fd"></a>
 pid_t&#160;</td><td class="memItemRight" valign="bottom"><b>currentPid_</b> {-1}</td></tr>
 <tr class="separator:a0c0878a96696bbb092a69bc2f1f812fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82164d41222eaed95bdf85bcc15a6f1a"><td class="memItemLeft" align="right" valign="top"><a id="a82164d41222eaed95bdf85bcc15a6f1a"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a82164d41222eaed95bdf85bcc15a6f1a">mutex_</a></td></tr>
+<tr class="memdesc:a82164d41222eaed95bdf85bcc15a6f1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">-1表明线程已经执行完任务,unix底层的线程已经不存在了 <br /></td></tr>
+<tr class="separator:a82164d41222eaed95bdf85bcc15a6f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa222eb32e5fc8f386d9fb018607acd9c"><td class="memItemLeft" align="right" valign="top"><a id="aa222eb32e5fc8f386d9fb018607acd9c"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#aa222eb32e5fc8f386d9fb018607acd9c">name_</a></td></tr>
-<tr class="memdesc:aa222eb32e5fc8f386d9fb018607acd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">-1表明线程已经执行完任务,unix底层的线程已经不存在了 <br /></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
 <tr class="separator:aa222eb32e5fc8f386d9fb018607acd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad313ba812a7875c743dd0d37d565acfb"><td class="memItemLeft" align="right" valign="top"><a id="ad313ba812a7875c743dd0d37d565acfb"></a>
 std::thread&#160;</td><td class="memItemRight" valign="bottom"><b>thread_</b></td></tr>
 <tr class="separator:ad313ba812a7875c743dd0d37d565acfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8ebc3f208496db3052de7a56eb6e895"><td class="memItemLeft" align="right" valign="top"><a id="ae8ebc3f208496db3052de7a56eb6e895"></a>
-std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>yield_</b> {false}</td></tr>
-<tr class="separator:ae8ebc3f208496db3052de7a56eb6e895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091bdad0a084b3f2c659f8cdd5369d53"><td class="memItemLeft" align="right" valign="top"><a id="a091bdad0a084b3f2c659f8cdd5369d53"></a>
+std::atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><b>stop_</b> {true}</td></tr>
+<tr class="separator:a091bdad0a084b3f2c659f8cdd5369d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13aa04a60328060dec3a25b286c933a2"><td class="memItemLeft" align="right" valign="top"><a id="a13aa04a60328060dec3a25b286c933a2"></a>
+std::atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><b>idle_</b> {true}</td></tr>
+<tr class="separator:a13aa04a60328060dec3a25b286c933a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a535df3b8fc4ff9ca48f5a6d561162a36"><td class="memItemLeft" align="right" valign="top"><a id="a535df3b8fc4ff9ca48f5a6d561162a36"></a>
+std::atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><b>yield_</b> {false}</td></tr>
+<tr class="separator:a535df3b8fc4ff9ca48f5a6d561162a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ed71c6b1f7782ecd4186005fd70760"><td class="memItemLeft" align="right" valign="top"><a id="ae7ed71c6b1f7782ecd4186005fd70760"></a>
 std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><b>lastActiveTime_</b> {std::chrono::steady_clock::now()}</td></tr>
 <tr class="separator:ae7ed71c6b1f7782ecd4186005fd70760"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -551,7 +565,7 @@ template&lt;typename FunctionType &gt; </div>
 </div><div class="memdoc">
 
 <p>joinable </p>
-<dl class="section return"><dt>返回</dt><dd>bool </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>bool true-可以执行join或detach </dd></dl>
 
 </div>
 </div>

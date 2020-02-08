@@ -19,8 +19,8 @@
 \begin{DoxyCompactList}\small\item\em \hyperlink{classBlockingQueue}{Blocking\+Queue} 初始化列表构造函数 \end{DoxyCompactList}\item 
 \hyperlink{classBlockingQueue_a2f2b1e4d887d77a81fddabd44c5cdbfd}{Blocking\+Queue} (const \hyperlink{classBlockingQueue}{Blocking\+Queue} \&)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classBlockingQueue}{Blocking\+Queue} 拷贝构造 \end{DoxyCompactList}\item 
-\hyperlink{classBlockingQueue_ab7dbc308989dda7bef2f884a2703c806}{Blocking\+Queue} (const \hyperlink{classBlockingQueue}{Blocking\+Queue} \&\&)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classBlockingQueue}{Blocking\+Queue} 移动构造 \end{DoxyCompactList}\item 
+\hyperlink{classBlockingQueue_a0d375ec5bec4f19887d0a4757d95e087}{Blocking\+Queue} (const \hyperlink{classBlockingQueue}{Blocking\+Queue} \&\&rh)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBlockingQueue}{Blocking\+Queue} 复制构造函数 \end{DoxyCompactList}\item 
 \hyperlink{classBlockingQueue}{Blocking\+Queue} \& \hyperlink{classBlockingQueue_aaee07bb9044a01b4cb0af75748795325}{operator=} (const \hyperlink{classBlockingQueue}{Blocking\+Queue} \&)
 \begin{DoxyCompactList}\small\item\em operator= 赋值运算符 \end{DoxyCompactList}\item 
 \hyperlink{classBlockingQueue}{Blocking\+Queue} \& \hyperlink{classBlockingQueue_abbe4440d6ed06d175925bba1f3c02312}{operator=} (const \hyperlink{classBlockingQueue}{Blocking\+Queue} \&\&)
@@ -61,7 +61,7 @@ class Blocking\+Queue$<$ T $>$}
 
 
 \begin{DoxyParams}{参数}
-{\em args} & \\
+{\em args} & 初始化列表 \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classBlockingQueue_a2f2b1e4d887d77a81fddabd44c5cdbfd}\label{classBlockingQueue_a2f2b1e4d887d77a81fddabd44c5cdbfd}} 
@@ -77,10 +77,10 @@ class Blocking\+Queue$<$ T $>$}
 
 
 \begin{DoxyParams}{参数}
-{\em \hyperlink{classBlockingQueue}{Blocking\+Queue}} & 阻塞队列 \\
+{\em rh} & \hyperlink{classBlockingQueue}{Blocking\+Queue}\& 阻塞队列 \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classBlockingQueue_ab7dbc308989dda7bef2f884a2703c806}\label{classBlockingQueue_ab7dbc308989dda7bef2f884a2703c806}} 
+\mbox{\Hypertarget{classBlockingQueue_a0d375ec5bec4f19887d0a4757d95e087}\label{classBlockingQueue_a0d375ec5bec4f19887d0a4757d95e087}} 
 \index{Blocking\+Queue@{Blocking\+Queue}!Blocking\+Queue@{Blocking\+Queue}}
 \index{Blocking\+Queue@{Blocking\+Queue}!Blocking\+Queue@{Blocking\+Queue}}
 \subsubsection{\texorpdfstring{Blocking\+Queue()}{BlockingQueue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
@@ -89,11 +89,11 @@ class Blocking\+Queue$<$ T $>$}
 
 
 
-\hyperlink{classBlockingQueue}{Blocking\+Queue} 移动构造 
+\hyperlink{classBlockingQueue}{Blocking\+Queue} 复制构造函数 
 
 
 \begin{DoxyParams}{参数}
-{\em \hyperlink{classBlockingQueue}{Blocking\+Queue}} & 阻塞队列 \\
+{\em rh} & \hyperlink{classBlockingQueue}{Blocking\+Queue} 阻塞队列 \\
 \hline
 \end{DoxyParams}
 
@@ -125,7 +125,7 @@ true -\/ 队列为空
 operator= 赋值运算符 
 
 \begin{DoxyReturn}{返回}
-\hyperlink{classBlockingQueue}{Blocking\+Queue} 阻塞队列的引用 
+rh \hyperlink{classBlockingQueue}{Blocking\+Queue} 阻塞队列的引用 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classBlockingQueue_abbe4440d6ed06d175925bba1f3c02312}\label{classBlockingQueue_abbe4440d6ed06d175925bba1f3c02312}} 
 \index{Blocking\+Queue@{Blocking\+Queue}!operator=@{operator=}}
@@ -140,7 +140,7 @@ operator= 赋值运算符
 
 
 \begin{DoxyParams}{参数}
-{\em \hyperlink{classBlockingQueue}{Blocking\+Queue}} & 阻塞队列\\
+{\em rh} & \hyperlink{classBlockingQueue}{Blocking\+Queue} 阻塞队列\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{返回}

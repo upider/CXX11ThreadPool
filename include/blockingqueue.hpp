@@ -22,9 +22,9 @@ class BlockingQueue {
               _queue() {}
 
         /**
-         * @brief BlockingQueue 初始化列表构造函数
+         *  @brief BlockingQueue 初始化列表构造函数
          *
-         * @param args
+         *  @param args 初始化列表
          */
         BlockingQueue(std::initializer_list<T>& args)
             : _mutex(),
@@ -34,28 +34,28 @@ class BlockingQueue {
         /**
          * @brief BlockingQueue 拷贝构造
          *
-         * @param BlockingQueue 阻塞队列
+         * @param rh BlockingQueue& 阻塞队列
          */
         BlockingQueue(const BlockingQueue&);
 
         /**
-         * @brief BlockingQueue 移动构造
+         * @brief BlockingQueue 复制构造函数
          *
-         * @param BlockingQueue 阻塞队列
+         * @param rh BlockingQueue 阻塞队列
          */
-        BlockingQueue(const BlockingQueue&&);
+        BlockingQueue(const BlockingQueue&& rh);
 
         /**
          * @brief operator= 赋值运算符
          *
-         * @return BlockingQueue 阻塞队列的引用
+         * @return rh BlockingQueue 阻塞队列的引用
          */
         BlockingQueue& operator=(const BlockingQueue &);
 
         /**
          * @brief operator= 赋值运算符
          *
-         * @param BlockingQueue 阻塞队列
+         * @param rh BlockingQueue 阻塞队列
          *
          * @return BlockingQueue 阻塞队列的引用
          */

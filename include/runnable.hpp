@@ -8,13 +8,16 @@
 //                            执行operator()可以运行任务
 class Runnable {
     public:
+        /**
+         * @brief std::shared_ptr<Runnable>别名
+         */
         using sptr = std::shared_ptr<Runnable>;
 
         template<typename F>
         /**
          * @brief Runnable 构造函数
          *
-         * @param new functor_t(std::move(f))
+         * @param f lambda
          */
         Runnable(F&& f): functor_(new functor_t<F>(std::move(f))) {}
 
@@ -23,7 +26,7 @@ class Runnable {
          *
          * @param rth Runnable右值引用
          */
-        Runnable(Runnable && rth) : functor_(std::move(rth.functor_)) {}
+        Runnable(Runnable && rth): functor_(std::move(rth.functor_)) {}
 
         template <typename F = Runnable>
         /**

@@ -23,13 +23,14 @@ int main(void)
 
     t.start();
     tt.start();
-    std::cout << "tt--" << t.getPid() << std::endl;
-    std::cout << "t--" << tt.getPid() << std::endl;
+    std::cout << "t:" << t.getPid() << std::endl;
+    std::cout << "tt:" << tt.getPid() << std::endl;
 
+    sleep(3);
     std::cout << std::chrono::duration<double>(std::chrono::steady_clock::now() - tt.getLastActiveTime()).count() << std::endl;
 
-    std::cout << tt.isIdle() << std::endl;
-    std::cout << tt.isRunning() << std::endl;
-    sleep(3);
+
+    t.join();
+    tt.join();
     return 0;
 }

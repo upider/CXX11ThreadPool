@@ -1,0 +1,183 @@
+\hypertarget{classWorkStealingThreadPoolExecutor}{}\section{Work\+Stealing\+Thread\+Pool\+Executor类 参考}
+\label{classWorkStealingThreadPoolExecutor}\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+
+
+任务窃取线程池,从下一个线程的任务队列窃取任务  
+
+
+
+
+{\ttfamily \#include $<$workstealingthreadpoolexecutor.\+hpp$>$}
+
+
+
+类 Work\+Stealing\+Thread\+Pool\+Executor 继承关系图\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classWorkStealingThreadPoolExecutor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Work\+Stealing\+Thread\+Pool\+Executor 的协作图\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classWorkStealingThreadPoolExecutor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorkStealingThreadPoolExecutor_a3e4e9fd05b5b325f2f051725410525cb}{Work\+Stealing\+Thread\+Pool\+Executor} (int32\+\_\+t core\+Pool\+Size, int32\+\_\+t max\+Pool\+Size, const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable_abe8d3066c7305401d6f0aad8e70780f2}{Runnable\+::sptr} $>$$>$ \&work\+Queue, const \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} \&handler, const std\+::string \&prefix=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em \hyperlink{classWorkStealingThreadPoolExecutor}{Work\+Stealing\+Thread\+Pool\+Executor} 构造函数 \end{DoxyCompactList}\item 
+\hyperlink{classWorkStealingThreadPoolExecutor_a80c8e32259e498cbb2c5625b272d37f3}{Work\+Stealing\+Thread\+Pool\+Executor} (int32\+\_\+t core\+Pool\+Size, int32\+\_\+t max\+Pool\+Size, const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable_abe8d3066c7305401d6f0aad8e70780f2}{Runnable\+::sptr} $>$$>$ \&work\+Queue, \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} $\ast$handler, const std\+::string \&prefix=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em \hyperlink{classWorkStealingThreadPoolExecutor}{Work\+Stealing\+Thread\+Pool\+Executor} 构造函数 \end{DoxyCompactList}\item 
+\hyperlink{classWorkStealingThreadPoolExecutor_adb702388a229cc2a0508901976dd9104}{Work\+Stealing\+Thread\+Pool\+Executor} (int32\+\_\+t core\+Pool\+Size, int32\+\_\+t max\+Pool\+Size, const std\+::string \&prefix=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em \hyperlink{classWorkStealingThreadPoolExecutor}{Work\+Stealing\+Thread\+Pool\+Executor} 构造函数 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename F $>$ }\\std\+::future$<$ typename std\+::result\+\_\+of$<$ F()$>$\+::type $>$ \hyperlink{classWorkStealingThreadPoolExecutor_a7fa1b79c8be2b06a7952ccfd14aa7f6c}{submit} (F f, bool core=true)
+\begin{DoxyCompactList}\small\item\em submit 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 可以有返回值,向任务队列提交的是任务副本 会抛出异常 \end{DoxyCompactList}\item 
+virtual void \hyperlink{classWorkStealingThreadPoolExecutor_ab0414f5e006e8fc523bfd35ba276f705}{worker\+Thread} (size\+\_\+t queue\+Idex) override
+\begin{DoxyCompactList}\small\item\em worker\+Thread 核心工作线程 \end{DoxyCompactList}\item 
+virtual void \hyperlink{classWorkStealingThreadPoolExecutor_ae4170b80bdc4ec806ee4a04cc5daaada}{core\+Worker\+Thread} (size\+\_\+t queue\+Idex) override
+\begin{DoxyCompactList}\small\item\em worker\+Thread 非核心工作线程 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{额外继承的成员函数}
+
+
+\subsection{详细描述}
+任务窃取线程池,从下一个线程的任务队列窃取任务 
+
+\subsection{构造及析构函数说明}
+\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_a3e4e9fd05b5b325f2f051725410525cb}\label{classWorkStealingThreadPoolExecutor_a3e4e9fd05b5b325f2f051725410525cb}} 
+\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{Work\+Stealing\+Thread\+Pool\+Executor()}{WorkStealingThreadPoolExecutor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Work\+Stealing\+Thread\+Pool\+Executor\+::\+Work\+Stealing\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size,  }\item[{int32\+\_\+t}]{max\+Pool\+Size,  }\item[{const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable_abe8d3066c7305401d6f0aad8e70780f2}{Runnable\+::sptr} $>$$>$ \&}]{work\+Queue,  }\item[{const \hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} \&}]{handler,  }\item[{const std\+::string \&}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classWorkStealingThreadPoolExecutor}{Work\+Stealing\+Thread\+Pool\+Executor} 构造函数 
+
+
+\begin{DoxyParams}{参数}
+{\em core\+Pool\+Size} & 核心线程数量 \\
+\hline
+{\em max\+Pool\+Size} & 最大线程数 \\
+\hline
+{\em work\+Queue} & 任务队列 \\
+\hline
+{\em handler} & 拒绝策略 \\
+\hline
+{\em prefix} & 线程名前缀 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_a80c8e32259e498cbb2c5625b272d37f3}\label{classWorkStealingThreadPoolExecutor_a80c8e32259e498cbb2c5625b272d37f3}} 
+\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{Work\+Stealing\+Thread\+Pool\+Executor()}{WorkStealingThreadPoolExecutor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Work\+Stealing\+Thread\+Pool\+Executor\+::\+Work\+Stealing\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size,  }\item[{int32\+\_\+t}]{max\+Pool\+Size,  }\item[{const std\+::vector$<$ \hyperlink{classBlockingQueue}{Blocking\+Queue}$<$ \hyperlink{classRunnable_abe8d3066c7305401d6f0aad8e70780f2}{Runnable\+::sptr} $>$$>$ \&}]{work\+Queue,  }\item[{\hyperlink{classRejectedExecutionHandler}{Rejected\+Execution\+Handler} $\ast$}]{handler,  }\item[{const std\+::string \&}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classWorkStealingThreadPoolExecutor}{Work\+Stealing\+Thread\+Pool\+Executor} 构造函数 
+
+
+\begin{DoxyParams}{参数}
+{\em core\+Pool\+Size} & 核心线程数量 \\
+\hline
+{\em max\+Pool\+Size} & 最大线程数 \\
+\hline
+{\em work\+Queue} & 任务队列 \\
+\hline
+{\em handler} & 拒绝策略 \\
+\hline
+{\em prefix} & 线程名前缀 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_adb702388a229cc2a0508901976dd9104}\label{classWorkStealingThreadPoolExecutor_adb702388a229cc2a0508901976dd9104}} 
+\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{Work\+Stealing\+Thread\+Pool\+Executor()}{WorkStealingThreadPoolExecutor()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Work\+Stealing\+Thread\+Pool\+Executor\+::\+Work\+Stealing\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{core\+Pool\+Size,  }\item[{int32\+\_\+t}]{max\+Pool\+Size,  }\item[{const std\+::string \&}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classWorkStealingThreadPoolExecutor}{Work\+Stealing\+Thread\+Pool\+Executor} 构造函数 
+
+
+\begin{DoxyParams}{参数}
+{\em core\+Pool\+Size} & 核心线程数量 \\
+\hline
+{\em max\+Pool\+Size} & 最大线程数 \\
+\hline
+{\em prefix} & 线程名前缀 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{成员函数说明}
+\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_ae4170b80bdc4ec806ee4a04cc5daaada}\label{classWorkStealingThreadPoolExecutor_ae4170b80bdc4ec806ee4a04cc5daaada}} 
+\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!core\+Worker\+Thread@{core\+Worker\+Thread}}
+\index{core\+Worker\+Thread@{core\+Worker\+Thread}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{core\+Worker\+Thread()}{coreWorkerThread()}}
+{\footnotesize\ttfamily virtual void Work\+Stealing\+Thread\+Pool\+Executor\+::core\+Worker\+Thread (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{queue\+Idex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+worker\+Thread 非核心工作线程 
+
+
+\begin{DoxyParams}{参数}
+{\em queue\+Idex} & 线程队列位置 \\
+\hline
+\end{DoxyParams}
+
+
+重载 \hyperlink{classThreadPoolExecutor_a5e40839bf4191b5eab9d81227ddb62c3}{Thread\+Pool\+Executor} .
+
+\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_a7fa1b79c8be2b06a7952ccfd14aa7f6c}\label{classWorkStealingThreadPoolExecutor_a7fa1b79c8be2b06a7952ccfd14aa7f6c}} 
+\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!submit@{submit}}
+\index{submit@{submit}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{submit()}{submit()}}
+{\footnotesize\ttfamily template$<$typename F $>$ \\
+std\+::future$<$typename std\+::result\+\_\+of$<$F()$>$\+::type$>$ Work\+Stealing\+Thread\+Pool\+Executor\+::submit (\begin{DoxyParamCaption}\item[{F}]{f,  }\item[{bool}]{core = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+submit 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 可以有返回值,向任务队列提交的是任务副本 会抛出异常 
+
+
+\begin{DoxyParams}{参数}
+{\em f} & 要提交的任务(Runnable或函数或lambda) \\
+\hline
+{\em core} & 是否使用核心线程(默认值true,不增加新线程)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+res 任务返回值的future 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_ab0414f5e006e8fc523bfd35ba276f705}\label{classWorkStealingThreadPoolExecutor_ab0414f5e006e8fc523bfd35ba276f705}} 
+\index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!worker\+Thread@{worker\+Thread}}
+\index{worker\+Thread@{worker\+Thread}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{worker\+Thread()}{workerThread()}}
+{\footnotesize\ttfamily virtual void Work\+Stealing\+Thread\+Pool\+Executor\+::worker\+Thread (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{queue\+Idex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+worker\+Thread 核心工作线程 
+
+
+\begin{DoxyParams}{参数}
+{\em queue\+Idex} & 线程队列位置 \\
+\hline
+\end{DoxyParams}
+
+
+重载 \hyperlink{classThreadPoolExecutor_a844902ce61fb16b11a569b8ee56e80e9}{Thread\+Pool\+Executor} .
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+workstealingthreadpoolexecutor.\+hpp\end{DoxyCompactItemize}

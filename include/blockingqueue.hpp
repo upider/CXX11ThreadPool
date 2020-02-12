@@ -62,6 +62,26 @@ class BlockingQueue {
         BlockingQueue& operator=(const BlockingQueue&&);
 
         /**
+         * @brief back 得到最后一个元素
+         *
+         * @return 最后一个元素
+         */
+        T back() {
+            std::lock_guard<std::mutex> lk(_mutex);
+            return _queue.back();
+        }
+
+        /**
+         * @brief front 得到第一个元素
+         *
+         * @return 第一个元素
+         */
+        T front() {
+            std::lock_guard<std::mutex> lk(_mutex);
+            return _queue.front();
+        }
+
+        /**
          * @brief put 插入
          *
          * @param x

@@ -1,8 +1,8 @@
 #include <sstream>
+#include <functional>
 #include <stdexcept>
 #include <pthread.h>
 #include <signal.h>
-#include <iostream>
 #include <bitset>
 
 #include "threadpoolexecutor.hpp"
@@ -24,8 +24,6 @@ ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
             maxPoolSize <= 0           ||
             maxPoolSize < corePoolSize)
         throw std::logic_error("parameter value is wrong");
-
-    startCoreThreads();
 }
 
 ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
@@ -45,8 +43,6 @@ ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
             maxPoolSize <= 0           ||
             maxPoolSize < corePoolSize)
         throw std::logic_error("parameter value is wrong");
-
-    startCoreThreads();
 }
 
 ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
@@ -64,8 +60,6 @@ ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
             maxPoolSize <= 0           ||
             maxPoolSize < corePoolSize)
         throw std::logic_error("parameter value is wrong");
-
-    startCoreThreads();
 }
 
 ThreadPoolExecutor::~ThreadPoolExecutor() {
@@ -124,16 +118,17 @@ bool ThreadPoolExecutor::addWorker(Runnable::sptr task, bool core) {
         if (rs >= SHUTDOWN)
             return false;
         for (;;) {
-            if (core) {
-                workQueues_[++submitId_ % corePoolSize_].put(task);
-                notEmpty_.notify_all();
-                return true;
-            }
             wc = workerCountOf(c);
-            if (wc >=  maxPoolSize_) {
-                workQueues_[(submitId_++ % corePoolSize_) + corePoolSize_].put(task);
-                notEmpty_.notify_all();
-                return true;
+            if (wc >= (core ? corePoolSize_ : maxPoolSize_)) {
+                if (core) {
+                    workQueues_[++submitId_ % corePoolSize_].put(task);
+                    notEmpty_.notify_all();
+                    return true;
+                } else {
+                    workQueues_[(submitId_++ % corePoolSize_) + corePoolSize_].put(task);
+                    notEmpty_.notify_all();
+                    return true;
+                }
             }
             if(compareAndIncrementWorkerCount(c)) {
                 {
@@ -141,11 +136,16 @@ bool ThreadPoolExecutor::addWorker(Runnable::sptr task, bool core) {
                     workQueues_.push_back(BlockingQueue<Runnable::sptr>());
                     workQueues_.back().put(task);
                 }
-                threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::workerThread,
-                                                 this, workQueues_.size() - 1)));
+                wc = workerCountOf(c);
+                if (core || wc <= corePoolSize_) {
+                    threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::coreWorkerThread,
+                                                     this, workQueues_.size() - 1), prefix_));
+                } else {
+                    threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::workerThread,
+                                                     this, workQueues_.size() - 1), prefix_));
+                }
                 threads_.back()->start();
                 everPoolSize_++;
-                notEmpty_.notify_all();
                 return true;
             }
             c = ctl_.load();  // Re-read ctl
@@ -165,16 +165,17 @@ bool ThreadPoolExecutor::addWorker(Runnable task, bool core) {
         if (rs >= SHUTDOWN)
             return false;
         for (;;) {
-            if (core) {
-                workQueues_[++submitId_ % corePoolSize_].put(std::make_shared<Runnable>(std::move(task)));
-                notEmpty_.notify_all();
-                return true;
-            }
             wc = workerCountOf(c);
-            if (wc >=  maxPoolSize_) {
-                workQueues_[(submitId_++ % corePoolSize_) + corePoolSize_].put(std::make_shared<Runnable>(std::move(task)));
-                notEmpty_.notify_all();
-                return true;
+            if (wc >= (core ? corePoolSize_ : maxPoolSize_)) {
+                if (core) {
+                    workQueues_[++submitId_ % corePoolSize_].put(std::make_shared<Runnable>(std::move(task)));
+                    notEmpty_.notify_all();
+                    return true;
+                } else {
+                    workQueues_[(submitId_++ % corePoolSize_) + corePoolSize_].put(std::make_shared<Runnable>(std::move(task)));
+                    notEmpty_.notify_all();
+                    return true;
+                }
             }
             if(compareAndIncrementWorkerCount(c)) {
                 {
@@ -182,11 +183,15 @@ bool ThreadPoolExecutor::addWorker(Runnable task, bool core) {
                     workQueues_.push_back(BlockingQueue<Runnable::sptr>());
                     workQueues_.back().put(std::make_shared<Runnable>(std::move(task)));
                 }
-                threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::workerThread,
-                                                 this, workQueues_.size() - 1)));
+                if (core) {
+                    threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::coreWorkerThread,
+                                                     this, workQueues_.size() - 1), prefix_));
+                } else {
+                    threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::workerThread,
+                                                     this, workQueues_.size() - 1), prefix_));
+                }
                 threads_.back()->start();
                 everPoolSize_++;
-                notEmpty_.notify_all();
                 return true;
             }
             c = ctl_.load();  // Re-read ctl
@@ -212,7 +217,7 @@ bool ThreadPoolExecutor::execute(Runnable::sptr command, bool core) {
 bool ThreadPoolExecutor::execute(Runnable& command, bool core) {
     int32_t c = ctl_.load();
     if(isRunning(c)) {
-        if(addWorker(std::move(command), core)) {
+        if(addWorker(std::make_shared<Runnable>(command), core)) {
             return true;
         }
         c = ctl_.load();
@@ -247,7 +252,8 @@ bool ThreadPoolExecutor::execute(BlockingQueue<Runnable::sptr>& commands, bool c
         if (compareAndIncrementWorkerCount(c)) {
             std::lock_guard<std::mutex> lock(mutex_);
             workQueues_.emplace_back(commands);
-            threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::workerThread, this, workQueues_.size() - 1)));
+            threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::workerThread,
+                                             this, workQueues_.size() - 1), prefix_));
             threads_.back()->start();
             everPoolSize_++;
         }
@@ -305,17 +311,17 @@ int ThreadPoolExecutor::getEverPoolSize() const {
     return everPoolSize_.load();
 }
 
-int ThreadPoolExecutor::startCoreThreads() {
+int ThreadPoolExecutor::preStartCoreThreads() {
     int32_t c = ctl_.load();
     for (int i = 0; i < corePoolSize_; ++i) {
         if (compareAndIncrementWorkerCount(c)) {
-            threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::coreWorkerThread, this, i)));
+            threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::coreWorkerThread, this, i), prefix_));
         }
         c = ctl_.load();
         threads_[i]->start();
         everPoolSize_++;
     }
-    return 0;
+    return everPoolSize_;
 }
 
 int ThreadPoolExecutor::getCorePoolSize() const {
@@ -363,7 +369,6 @@ void ThreadPoolExecutor::advanceRunState(int32_t targetState) {
 }
 
 void ThreadPoolExecutor::coreWorkerThread(size_t queueIdex) {
-    setCurrentThreadName(prefix_);
     Runnable::sptr task;
     std::unique_lock<std::mutex> lk(mutex_);
     while(runStateOf(ctl_.load()) <= SHUTDOWN) {
@@ -377,7 +382,6 @@ void ThreadPoolExecutor::coreWorkerThread(size_t queueIdex) {
 }
 
 void ThreadPoolExecutor::workerThread(size_t queueIdex) {
-    setCurrentThreadName(prefix_);
     Runnable::sptr task;
     std::unique_lock<std::mutex> lk(mutex_);
     while(runStateOf(ctl_.load()) <= SHUTDOWN) {

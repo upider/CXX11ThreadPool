@@ -17,8 +17,6 @@
 #include <sys/signal.h>
 #include <unistd.h>
 
-#include "runnable.hpp"
-
 /**
  * @brief stdTidToPthreadId std::thread::id转换为pthread_t
  *
@@ -167,18 +165,16 @@ class Thread {
          * @brief Thread 构造函数
          *
          * @param pro 优先级
-         * @param tpe 线程池(nullptr)
          */
-        Thread(int pro, ThreadPoolExecutor* tpe = nullptr): prio_(pro) {}
+        Thread(int pro): prio_(pro) {}
 
         /**
          * @brief Thread 构造函数
          *
          * @param name 线程名
          * @param pro 优先级
-         * @param tpe 线程池(nullptr)
          */
-        Thread(const std::string& name = "", int pro = 20, ThreadPoolExecutor* tpe = nullptr)
+        Thread(const std::string& name = "", int pro = 20)
             : prio_(pro), name_(name) {}
 
         template<typename FunctionType>
@@ -188,9 +184,8 @@ class Thread {
          * @param f 要执行的任务
          * @param name 线程名
          * @param pro 优先级
-         * @param tpe 线程池(nullptr)
          */
-        Thread(FunctionType f, const std::string& name = "", int pro = 20, ThreadPoolExecutor* tpe = nullptr)
+        Thread(FunctionType f, const std::string& name = "", int pro = 20)
             : prio_(pro), name_(name), func_uptr_(new Func_t<FunctionType>(std::move(f))) {}
 
         /**
@@ -227,6 +222,8 @@ class Thread {
             lastActiveTime_ = std::chrono::steady_clock::now();
             pthread_setschedprio(pthread_self(), prio_);
             try {
+                if (func_uptr_ == nullptr) {
+                }
                 func_uptr_->call();
             } catch(...) {
                 idle_.store(true, std::memory_order_relaxed);
@@ -251,7 +248,6 @@ class Thread {
                 }
                 if (func_uptr_ != nullptr) {
                     executeFunc();
-                    delete func_uptr_.release();
                 } else {
                     executeRun();
                 }

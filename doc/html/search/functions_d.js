@@ -1,9 +1,19 @@
 var searchData=
 [
-  ['take',['take',['../classBlockingQueue.html#aac788baea510940fc40961a285bacc5f',1,'BlockingQueue']]],
-  ['terminated',['terminated',['../classThreadPoolExecutor.html#a61774315237123faf8e7fcc9d35ae47d',1,'ThreadPoolExecutor']]],
-  ['thread',['Thread',['../classThread.html#a2375aeb8a227668652d593b180bac64e',1,'Thread::Thread(int pro, ThreadPoolExecutor *tpe=nullptr)'],['../classThread.html#aa32c32f43d92d235c9e795bea80e9058',1,'Thread::Thread(const std::string &amp;name=&quot;&quot;, int pro=20, ThreadPoolExecutor *tpe=nullptr)'],['../classThread.html#a67eed36a7c4cb621651a6ce40939cf44',1,'Thread::Thread(FunctionType f, const std::string &amp;name=&quot;&quot;, int pro=20, ThreadPoolExecutor *tpe=nullptr)']]],
-  ['threadpoolexecutor',['ThreadPoolExecutor',['../classThreadPoolExecutor.html#a212b34b7e25e9eba4e096473a1b81f9e',1,'ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize, int32_t maxPoolSize, const std::vector&lt; BlockingQueue&lt; Runnable::sptr &gt;&gt; &amp;workQueue, const RejectedExecutionHandler &amp;handler, const std::string &amp;prefix=&quot;&quot;)'],['../classThreadPoolExecutor.html#ab750236e7b95489a1cb66d4b026717fc',1,'ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize, int32_t maxPoolSize, const std::vector&lt; BlockingQueue&lt; Runnable::sptr &gt;&gt; &amp;workQueue, RejectedExecutionHandler *handler, const std::string &amp;prefix=&quot;&quot;)'],['../classThreadPoolExecutor.html#a071bcc9eb42b365e2ce28a32938d422e',1,'ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize, int32_t maxPoolSize, const std::string &amp;prefix=&quot;&quot;)']]],
-  ['tostring',['toString',['../classThreadPoolExecutor.html#a8e340cec3bb976f7773db103d73189c2',1,'ThreadPoolExecutor']]],
-  ['try_5fpop',['try_pop',['../classBlockingQueue.html#a47a2d7726112b4e2d7b3f65a4e84aa06',1,'BlockingQueue']]]
+  ['schedule',['schedule',['../classScheduledThreadPoolExecutor.html#a45e622833714db87a86d50eb45c8f338',1,'ScheduledThreadPoolExecutor::schedule(F f, const std::chrono::nanoseconds &amp;delay)'],['../classScheduledThreadPoolExecutor.html#a30f723414e619a950f1efd968d13921d',1,'ScheduledThreadPoolExecutor::schedule(const std::shared_ptr&lt; TimerTask &gt; &amp;f)']]],
+  ['scheduleatfixeddelay',['scheduleAtFixedDelay',['../classScheduledThreadPoolExecutor.html#a594bb3111f9d051ad12f366a13a54db0',1,'ScheduledThreadPoolExecutor']]],
+  ['scheduleatfixedrate',['scheduleAtFixedRate',['../classScheduledThreadPoolExecutor.html#aebcb96fcb3f5bfc6e55ffcef9f38d60b',1,'ScheduledThreadPoolExecutor']]],
+  ['scheduledthread',['scheduledThread',['../classThreadPoolExecutor.html#a4c7ffb63829606ad4ae9fb247be42d3e',1,'ThreadPoolExecutor']]],
+  ['scheduledthreadpoolexecutor',['ScheduledThreadPoolExecutor',['../classScheduledThreadPoolExecutor.html#a880b17439bcdcf9b7542925e24033691',1,'ScheduledThreadPoolExecutor']]],
+  ['self',['self',['../classThread.html#a554185abbfacbcc4bf2e953cdddcbbba',1,'Thread']]],
+  ['setmaxpoolsize',['setMaxPoolSize',['../classThreadPoolExecutor.html#ac5a10d336958ca43530b31bff81c9c4b',1,'ThreadPoolExecutor']]],
+  ['setname',['setName',['../classThread.html#ae816904b2a3e248472813e17c2b12a71',1,'Thread']]],
+  ['setprio',['setPrio',['../classThread.html#a96661f80f5fbd26042a24eafd675cd91',1,'Thread']]],
+  ['setrejectedexecutionhandler',['setRejectedExecutionHandler',['../classThreadPoolExecutor.html#a0a471dc0a68b70d99d8215565a4df688',1,'ThreadPoolExecutor']]],
+  ['shutdown',['shutdown',['../classThreadPoolExecutor.html#aaa834c4350d6b12826803bb13dd467ea',1,'ThreadPoolExecutor']]],
+  ['size',['size',['../classBlockingQueue.html#a733361d5721c6ba64af3e129921c43b0',1,'BlockingQueue']]],
+  ['start',['start',['../classThread.html#a3a36451e02a15180624cdd88212cb1ba',1,'Thread']]],
+  ['stdid',['stdId',['../classThread.html#a231da16ab1825ee982c4aa43f78c1b22',1,'Thread']]],
+  ['stop',['stop',['../classThreadPoolExecutor.html#a588ec33baf402afd0e1c52b11d9234da',1,'ThreadPoolExecutor']]],
+  ['submit',['submit',['../classThreadPoolExecutor.html#a94834ab6bedcc75111524fec4e928b3f',1,'ThreadPoolExecutor::submit()'],['../classWorkStealingThreadPoolExecutor.html#a7fa1b79c8be2b06a7952ccfd14aa7f6c',1,'WorkStealingThreadPoolExecutor::submit()']]]
 ];

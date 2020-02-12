@@ -1,0 +1,126 @@
+\hypertarget{structTimerTask}{}\section{Timer\+Task结构体 参考}
+\label{structTimerTask}\index{Timer\+Task@{Timer\+Task}}
+
+
+定时任务封装  
+
+
+
+
+{\ttfamily \#include $<$scheduledthreadpoolexecutor.\+hpp$>$}
+
+
+
+类 Timer\+Task 继承关系图\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{structTimerTask__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Timer\+Task 的协作图\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{structTimerTask__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename F $>$ }\\\hyperlink{structTimerTask_ab87d7c5c62a8a079031b39eea3958c65}{Timer\+Task} (const std\+::chrono\+::nanoseconds \&init\+Delay, const std\+::chrono\+::nanoseconds \&interval, bool fixed\+Rate, F \&\&f)
+\begin{DoxyCompactList}\small\item\em \hyperlink{structTimerTask}{Timer\+Task} 构造函数 \end{DoxyCompactList}\item 
+\hyperlink{structTimerTask_a1b24917388958b16efb2d4d42593e96e}{Timer\+Task} (const \hyperlink{structTimerTask}{Timer\+Task} \&rh)
+\begin{DoxyCompactList}\small\item\em \hyperlink{structTimerTask}{Timer\+Task} 拷贝构造 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structTimerTask_a028f1f4221afe88383ac3c17b4c1ea41}\label{structTimerTask_a028f1f4221afe88383ac3c17b4c1ea41}} 
+\hyperlink{structTimerTask_a028f1f4221afe88383ac3c17b4c1ea41}{Timer\+Task} ()=default
+\begin{DoxyCompactList}\small\item\em \hyperlink{structTimerTask}{Timer\+Task} 默认构造 \end{DoxyCompactList}\item 
+\hyperlink{structTimerTask}{Timer\+Task} \& \hyperlink{structTimerTask_a3dfbb5770a1e3496f4e34d0795565c79}{operator=} (const \hyperlink{structTimerTask}{Timer\+Task} \&rh)
+\begin{DoxyCompactList}\small\item\em operator= 赋值运算符 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structTimerTask_af49a805f814a0b92e1f96037226a2d2e}\label{structTimerTask_af49a805f814a0b92e1f96037226a2d2e}} 
+std\+::chrono\+::nanoseconds {\bfseries initial\+Delay\+\_\+} \{0\}
+\item 
+\mbox{\Hypertarget{structTimerTask_afd954f592d96d8abe152e0f54b30979e}\label{structTimerTask_afd954f592d96d8abe152e0f54b30979e}} 
+std\+::chrono\+::nanoseconds {\bfseries interval\+\_\+} \{0\}
+\item 
+\mbox{\Hypertarget{structTimerTask_a31da300c15d00f58c2950e9752027e42}\label{structTimerTask_a31da300c15d00f58c2950e9752027e42}} 
+bool {\bfseries fixed\+Rate\+\_\+}
+\item 
+\mbox{\Hypertarget{structTimerTask_a7bcf4dfd5b91038d4c4c5378285d4ed0}\label{structTimerTask_a7bcf4dfd5b91038d4c4c5378285d4ed0}} 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point {\bfseries call\+Time\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{额外继承的成员函数}
+
+
+\subsection{详细描述}
+定时任务封装 
+
+\subsection{构造及析构函数说明}
+\mbox{\Hypertarget{structTimerTask_ab87d7c5c62a8a079031b39eea3958c65}\label{structTimerTask_ab87d7c5c62a8a079031b39eea3958c65}} 
+\index{Timer\+Task@{Timer\+Task}!Timer\+Task@{Timer\+Task}}
+\index{Timer\+Task@{Timer\+Task}!Timer\+Task@{Timer\+Task}}
+\subsubsection{\texorpdfstring{Timer\+Task()}{TimerTask()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename F $>$ \\
+Timer\+Task\+::\+Timer\+Task (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::nanoseconds \&}]{init\+Delay,  }\item[{const std\+::chrono\+::nanoseconds \&}]{interval,  }\item[{bool}]{fixed\+Rate,  }\item[{F \&\&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\hyperlink{structTimerTask}{Timer\+Task} 构造函数 
+
+
+\begin{DoxyParams}{参数}
+{\em init\+Delay} & 第一次调用的延迟 \\
+\hline
+{\em interval} & 每次调用间隔 \\
+\hline
+{\em fixed\+Rate} & 是否等间隔运行,true执行间隔确定,false每次调用经过相同延迟 \\
+\hline
+{\em f} & lambda或\+Runnable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structTimerTask_a1b24917388958b16efb2d4d42593e96e}\label{structTimerTask_a1b24917388958b16efb2d4d42593e96e}} 
+\index{Timer\+Task@{Timer\+Task}!Timer\+Task@{Timer\+Task}}
+\index{Timer\+Task@{Timer\+Task}!Timer\+Task@{Timer\+Task}}
+\subsubsection{\texorpdfstring{Timer\+Task()}{TimerTask()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Timer\+Task\+::\+Timer\+Task (\begin{DoxyParamCaption}\item[{const \hyperlink{structTimerTask}{Timer\+Task} \&}]{rh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\hyperlink{structTimerTask}{Timer\+Task} 拷贝构造 
+
+
+\begin{DoxyParams}{参数}
+{\em rh} & 另一个\+Timer\+Task \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{成员函数说明}
+\mbox{\Hypertarget{structTimerTask_a3dfbb5770a1e3496f4e34d0795565c79}\label{structTimerTask_a3dfbb5770a1e3496f4e34d0795565c79}} 
+\index{Timer\+Task@{Timer\+Task}!operator=@{operator=}}
+\index{operator=@{operator=}!Timer\+Task@{Timer\+Task}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \hyperlink{structTimerTask}{Timer\+Task}\& Timer\+Task\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{structTimerTask}{Timer\+Task} \&}]{rh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator= 赋值运算符 
+
+
+\begin{DoxyParams}{参数}
+{\em rh} & 另一个\+Timer\+Task\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\hyperlink{structTimerTask}{Timer\+Task}\& 
+\end{DoxyReturn}
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+scheduledthreadpoolexecutor.\+hpp\end{DoxyCompactItemize}

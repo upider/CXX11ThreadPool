@@ -2,10 +2,11 @@
 #define RUNNABLE_HPP
 
 #include <memory>
+#include <typeinfo>
 
-/// @brief Runnable interface 重写operator()
-//                            或传进lambda
+/// @brief Runnable interface 重写operator()或传进lambda
 //                            执行operator()可以运行任务
+//                            千万不能把两个Runnable对象循环赋值
 class Runnable {
     public:
         /**
@@ -19,7 +20,7 @@ class Runnable {
          *
          * @param f lambda
          */
-        Runnable(F&& f): functor_(new functor_t<F>(std::move(f))) {}
+        explicit Runnable(F&& f): functor_(new functor_t<F>(std::move(f))) {}
 
         /**
          * @brief Runnable 复制构造
@@ -28,13 +29,12 @@ class Runnable {
          */
         Runnable(Runnable && rth): functor_(std::move(rth.functor_)) {}
 
-        template <typename F = Runnable>
         /**
          * @brief Runnable 拷贝构造不会复制functor_
          *
-         * @param f Runnable引用
+         * @param rh Runnable引用
          */
-        Runnable(F& f) {}
+        explicit Runnable(Runnable & rh): functor_(rh.functor_) {}
 
         /**
          * @brief operator= 复制
@@ -43,8 +43,20 @@ class Runnable {
          *
          * @return Runnable&
          */
-        Runnable & operator=(Runnable && rth) {
+        Runnable& operator=(Runnable && rth) {
             functor_ = std::move(rth.functor_);
+            return *this;
+        }
+
+        /**
+         * @brief operator= 复制
+         *
+         * @param rth 被复制的Runnable
+         *
+         * @return Runnable&
+         */
+        Runnable& operator=(Runnable & rth) {
+            functor_ = rth.functor_;
             return *this;
         }
 
@@ -77,10 +89,9 @@ class Runnable {
 
     public:
         template<typename F>
-        Runnable(Runnable & rth) = delete;
         Runnable& operator=(Runnable& rth) = delete;
 
-    private:
+    protected:
         struct functor_base {
             functor_base() = default;
             virtual void call() = 0;
@@ -96,7 +107,7 @@ class Runnable {
             F _f;
         };
 
-        std::unique_ptr<functor_base> functor_;
+        std::shared_ptr<functor_base> functor_;
 };
 
 #endif /* RUNNABLE_HPP */

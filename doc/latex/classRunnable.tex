@@ -2,13 +2,29 @@
 \label{classRunnable}\index{Runnable@{Runnable}}
 
 
-\hyperlink{classRunnable}{Runnable} interface 重写operator()  
+\hyperlink{classRunnable}{Runnable} interface 重写operator()或传进lambda  
 
 
 
 
 {\ttfamily \#include $<$runnable.\+hpp$>$}
 
+
+
+类 Runnable 继承关系图\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{classRunnable__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structRunnable_1_1functor__base}{functor\+\_\+base}
+\item 
+struct \hyperlink{structRunnable_1_1functor__t}{functor\+\_\+t}
+\end{DoxyCompactItemize}
 \subsection*{Public 类型}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,9 +38,11 @@ using \hyperlink{classRunnable_abe8d3066c7305401d6f0aad8e70780f2}{sptr} = std\+:
 \begin{DoxyCompactList}\small\item\em \hyperlink{classRunnable}{Runnable} 构造函数 \end{DoxyCompactList}\item 
 \hyperlink{classRunnable_ab2054720a62d059c59d0e8085d3be78e}{Runnable} (\hyperlink{classRunnable}{Runnable} \&\&rth)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classRunnable}{Runnable} 复制构造 \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename F  = Runnable$>$ }\\\hyperlink{classRunnable_aaac34b8a861ab506499f8ec791e7cc16}{Runnable} (F \&f)
+\hyperlink{classRunnable_a9e4d88b5d30d6e0368c5d22a0df203ee}{Runnable} (\hyperlink{classRunnable}{Runnable} \&rh)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classRunnable}{Runnable} 拷贝构造不会复制functor\+\_\+ \end{DoxyCompactList}\item 
 \hyperlink{classRunnable}{Runnable} \& \hyperlink{classRunnable_ab41eea27867a9f54e94255851412bc77}{operator=} (\hyperlink{classRunnable}{Runnable} \&\&rth)
+\begin{DoxyCompactList}\small\item\em operator= 复制 \end{DoxyCompactList}\item 
+\hyperlink{classRunnable}{Runnable} \& \hyperlink{classRunnable_a998834d5321cd0f014dd90f3f8785c02}{operator=} (\hyperlink{classRunnable}{Runnable} \&rth)
 \begin{DoxyCompactList}\small\item\em operator= 复制 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classRunnable_a5769222dcc4b2adca7723bfbdfa00cbb}\label{classRunnable_a5769222dcc4b2adca7723bfbdfa00cbb}} 
 \hyperlink{classRunnable_a5769222dcc4b2adca7723bfbdfa00cbb}{Runnable} ()=default
@@ -37,16 +55,19 @@ virtual void \hyperlink{classRunnable_a38bf849dab4bbb86fc5bc6e7aff383e0}{operato
 \begin{DoxyCompactList}\small\item\em operator() 重载实现操作 \end{DoxyCompactList}\item 
 bool \hyperlink{classRunnable_a3abba14a5cf19709cef2d299ee68acae}{empty} () const
 \begin{DoxyCompactList}\small\item\em empty 判断内部的函数包装器是否为空 \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classRunnable_ae4f6e15a7503492b910f53ca8daf1795}\label{classRunnable_ae4f6e15a7503492b910f53ca8daf1795}} 
-{\footnotesize template$<$typename F $>$ }\\{\bfseries Runnable} (\hyperlink{classRunnable}{Runnable} \&rth)=delete
+\mbox{\Hypertarget{classRunnable_a9950452d28eaf9a1eb385ae6ad4cbc9b}\label{classRunnable_a9950452d28eaf9a1eb385ae6ad4cbc9b}} 
+{\footnotesize template$<$typename F $>$ }\\\hyperlink{classRunnable}{Runnable} \& {\bfseries operator=} (\hyperlink{classRunnable}{Runnable} \&rth)=delete
+\end{DoxyCompactItemize}
+\subsection*{Protected 属性}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classRunnable_a387d41d3a0c6d93e4aa4a72992531b52}\label{classRunnable_a387d41d3a0c6d93e4aa4a72992531b52}} 
-\hyperlink{classRunnable}{Runnable} \& {\bfseries operator=} (\hyperlink{classRunnable}{Runnable} \&rth)=delete
+\mbox{\Hypertarget{classRunnable_a9bb8a251d9b7db3c422c576e994382f6}\label{classRunnable_a9bb8a251d9b7db3c422c576e994382f6}} 
+std\+::shared\+\_\+ptr$<$ \hyperlink{structRunnable_1_1functor__base}{functor\+\_\+base} $>$ {\bfseries functor\+\_\+}
 \end{DoxyCompactItemize}
 
 
 \subsection{详细描述}
-\hyperlink{classRunnable}{Runnable} interface 重写operator() 
+\hyperlink{classRunnable}{Runnable} interface 重写operator()或传进lambda 
 
 \subsection{构造及析构函数说明}
 \mbox{\Hypertarget{classRunnable_ab052afa8b53dd1e7c28e978962839446}\label{classRunnable_ab052afa8b53dd1e7c28e978962839446}} 
@@ -54,7 +75,7 @@ bool \hyperlink{classRunnable_a3abba14a5cf19709cef2d299ee68acae}{empty} () const
 \index{Runnable@{Runnable}!Runnable@{Runnable}}
 \subsubsection{\texorpdfstring{Runnable()}{Runnable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily template$<$typename F $>$ \\
-Runnable\+::\+Runnable (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+Runnable\+::\+Runnable (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 
 
@@ -80,12 +101,11 @@ Runnable\+::\+Runnable (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyPara
 {\em rth} & Runnable右值引用 \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classRunnable_aaac34b8a861ab506499f8ec791e7cc16}\label{classRunnable_aaac34b8a861ab506499f8ec791e7cc16}} 
+\mbox{\Hypertarget{classRunnable_a9e4d88b5d30d6e0368c5d22a0df203ee}\label{classRunnable_a9e4d88b5d30d6e0368c5d22a0df203ee}} 
 \index{Runnable@{Runnable}!Runnable@{Runnable}}
 \index{Runnable@{Runnable}!Runnable@{Runnable}}
 \subsubsection{\texorpdfstring{Runnable()}{Runnable()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily template$<$typename F  = Runnable$>$ \\
-Runnable\+::\+Runnable (\begin{DoxyParamCaption}\item[{F \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Runnable\+::\+Runnable (\begin{DoxyParamCaption}\item[{\hyperlink{classRunnable}{Runnable} \&}]{rh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 
 
@@ -93,7 +113,7 @@ Runnable\+::\+Runnable (\begin{DoxyParamCaption}\item[{F \&}]{f }\end{DoxyParamC
 
 
 \begin{DoxyParams}{参数}
-{\em f} & Runnable引用 \\
+{\em rh} & Runnable引用 \\
 \hline
 \end{DoxyParams}
 
@@ -115,8 +135,26 @@ bool true-\/空
 \mbox{\Hypertarget{classRunnable_ab41eea27867a9f54e94255851412bc77}\label{classRunnable_ab41eea27867a9f54e94255851412bc77}} 
 \index{Runnable@{Runnable}!operator=@{operator=}}
 \index{operator=@{operator=}!Runnable@{Runnable}}
-\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \hyperlink{classRunnable}{Runnable}\& Runnable\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{classRunnable}{Runnable} \&\&}]{rth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator= 复制 
+
+
+\begin{DoxyParams}{参数}
+{\em rth} & 被复制的\+Runnable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\hyperlink{classRunnable}{Runnable}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRunnable_a998834d5321cd0f014dd90f3f8785c02}\label{classRunnable_a998834d5321cd0f014dd90f3f8785c02}} 
+\index{Runnable@{Runnable}!operator=@{operator=}}
+\index{operator=@{operator=}!Runnable@{Runnable}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classRunnable}{Runnable}\& Runnable\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{classRunnable}{Runnable} \&}]{rth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

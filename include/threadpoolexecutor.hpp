@@ -1,8 +1,6 @@
 #ifndef THREADPOOLEXECUTOR_HPP
 #define THREADPOOLEXECUTOR_HPP
 
-#include <iostream>
-#include <functional>
 #include <future>
 #include <memory>
 #include <vector>
@@ -108,18 +106,13 @@ class ThreadPoolExecutor {
         virtual void keepNonCoreThreadAlive(bool value) final;
 
         /**
-         * @brief releaseWorkers 释放所有线程(释放线程资源,并弹出线程队列)
-         */
-        virtual void releaseWorkers();
-
-        /**
          * @brief releaseNonCoreThreads 释放非核心线程(释放线程资源,并弹出线程队列)
          *								如果keepNonCoreThreadAlive=false,
          *								那么非核心线程会自动退出
          *								执行时会将keepNonCoreThreadAlive设为false,
          *								释放所有非核心线程
          */
-        void releaseNonCoreThreads();
+        virtual void releaseNonCoreThreads();
 
         /**
          * @brief setRejectedExecutionHandler 设置新的任务拒绝策略
@@ -134,8 +127,10 @@ class ThreadPoolExecutor {
             *                向任务队列提交的是任务副本
             *                不会抛出异常
             *
-            * @param command 要执行的任务(Runnable的子类shared_ptr),任务执行完依然能够拿到结果
-            * @param core    是否使用核心线程
+            * @param command 要执行的任务(Runnable的子类shared_ptr),
+        	*                任务执行完依然能够拿到结果
+            * @param core    是否使用核心线程,在核心线程没有完全启动时,
+        	*                会忽略core的值,优先启动核心线程
             *
             * @return          true - 添加成功
             */
@@ -149,7 +144,9 @@ class ThreadPoolExecutor {
          *
          * @param command 要执行的任务(Runnable或函数或lambda),任务会被用std::move(转移),
          *                任务结束后就会消失
-         * @param core    是否使用核心线程
+         *
+         * @param core    是否使用核心线程,在核心线程没有完全启动时,
+         *                会忽略core的值,优先启动核心线程
          *
          * @return          true - 添加成功
          */
@@ -176,7 +173,8 @@ class ThreadPoolExecutor {
          *               会抛出异常
          *
          * @param f 要提交的任务(Runnable或函数或lambda)
-         * @param core 是否使用核心线程(默认值true,不增加新线程)
+         * @param core 是否使用核心线程(默认值true,不增加新线程),
+         *             在核心线程没有完全启动时,会忽略core的值,优先启动核心线程
          *
          * @return res 任务返回值的future
          */
@@ -235,13 +233,6 @@ class ThreadPoolExecutor {
         virtual int getEverPoolSize() const final;
 
         /**
-         * @brief startCoreThreads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略
-         *
-         * @return 线程数已启动
-         */
-        virtual int startCoreThreads() final;
-
-        /**
          * @brief getCorePoolSize 返回核心线程数
          *
          * @return 核心线程数
@@ -272,6 +263,34 @@ class ThreadPoolExecutor {
          */
         virtual bool isTerminated() final;
 
+        /**
+         * @brief preStartCoreThreads 启动所有核心线程，导致他们等待工作。
+         *                         这将覆盖仅在执行新任务时启动核心线程的默认策略
+         *
+         * @return 线程数已启动
+         */
+        virtual int preStartCoreThreads();
+
+        /**
+         * @brief isRunning 是否还在运行
+         *
+         * @param c
+         *
+         * @return
+         */
+        virtual inline bool isRunning(int c) const final {
+            return c < SHUTDOWN;
+        }
+
+        /**
+         * @brief reject 将任务抛弃
+         *
+         * @param command 要抛弃的任务
+         */
+        virtual inline void reject(const Runnable & command) final {
+            rejectHandler_->rejectedExecution(command);
+        }
+
     protected:
         /**
          * @brief terminated 线程池终止时执行
@@ -279,6 +298,11 @@ class ThreadPoolExecutor {
         virtual void terminated() {}
 
     protected:
+        /**
+         * @brief releaseWorkers 释放所有线程(释放线程资源,并弹出线程队列)
+         */
+        virtual void releaseWorkers();
+
         /**
          * @brief runStateOf 得到线程池状态
          *
@@ -321,7 +345,7 @@ class ThreadPoolExecutor {
          *
          * @return          true - 添加成功
          */
-        virtual bool addWorker(Runnable task, bool core = true) final;
+        virtual bool addWorker(Runnable task, bool core = true);
 
         /**
             * @brief addWorker 将任务添加到队列
@@ -331,7 +355,7 @@ class ThreadPoolExecutor {
             *
             * @return          true - 添加成功
             */
-        virtual bool addWorker(Runnable::sptr task, bool core = true) final;
+        virtual bool addWorker(Runnable::sptr task, bool core = true);
 
         /**
          * @brief advanceRunState 改变线程池状态
@@ -341,7 +365,7 @@ class ThreadPoolExecutor {
         virtual void advanceRunState(int32_t targetState) final;
 
         /**
-         * @brief coreWorkerThread 线程池主循环
+         * @brief coreWorkerThread 核心线程循环
          *
          * @param queueIdex 任务队列位置
          */
@@ -354,16 +378,10 @@ class ThreadPoolExecutor {
          */
         virtual void workerThread(size_t queueIdex);
 
-        //virtual void runnableWorkerThread(Runnable);
-
         /**
-         * @brief reject 将任务抛弃
-         *
-         * @param command 要抛弃的任务
+         * @brief scheduledThread 任务调度线程
          */
-        virtual inline void reject(const Runnable & command) final {
-            rejectHandler_->rejectedExecution(command);
-        }
+        virtual void scheduledThread() {}
 
         /**
          * @brief reject 将任务抛弃
@@ -396,17 +414,6 @@ class ThreadPoolExecutor {
          */
         virtual inline bool runStateAtLeast(int c, int s)const final {
             return c >= s;
-        }
-
-        /**
-         * @brief isRunning 是否还在运行
-         *
-         * @param c
-         *
-         * @return
-         */
-        virtual inline bool isRunning(int c) const final {
-            return c < SHUTDOWN;
         }
 
         /**
@@ -458,7 +465,6 @@ class ThreadPoolExecutor {
         volatile bool                                                keepNonCoreThreadAlive_{false};
         std::atomic<int>                                             everPoolSize_{0};
         mutable std::mutex                                           mutex_;
-        mutable std::mutex                                           threadMutex_;
         std::atomic_int32_t                                          ctl_;
         std::condition_variable                                      notEmpty_;
         std::vector<Thread::sptr>                                    threads_;

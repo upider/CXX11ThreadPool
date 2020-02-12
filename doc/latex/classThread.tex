@@ -25,11 +25,11 @@ using {\bfseries sptr} = std\+::shared\+\_\+ptr$<$ \hyperlink{classThread}{Threa
 \subsection*{Public 成员函数}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classThread_a2375aeb8a227668652d593b180bac64e}{Thread} (int pro, \hyperlink{classThreadPoolExecutor}{Thread\+Pool\+Executor} $\ast$tpe=nullptr)
+\hyperlink{classThread_a66350772ff3af06962db113658a72ae3}{Thread} (int pro)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classThread}{Thread} 构造函数 \end{DoxyCompactList}\item 
-\hyperlink{classThread_aa32c32f43d92d235c9e795bea80e9058}{Thread} (const std\+::string \&name=\char`\"{}\char`\"{}, int pro=20, \hyperlink{classThreadPoolExecutor}{Thread\+Pool\+Executor} $\ast$tpe=nullptr)
+\hyperlink{classThread_a038819a1ef7bb4e50ae580d477f1a3b0}{Thread} (const std\+::string \&name=\char`\"{}\char`\"{}, int pro=20)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classThread}{Thread} 构造函数 \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Function\+Type $>$ }\\\hyperlink{classThread_a67eed36a7c4cb621651a6ce40939cf44}{Thread} (Function\+Type f, const std\+::string \&name=\char`\"{}\char`\"{}, int pro=20, \hyperlink{classThreadPoolExecutor}{Thread\+Pool\+Executor} $\ast$tpe=nullptr)
+{\footnotesize template$<$typename Function\+Type $>$ }\\\hyperlink{classThread_a61efca5f0beb62628c515fb7cdef7e08}{Thread} (Function\+Type f, const std\+::string \&name=\char`\"{}\char`\"{}, int pro=20)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classThread}{Thread} 构造函数 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_a957c601b090d6c2798c3cceb4ae5dc0f}\label{classThread_a957c601b090d6c2798c3cceb4ae5dc0f}} 
 virtual \hyperlink{classThread_a957c601b090d6c2798c3cceb4ae5dc0f}{$\sim$\+Thread} ()=default
@@ -125,11 +125,11 @@ std\+::unique\+\_\+ptr$<$ \hyperlink{structThread_1_1Func__base}{Func\+\_\+base}
 C++11线程封装类,包含更丰富功能 
 
 \subsection{构造及析构函数说明}
-\mbox{\Hypertarget{classThread_a2375aeb8a227668652d593b180bac64e}\label{classThread_a2375aeb8a227668652d593b180bac64e}} 
+\mbox{\Hypertarget{classThread_a66350772ff3af06962db113658a72ae3}\label{classThread_a66350772ff3af06962db113658a72ae3}} 
 \index{Thread@{Thread}!Thread@{Thread}}
 \index{Thread@{Thread}!Thread@{Thread}}
 \subsubsection{\texorpdfstring{Thread()}{Thread()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily Thread\+::\+Thread (\begin{DoxyParamCaption}\item[{int}]{pro,  }\item[{\hyperlink{classThreadPoolExecutor}{Thread\+Pool\+Executor} $\ast$}]{tpe = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Thread\+::\+Thread (\begin{DoxyParamCaption}\item[{int}]{pro }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -139,14 +139,12 @@ C++11线程封装类,包含更丰富功能
 \begin{DoxyParams}{参数}
 {\em pro} & 优先级 \\
 \hline
-{\em tpe} & 线程池(nullptr) \\
-\hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classThread_aa32c32f43d92d235c9e795bea80e9058}\label{classThread_aa32c32f43d92d235c9e795bea80e9058}} 
+\mbox{\Hypertarget{classThread_a038819a1ef7bb4e50ae580d477f1a3b0}\label{classThread_a038819a1ef7bb4e50ae580d477f1a3b0}} 
 \index{Thread@{Thread}!Thread@{Thread}}
 \index{Thread@{Thread}!Thread@{Thread}}
 \subsubsection{\texorpdfstring{Thread()}{Thread()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily Thread\+::\+Thread (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{int}]{pro = {\ttfamily 20},  }\item[{\hyperlink{classThreadPoolExecutor}{Thread\+Pool\+Executor} $\ast$}]{tpe = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Thread\+::\+Thread (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{int}]{pro = {\ttfamily 20} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -158,15 +156,13 @@ C++11线程封装类,包含更丰富功能
 \hline
 {\em pro} & 优先级 \\
 \hline
-{\em tpe} & 线程池(nullptr) \\
-\hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classThread_a67eed36a7c4cb621651a6ce40939cf44}\label{classThread_a67eed36a7c4cb621651a6ce40939cf44}} 
+\mbox{\Hypertarget{classThread_a61efca5f0beb62628c515fb7cdef7e08}\label{classThread_a61efca5f0beb62628c515fb7cdef7e08}} 
 \index{Thread@{Thread}!Thread@{Thread}}
 \index{Thread@{Thread}!Thread@{Thread}}
 \subsubsection{\texorpdfstring{Thread()}{Thread()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily template$<$typename Function\+Type $>$ \\
-Thread\+::\+Thread (\begin{DoxyParamCaption}\item[{Function\+Type}]{f,  }\item[{const std\+::string \&}]{name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{int}]{pro = {\ttfamily 20},  }\item[{\hyperlink{classThreadPoolExecutor}{Thread\+Pool\+Executor} $\ast$}]{tpe = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+Thread\+::\+Thread (\begin{DoxyParamCaption}\item[{Function\+Type}]{f,  }\item[{const std\+::string \&}]{name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{int}]{pro = {\ttfamily 20} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -179,8 +175,6 @@ Thread\+::\+Thread (\begin{DoxyParamCaption}\item[{Function\+Type}]{f,  }\item[{
 {\em name} & 线程名 \\
 \hline
 {\em pro} & 优先级 \\
-\hline
-{\em tpe} & 线程池(nullptr) \\
 \hline
 \end{DoxyParams}
 

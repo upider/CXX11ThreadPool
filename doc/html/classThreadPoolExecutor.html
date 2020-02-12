@@ -105,14 +105,10 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a7e6ed2d088147377d1e82018ac3dac1d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a7e6ed2d088147377d1e82018ac3dac1d">keepNonCoreThreadAlive</a> (bool value) final</td></tr>
 <tr class="memdesc:a7e6ed2d088147377d1e82018ac3dac1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">keepNonCoreThreadAlive 设置是否允许非核心thread超时并且在没有任务时终止  <a href="#a7e6ed2d088147377d1e82018ac3dac1d">更多...</a><br /></td></tr>
 <tr class="separator:a7e6ed2d088147377d1e82018ac3dac1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d4bfa422c41a11fcdd33e7a1b2bcec8"><td class="memItemLeft" align="right" valign="top"><a id="a7d4bfa422c41a11fcdd33e7a1b2bcec8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a7d4bfa422c41a11fcdd33e7a1b2bcec8">releaseWorkers</a> ()</td></tr>
-<tr class="memdesc:a7d4bfa422c41a11fcdd33e7a1b2bcec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">releaseWorkers 释放所有线程(释放线程资源,并弹出线程队列) <br /></td></tr>
-<tr class="separator:a7d4bfa422c41a11fcdd33e7a1b2bcec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe693b22533251b638317683a7e8fa96"><td class="memItemLeft" align="right" valign="top"><a id="abe693b22533251b638317683a7e8fa96"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#abe693b22533251b638317683a7e8fa96">releaseNonCoreThreads</a> ()</td></tr>
-<tr class="memdesc:abe693b22533251b638317683a7e8fa96"><td class="mdescLeft">&#160;</td><td class="mdescRight">releaseNonCoreThreads 释放非核心线程(释放线程资源,并弹出线程队列) 如果keepNonCoreThreadAlive=false, 那么非核心线程会自动退出 执行时会将keepNonCoreThreadAlive设为false, 释放所有非核心线程 <br /></td></tr>
-<tr class="separator:abe693b22533251b638317683a7e8fa96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a280379699ff72325cc4ccaf491e50967"><td class="memItemLeft" align="right" valign="top"><a id="a280379699ff72325cc4ccaf491e50967"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a280379699ff72325cc4ccaf491e50967">releaseNonCoreThreads</a> ()</td></tr>
+<tr class="memdesc:a280379699ff72325cc4ccaf491e50967"><td class="mdescLeft">&#160;</td><td class="mdescRight">releaseNonCoreThreads 释放非核心线程(释放线程资源,并弹出线程队列) 如果keepNonCoreThreadAlive=false, 那么非核心线程会自动退出 执行时会将keepNonCoreThreadAlive设为false, 释放所有非核心线程 <br /></td></tr>
+<tr class="separator:a280379699ff72325cc4ccaf491e50967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a471dc0a68b70d99d8215565a4df688"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a0a471dc0a68b70d99d8215565a4df688">setRejectedExecutionHandler</a> (<a class="el" href="classRejectedExecutionHandler.html">RejectedExecutionHandler</a> handler) final</td></tr>
 <tr class="memdesc:a0a471dc0a68b70d99d8215565a4df688"><td class="mdescLeft">&#160;</td><td class="mdescRight">setRejectedExecutionHandler 设置新的任务拒绝策略  <a href="#a0a471dc0a68b70d99d8215565a4df688">更多...</a><br /></td></tr>
 <tr class="separator:a0a471dc0a68b70d99d8215565a4df688"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,9 +140,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:af630e5117b4f67428a4fcbee5c15a7d9"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#af630e5117b4f67428a4fcbee5c15a7d9">getEverPoolSize</a> () const final</td></tr>
 <tr class="memdesc:af630e5117b4f67428a4fcbee5c15a7d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">getLargestPoolSize 返回池中使用过的线程数  <a href="#af630e5117b4f67428a4fcbee5c15a7d9">更多...</a><br /></td></tr>
 <tr class="separator:af630e5117b4f67428a4fcbee5c15a7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ee7a201ac0a8c9bd246a83939e39194"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a1ee7a201ac0a8c9bd246a83939e39194">startCoreThreads</a> () final</td></tr>
-<tr class="memdesc:a1ee7a201ac0a8c9bd246a83939e39194"><td class="mdescLeft">&#160;</td><td class="mdescRight">startCoreThreads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略  <a href="#a1ee7a201ac0a8c9bd246a83939e39194">更多...</a><br /></td></tr>
-<tr class="separator:a1ee7a201ac0a8c9bd246a83939e39194"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af29377a50af53031bb06aeacf9ef27f7"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#af29377a50af53031bb06aeacf9ef27f7">getCorePoolSize</a> () const final</td></tr>
 <tr class="memdesc:af29377a50af53031bb06aeacf9ef27f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">getCorePoolSize 返回核心线程数  <a href="#af29377a50af53031bb06aeacf9ef27f7">更多...</a><br /></td></tr>
 <tr class="separator:af29377a50af53031bb06aeacf9ef27f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,6 +157,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a89ed68d6c67ad6fbde73b7883c8107a7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a89ed68d6c67ad6fbde73b7883c8107a7">isTerminated</a> () final</td></tr>
 <tr class="memdesc:a89ed68d6c67ad6fbde73b7883c8107a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">isTerminated 判断线程池是否terminated  <a href="#a89ed68d6c67ad6fbde73b7883c8107a7">更多...</a><br /></td></tr>
 <tr class="separator:a89ed68d6c67ad6fbde73b7883c8107a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab8b3946a87fbecd144b159c12c8bcfb"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#aab8b3946a87fbecd144b159c12c8bcfb">preStartCoreThreads</a> ()</td></tr>
+<tr class="memdesc:aab8b3946a87fbecd144b159c12c8bcfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">preStartCoreThreads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略  <a href="#aab8b3946a87fbecd144b159c12c8bcfb">更多...</a><br /></td></tr>
+<tr class="separator:aab8b3946a87fbecd144b159c12c8bcfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a841ae2189d6f85b9df9f69dec5375341"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a841ae2189d6f85b9df9f69dec5375341">isRunning</a> (int c) const final</td></tr>
+<tr class="memdesc:a841ae2189d6f85b9df9f69dec5375341"><td class="mdescLeft">&#160;</td><td class="mdescRight">isRunning 是否还在运行  <a href="#a841ae2189d6f85b9df9f69dec5375341">更多...</a><br /></td></tr>
+<tr class="separator:a841ae2189d6f85b9df9f69dec5375341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14c4e3d786dcf22e858b11a95d2f77ef"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a14c4e3d786dcf22e858b11a95d2f77ef">reject</a> (const <a class="el" href="classRunnable.html">Runnable</a> &amp;command) final</td></tr>
+<tr class="memdesc:a14c4e3d786dcf22e858b11a95d2f77ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">reject 将任务抛弃  <a href="#a14c4e3d786dcf22e858b11a95d2f77ef">更多...</a><br /></td></tr>
+<tr class="separator:a14c4e3d786dcf22e858b11a95d2f77ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected 成员函数</h2></td></tr>
@@ -171,6 +173,10 @@ Protected 成员函数</h2></td></tr>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a61774315237123faf8e7fcc9d35ae47d">terminated</a> ()</td></tr>
 <tr class="memdesc:a61774315237123faf8e7fcc9d35ae47d"><td class="mdescLeft">&#160;</td><td class="mdescRight">terminated 线程池终止时执行 <br /></td></tr>
 <tr class="separator:a61774315237123faf8e7fcc9d35ae47d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d4bfa422c41a11fcdd33e7a1b2bcec8"><td class="memItemLeft" align="right" valign="top"><a id="a7d4bfa422c41a11fcdd33e7a1b2bcec8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a7d4bfa422c41a11fcdd33e7a1b2bcec8">releaseWorkers</a> ()</td></tr>
+<tr class="memdesc:a7d4bfa422c41a11fcdd33e7a1b2bcec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">releaseWorkers 释放所有线程(释放线程资源,并弹出线程队列) <br /></td></tr>
+<tr class="separator:a7d4bfa422c41a11fcdd33e7a1b2bcec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdb626fdcb6ed4c7822508d1e0a3fcf5"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#acdb626fdcb6ed4c7822508d1e0a3fcf5">runStateOf</a> (int32_t c) const final</td></tr>
 <tr class="memdesc:acdb626fdcb6ed4c7822508d1e0a3fcf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">runStateOf 得到线程池状态  <a href="#acdb626fdcb6ed4c7822508d1e0a3fcf5">更多...</a><br /></td></tr>
 <tr class="separator:acdb626fdcb6ed4c7822508d1e0a3fcf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -180,24 +186,25 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a31ed7a73571c79c8dbb486f27a4df4eb"><td class="memItemLeft" align="right" valign="top">virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a31ed7a73571c79c8dbb486f27a4df4eb">ctlOf</a> (int32_t rs, int32_t wc) const final</td></tr>
 <tr class="memdesc:a31ed7a73571c79c8dbb486f27a4df4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">ctlOf 控制变量初始化  <a href="#a31ed7a73571c79c8dbb486f27a4df4eb">更多...</a><br /></td></tr>
 <tr class="separator:a31ed7a73571c79c8dbb486f27a4df4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec8e7c250025db138cde555d759c8194"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#aec8e7c250025db138cde555d759c8194">addWorker</a> (<a class="el" href="classRunnable.html">Runnable</a> task, bool core=true) final</td></tr>
-<tr class="memdesc:aec8e7c250025db138cde555d759c8194"><td class="mdescLeft">&#160;</td><td class="mdescRight">addWorker 将任务添加到队列  <a href="#aec8e7c250025db138cde555d759c8194">更多...</a><br /></td></tr>
-<tr class="separator:aec8e7c250025db138cde555d759c8194"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2615dd9c245049110104603289beb54"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#ac2615dd9c245049110104603289beb54">addWorker</a> (<a class="el" href="classRunnable.html#abe8d3066c7305401d6f0aad8e70780f2">Runnable::sptr</a> task, bool core=true) final</td></tr>
-<tr class="memdesc:ac2615dd9c245049110104603289beb54"><td class="mdescLeft">&#160;</td><td class="mdescRight">addWorker 将任务添加到队列  <a href="#ac2615dd9c245049110104603289beb54">更多...</a><br /></td></tr>
-<tr class="separator:ac2615dd9c245049110104603289beb54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4eb0971fc6f352df594186b6a118d6c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#aa4eb0971fc6f352df594186b6a118d6c">addWorker</a> (<a class="el" href="classRunnable.html">Runnable</a> task, bool core=true)</td></tr>
+<tr class="memdesc:aa4eb0971fc6f352df594186b6a118d6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">addWorker 将任务添加到队列  <a href="#aa4eb0971fc6f352df594186b6a118d6c">更多...</a><br /></td></tr>
+<tr class="separator:aa4eb0971fc6f352df594186b6a118d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f108a305159ddf47923162f89a91a64"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a9f108a305159ddf47923162f89a91a64">addWorker</a> (<a class="el" href="classRunnable.html#abe8d3066c7305401d6f0aad8e70780f2">Runnable::sptr</a> task, bool core=true)</td></tr>
+<tr class="memdesc:a9f108a305159ddf47923162f89a91a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">addWorker 将任务添加到队列  <a href="#a9f108a305159ddf47923162f89a91a64">更多...</a><br /></td></tr>
+<tr class="separator:a9f108a305159ddf47923162f89a91a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaa3926310766a93b7fe1d83b77efdae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#abaa3926310766a93b7fe1d83b77efdae">advanceRunState</a> (int32_t targetState) final</td></tr>
 <tr class="memdesc:abaa3926310766a93b7fe1d83b77efdae"><td class="mdescLeft">&#160;</td><td class="mdescRight">advanceRunState 改变线程池状态  <a href="#abaa3926310766a93b7fe1d83b77efdae">更多...</a><br /></td></tr>
 <tr class="separator:abaa3926310766a93b7fe1d83b77efdae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e40839bf4191b5eab9d81227ddb62c3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a5e40839bf4191b5eab9d81227ddb62c3">coreWorkerThread</a> (size_t queueIdex)</td></tr>
-<tr class="memdesc:a5e40839bf4191b5eab9d81227ddb62c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">coreWorkerThread 线程池主循环  <a href="#a5e40839bf4191b5eab9d81227ddb62c3">更多...</a><br /></td></tr>
+<tr class="memdesc:a5e40839bf4191b5eab9d81227ddb62c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">coreWorkerThread 核心线程循环  <a href="#a5e40839bf4191b5eab9d81227ddb62c3">更多...</a><br /></td></tr>
 <tr class="separator:a5e40839bf4191b5eab9d81227ddb62c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a844902ce61fb16b11a569b8ee56e80e9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a844902ce61fb16b11a569b8ee56e80e9">workerThread</a> (size_t queueIdex)</td></tr>
 <tr class="memdesc:a844902ce61fb16b11a569b8ee56e80e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">workerThread 非核心线程循环  <a href="#a844902ce61fb16b11a569b8ee56e80e9">更多...</a><br /></td></tr>
 <tr class="separator:a844902ce61fb16b11a569b8ee56e80e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14c4e3d786dcf22e858b11a95d2f77ef"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a14c4e3d786dcf22e858b11a95d2f77ef">reject</a> (const <a class="el" href="classRunnable.html">Runnable</a> &amp;command) final</td></tr>
-<tr class="memdesc:a14c4e3d786dcf22e858b11a95d2f77ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">reject 将任务抛弃  <a href="#a14c4e3d786dcf22e858b11a95d2f77ef">更多...</a><br /></td></tr>
-<tr class="separator:a14c4e3d786dcf22e858b11a95d2f77ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c7ffb63829606ad4ae9fb247be42d3e"><td class="memItemLeft" align="right" valign="top"><a id="a4c7ffb63829606ad4ae9fb247be42d3e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a4c7ffb63829606ad4ae9fb247be42d3e">scheduledThread</a> ()</td></tr>
+<tr class="memdesc:a4c7ffb63829606ad4ae9fb247be42d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">scheduledThread 任务调度线程 <br /></td></tr>
+<tr class="separator:a4c7ffb63829606ad4ae9fb247be42d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a353e65b77bb3c0950ed79939473d4852"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a353e65b77bb3c0950ed79939473d4852">reject</a> (const <a class="el" href="classRunnable.html#abe8d3066c7305401d6f0aad8e70780f2">Runnable::sptr</a> command) final</td></tr>
 <tr class="memdesc:a353e65b77bb3c0950ed79939473d4852"><td class="mdescLeft">&#160;</td><td class="mdescRight">reject 将任务抛弃  <a href="#a353e65b77bb3c0950ed79939473d4852">更多...</a><br /></td></tr>
 <tr class="separator:a353e65b77bb3c0950ed79939473d4852"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,9 +214,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a44ee48ed44faa12fc6373074e9059e4e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a44ee48ed44faa12fc6373074e9059e4e">runStateAtLeast</a> (int c, int s) const final</td></tr>
 <tr class="memdesc:a44ee48ed44faa12fc6373074e9059e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">runStateAtLeast 运行状态最少是  <a href="#a44ee48ed44faa12fc6373074e9059e4e">更多...</a><br /></td></tr>
 <tr class="separator:a44ee48ed44faa12fc6373074e9059e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a841ae2189d6f85b9df9f69dec5375341"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#a841ae2189d6f85b9df9f69dec5375341">isRunning</a> (int c) const final</td></tr>
-<tr class="memdesc:a841ae2189d6f85b9df9f69dec5375341"><td class="mdescLeft">&#160;</td><td class="mdescRight">isRunning 是否还在运行  <a href="#a841ae2189d6f85b9df9f69dec5375341">更多...</a><br /></td></tr>
-<tr class="separator:a841ae2189d6f85b9df9f69dec5375341"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1bcafe65f800aeb9feade5f31b64fde"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThreadPoolExecutor.html#ac1bcafe65f800aeb9feade5f31b64fde">compareAndIncrementWorkerCount</a> (int expect) final</td></tr>
 <tr class="memdesc:ac1bcafe65f800aeb9feade5f31b64fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">compareAndIncrementWorkerCount 尝试CAS递增ctl的workerCount字段.  <a href="#ac1bcafe65f800aeb9feade5f31b64fde">更多...</a><br /></td></tr>
 <tr class="separator:ac1bcafe65f800aeb9feade5f31b64fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,9 +274,6 @@ std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 <tr class="memitem:a2ef0eea2a8ca7a03bd9d361ced31f71b"><td class="memItemLeft" align="right" valign="top"><a id="a2ef0eea2a8ca7a03bd9d361ced31f71b"></a>
 std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_</b></td></tr>
 <tr class="separator:a2ef0eea2a8ca7a03bd9d361ced31f71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4f94013afa2ddf003b2f8ff7f7a8fad"><td class="memItemLeft" align="right" valign="top"><a id="af4f94013afa2ddf003b2f8ff7f7a8fad"></a>
-std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>threadMutex_</b></td></tr>
-<tr class="separator:af4f94013afa2ddf003b2f8ff7f7a8fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a010113b7aac17ef364d417c485263873"><td class="memItemLeft" align="right" valign="top"><a id="a010113b7aac17ef364d417c485263873"></a>
 std::atomic_int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ctl_</b></td></tr>
 <tr class="separator:a010113b7aac17ef364d417c485263873"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -477,8 +478,8 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="aec8e7c250025db138cde555d759c8194"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec8e7c250025db138cde555d759c8194">&#9670;&nbsp;</a></span>addWorker() <span class="overload">[1/2]</span></h2>
+<a id="aa4eb0971fc6f352df594186b6a118d6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4eb0971fc6f352df594186b6a118d6c">&#9670;&nbsp;</a></span>addWorker() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -506,7 +507,7 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -523,8 +524,8 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 
 </div>
 </div>
-<a id="ac2615dd9c245049110104603289beb54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2615dd9c245049110104603289beb54">&#9670;&nbsp;</a></span>addWorker() <span class="overload">[2/2]</span></h2>
+<a id="a9f108a305159ddf47923162f89a91a64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f108a305159ddf47923162f89a91a64">&#9670;&nbsp;</a></span>addWorker() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -552,7 +553,7 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -697,7 +698,7 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 </table>
 </div><div class="memdoc">
 
-<p>coreWorkerThread 线程池主循环 </p>
+<p>coreWorkerThread 核心线程循环 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">queueIdex</td><td>任务队列位置 </td></tr>
@@ -784,8 +785,8 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 <p>execute 在将来某个时候执行给定的任务,无返回值, 任务可以在新线程或现有的合并的线程中执行, 向任务队列提交的是任务副本 不会抛出异常 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td>要执行的任务(Runnable的子类shared_ptr),任务执行完依然能够拿到结果 </td></tr>
-    <tr><td class="paramname">core</td><td>是否使用核心线程</td></tr>
+    <tr><td class="paramname">command</td><td>要执行的任务(Runnable的子类shared_ptr), 任务执行完依然能够拿到结果 </td></tr>
+    <tr><td class="paramname">core</td><td>是否使用核心线程,在核心线程没有完全启动时, 会忽略core的值,优先启动核心线程</td></tr>
   </table>
   </dd>
 </dl>
@@ -830,8 +831,8 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 <p>execute 在将来某个时候执行给定的任务,无返回值, 任务可以在新线程或现有的合并的线程中执行, 向任务队列提交的是任务副本 不会抛出异常 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td>要执行的任务(Runnable或函数或lambda),任务会被用std::move(转移), 任务结束后就会消失 </td></tr>
-    <tr><td class="paramname">core</td><td>是否使用核心线程</td></tr>
+    <tr><td class="paramname">command</td><td>要执行的任务(Runnable或函数或lambda),任务会被用std::move(转移), 任务结束后就会消失</td></tr>
+    <tr><td class="paramname">core</td><td>是否使用核心线程,在核心线程没有完全启动时, 会忽略core的值,优先启动核心线程</td></tr>
   </table>
   </dd>
 </dl>
@@ -1016,7 +1017,7 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1150,6 +1151,36 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 
 </div>
 </div>
+<a id="aab8b3946a87fbecd144b159c12c8bcfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab8b3946a87fbecd144b159c12c8bcfb">&#9670;&nbsp;</a></span>preStartCoreThreads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int ThreadPoolExecutor::preStartCoreThreads </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>preStartCoreThreads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略 </p>
+<dl class="section return"><dt>返回</dt><dd>线程数已启动 </dd></dl>
+
+<p>被 <a class="el" href="classScheduledThreadPoolExecutor.html#aed48379bdc243fd07e593205ca28f48d">ScheduledThreadPoolExecutor</a> 重载.</p>
+
+</div>
+</div>
 <a id="a14c4e3d786dcf22e858b11a95d2f77ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14c4e3d786dcf22e858b11a95d2f77ef">&#9670;&nbsp;</a></span>reject() <span class="overload">[1/2]</span></h2>
 
@@ -1169,7 +1200,7 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1413,34 +1444,6 @@ std::unique_ptr&lt; <a class="el" href="classRejectedExecutionHandler.html">Reje
 
 </div>
 </div>
-<a id="a1ee7a201ac0a8c9bd246a83939e39194"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ee7a201ac0a8c9bd246a83939e39194">&#9670;&nbsp;</a></span>startCoreThreads()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual int ThreadPoolExecutor::startCoreThreads </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>startCoreThreads 启动所有核心线程，导致他们等待工作。 这将覆盖仅在执行新任务时启动核心线程的默认策略 </p>
-<dl class="section return"><dt>返回</dt><dd>线程数已启动 </dd></dl>
-
-</div>
-</div>
 <a id="a94834ab6bedcc75111524fec4e928b3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94834ab6bedcc75111524fec4e928b3f">&#9670;&nbsp;</a></span>submit()</h2>
 
@@ -1481,7 +1484,7 @@ template&lt;typename F &gt; </div>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>要提交的任务(Runnable或函数或lambda) </td></tr>
-    <tr><td class="paramname">core</td><td>是否使用核心线程(默认值true,不增加新线程)</td></tr>
+    <tr><td class="paramname">core</td><td>是否使用核心线程(默认值true,不增加新线程), 在核心线程没有完全启动时,会忽略core的值,优先启动核心线程</td></tr>
   </table>
   </dd>
 </dl>

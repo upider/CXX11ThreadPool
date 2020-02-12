@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['self',['self',['../classThread.html#a554185abbfacbcc4bf2e953cdddcbbba',1,'Thread']]],
-  ['setmaxpoolsize',['setMaxPoolSize',['../classThreadPoolExecutor.html#ac5a10d336958ca43530b31bff81c9c4b',1,'ThreadPoolExecutor']]],
-  ['setname',['setName',['../classThread.html#ae816904b2a3e248472813e17c2b12a71',1,'Thread']]],
-  ['setprio',['setPrio',['../classThread.html#a96661f80f5fbd26042a24eafd675cd91',1,'Thread']]],
-  ['setrejectedexecutionhandler',['setRejectedExecutionHandler',['../classThreadPoolExecutor.html#a0a471dc0a68b70d99d8215565a4df688',1,'ThreadPoolExecutor']]],
-  ['shutdown',['shutdown',['../classThreadPoolExecutor.html#aaa834c4350d6b12826803bb13dd467ea',1,'ThreadPoolExecutor']]],
-  ['size',['size',['../classBlockingQueue.html#a733361d5721c6ba64af3e129921c43b0',1,'BlockingQueue']]],
-  ['start',['start',['../classThread.html#a3a36451e02a15180624cdd88212cb1ba',1,'Thread']]],
-  ['startcorethreads',['startCoreThreads',['../classThreadPoolExecutor.html#a1ee7a201ac0a8c9bd246a83939e39194',1,'ThreadPoolExecutor']]],
-  ['stdid',['stdId',['../classThread.html#a231da16ab1825ee982c4aa43f78c1b22',1,'Thread']]],
-  ['stop',['stop',['../classThreadPoolExecutor.html#a588ec33baf402afd0e1c52b11d9234da',1,'ThreadPoolExecutor']]],
-  ['submit',['submit',['../classThreadPoolExecutor.html#a94834ab6bedcc75111524fec4e928b3f',1,'ThreadPoolExecutor::submit()'],['../classWorkStealingThreadPoolExecutor.html#a7fa1b79c8be2b06a7952ccfd14aa7f6c',1,'WorkStealingThreadPoolExecutor::submit()']]]
+  ['reject',['reject',['../classThreadPoolExecutor.html#a14c4e3d786dcf22e858b11a95d2f77ef',1,'ThreadPoolExecutor::reject(const Runnable &amp;command) final'],['../classThreadPoolExecutor.html#a353e65b77bb3c0950ed79939473d4852',1,'ThreadPoolExecutor::reject(const Runnable::sptr command) final']]],
+  ['releasenoncorethreads',['releaseNonCoreThreads',['../classThreadPoolExecutor.html#a280379699ff72325cc4ccaf491e50967',1,'ThreadPoolExecutor']]],
+  ['releaseworkers',['releaseWorkers',['../classThreadPoolExecutor.html#a7d4bfa422c41a11fcdd33e7a1b2bcec8',1,'ThreadPoolExecutor']]],
+  ['run',['run',['../classThread.html#a7574ff300357f9d3193db03b83937eac',1,'Thread']]],
+  ['runnable',['Runnable',['../classRunnable.html#ab052afa8b53dd1e7c28e978962839446',1,'Runnable::Runnable(F &amp;&amp;f)'],['../classRunnable.html#ab2054720a62d059c59d0e8085d3be78e',1,'Runnable::Runnable(Runnable &amp;&amp;rth)'],['../classRunnable.html#a9e4d88b5d30d6e0368c5d22a0df203ee',1,'Runnable::Runnable(Runnable &amp;rh)'],['../classRunnable.html#a5769222dcc4b2adca7723bfbdfa00cbb',1,'Runnable::Runnable()=default']]],
+  ['runstateatleast',['runStateAtLeast',['../classThreadPoolExecutor.html#a44ee48ed44faa12fc6373074e9059e4e',1,'ThreadPoolExecutor']]],
+  ['runstatelessthan',['runStateLessThan',['../classThreadPoolExecutor.html#aa12a3efb879080453fb7abc486585698',1,'ThreadPoolExecutor']]],
+  ['runstateof',['runStateOf',['../classThreadPoolExecutor.html#acdb626fdcb6ed4c7822508d1e0a3fcf5',1,'ThreadPoolExecutor']]]
 ];

@@ -27,11 +27,145 @@ Scheduled\+Thread\+Pool\+Executor 的协作图\+:\nopagebreak
 \includegraphics[width=231pt]{classScheduledThreadPoolExecutor__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classScheduledThreadPoolExecutor_a880b17439bcdcf9b7542925e24033691}{Scheduled\+Thread\+Pool\+Executor} (int core\+Pool\+Size, const std\+::string \&prefix=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em \hyperlink{classScheduledThreadPoolExecutor}{Scheduled\+Thread\+Pool\+Executor} 构造函数 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_aa8d3f9083aa92b351be6e134d7a675ea}\label{classScheduledThreadPoolExecutor_aa8d3f9083aa92b351be6e134d7a675ea}} 
+virtual \hyperlink{classScheduledThreadPoolExecutor_aa8d3f9083aa92b351be6e134d7a675ea}{$\sim$\+Scheduled\+Thread\+Pool\+Executor} ()=default
+\begin{DoxyCompactList}\small\item\em $\sim$\+Scheduled\+Thread\+Pool\+Executor 析构函数 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_aabb4dbe81086385fb97cfa2a5d838dc8}\label{classScheduledThreadPoolExecutor_aabb4dbe81086385fb97cfa2a5d838dc8}} 
+void {\bfseries execute} ()=delete
+\item 
+{\footnotesize template$<$typename F $>$ }\\void \hyperlink{classScheduledThreadPoolExecutor_a45e622833714db87a86d50eb45c8f338}{schedule} (F f, const std\+::chrono\+::nanoseconds \&delay)
+\begin{DoxyCompactList}\small\item\em schedule 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 会抛出异常 \end{DoxyCompactList}\item 
+void \hyperlink{classScheduledThreadPoolExecutor_a30f723414e619a950f1efd968d13921d}{schedule} (const std\+::shared\+\_\+ptr$<$ \hyperlink{structTimerTask}{Timer\+Task} $>$ \&f)
+\begin{DoxyCompactList}\small\item\em schedule 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 会抛出异常 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename F $>$ }\\void \hyperlink{classScheduledThreadPoolExecutor_aebcb96fcb3f5bfc6e55ffcef9f38d60b}{schedule\+At\+Fixed\+Rate} (F f, const std\+::chrono\+::nanoseconds \&initial\+Delay, const std\+::chrono\+::nanoseconds \&period)
+\begin{DoxyCompactList}\small\item\em schedule\+At\+Fixed\+Rate 固定间隔调用 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename F $>$ }\\void \hyperlink{classScheduledThreadPoolExecutor_a594bb3111f9d051ad12f366a13a54db0}{schedule\+At\+Fixed\+Delay} (F f, const std\+::chrono\+::nanoseconds \&initial\+Delay, const std\+::chrono\+::nanoseconds \&delay)
+\begin{DoxyCompactList}\small\item\em schedule\+At\+Fixed\+Delay 固定延迟调用 \end{DoxyCompactList}\item 
+virtual int \hyperlink{classScheduledThreadPoolExecutor_aed48379bdc243fd07e593205ca28f48d}{pre\+Start\+Core\+Threads} ()
+\begin{DoxyCompactList}\small\item\em pre\+Start\+Core\+Threads 提前启动核心线程 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{额外继承的成员函数}
 
 
 \subsection{详细描述}
 定时任务调度线程池 
+
+\subsection{构造及析构函数说明}
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a880b17439bcdcf9b7542925e24033691}\label{classScheduledThreadPoolExecutor_a880b17439bcdcf9b7542925e24033691}} 
+\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
+\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{Scheduled\+Thread\+Pool\+Executor()}{ScheduledThreadPoolExecutor()}}
+{\footnotesize\ttfamily Scheduled\+Thread\+Pool\+Executor\+::\+Scheduled\+Thread\+Pool\+Executor (\begin{DoxyParamCaption}\item[{int}]{core\+Pool\+Size,  }\item[{const std\+::string \&}]{prefix = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\hyperlink{classScheduledThreadPoolExecutor}{Scheduled\+Thread\+Pool\+Executor} 构造函数 
+
+
+\begin{DoxyParams}{参数}
+{\em core\+Pool\+Size} & 核心线程数量 \\
+\hline
+{\em prefix} & 线程名前缀 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{成员函数说明}
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_aed48379bdc243fd07e593205ca28f48d}\label{classScheduledThreadPoolExecutor_aed48379bdc243fd07e593205ca28f48d}} 
+\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!pre\+Start\+Core\+Threads@{pre\+Start\+Core\+Threads}}
+\index{pre\+Start\+Core\+Threads@{pre\+Start\+Core\+Threads}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{pre\+Start\+Core\+Threads()}{preStartCoreThreads()}}
+{\footnotesize\ttfamily virtual int Scheduled\+Thread\+Pool\+Executor\+::pre\+Start\+Core\+Threads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+pre\+Start\+Core\+Threads 提前启动核心线程 
+
+\begin{DoxyReturn}{返回}
+
+\end{DoxyReturn}
+
+
+重载 \hyperlink{classThreadPoolExecutor_aab8b3946a87fbecd144b159c12c8bcfb}{Thread\+Pool\+Executor} .
+
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a45e622833714db87a86d50eb45c8f338}\label{classScheduledThreadPoolExecutor_a45e622833714db87a86d50eb45c8f338}} 
+\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!schedule@{schedule}}
+\index{schedule@{schedule}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{schedule()}{schedule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename F $>$ \\
+void Scheduled\+Thread\+Pool\+Executor\+::schedule (\begin{DoxyParamCaption}\item[{F}]{f,  }\item[{const std\+::chrono\+::nanoseconds \&}]{delay }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+schedule 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 会抛出异常 
+
+
+\begin{DoxyParams}{参数}
+{\em f} & 要提交的任务(Runnable或函数或lambda,不能是\+Runnable\+::sptr) \\
+\hline
+{\em delay} & 固定延迟 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a30f723414e619a950f1efd968d13921d}\label{classScheduledThreadPoolExecutor_a30f723414e619a950f1efd968d13921d}} 
+\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!schedule@{schedule}}
+\index{schedule@{schedule}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{schedule()}{schedule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Scheduled\+Thread\+Pool\+Executor\+::schedule (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \hyperlink{structTimerTask}{Timer\+Task} $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+schedule 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 会抛出异常 
+
+
+\begin{DoxyParams}{参数}
+{\em f} & 要提交的任务(std\+::shared\+\_\+ptr$<$\+Timer\+Task$>$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a594bb3111f9d051ad12f366a13a54db0}\label{classScheduledThreadPoolExecutor_a594bb3111f9d051ad12f366a13a54db0}} 
+\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!schedule\+At\+Fixed\+Delay@{schedule\+At\+Fixed\+Delay}}
+\index{schedule\+At\+Fixed\+Delay@{schedule\+At\+Fixed\+Delay}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{schedule\+At\+Fixed\+Delay()}{scheduleAtFixedDelay()}}
+{\footnotesize\ttfamily template$<$typename F $>$ \\
+void Scheduled\+Thread\+Pool\+Executor\+::schedule\+At\+Fixed\+Delay (\begin{DoxyParamCaption}\item[{F}]{f,  }\item[{const std\+::chrono\+::nanoseconds \&}]{initial\+Delay,  }\item[{const std\+::chrono\+::nanoseconds \&}]{delay }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+schedule\+At\+Fixed\+Delay 固定延迟调用 
+
+
+\begin{DoxyParams}{参数}
+{\em f} & 要提交的任务(Runnable或函数或lambda,不能是\+Runnable\+::sptr) \\
+\hline
+{\em initial\+Delay} & 初始延迟 \\
+\hline
+{\em delay} & 固定延迟 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_aebcb96fcb3f5bfc6e55ffcef9f38d60b}\label{classScheduledThreadPoolExecutor_aebcb96fcb3f5bfc6e55ffcef9f38d60b}} 
+\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!schedule\+At\+Fixed\+Rate@{schedule\+At\+Fixed\+Rate}}
+\index{schedule\+At\+Fixed\+Rate@{schedule\+At\+Fixed\+Rate}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{schedule\+At\+Fixed\+Rate()}{scheduleAtFixedRate()}}
+{\footnotesize\ttfamily template$<$typename F $>$ \\
+void Scheduled\+Thread\+Pool\+Executor\+::schedule\+At\+Fixed\+Rate (\begin{DoxyParamCaption}\item[{F}]{f,  }\item[{const std\+::chrono\+::nanoseconds \&}]{initial\+Delay,  }\item[{const std\+::chrono\+::nanoseconds \&}]{period }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+schedule\+At\+Fixed\+Rate 固定间隔调用 
+
+
+\begin{DoxyParams}{参数}
+{\em f} & 要提交的任务(Runnable或函数或lambda,不能是\+Runnable\+::sptr) \\
+\hline
+{\em initial\+Delay} & 初始延迟 \\
+\hline
+{\em period} & 固定间隔 \\
+\hline
+\end{DoxyParams}
+
 
 该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
 \item 

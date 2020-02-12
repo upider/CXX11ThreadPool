@@ -64,17 +64,33 @@ $(function() {
 <a href="#nested-classes">类</a> &#124;
 <a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
 <a href="classRunnable-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
 <div class="title">Runnable类 参考</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a> interface 重写operator()  
+<p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> interface 重写operator()或传进lambda  
  <a href="classRunnable.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="runnable_8hpp_source.html">runnable.hpp</a>&gt;</code></p>
+<div class="dynheader">
+类 Runnable 继承关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="classRunnable__inherit__graph.png" border="0" usemap="#Runnable_inherit__map" alt="Inheritance graph"/></div>
+<map name="Runnable_inherit__map" id="Runnable_inherit__map">
+<area shape="rect" id="node2" href="structTimerTask.html" title="定时任务封装 " alt="" coords="5,80,89,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRunnable_1_1functor__base.html">functor_base</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRunnable_1_1functor__t.html">functor_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public 类型</h2></td></tr>
 <tr class="memitem:abe8d3066c7305401d6f0aad8e70780f2"><td class="memItemLeft" align="right" valign="top"><a id="abe8d3066c7305401d6f0aad8e70780f2"></a>
@@ -86,21 +102,23 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 Public 成员函数</h2></td></tr>
 <tr class="memitem:ab052afa8b53dd1e7c28e978962839446"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:ab052afa8b53dd1e7c28e978962839446"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classRunnable.html#ab052afa8b53dd1e7c28e978962839446">Runnable</a> (F &amp;&amp;f)</td></tr>
-<tr class="memdesc:ab052afa8b53dd1e7c28e978962839446"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a> 构造函数  <a href="#ab052afa8b53dd1e7c28e978962839446">更多...</a><br /></td></tr>
+<tr class="memdesc:ab052afa8b53dd1e7c28e978962839446"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 构造函数  <a href="#ab052afa8b53dd1e7c28e978962839446">更多...</a><br /></td></tr>
 <tr class="separator:ab052afa8b53dd1e7c28e978962839446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2054720a62d059c59d0e8085d3be78e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#ab2054720a62d059c59d0e8085d3be78e">Runnable</a> (<a class="el" href="classRunnable.html">Runnable</a> &amp;&amp;rth)</td></tr>
-<tr class="memdesc:ab2054720a62d059c59d0e8085d3be78e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a> 复制构造  <a href="#ab2054720a62d059c59d0e8085d3be78e">更多...</a><br /></td></tr>
+<tr class="memdesc:ab2054720a62d059c59d0e8085d3be78e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 复制构造  <a href="#ab2054720a62d059c59d0e8085d3be78e">更多...</a><br /></td></tr>
 <tr class="separator:ab2054720a62d059c59d0e8085d3be78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaac34b8a861ab506499f8ec791e7cc16"><td class="memTemplParams" colspan="2">template&lt;typename F  = Runnable&gt; </td></tr>
-<tr class="memitem:aaac34b8a861ab506499f8ec791e7cc16"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classRunnable.html#aaac34b8a861ab506499f8ec791e7cc16">Runnable</a> (F &amp;f)</td></tr>
-<tr class="memdesc:aaac34b8a861ab506499f8ec791e7cc16"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a> 拷贝构造不会复制functor_  <a href="#aaac34b8a861ab506499f8ec791e7cc16">更多...</a><br /></td></tr>
-<tr class="separator:aaac34b8a861ab506499f8ec791e7cc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e4d88b5d30d6e0368c5d22a0df203ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a9e4d88b5d30d6e0368c5d22a0df203ee">Runnable</a> (<a class="el" href="classRunnable.html">Runnable</a> &amp;rh)</td></tr>
+<tr class="memdesc:a9e4d88b5d30d6e0368c5d22a0df203ee"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 拷贝构造不会复制functor_  <a href="#a9e4d88b5d30d6e0368c5d22a0df203ee">更多...</a><br /></td></tr>
+<tr class="separator:a9e4d88b5d30d6e0368c5d22a0df203ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab41eea27867a9f54e94255851412bc77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#ab41eea27867a9f54e94255851412bc77">operator=</a> (<a class="el" href="classRunnable.html">Runnable</a> &amp;&amp;rth)</td></tr>
 <tr class="memdesc:ab41eea27867a9f54e94255851412bc77"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator= 复制  <a href="#ab41eea27867a9f54e94255851412bc77">更多...</a><br /></td></tr>
 <tr class="separator:ab41eea27867a9f54e94255851412bc77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998834d5321cd0f014dd90f3f8785c02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a998834d5321cd0f014dd90f3f8785c02">operator=</a> (<a class="el" href="classRunnable.html">Runnable</a> &amp;rth)</td></tr>
+<tr class="memdesc:a998834d5321cd0f014dd90f3f8785c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator= 复制  <a href="#a998834d5321cd0f014dd90f3f8785c02">更多...</a><br /></td></tr>
+<tr class="separator:a998834d5321cd0f014dd90f3f8785c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5769222dcc4b2adca7723bfbdfa00cbb"><td class="memItemLeft" align="right" valign="top"><a id="a5769222dcc4b2adca7723bfbdfa00cbb"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a5769222dcc4b2adca7723bfbdfa00cbb">Runnable</a> ()=default</td></tr>
-<tr class="memdesc:a5769222dcc4b2adca7723bfbdfa00cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a> 默认构造 <br /></td></tr>
+<tr class="memdesc:a5769222dcc4b2adca7723bfbdfa00cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 默认构造 <br /></td></tr>
 <tr class="separator:a5769222dcc4b2adca7723bfbdfa00cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08557328273d2dfd3425507b1f972fcb"><td class="memItemLeft" align="right" valign="top"><a id="a08557328273d2dfd3425507b1f972fcb"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a08557328273d2dfd3425507b1f972fcb">~Runnable</a> ()=default</td></tr>
@@ -113,16 +131,19 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a3abba14a5cf19709cef2d299ee68acae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a3abba14a5cf19709cef2d299ee68acae">empty</a> () const</td></tr>
 <tr class="memdesc:a3abba14a5cf19709cef2d299ee68acae"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty 判断内部的函数包装器是否为空  <a href="#a3abba14a5cf19709cef2d299ee68acae">更多...</a><br /></td></tr>
 <tr class="separator:a3abba14a5cf19709cef2d299ee68acae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4f6e15a7503492b910f53ca8daf1795"><td class="memTemplParams" colspan="2"><a id="ae4f6e15a7503492b910f53ca8daf1795"></a>
+<tr class="memitem:a9950452d28eaf9a1eb385ae6ad4cbc9b"><td class="memTemplParams" colspan="2"><a id="a9950452d28eaf9a1eb385ae6ad4cbc9b"></a>
 template&lt;typename F &gt; </td></tr>
-<tr class="memitem:ae4f6e15a7503492b910f53ca8daf1795"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Runnable</b> (<a class="el" href="classRunnable.html">Runnable</a> &amp;rth)=delete</td></tr>
-<tr class="separator:ae4f6e15a7503492b910f53ca8daf1795"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387d41d3a0c6d93e4aa4a72992531b52"><td class="memItemLeft" align="right" valign="top"><a id="a387d41d3a0c6d93e4aa4a72992531b52"></a>
-<a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classRunnable.html">Runnable</a> &amp;rth)=delete</td></tr>
-<tr class="separator:a387d41d3a0c6d93e4aa4a72992531b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9950452d28eaf9a1eb385ae6ad4cbc9b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classRunnable.html">Runnable</a> &amp;rth)=delete</td></tr>
+<tr class="separator:a9950452d28eaf9a1eb385ae6ad4cbc9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a9bb8a251d9b7db3c422c576e994382f6"><td class="memItemLeft" align="right" valign="top"><a id="a9bb8a251d9b7db3c422c576e994382f6"></a>
+std::shared_ptr&lt; <a class="el" href="structRunnable_1_1functor__base.html">functor_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>functor_</b></td></tr>
+<tr class="separator:a9bb8a251d9b7db3c422c576e994382f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a> interface 重写operator() </p>
+<div class="textblock"><p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> interface 重写operator()或传进lambda </p>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="ab052afa8b53dd1e7c28e978962839446"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab052afa8b53dd1e7c28e978962839446">&#9670;&nbsp;</a></span>Runnable() <span class="overload">[1/3]</span></h2>
@@ -145,12 +166,12 @@ template&lt;typename F &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a> 构造函数 </p>
+<p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 构造函数 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>lambda </td></tr>
@@ -184,7 +205,7 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a> 复制构造 </p>
+<p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 复制构造 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">rth</td><td>Runnable右值引用 </td></tr>
@@ -194,13 +215,11 @@ template&lt;typename F &gt; </div>
 
 </div>
 </div>
-<a id="aaac34b8a861ab506499f8ec791e7cc16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaac34b8a861ab506499f8ec791e7cc16">&#9670;&nbsp;</a></span>Runnable() <span class="overload">[3/3]</span></h2>
+<a id="a9e4d88b5d30d6e0368c5d22a0df203ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e4d88b5d30d6e0368c5d22a0df203ee">&#9670;&nbsp;</a></span>Runnable() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename F  = Runnable&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -208,22 +227,22 @@ template&lt;typename F  = Runnable&gt; </div>
         <tr>
           <td class="memname">Runnable::Runnable </td>
           <td>(</td>
-          <td class="paramtype">F &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td>
+          <td class="paramname"><em>rh</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a> 拷贝构造不会复制functor_ </p>
+<p><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 拷贝构造不会复制functor_ </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>Runnable引用 </td></tr>
+    <tr><td class="paramname">rh</td><td>Runnable引用 </td></tr>
   </table>
   </dd>
 </dl>
@@ -260,7 +279,7 @@ template&lt;typename F  = Runnable&gt; </div>
 </div>
 </div>
 <a id="ab41eea27867a9f54e94255851412bc77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab41eea27867a9f54e94255851412bc77">&#9670;&nbsp;</a></span>operator=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab41eea27867a9f54e94255851412bc77">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,7 +309,42 @@ template&lt;typename F  = Runnable&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd><a class="el" href="classRunnable.html" title="Runnable interface 重写operator() ">Runnable</a>&amp; </dd></dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a>&amp; </dd></dl>
+
+</div>
+</div>
+<a id="a998834d5321cd0f014dd90f3f8785c02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a998834d5321cd0f014dd90f3f8785c02">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classRunnable.html">Runnable</a>&amp; Runnable::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td>
+          <td class="paramname"><em>rth</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>operator= 复制 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rth</td><td>被复制的Runnable</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a>&amp; </dd></dl>
 
 </div>
 </div>

@@ -1,3 +1,4 @@
 <map id="类继承关系图" name="类继承关系图">
-<area shape="rect" id="node1" href="$classRejectedExecutionHandler.html" title="不再接受任务时的拒绝策略 " alt="" coords="5,5,183,32"/>
+<area shape="rect" id="node1" href="$classRunnable.html" title="Runnable interface 重写operator()或传进lambda " alt="" coords="5,5,83,32"/>
+<area shape="rect" id="node2" href="$structTimerTask.html" title="定时任务封装 " alt="" coords="131,5,215,32"/>
 </map>

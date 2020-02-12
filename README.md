@@ -13,11 +13,7 @@
 	10. 每个线程有自己的工作队列
 	11. Thread类丰富了std::thread的功能,设置名称,id,检查是否存活,是否空闲等等
 	12. 任务窃取线程池
-
-## TODO
-
-	1. 实现ScheduledThreadPool
-	2. 实现Executors工厂函数
+	13. 定时调用线程池,任务队列采用vector形成小顶堆,时间最小排在前面
 
 ## 用法
 	1. 类似Java Executor
@@ -28,6 +24,7 @@
 ## 参考
 	1. JDK1.8源码
 	2. C++并发编程实战
+	3. folly
 
 ## change log
 
@@ -38,3 +35,4 @@
 	5. 实现WorkStealingThreadPool
 	6. 修改BlockingQueue<Runable>为BlockingQueue<Runable::sptr>,这样任务提交后仍然能够拿到结果
 	7. Runnable类的复制构造函数不会复制原来Runnable对象初始化的lambda
+	8. 实现ScheduledThreadPoolExecutor

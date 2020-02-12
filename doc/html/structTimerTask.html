@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CPP11ThreadPool: TimerTask结构体 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="CPP.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CPP11ThreadPool
+   </div>
+   <div id="projectbrief">C++11线程池</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="structTimerTask-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">TimerTask结构体 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>定时任务封装  
+ <a href="structTimerTask.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="scheduledthreadpoolexecutor_8hpp_source.html">scheduledthreadpoolexecutor.hpp</a>&gt;</code></p>
+<div class="dynheader">
+类 TimerTask 继承关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="structTimerTask__inherit__graph.png" border="0" usemap="#TimerTask_inherit__map" alt="Inheritance graph"/></div>
+<map name="TimerTask_inherit__map" id="TimerTask_inherit__map">
+<area shape="rect" id="node2" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda " alt="" coords="9,5,86,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<div class="dynheader">
+TimerTask 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="structTimerTask__coll__graph.png" border="0" usemap="#TimerTask_coll__map" alt="Collaboration graph"/></div>
+<map name="TimerTask_coll__map" id="TimerTask_coll__map">
+<area shape="rect" id="node2" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda " alt="" coords="9,5,86,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ab87d7c5c62a8a079031b39eea3958c65"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:ab87d7c5c62a8a079031b39eea3958c65"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structTimerTask.html#ab87d7c5c62a8a079031b39eea3958c65">TimerTask</a> (const std::chrono::nanoseconds &amp;initDelay, const std::chrono::nanoseconds &amp;interval, bool fixedRate, F &amp;&amp;f)</td></tr>
+<tr class="memdesc:ab87d7c5c62a8a079031b39eea3958c65"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structTimerTask.html" title="定时任务封装 ">TimerTask</a> 构造函数  <a href="#ab87d7c5c62a8a079031b39eea3958c65">更多...</a><br /></td></tr>
+<tr class="separator:ab87d7c5c62a8a079031b39eea3958c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b24917388958b16efb2d4d42593e96e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerTask.html#a1b24917388958b16efb2d4d42593e96e">TimerTask</a> (const <a class="el" href="structTimerTask.html">TimerTask</a> &amp;rh)</td></tr>
+<tr class="memdesc:a1b24917388958b16efb2d4d42593e96e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structTimerTask.html" title="定时任务封装 ">TimerTask</a> 拷贝构造  <a href="#a1b24917388958b16efb2d4d42593e96e">更多...</a><br /></td></tr>
+<tr class="separator:a1b24917388958b16efb2d4d42593e96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a028f1f4221afe88383ac3c17b4c1ea41"><td class="memItemLeft" align="right" valign="top"><a id="a028f1f4221afe88383ac3c17b4c1ea41"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerTask.html#a028f1f4221afe88383ac3c17b4c1ea41">TimerTask</a> ()=default</td></tr>
+<tr class="memdesc:a028f1f4221afe88383ac3c17b4c1ea41"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structTimerTask.html" title="定时任务封装 ">TimerTask</a> 默认构造 <br /></td></tr>
+<tr class="separator:a028f1f4221afe88383ac3c17b4c1ea41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dfbb5770a1e3496f4e34d0795565c79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTimerTask.html">TimerTask</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerTask.html#a3dfbb5770a1e3496f4e34d0795565c79">operator=</a> (const <a class="el" href="structTimerTask.html">TimerTask</a> &amp;rh)</td></tr>
+<tr class="memdesc:a3dfbb5770a1e3496f4e34d0795565c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator= 赋值运算符  <a href="#a3dfbb5770a1e3496f4e34d0795565c79">更多...</a><br /></td></tr>
+<tr class="separator:a3dfbb5770a1e3496f4e34d0795565c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classRunnable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classRunnable')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classRunnable.html">Runnable</a></td></tr>
+<tr class="memitem:ab052afa8b53dd1e7c28e978962839446 inherit pub_methods_classRunnable"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:ab052afa8b53dd1e7c28e978962839446 inherit pub_methods_classRunnable"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classRunnable.html#ab052afa8b53dd1e7c28e978962839446">Runnable</a> (F &amp;&amp;f)</td></tr>
+<tr class="memdesc:ab052afa8b53dd1e7c28e978962839446 inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 构造函数  <a href="classRunnable.html#ab052afa8b53dd1e7c28e978962839446">更多...</a><br /></td></tr>
+<tr class="separator:ab052afa8b53dd1e7c28e978962839446 inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2054720a62d059c59d0e8085d3be78e inherit pub_methods_classRunnable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#ab2054720a62d059c59d0e8085d3be78e">Runnable</a> (<a class="el" href="classRunnable.html">Runnable</a> &amp;&amp;rth)</td></tr>
+<tr class="memdesc:ab2054720a62d059c59d0e8085d3be78e inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 复制构造  <a href="classRunnable.html#ab2054720a62d059c59d0e8085d3be78e">更多...</a><br /></td></tr>
+<tr class="separator:ab2054720a62d059c59d0e8085d3be78e inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e4d88b5d30d6e0368c5d22a0df203ee inherit pub_methods_classRunnable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a9e4d88b5d30d6e0368c5d22a0df203ee">Runnable</a> (<a class="el" href="classRunnable.html">Runnable</a> &amp;rh)</td></tr>
+<tr class="memdesc:a9e4d88b5d30d6e0368c5d22a0df203ee inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 拷贝构造不会复制functor_  <a href="classRunnable.html#a9e4d88b5d30d6e0368c5d22a0df203ee">更多...</a><br /></td></tr>
+<tr class="separator:a9e4d88b5d30d6e0368c5d22a0df203ee inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab41eea27867a9f54e94255851412bc77 inherit pub_methods_classRunnable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#ab41eea27867a9f54e94255851412bc77">operator=</a> (<a class="el" href="classRunnable.html">Runnable</a> &amp;&amp;rth)</td></tr>
+<tr class="memdesc:ab41eea27867a9f54e94255851412bc77 inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator= 复制  <a href="classRunnable.html#ab41eea27867a9f54e94255851412bc77">更多...</a><br /></td></tr>
+<tr class="separator:ab41eea27867a9f54e94255851412bc77 inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998834d5321cd0f014dd90f3f8785c02 inherit pub_methods_classRunnable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a998834d5321cd0f014dd90f3f8785c02">operator=</a> (<a class="el" href="classRunnable.html">Runnable</a> &amp;rth)</td></tr>
+<tr class="memdesc:a998834d5321cd0f014dd90f3f8785c02 inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator= 复制  <a href="classRunnable.html#a998834d5321cd0f014dd90f3f8785c02">更多...</a><br /></td></tr>
+<tr class="separator:a998834d5321cd0f014dd90f3f8785c02 inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5769222dcc4b2adca7723bfbdfa00cbb inherit pub_methods_classRunnable"><td class="memItemLeft" align="right" valign="top"><a id="a5769222dcc4b2adca7723bfbdfa00cbb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a5769222dcc4b2adca7723bfbdfa00cbb">Runnable</a> ()=default</td></tr>
+<tr class="memdesc:a5769222dcc4b2adca7723bfbdfa00cbb inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRunnable.html" title="Runnable interface 重写operator()或传进lambda ">Runnable</a> 默认构造 <br /></td></tr>
+<tr class="separator:a5769222dcc4b2adca7723bfbdfa00cbb inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08557328273d2dfd3425507b1f972fcb inherit pub_methods_classRunnable"><td class="memItemLeft" align="right" valign="top"><a id="a08557328273d2dfd3425507b1f972fcb"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a08557328273d2dfd3425507b1f972fcb">~Runnable</a> ()=default</td></tr>
+<tr class="memdesc:a08557328273d2dfd3425507b1f972fcb inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight">~Runnable 析构函数 <br /></td></tr>
+<tr class="separator:a08557328273d2dfd3425507b1f972fcb inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38bf849dab4bbb86fc5bc6e7aff383e0 inherit pub_methods_classRunnable"><td class="memItemLeft" align="right" valign="top"><a id="a38bf849dab4bbb86fc5bc6e7aff383e0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a38bf849dab4bbb86fc5bc6e7aff383e0">operator()</a> ()</td></tr>
+<tr class="memdesc:a38bf849dab4bbb86fc5bc6e7aff383e0 inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator() 重载实现操作 <br /></td></tr>
+<tr class="separator:a38bf849dab4bbb86fc5bc6e7aff383e0 inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3abba14a5cf19709cef2d299ee68acae inherit pub_methods_classRunnable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a3abba14a5cf19709cef2d299ee68acae">empty</a> () const</td></tr>
+<tr class="memdesc:a3abba14a5cf19709cef2d299ee68acae inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty 判断内部的函数包装器是否为空  <a href="classRunnable.html#a3abba14a5cf19709cef2d299ee68acae">更多...</a><br /></td></tr>
+<tr class="separator:a3abba14a5cf19709cef2d299ee68acae inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9950452d28eaf9a1eb385ae6ad4cbc9b inherit pub_methods_classRunnable"><td class="memTemplParams" colspan="2"><a id="a9950452d28eaf9a1eb385ae6ad4cbc9b"></a>
+template&lt;typename F &gt; </td></tr>
+<tr class="memitem:a9950452d28eaf9a1eb385ae6ad4cbc9b inherit pub_methods_classRunnable"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classRunnable.html">Runnable</a> &amp;rth)=delete</td></tr>
+<tr class="separator:a9950452d28eaf9a1eb385ae6ad4cbc9b inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:af49a805f814a0b92e1f96037226a2d2e"><td class="memItemLeft" align="right" valign="top"><a id="af49a805f814a0b92e1f96037226a2d2e"></a>
+std::chrono::nanoseconds&#160;</td><td class="memItemRight" valign="bottom"><b>initialDelay_</b> {0}</td></tr>
+<tr class="separator:af49a805f814a0b92e1f96037226a2d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd954f592d96d8abe152e0f54b30979e"><td class="memItemLeft" align="right" valign="top"><a id="afd954f592d96d8abe152e0f54b30979e"></a>
+std::chrono::nanoseconds&#160;</td><td class="memItemRight" valign="bottom"><b>interval_</b> {0}</td></tr>
+<tr class="separator:afd954f592d96d8abe152e0f54b30979e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31da300c15d00f58c2950e9752027e42"><td class="memItemLeft" align="right" valign="top"><a id="a31da300c15d00f58c2950e9752027e42"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>fixedRate_</b></td></tr>
+<tr class="separator:a31da300c15d00f58c2950e9752027e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bcf4dfd5b91038d4c4c5378285d4ed0"><td class="memItemLeft" align="right" valign="top"><a id="a7bcf4dfd5b91038d4c4c5378285d4ed0"></a>
+std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><b>callTime_</b></td></tr>
+<tr class="separator:a7bcf4dfd5b91038d4c4c5378285d4ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pub_types_classRunnable"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classRunnable')"><img src="closed.png" alt="-"/>&#160;Public 类型 继承自 <a class="el" href="classRunnable.html">Runnable</a></td></tr>
+<tr class="memitem:abe8d3066c7305401d6f0aad8e70780f2 inherit pub_types_classRunnable"><td class="memItemLeft" align="right" valign="top"><a id="abe8d3066c7305401d6f0aad8e70780f2"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#abe8d3066c7305401d6f0aad8e70780f2">sptr</a> = std::shared_ptr&lt; <a class="el" href="classRunnable.html">Runnable</a> &gt;</td></tr>
+<tr class="memdesc:abe8d3066c7305401d6f0aad8e70780f2 inherit pub_types_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight">std::shared_ptr&lt;Runnable&gt;别名 <br /></td></tr>
+<tr class="separator:abe8d3066c7305401d6f0aad8e70780f2 inherit pub_types_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classRunnable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classRunnable')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classRunnable.html">Runnable</a></td></tr>
+<tr class="memitem:a9bb8a251d9b7db3c422c576e994382f6 inherit pro_attribs_classRunnable"><td class="memItemLeft" align="right" valign="top"><a id="a9bb8a251d9b7db3c422c576e994382f6"></a>
+std::shared_ptr&lt; <a class="el" href="structRunnable_1_1functor__base.html">functor_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>functor_</b></td></tr>
+<tr class="separator:a9bb8a251d9b7db3c422c576e994382f6 inherit pro_attribs_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>定时任务封装 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="ab87d7c5c62a8a079031b39eea3958c65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab87d7c5c62a8a079031b39eea3958c65">&#9670;&nbsp;</a></span>TimerTask() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TimerTask::TimerTask </td>
+          <td>(</td>
+          <td class="paramtype">const std::chrono::nanoseconds &amp;&#160;</td>
+          <td class="paramname"><em>initDelay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::chrono::nanoseconds &amp;&#160;</td>
+          <td class="paramname"><em>interval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>fixedRate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="structTimerTask.html" title="定时任务封装 ">TimerTask</a> 构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initDelay</td><td>第一次调用的延迟 </td></tr>
+    <tr><td class="paramname">interval</td><td>每次调用间隔 </td></tr>
+    <tr><td class="paramname">fixedRate</td><td>是否等间隔运行,true执行间隔确定,false每次调用经过相同延迟 </td></tr>
+    <tr><td class="paramname">f</td><td>lambda或Runnable </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1b24917388958b16efb2d4d42593e96e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b24917388958b16efb2d4d42593e96e">&#9670;&nbsp;</a></span>TimerTask() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TimerTask::TimerTask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structTimerTask.html">TimerTask</a> &amp;&#160;</td>
+          <td class="paramname"><em>rh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="structTimerTask.html" title="定时任务封装 ">TimerTask</a> 拷贝构造 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rh</td><td>另一个TimerTask </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a3dfbb5770a1e3496f4e34d0795565c79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dfbb5770a1e3496f4e34d0795565c79">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTimerTask.html">TimerTask</a>&amp; TimerTask::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structTimerTask.html">TimerTask</a> &amp;&#160;</td>
+          <td class="paramname"><em>rh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>operator= 赋值运算符 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rh</td><td>另一个TimerTask</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="structTimerTask.html" title="定时任务封装 ">TimerTask</a>&amp; </dd></dl>
+
+</div>
+</div>
+<hr/>该结构体的文档由以下文件生成:<ul>
+<li><a class="el" href="scheduledthreadpoolexecutor_8hpp_source.html">scheduledthreadpoolexecutor.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

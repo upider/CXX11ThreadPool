@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['thread',['Thread',['../classThread.html',1,'']]],
-  ['threadpoolexecutor',['ThreadPoolExecutor',['../classThreadPoolExecutor.html',1,'']]]
+  ['workstealingthreadpoolexecutor',['WorkStealingThreadPoolExecutor',['../classWorkStealingThreadPoolExecutor.html',1,'']]]
 ];

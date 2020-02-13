@@ -36,3 +36,7 @@
 	6. 修改BlockingQueue<Runable>为BlockingQueue<Runable::sptr>,这样任务提交后仍然能够拿到结果
 	7. Runnable类的复制构造函数不会复制原来Runnable对象初始化的lambda
 	8. 实现ScheduledThreadPoolExecutor
+
+## License
+
+	Mozilla

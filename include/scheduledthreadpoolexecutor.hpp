@@ -2,6 +2,7 @@
 #define SCHEDULEDTHREADPOOLEXECUTOR_H
 
 #include <functional>
+#include <sstream>
 #include <algorithm>
 
 #include "threadpoolexecutor.hpp"
@@ -58,15 +59,18 @@ struct TimerTask : public Runnable {
         callTime_ = rh.callTime_;
         return *this;
     }
-
+    ///初次延迟
     std::chrono::nanoseconds initialDelay_{0};
+    ///固定延迟或间隔
     std::chrono::nanoseconds interval_{0};
+    ///是否是固定间隔执行
     bool fixedRate_;
+    ///下次执行时间
     std::chrono::steady_clock::time_point callTime_;
 };
 
 /**
- * @brief 定时任务调度线程池
+ * @brief 定时任务调度线程池,最大线程数和核心线程数相等
  */
 class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
     private:
@@ -105,7 +109,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
         /**
          * @brief scheduledThread 调度线程
          */
-        virtual void scheduledThread() {
+        virtual void coreWorkerThread(size_t) {
             std::chrono::steady_clock::time_point callTime;
             std::shared_ptr<TimerTask> timerTask;
             while(runStateOf(ctl_.load()) <= SHUTDOWN) {
@@ -142,12 +146,13 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
 
     public:
         //隐藏父类某些函数
-        void execute() = delete;
+        virtual void execute()                  = delete;
+        virtual bool addWorker()                = delete;
+        virtual void workerThread()             = delete;
+        virtual void setMaxPoolSize()           = delete;
+        virtual bool keepNonCoreThreadAlive()   = delete;
+        virtual void releaseNonCoreThreads(int) = delete;
 
-    private:
-        //隐藏父类某些函数
-        virtual void coreWorkerThread() = delete;
-        virtual void workerThread() = delete;
 
     public:
         template<typename F>
@@ -172,7 +177,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
             }
             notEmpty_.notify_all();
             if(wc < corePoolSize_ && compareAndIncrementWorkerCount(c)) {
-                threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::scheduledThread, this), prefix_));
+                threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::coreWorkerThread, this, 0), prefix_));
                 threads_.back()->start();
                 everPoolSize_++;
             }
@@ -198,7 +203,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
             }
             notEmpty_.notify_all();
             if(wc < corePoolSize_ && compareAndIncrementWorkerCount(c)) {
-                threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::scheduledThread, this), prefix_));
+                threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::coreWorkerThread, this, 9), prefix_));
                 threads_.back()->start();
                 everPoolSize_++;
             }
@@ -227,7 +232,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
             }
             notEmpty_.notify_all();
             if(wc < corePoolSize_ && compareAndIncrementWorkerCount(c)) {
-                threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::scheduledThread, this), prefix_));
+                threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::coreWorkerThread, this, 0), prefix_));
                 threads_.back()->start();
                 everPoolSize_++;
             }
@@ -256,7 +261,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
             }
             notEmpty_.notify_all();
             if(wc < corePoolSize_ && compareAndIncrementWorkerCount(c)) {
-                threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::scheduledThread, this), prefix_));
+                threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::coreWorkerThread, this, 0), prefix_));
                 threads_.back()->start();
                 everPoolSize_++;
             }
@@ -271,8 +276,8 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
             int32_t c = ctl_.load();
             for (int i = 0; i < corePoolSize_; ++i) {
                 if (compareAndIncrementWorkerCount(c)) {
-                    threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::scheduledThread,
-                                                     this), prefix_));
+                    threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::coreWorkerThread,
+                                                     this, 0), prefix_));
                 }
                 c = ctl_.load();
                 threads_[i]->start();
@@ -280,6 +285,25 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
             }
             return everPoolSize_;
         }
+
+        std::string toString() const {
+            int32_t c = ctl_.load();
+            std::string rs = (runStateLessThan(c, SHUTDOWN) ? "Running" :
+                              (runStateAtLeast(c, TERMINATED) ? "Terminated" :
+                               "ShuttingDown"));
+            std::stringstream ss;
+            ss << "STATE="               << rs
+               << " EVER_POOL_SIZE="     << everPoolSize_
+               << " CORE_POOL_SIZE="     << corePoolSize_
+               << " TASK_COUNT="         << getTaskCount();
+            return ss.str();
+        }
+
+        virtual long getTaskCount() const {
+            std::lock_guard<std::mutex> lock(mutex_);
+            return timerTasks_.size();
+        }
+
 };
 
 #endif /* SCHEDULEDTHREADPOOLEXECUTOR_H */

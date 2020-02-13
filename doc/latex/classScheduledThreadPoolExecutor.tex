@@ -2,7 +2,7 @@
 \label{classScheduledThreadPoolExecutor}\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
 
 
-定时任务调度线程池  
+定时任务调度线程池,最大线程数和核心线程数相等  
 
 
 
@@ -35,8 +35,23 @@ Scheduled\+Thread\+Pool\+Executor 的协作图\+:\nopagebreak
 \mbox{\Hypertarget{classScheduledThreadPoolExecutor_aa8d3f9083aa92b351be6e134d7a675ea}\label{classScheduledThreadPoolExecutor_aa8d3f9083aa92b351be6e134d7a675ea}} 
 virtual \hyperlink{classScheduledThreadPoolExecutor_aa8d3f9083aa92b351be6e134d7a675ea}{$\sim$\+Scheduled\+Thread\+Pool\+Executor} ()=default
 \begin{DoxyCompactList}\small\item\em $\sim$\+Scheduled\+Thread\+Pool\+Executor 析构函数 \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classScheduledThreadPoolExecutor_aabb4dbe81086385fb97cfa2a5d838dc8}\label{classScheduledThreadPoolExecutor_aabb4dbe81086385fb97cfa2a5d838dc8}} 
-void {\bfseries execute} ()=delete
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a239910f301ad71b289e132a454f05338}\label{classScheduledThreadPoolExecutor_a239910f301ad71b289e132a454f05338}} 
+virtual void {\bfseries execute} ()=delete
+\item 
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_aabc3d6fc69ffd19056836a5ad68c2772}\label{classScheduledThreadPoolExecutor_aabc3d6fc69ffd19056836a5ad68c2772}} 
+virtual bool {\bfseries add\+Worker} ()=delete
+\item 
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_ac302acf3e6fe686bb0b9dc1747c3af26}\label{classScheduledThreadPoolExecutor_ac302acf3e6fe686bb0b9dc1747c3af26}} 
+virtual void {\bfseries worker\+Thread} ()=delete
+\item 
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a9570da2541929be6c59339de682ec570}\label{classScheduledThreadPoolExecutor_a9570da2541929be6c59339de682ec570}} 
+virtual void {\bfseries set\+Max\+Pool\+Size} ()=delete
+\item 
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a028ce032ab4b48dedfed40f0b55bf007}\label{classScheduledThreadPoolExecutor_a028ce032ab4b48dedfed40f0b55bf007}} 
+virtual bool {\bfseries keep\+Non\+Core\+Thread\+Alive} ()=delete
+\item 
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a1c31bc114b95b8ea8db057e7dcd922a9}\label{classScheduledThreadPoolExecutor_a1c31bc114b95b8ea8db057e7dcd922a9}} 
+virtual void {\bfseries release\+Non\+Core\+Threads} (int)=delete
 \item 
 {\footnotesize template$<$typename F $>$ }\\void \hyperlink{classScheduledThreadPoolExecutor_a45e622833714db87a86d50eb45c8f338}{schedule} (F f, const std\+::chrono\+::nanoseconds \&delay)
 \begin{DoxyCompactList}\small\item\em schedule 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 会抛出异常 \end{DoxyCompactList}\item 
@@ -47,12 +62,16 @@ void \hyperlink{classScheduledThreadPoolExecutor_a30f723414e619a950f1efd968d1392
 {\footnotesize template$<$typename F $>$ }\\void \hyperlink{classScheduledThreadPoolExecutor_a594bb3111f9d051ad12f366a13a54db0}{schedule\+At\+Fixed\+Delay} (F f, const std\+::chrono\+::nanoseconds \&initial\+Delay, const std\+::chrono\+::nanoseconds \&delay)
 \begin{DoxyCompactList}\small\item\em schedule\+At\+Fixed\+Delay 固定延迟调用 \end{DoxyCompactList}\item 
 virtual int \hyperlink{classScheduledThreadPoolExecutor_aed48379bdc243fd07e593205ca28f48d}{pre\+Start\+Core\+Threads} ()
-\begin{DoxyCompactList}\small\item\em pre\+Start\+Core\+Threads 提前启动核心线程 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em pre\+Start\+Core\+Threads 提前启动核心线程 \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classScheduledThreadPoolExecutor_a4a785e058d76dc861a23904d7e1033f0}{to\+String} () const
+\begin{DoxyCompactList}\small\item\em to\+String 返回标识此池的字符串及其状态，包括运行状态和估计的\+Worker和任务计数的指示 \end{DoxyCompactList}\item 
+virtual long \hyperlink{classScheduledThreadPoolExecutor_a786bc8478d265dfe0288de9397c7f768}{get\+Task\+Count} () const
+\begin{DoxyCompactList}\small\item\em get\+Task\+Count 得到任务队列大小 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{额外继承的成员函数}
 
 
 \subsection{详细描述}
-定时任务调度线程池 
+定时任务调度线程池,最大线程数和核心线程数相等 
 
 \subsection{构造及析构函数说明}
 \mbox{\Hypertarget{classScheduledThreadPoolExecutor_a880b17439bcdcf9b7542925e24033691}\label{classScheduledThreadPoolExecutor_a880b17439bcdcf9b7542925e24033691}} 
@@ -75,6 +94,23 @@ virtual int \hyperlink{classScheduledThreadPoolExecutor_aed48379bdc243fd07e59320
 
 
 \subsection{成员函数说明}
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a786bc8478d265dfe0288de9397c7f768}\label{classScheduledThreadPoolExecutor_a786bc8478d265dfe0288de9397c7f768}} 
+\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!get\+Task\+Count@{get\+Task\+Count}}
+\index{get\+Task\+Count@{get\+Task\+Count}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{get\+Task\+Count()}{getTaskCount()}}
+{\footnotesize\ttfamily virtual long Scheduled\+Thread\+Pool\+Executor\+::get\+Task\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+get\+Task\+Count 得到任务队列大小 
+
+\begin{DoxyReturn}{返回}
+任务队列大小 
+\end{DoxyReturn}
+
+
+重载 \hyperlink{classThreadPoolExecutor_a61e8321202e6b0f6ea014485e8e10450}{Thread\+Pool\+Executor} .
+
 \mbox{\Hypertarget{classScheduledThreadPoolExecutor_aed48379bdc243fd07e593205ca28f48d}\label{classScheduledThreadPoolExecutor_aed48379bdc243fd07e593205ca28f48d}} 
 \index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!pre\+Start\+Core\+Threads@{pre\+Start\+Core\+Threads}}
 \index{pre\+Start\+Core\+Threads@{pre\+Start\+Core\+Threads}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
@@ -165,6 +201,23 @@ schedule\+At\+Fixed\+Rate 固定间隔调用
 {\em period} & 固定间隔 \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classScheduledThreadPoolExecutor_a4a785e058d76dc861a23904d7e1033f0}\label{classScheduledThreadPoolExecutor_a4a785e058d76dc861a23904d7e1033f0}} 
+\index{Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Scheduled\+Thread\+Pool\+Executor@{Scheduled\+Thread\+Pool\+Executor}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily std\+::string Scheduled\+Thread\+Pool\+Executor\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+to\+String 返回标识此池的字符串及其状态，包括运行状态和估计的\+Worker和任务计数的指示 
+
+\begin{DoxyReturn}{返回}
+一个标识这个池的字符串，以及它的状态 
+\end{DoxyReturn}
+
+
+重载 \hyperlink{classThreadPoolExecutor_a8e340cec3bb976f7773db103d73189c2}{Thread\+Pool\+Executor} .
+
 
 
 该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}

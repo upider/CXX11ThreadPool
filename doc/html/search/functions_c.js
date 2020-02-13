@@ -1,6 +1,8 @@
 var searchData=
 [
   ['reject',['reject',['../classThreadPoolExecutor.html#a14c4e3d786dcf22e858b11a95d2f77ef',1,'ThreadPoolExecutor::reject(const Runnable &amp;command) final'],['../classThreadPoolExecutor.html#a353e65b77bb3c0950ed79939473d4852',1,'ThreadPoolExecutor::reject(const Runnable::sptr command) final']]],
+  ['rejectedexecution',['rejectedExecution',['../classRejectedExecutionHandler.html#a18d3240b63ffa8a84fa728f89c2ef1d1',1,'RejectedExecutionHandler::rejectedExecution(const Runnable::sptr r)'],['../classRejectedExecutionHandler.html#abb6476c7d64a7bd3111fc1a39829858b',1,'RejectedExecutionHandler::rejectedExecution(const Runnable &amp;r)']]],
+  ['rejectedexecutionhandler',['RejectedExecutionHandler',['../classRejectedExecutionHandler.html#ac288960546b34a9f0e7be49c32d2f929',1,'RejectedExecutionHandler']]],
   ['releasenoncorethreads',['releaseNonCoreThreads',['../classThreadPoolExecutor.html#a280379699ff72325cc4ccaf491e50967',1,'ThreadPoolExecutor']]],
   ['releaseworkers',['releaseWorkers',['../classThreadPoolExecutor.html#a7d4bfa422c41a11fcdd33e7a1b2bcec8',1,'ThreadPoolExecutor']]],
   ['run',['run',['../classThread.html#a7574ff300357f9d3193db03b83937eac',1,'Thread']]],

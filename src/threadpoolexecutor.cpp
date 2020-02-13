@@ -1,9 +1,6 @@
 #include <sstream>
 #include <functional>
 #include <stdexcept>
-#include <pthread.h>
-#include <signal.h>
-#include <bitset>
 
 #include "threadpoolexecutor.hpp"
 

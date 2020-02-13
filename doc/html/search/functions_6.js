@@ -7,5 +7,5 @@ var searchData=
   ['getname',['getName',['../classThread.html#a19bc237f8a86727a5a4b516122fe20f6',1,'Thread']]],
   ['getpid',['getPid',['../classThread.html#ad7fd4dfa0edff93d118b2edf5ab7be2c',1,'Thread']]],
   ['getprio',['getPrio',['../classThread.html#a712ab58b9e89f458427b213b1197a666',1,'Thread']]],
-  ['gettaskcount',['getTaskCount',['../classThreadPoolExecutor.html#a396d50079b39787928ead5f122781de6',1,'ThreadPoolExecutor']]]
+  ['gettaskcount',['getTaskCount',['../classScheduledThreadPoolExecutor.html#a786bc8478d265dfe0288de9397c7f768',1,'ScheduledThreadPoolExecutor::getTaskCount()'],['../classThreadPoolExecutor.html#a61e8321202e6b0f6ea014485e8e10450',1,'ThreadPoolExecutor::getTaskCount()']]]
 ];

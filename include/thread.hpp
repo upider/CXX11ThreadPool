@@ -3,15 +3,10 @@
 
 #include <atomic>
 #include <chrono>
-#include <condition_variable>
 #include <cstring>
-#include <future>
 #include <memory>
-#include <mutex>
 #include <string>
 #include <thread>
-
-#include <iostream>
 
 #include <sys/syscall.h>
 #include <sys/signal.h>
@@ -124,14 +119,21 @@ class ThreadPoolExecutor;
  */
 class Thread {
     protected:
+        ///线程优先级
         int                                    prio_;
-        pid_t                                  currentPid_{-1};      ///-1表明线程已经执行完任务,unix底层的线程已经不存在了
-        std::mutex                             mutex_;
+        ///-1表明线程已经执行完任务,unix底层的线程已经不存在了
+        pid_t                                  currentPid_{-1};
+        ///线程名前缀
         std::string                            name_;
+        ///线程
         std::thread                            thread_;
+        ///线程停止标志
         std::atomic_bool                       stop_{true};
+        ///线程空闲标志
         std::atomic_bool                       idle_{true};
+        ///让出时间片标志
         std::atomic_bool                       yield_{false};
+        ///上次活跃时间
         std::chrono::steady_clock::time_point  lastActiveTime_{std::chrono::steady_clock::now()};
 
     protected:
@@ -156,9 +158,15 @@ class Thread {
             FunctionType _f;
         };
 
+        /**
+         * @brief 函数封装
+         */
         std::unique_ptr<Func_base> func_uptr_;
 
     public:
+        /**
+         * @brief std::shared_ptr<Thread>别名
+         */
         using sptr = std::shared_ptr<Thread>;
 
         /**
@@ -200,6 +208,9 @@ class Thread {
         virtual void run() {}
 
     private:
+        /**
+         * @brief executeRun 执行重载的run()函数封装
+         */
         virtual void executeRun() final {
             setCurrentThreadName(name_ + std::to_string(syscall(__NR_gettid)));
             currentPid_ = syscall(__NR_gettid);
@@ -215,6 +226,9 @@ class Thread {
             idle_.store(true, std::memory_order_relaxed);
         }
 
+        /**
+         * @brief executeFunc 执行函数包装器封装
+         */
         virtual void executeFunc() final {
             setCurrentThreadName(name_ + std::to_string(syscall(__NR_gettid)));
             currentPid_ = syscall(__NR_gettid);

@@ -38,9 +38,9 @@ Work\+Stealing\+Thread\+Pool\+Executor 的协作图\+:\nopagebreak
 \begin{DoxyCompactList}\small\item\em \hyperlink{classWorkStealingThreadPoolExecutor}{Work\+Stealing\+Thread\+Pool\+Executor} 构造函数 \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename F $>$ }\\std\+::future$<$ typename std\+::result\+\_\+of$<$ F()$>$\+::type $>$ \hyperlink{classWorkStealingThreadPoolExecutor_a7fa1b79c8be2b06a7952ccfd14aa7f6c}{submit} (F f, bool core=true)
 \begin{DoxyCompactList}\small\item\em submit 在将来某个时候执行给定的任务, 任务可以在新线程或现有的合并的线程中执行, 可以有返回值,向任务队列提交的是任务副本 会抛出异常 \end{DoxyCompactList}\item 
-virtual void \hyperlink{classWorkStealingThreadPoolExecutor_ab0414f5e006e8fc523bfd35ba276f705}{worker\+Thread} (size\+\_\+t queue\+Idex) override
+virtual void \hyperlink{classWorkStealingThreadPoolExecutor_a962c0965822cd961984928ec26d61d4e}{worker\+Thread} (size\+\_\+t queue\+Idex) override
 \begin{DoxyCompactList}\small\item\em worker\+Thread 核心工作线程 \end{DoxyCompactList}\item 
-virtual void \hyperlink{classWorkStealingThreadPoolExecutor_ae4170b80bdc4ec806ee4a04cc5daaada}{core\+Worker\+Thread} (size\+\_\+t queue\+Idex) override
+virtual void \hyperlink{classWorkStealingThreadPoolExecutor_a9a9ad791af26c0809a9e1864544930aa}{core\+Worker\+Thread} (size\+\_\+t queue\+Idex) override
 \begin{DoxyCompactList}\small\item\em worker\+Thread 非核心工作线程 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{额外继承的成员函数}
 
@@ -117,11 +117,11 @@ virtual void \hyperlink{classWorkStealingThreadPoolExecutor_ae4170b80bdc4ec806ee
 
 
 \subsection{成员函数说明}
-\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_ae4170b80bdc4ec806ee4a04cc5daaada}\label{classWorkStealingThreadPoolExecutor_ae4170b80bdc4ec806ee4a04cc5daaada}} 
+\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_a9a9ad791af26c0809a9e1864544930aa}\label{classWorkStealingThreadPoolExecutor_a9a9ad791af26c0809a9e1864544930aa}} 
 \index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!core\+Worker\+Thread@{core\+Worker\+Thread}}
 \index{core\+Worker\+Thread@{core\+Worker\+Thread}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{core\+Worker\+Thread()}{coreWorkerThread()}}
-{\footnotesize\ttfamily virtual void Work\+Stealing\+Thread\+Pool\+Executor\+::core\+Worker\+Thread (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{queue\+Idex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Work\+Stealing\+Thread\+Pool\+Executor\+::core\+Worker\+Thread (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{queue\+Idex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -157,11 +157,11 @@ submit 在将来某个时候执行给定的任务, 任务可以在新线程或�
 \begin{DoxyReturn}{返回}
 res 任务返回值的future 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_ab0414f5e006e8fc523bfd35ba276f705}\label{classWorkStealingThreadPoolExecutor_ab0414f5e006e8fc523bfd35ba276f705}} 
+\mbox{\Hypertarget{classWorkStealingThreadPoolExecutor_a962c0965822cd961984928ec26d61d4e}\label{classWorkStealingThreadPoolExecutor_a962c0965822cd961984928ec26d61d4e}} 
 \index{Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}!worker\+Thread@{worker\+Thread}}
 \index{worker\+Thread@{worker\+Thread}!Work\+Stealing\+Thread\+Pool\+Executor@{Work\+Stealing\+Thread\+Pool\+Executor}}
 \subsubsection{\texorpdfstring{worker\+Thread()}{workerThread()}}
-{\footnotesize\ttfamily virtual void Work\+Stealing\+Thread\+Pool\+Executor\+::worker\+Thread (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{queue\+Idex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Work\+Stealing\+Thread\+Pool\+Executor\+::worker\+Thread (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{queue\+Idex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

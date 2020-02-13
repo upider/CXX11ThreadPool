@@ -1,4 +1,4 @@
 <map id="类继承关系图" name="类继承关系图">
-<area shape="rect" id="node1" href="$structRunnable_1_1functor__base.html" title="Runnable::functor_base" alt="" coords="5,5,165,32"/>
+<area shape="rect" id="node1" href="$structRunnable_1_1functor__base.html" title="函数包装器虚基类 " alt="" coords="5,5,165,32"/>
 <area shape="rect" id="node2" href="$structRunnable_1_1functor__t.html" title="Runnable::functor_t\&lt; F \&gt;" alt="" coords="213,5,381,32"/>
 </map>

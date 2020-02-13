@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['_7erunnable',['~Runnable',['../classRunnable.html#a08557328273d2dfd3425507b1f972fcb',1,'Runnable']]],
-  ['_7escheduledthreadpoolexecutor',['~ScheduledThreadPoolExecutor',['../classScheduledThreadPoolExecutor.html#aa8d3f9083aa92b351be6e134d7a675ea',1,'ScheduledThreadPoolExecutor']]],
-  ['_7ethread',['~Thread',['../classThread.html#a957c601b090d6c2798c3cceb4ae5dc0f',1,'Thread']]],
-  ['_7ethreadpoolexecutor',['~ThreadPoolExecutor',['../classThreadPoolExecutor.html#a1d5a1c3330593f243959256d32068c15',1,'ThreadPoolExecutor']]]
+  ['wait_5fand_5fpop',['wait_and_pop',['../classBlockingQueue.html#a8efc43c38666a38402c39f772da63fcf',1,'BlockingQueue']]],
+  ['workercountof',['workerCountOf',['../classThreadPoolExecutor.html#a4f842d070a584bbc16a693207a947aac',1,'ThreadPoolExecutor']]],
+  ['workerthread',['workerThread',['../classThreadPoolExecutor.html#a844902ce61fb16b11a569b8ee56e80e9',1,'ThreadPoolExecutor::workerThread()'],['../classWorkStealingThreadPoolExecutor.html#a962c0965822cd961984928ec26d61d4e',1,'WorkStealingThreadPoolExecutor::workerThread()']]],
+  ['workqueues_5f',['workQueues_',['../classThreadPoolExecutor.html#a415491f8f40c0fcb99e7ec25cdd209d0',1,'ThreadPoolExecutor']]],
+  ['workstealingthreadpoolexecutor',['WorkStealingThreadPoolExecutor',['../classWorkStealingThreadPoolExecutor.html',1,'WorkStealingThreadPoolExecutor'],['../classWorkStealingThreadPoolExecutor.html#a3e4e9fd05b5b325f2f051725410525cb',1,'WorkStealingThreadPoolExecutor::WorkStealingThreadPoolExecutor(int32_t corePoolSize, int32_t maxPoolSize, const std::vector&lt; BlockingQueue&lt; Runnable::sptr &gt;&gt; &amp;workQueue, const RejectedExecutionHandler &amp;handler, const std::string &amp;prefix=&quot;&quot;)'],['../classWorkStealingThreadPoolExecutor.html#a80c8e32259e498cbb2c5625b272d37f3',1,'WorkStealingThreadPoolExecutor::WorkStealingThreadPoolExecutor(int32_t corePoolSize, int32_t maxPoolSize, const std::vector&lt; BlockingQueue&lt; Runnable::sptr &gt;&gt; &amp;workQueue, RejectedExecutionHandler *handler, const std::string &amp;prefix=&quot;&quot;)'],['../classWorkStealingThreadPoolExecutor.html#adb702388a229cc2a0508901976dd9104',1,'WorkStealingThreadPoolExecutor::WorkStealingThreadPoolExecutor(int32_t corePoolSize, int32_t maxPoolSize, const std::string &amp;prefix=&quot;&quot;)']]]
 ];

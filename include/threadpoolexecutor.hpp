@@ -2,7 +2,6 @@
 #define THREADPOOLEXECUTOR_HPP
 
 #include <future>
-#include <memory>
 #include <vector>
 
 #include "thread.hpp"
@@ -14,14 +13,26 @@
  */
 class RejectedExecutionHandler {
     public:
+        /**
+         * @brief RejectedExecutionHandler 构造函数
+         */
         RejectedExecutionHandler() = default;
-        virtual ~RejectedExecutionHandler() {}
+        /**
+         * @brief ~RejectedExecutionHandler 析构函数
+         */
+        virtual ~RejectedExecutionHandler() = default;
 
     public:
+        /**
+         * @brief 拒绝策略的执行函数
+         */
         virtual void rejectedExecution(const Runnable::sptr r) {
             throw std::logic_error("thread pool is not RUNNING");
         }
 
+        /**
+         * @brief 拒绝策略的执行函数
+         */
         virtual void rejectedExecution(const Runnable& r) {
             throw std::logic_error("thread pool is not RUNNING");
         }
@@ -204,6 +215,7 @@ class ThreadPoolExecutor {
 
         /**
          * @brief getActiveCount 返回正在执行任务的线程的大概数量
+         *                       也就是非空闲线程数量
          *
          * @return 线程数
          */
@@ -214,7 +226,7 @@ class ThreadPoolExecutor {
          *
          * @return 任务队列大小
          */
-        virtual long getTaskCount() const final;
+        virtual long getTaskCount() const;
 
         /**
          * @brief setMaxPoolSize 设置允许的最大线程数。
@@ -241,6 +253,7 @@ class ThreadPoolExecutor {
 
         /**
          * @brief shutdown 不在接受新任务,并且在所有任务执行完后终止线程池
+         *                 如果还有新任务提交将会触发拒绝策略,默认的拒绝策略会抛出异常
          */
         virtual void shutdown() final;
 
@@ -270,17 +283,6 @@ class ThreadPoolExecutor {
          * @return 线程数已启动
          */
         virtual int preStartCoreThreads();
-
-        /**
-         * @brief isRunning 是否还在运行
-         *
-         * @param c
-         *
-         * @return
-         */
-        virtual inline bool isRunning(int c) const final {
-            return c < SHUTDOWN;
-        }
 
         /**
          * @brief reject 将任务抛弃
@@ -379,17 +381,23 @@ class ThreadPoolExecutor {
         virtual void workerThread(size_t queueIdex);
 
         /**
-         * @brief scheduledThread 任务调度线程
-         */
-        virtual void scheduledThread() {}
-
-        /**
          * @brief reject 将任务抛弃
          *
          * @param command 要抛弃的任务
          */
         virtual inline void reject(const Runnable::sptr command) final {
             rejectHandler_->rejectedExecution(command);
+        }
+
+        /**
+         * @brief isRunning 是否还在运行
+         *
+         * @param c
+         *
+         * @return
+         */
+        virtual inline bool isRunning(int c) const final {
+            return c < SHUTDOWN;
         }
 
         /**
@@ -449,26 +457,44 @@ class ThreadPoolExecutor {
         }
 
     protected:
-        //RUNNING一定要初始化在ctl_之前,因为crl_用其初始化
+        ///初始化使用
         const int32_t COUNT_BITS = 29;
+        ///线程池容量
         const int32_t CAPACITY   = (1 << COUNT_BITS) - 1;
-        const int32_t RUNNING    = (-1 << COUNT_BITS);               ///运行状态
-        const int32_t SHUTDOWN   = 0 << COUNT_BITS;                ///不再接受新任务
-        const int32_t STOP       = 1 << COUNT_BITS;                ///不再接受新任务,队列中的任务将比抛弃
-        const int32_t TIDYING    = 2 << COUNT_BITS;                ///所有线程已经释放,任务队列为空,会调用terminated()
-        const int32_t TERMINATED = 3 << COUNT_BITS;                ///线程池关闭,terminated()函数已经执行
+        ///处于运行状态,RUNNING一定要初始化在ctl_之前,因为crl_用其初始化
+        const int32_t RUNNING    = (-1 << COUNT_BITS);
+        ///不再接受新任务
+        const int32_t SHUTDOWN   = 0 << COUNT_BITS;
+        ///不再接受新任务,队列中的任务将被抛弃
+        const int32_t STOP       = 1 << COUNT_BITS;
+        ///所有线程已经释放,任务队列为空,会调用terminated()
+        const int32_t TIDYING    = 2 << COUNT_BITS;
+        ///线程池关闭,terminated()函数已经执行
+        const int32_t TERMINATED = 3 << COUNT_BITS;
 
+        ///核心线程数
         int											                 corePoolSize_;
+        ///最大线程数
         int											                 maxPoolSize_;
-        size_t                                                       submitId_{0};
+        ///提交任务的id
+        long long                                                    submitId_{0};
+        ///线程名前缀
         std::string                                                  prefix_;
+        ///是否允许非核心线程超时
         volatile bool                                                keepNonCoreThreadAlive_{false};
+        ///曾经出现的线程数量,包括已经死亡的
         std::atomic<int>                                             everPoolSize_{0};
+        ///队列锁
         mutable std::mutex                                           mutex_;
+        ///控制变量
         std::atomic_int32_t                                          ctl_;
+        ///队列非空条件变量
         std::condition_variable                                      notEmpty_;
+        ///线程队列
         std::vector<Thread::sptr>                                    threads_;
+        ///任务队列
         std::vector<BlockingQueue<Runnable::sptr>>	                 workQueues_;
+        ///拒绝策略回调
         std::unique_ptr<RejectedExecutionHandler>	                 rejectHandler_;
 
 };

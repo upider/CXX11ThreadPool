@@ -1,4 +1,4 @@
 <map id="ThreadPoolExecutor" name="ThreadPoolExecutor">
-<area shape="rect" id="node2" href="$classScheduledThreadPoolExecutor.html" title="定时任务调度线程池 " alt="" coords="5,80,207,107"/>
+<area shape="rect" id="node2" href="$classScheduledThreadPoolExecutor.html" title="定时任务调度线程池,最大线程数和核心线程数相等 " alt="" coords="5,80,207,107"/>
 <area shape="rect" id="node3" href="$classWorkStealingThreadPoolExecutor.html" title="任务窃取线程池,从下一个线程的任务队列窃取任务 " alt="" coords="231,80,450,107"/>
 </map>

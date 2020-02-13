@@ -138,24 +138,24 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a3abba14a5cf19709cef2d299ee68acae inherit pub_methods_classRunnable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a3abba14a5cf19709cef2d299ee68acae">empty</a> () const</td></tr>
 <tr class="memdesc:a3abba14a5cf19709cef2d299ee68acae inherit pub_methods_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty 判断内部的函数包装器是否为空  <a href="classRunnable.html#a3abba14a5cf19709cef2d299ee68acae">更多...</a><br /></td></tr>
 <tr class="separator:a3abba14a5cf19709cef2d299ee68acae inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9950452d28eaf9a1eb385ae6ad4cbc9b inherit pub_methods_classRunnable"><td class="memTemplParams" colspan="2"><a id="a9950452d28eaf9a1eb385ae6ad4cbc9b"></a>
-template&lt;typename F &gt; </td></tr>
-<tr class="memitem:a9950452d28eaf9a1eb385ae6ad4cbc9b inherit pub_methods_classRunnable"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classRunnable.html">Runnable</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classRunnable.html">Runnable</a> &amp;rth)=delete</td></tr>
-<tr class="separator:a9950452d28eaf9a1eb385ae6ad4cbc9b inherit pub_methods_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public 属性</h2></td></tr>
 <tr class="memitem:af49a805f814a0b92e1f96037226a2d2e"><td class="memItemLeft" align="right" valign="top"><a id="af49a805f814a0b92e1f96037226a2d2e"></a>
-std::chrono::nanoseconds&#160;</td><td class="memItemRight" valign="bottom"><b>initialDelay_</b> {0}</td></tr>
+std::chrono::nanoseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerTask.html#af49a805f814a0b92e1f96037226a2d2e">initialDelay_</a> {0}</td></tr>
+<tr class="memdesc:af49a805f814a0b92e1f96037226a2d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">初次延迟 <br /></td></tr>
 <tr class="separator:af49a805f814a0b92e1f96037226a2d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd954f592d96d8abe152e0f54b30979e"><td class="memItemLeft" align="right" valign="top"><a id="afd954f592d96d8abe152e0f54b30979e"></a>
-std::chrono::nanoseconds&#160;</td><td class="memItemRight" valign="bottom"><b>interval_</b> {0}</td></tr>
+std::chrono::nanoseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerTask.html#afd954f592d96d8abe152e0f54b30979e">interval_</a> {0}</td></tr>
+<tr class="memdesc:afd954f592d96d8abe152e0f54b30979e"><td class="mdescLeft">&#160;</td><td class="mdescRight">固定延迟或间隔 <br /></td></tr>
 <tr class="separator:afd954f592d96d8abe152e0f54b30979e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31da300c15d00f58c2950e9752027e42"><td class="memItemLeft" align="right" valign="top"><a id="a31da300c15d00f58c2950e9752027e42"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>fixedRate_</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerTask.html#a31da300c15d00f58c2950e9752027e42">fixedRate_</a></td></tr>
+<tr class="memdesc:a31da300c15d00f58c2950e9752027e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">是否是固定间隔执行 <br /></td></tr>
 <tr class="separator:a31da300c15d00f58c2950e9752027e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bcf4dfd5b91038d4c4c5378285d4ed0"><td class="memItemLeft" align="right" valign="top"><a id="a7bcf4dfd5b91038d4c4c5378285d4ed0"></a>
-std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><b>callTime_</b></td></tr>
+std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimerTask.html#a7bcf4dfd5b91038d4c4c5378285d4ed0">callTime_</a></td></tr>
+<tr class="memdesc:a7bcf4dfd5b91038d4c4c5378285d4ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">下次执行时间 <br /></td></tr>
 <tr class="separator:a7bcf4dfd5b91038d4c4c5378285d4ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -167,7 +167,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <tr class="separator:abe8d3066c7305401d6f0aad8e70780f2 inherit pub_types_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classRunnable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classRunnable')"><img src="closed.png" alt="-"/>&#160;Protected 属性 继承自 <a class="el" href="classRunnable.html">Runnable</a></td></tr>
 <tr class="memitem:a9bb8a251d9b7db3c422c576e994382f6 inherit pro_attribs_classRunnable"><td class="memItemLeft" align="right" valign="top"><a id="a9bb8a251d9b7db3c422c576e994382f6"></a>
-std::shared_ptr&lt; <a class="el" href="structRunnable_1_1functor__base.html">functor_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>functor_</b></td></tr>
+std::shared_ptr&lt; <a class="el" href="structRunnable_1_1functor__base.html">functor_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRunnable.html#a9bb8a251d9b7db3c422c576e994382f6">functor_</a></td></tr>
+<tr class="memdesc:a9bb8a251d9b7db3c422c576e994382f6 inherit pro_attribs_classRunnable"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数包装器 <br /></td></tr>
 <tr class="separator:a9bb8a251d9b7db3c422c576e994382f6 inherit pro_attribs_classRunnable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>

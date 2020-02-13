@@ -2,7 +2,6 @@
 #define RUNNABLE_HPP
 
 #include <memory>
-#include <typeinfo>
 
 /// @brief Runnable interface 重写operator()或传进lambda
 //                            执行operator()可以运行任务
@@ -87,11 +86,10 @@ class Runnable {
             return functor_ == nullptr;
         }
 
-    public:
-        template<typename F>
-        Runnable& operator=(Runnable& rth) = delete;
-
     protected:
+        /**
+         * @brief 函数包装器虚基类
+         */
         struct functor_base {
             functor_base() = default;
             virtual void call() = 0;
@@ -100,13 +98,24 @@ class Runnable {
 
         template<typename F>
         struct functor_t: functor_base {
+            /**
+             * @brief functor_t 构造函数
+             *
+             * @param std::move(f) 包装的函数
+             */
             functor_t(F&& f): _f(std::move(f)) {}
+            /**
+             * @brief call 执行被包装的函数
+             */
             void call() override {
                 _f();
             }
             F _f;
         };
 
+        /**
+         * @brief 函数包装器
+         */
         std::shared_ptr<functor_base> functor_;
 };
 

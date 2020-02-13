@@ -20,8 +20,8 @@ struct \hyperlink{structThread_1_1Func__t}{Func\+\_\+t}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classThread_a430059e402325caaf1ed185fb520c9d2}\label{classThread_a430059e402325caaf1ed185fb520c9d2}} 
-using {\bfseries sptr} = std\+::shared\+\_\+ptr$<$ \hyperlink{classThread}{Thread} $>$
-\end{DoxyCompactItemize}
+using \hyperlink{classThread_a430059e402325caaf1ed185fb520c9d2}{sptr} = std\+::shared\+\_\+ptr$<$ \hyperlink{classThread}{Thread} $>$
+\begin{DoxyCompactList}\small\item\em std\+::shared\+\_\+ptr$<$\+Thread$>$别名 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public 成员函数}
 \begin{DoxyCompactItemize}
 \item 
@@ -90,35 +90,32 @@ virtual void \hyperlink{classThread_a7574ff300357f9d3193db03b83937eac}{run} ()
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classThread_ada8c342b34fb001cfcf57619b7150840}\label{classThread_ada8c342b34fb001cfcf57619b7150840}} 
-int {\bfseries prio\+\_\+}
-\item 
+int \hyperlink{classThread_ada8c342b34fb001cfcf57619b7150840}{prio\+\_\+}
+\begin{DoxyCompactList}\small\item\em 线程优先级 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_a0c0878a96696bbb092a69bc2f1f812fd}\label{classThread_a0c0878a96696bbb092a69bc2f1f812fd}} 
-pid\+\_\+t {\bfseries current\+Pid\+\_\+} \{-\/1\}
-\item 
-\mbox{\Hypertarget{classThread_a82164d41222eaed95bdf85bcc15a6f1a}\label{classThread_a82164d41222eaed95bdf85bcc15a6f1a}} 
-std\+::mutex \hyperlink{classThread_a82164d41222eaed95bdf85bcc15a6f1a}{mutex\+\_\+}
+pid\+\_\+t \hyperlink{classThread_a0c0878a96696bbb092a69bc2f1f812fd}{current\+Pid\+\_\+} \{-\/1\}
 \begin{DoxyCompactList}\small\item\em -\/1表明线程已经执行完任务,unix底层的线程已经不存在了 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_aa222eb32e5fc8f386d9fb018607acd9c}\label{classThread_aa222eb32e5fc8f386d9fb018607acd9c}} 
-std\+::string {\bfseries name\+\_\+}
-\item 
+std\+::string \hyperlink{classThread_aa222eb32e5fc8f386d9fb018607acd9c}{name\+\_\+}
+\begin{DoxyCompactList}\small\item\em 线程名前缀 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_ad313ba812a7875c743dd0d37d565acfb}\label{classThread_ad313ba812a7875c743dd0d37d565acfb}} 
-std\+::thread {\bfseries thread\+\_\+}
-\item 
+std\+::thread \hyperlink{classThread_ad313ba812a7875c743dd0d37d565acfb}{thread\+\_\+}
+\begin{DoxyCompactList}\small\item\em 线程 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_a091bdad0a084b3f2c659f8cdd5369d53}\label{classThread_a091bdad0a084b3f2c659f8cdd5369d53}} 
-std\+::atomic\+\_\+bool {\bfseries stop\+\_\+} \{true\}
-\item 
+std\+::atomic\+\_\+bool \hyperlink{classThread_a091bdad0a084b3f2c659f8cdd5369d53}{stop\+\_\+} \{true\}
+\begin{DoxyCompactList}\small\item\em 线程停止标志 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_a13aa04a60328060dec3a25b286c933a2}\label{classThread_a13aa04a60328060dec3a25b286c933a2}} 
-std\+::atomic\+\_\+bool {\bfseries idle\+\_\+} \{true\}
-\item 
+std\+::atomic\+\_\+bool \hyperlink{classThread_a13aa04a60328060dec3a25b286c933a2}{idle\+\_\+} \{true\}
+\begin{DoxyCompactList}\small\item\em 线程空闲标志 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_a535df3b8fc4ff9ca48f5a6d561162a36}\label{classThread_a535df3b8fc4ff9ca48f5a6d561162a36}} 
-std\+::atomic\+\_\+bool {\bfseries yield\+\_\+} \{false\}
-\item 
+std\+::atomic\+\_\+bool \hyperlink{classThread_a535df3b8fc4ff9ca48f5a6d561162a36}{yield\+\_\+} \{false\}
+\begin{DoxyCompactList}\small\item\em 让出时间片标志 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_ae7ed71c6b1f7782ecd4186005fd70760}\label{classThread_ae7ed71c6b1f7782ecd4186005fd70760}} 
-std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point {\bfseries last\+Active\+Time\+\_\+} \{std\+::chrono\+::steady\+\_\+clock\+::now()\}
-\item 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \hyperlink{classThread_ae7ed71c6b1f7782ecd4186005fd70760}{last\+Active\+Time\+\_\+} \{std\+::chrono\+::steady\+\_\+clock\+::now()\}
+\begin{DoxyCompactList}\small\item\em 上次活跃时间 \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classThread_a677202a7d90ebc5a6d4f8b1eab1a1eac}\label{classThread_a677202a7d90ebc5a6d4f8b1eab1a1eac}} 
-std\+::unique\+\_\+ptr$<$ \hyperlink{structThread_1_1Func__base}{Func\+\_\+base} $>$ {\bfseries func\+\_\+uptr\+\_\+}
-\end{DoxyCompactItemize}
+std\+::unique\+\_\+ptr$<$ \hyperlink{structThread_1_1Func__base}{Func\+\_\+base} $>$ \hyperlink{classThread_a677202a7d90ebc5a6d4f8b1eab1a1eac}{func\+\_\+uptr\+\_\+}
+\begin{DoxyCompactList}\small\item\em 函数封装 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{详细描述}

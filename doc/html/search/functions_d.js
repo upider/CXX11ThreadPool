@@ -3,7 +3,6 @@ var searchData=
   ['schedule',['schedule',['../classScheduledThreadPoolExecutor.html#a45e622833714db87a86d50eb45c8f338',1,'ScheduledThreadPoolExecutor::schedule(F f, const std::chrono::nanoseconds &amp;delay)'],['../classScheduledThreadPoolExecutor.html#a30f723414e619a950f1efd968d13921d',1,'ScheduledThreadPoolExecutor::schedule(const std::shared_ptr&lt; TimerTask &gt; &amp;f)']]],
   ['scheduleatfixeddelay',['scheduleAtFixedDelay',['../classScheduledThreadPoolExecutor.html#a594bb3111f9d051ad12f366a13a54db0',1,'ScheduledThreadPoolExecutor']]],
   ['scheduleatfixedrate',['scheduleAtFixedRate',['../classScheduledThreadPoolExecutor.html#aebcb96fcb3f5bfc6e55ffcef9f38d60b',1,'ScheduledThreadPoolExecutor']]],
-  ['scheduledthread',['scheduledThread',['../classThreadPoolExecutor.html#a4c7ffb63829606ad4ae9fb247be42d3e',1,'ThreadPoolExecutor']]],
   ['scheduledthreadpoolexecutor',['ScheduledThreadPoolExecutor',['../classScheduledThreadPoolExecutor.html#a880b17439bcdcf9b7542925e24033691',1,'ScheduledThreadPoolExecutor']]],
   ['self',['self',['../classThread.html#a554185abbfacbcc4bf2e953cdddcbbba',1,'Thread']]],
   ['setmaxpoolsize',['setMaxPoolSize',['../classThreadPoolExecutor.html#ac5a10d336958ca43530b31bff81c9c4b',1,'ThreadPoolExecutor']]],

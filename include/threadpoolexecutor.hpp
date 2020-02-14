@@ -443,7 +443,7 @@ class ThreadPoolExecutor {
          * @return bool
         */
         virtual bool compareAndDecrementWorkerCount(int expect)final {
-            return ctl_.compare_exchange_strong(expect, expect - 1);
+            return ctl_.compare_exchange_weak(expect, expect - 1);
         }
 
         /**
@@ -453,7 +453,7 @@ class ThreadPoolExecutor {
         virtual void decrementWorkerCount() {
             do {
 
-            } while (! compareAndDecrementWorkerCount(ctl_.load()));
+            } while (!compareAndDecrementWorkerCount(ctl_.load()));
         }
 
     protected:

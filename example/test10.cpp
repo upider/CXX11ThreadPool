@@ -26,7 +26,7 @@ struct TT: public TimerTask {
 
 int main(void)
 {
-    ScheduledThreadPoolExecutor tpe(1, "STPE");
+    ScheduledThreadPoolExecutor tpe(3, "STPE");
     tpe.preStartCoreThreads();
 
     //传入shared_ptr<TimerTask>
@@ -69,7 +69,7 @@ int main(void)
         std::cout << "4nd " << std::asctime(std::localtime(&tt));
     }, std::chrono::seconds(2), std::chrono::seconds(2));
 
-    std::this_thread::sleep_for(std::chrono::seconds(10));
+    std::this_thread::sleep_for(std::chrono::seconds(100));
     tpe.stop();
     return 0;
 }

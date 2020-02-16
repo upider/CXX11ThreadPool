@@ -477,7 +477,7 @@ class ThreadPoolExecutor {
         ///最大线程数
         int											                 maxPoolSize_;
         ///提交任务的id
-        long long                                                    submitId_{0};
+        unsigned int                                                 submitId_{0};
         ///线程名前缀
         std::string                                                  prefix_;
         ///是否允许非核心线程超时

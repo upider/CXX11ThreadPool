@@ -24,9 +24,9 @@ class Runnable {
         /**
          * @brief Runnable 复制构造
          *
-         * @param rth Runnable右值引用
+         * @param rh Runnable右值引用
          */
-        Runnable(Runnable && rth): functor_(std::move(rth.functor_)) {}
+        Runnable(Runnable && rh): functor_(std::move(rh.functor_)) {}
 
         /**
          * @brief Runnable 拷贝构造不会复制functor_
@@ -38,24 +38,24 @@ class Runnable {
         /**
          * @brief operator= 复制
          *
-         * @param rth 被复制的Runnable
+         * @param rh 被复制的Runnable
          *
          * @return Runnable&
          */
-        Runnable& operator=(Runnable && rth) {
-            functor_ = std::move(rth.functor_);
+        Runnable& operator=(Runnable && rh) {
+            functor_ = std::move(rh.functor_);
             return *this;
         }
 
         /**
          * @brief operator= 复制
          *
-         * @param rth 被复制的Runnable
+         * @param rh 被复制的Runnable
          *
          * @return Runnable&
          */
-        Runnable& operator=(Runnable & rth) {
-            functor_ = rth.functor_;
+        Runnable& operator=(Runnable & rh) {
+            functor_ = rh.functor_;
             return *this;
         }
 

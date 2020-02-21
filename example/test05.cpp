@@ -12,7 +12,7 @@ int main(void)
     });
     tpe.keepNonCoreThreadAlive(true);
 
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    //std::this_thread::sleep_for(std::chrono::seconds(1));
 
     tpe.submit([]() {
         std::cout << "task02" << "--tid : " << syscall(__NR_gettid) << std::endl;
@@ -41,7 +41,7 @@ int main(void)
         std::cout << "task07" << "--tid : " << syscall(__NR_gettid) << std::endl;
     }, false);
 
-    sleep(1);
+    sleep(10);
     std::cout << tpe.toString() << std::endl;
     tpe.stop();
     return 0;

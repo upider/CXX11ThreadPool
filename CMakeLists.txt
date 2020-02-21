@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(thread_pool)
 
 set(CMAKE_CXX_COMPILER "g++")
-add_compile_options(-std=c++11 -w -g)
+add_compile_options(-std=c++11 -gdwarf-4)
 
 aux_source_directory(src SRC)
 add_library(thread_pool SHARED ${SRC})
@@ -34,6 +34,9 @@ target_include_directories(test09 PUBLIC include)
 add_executable(test10 ./example/test10.cpp)
 target_link_libraries(test10 thread_pool)
 target_include_directories(test10 PUBLIC include)
+add_executable(test11 ./example/test11.cpp)
+target_link_libraries(test11 thread_pool)
+target_include_directories(test11 PUBLIC include)
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

@@ -6,6 +6,7 @@
 #include <algorithm>
 
 #include "threadpoolexecutor.hpp"
+#include "semaphore.hpp"
 
 /**
  * @brief 定时任务封装
@@ -88,6 +89,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
          * @brief 定时任务队列
          */
         std::vector<std::shared_ptr<TimerTask>> timerTasks_;
+        Semaphore sem_{0};
 
     public:
         /**
@@ -113,10 +115,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
             std::chrono::steady_clock::time_point callTime;
             std::shared_ptr<TimerTask> timerTask;
             while(runStateOf(ctl_.load()) <= SHUTDOWN) {
-                if (timerTasks_.empty()) {
-                    std::unique_lock<std::mutex> lk(mutex_);
-                    notEmpty_.wait(lk);
-                }
+                sem_.wait();
                 {
                     std::lock_guard<std::mutex> lock(mutex_);
                     timerTask = timerTasks_.front();
@@ -141,6 +140,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
                     timerTasks_.push_back(timerTask);
                     std::push_heap(timerTasks_.begin(), timerTasks_.end(), Comp());
                 }
+                sem_.post();
             }
         }
 
@@ -175,7 +175,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
                 timerTasks_.emplace_back(new TimerTask(delay, delay, false, std::move(f)));
                 std::push_heap(timerTasks_.begin(), timerTasks_.end(), Comp());
             }
-            notEmpty_.notify_all();
+            sem_.post();
             if(wc < corePoolSize_ && compareAndIncrementWorkerCount(c)) {
                 threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::coreWorkerThread, this, 0), prefix_));
                 threads_.back()->start();
@@ -201,7 +201,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
                 timerTasks_.push_back(f);
                 std::push_heap(timerTasks_.begin(), timerTasks_.end(), Comp());
             }
-            notEmpty_.notify_all();
+            sem_.post();
             if(wc < corePoolSize_ && compareAndIncrementWorkerCount(c)) {
                 threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::coreWorkerThread, this, 9), prefix_));
                 threads_.back()->start();
@@ -230,7 +230,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
                 timerTasks_.emplace_back(new TimerTask(initialDelay, period, true, std::move(f)));
                 std::push_heap(timerTasks_.begin(), timerTasks_.end(), Comp());
             }
-            notEmpty_.notify_all();
+            sem_.post();
             if(wc < corePoolSize_ && compareAndIncrementWorkerCount(c)) {
                 threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::coreWorkerThread, this, 0), prefix_));
                 threads_.back()->start();
@@ -259,7 +259,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
                 timerTasks_.emplace_back(initialDelay, delay, false, std::move(f));
                 std::push_heap(timerTasks_.begin(), timerTasks_.end(), Comp());
             }
-            notEmpty_.notify_all();
+            sem_.post();
             if(wc < corePoolSize_ && compareAndIncrementWorkerCount(c)) {
                 threads_.emplace_back(new Thread(std::bind(&ScheduledThreadPoolExecutor::coreWorkerThread, this, 0), prefix_));
                 threads_.back()->start();

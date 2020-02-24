@@ -84,8 +84,7 @@ void ThreadPoolExecutor::releaseNonCoreThreads() {
     keepNonCoreThreadAlive_ = false;
     notEmpty_.notify_all();
     for (int i = threads_.size() - 1; i >= corePoolSize_; --i) {
-        if (threads_[i] != nullptr && threads_[i]->isIdle() && threads_[i]->joinable()) {
-            threads_[i]->join();
+        if (threads_[i] != nullptr && threads_[i]->isIdle()) {
             decrementWorkerCount();
             threads_.pop_back();
             workQueues_.pop_back();
@@ -97,11 +96,8 @@ void ThreadPoolExecutor::releaseNonCoreThreads() {
 void ThreadPoolExecutor::releaseWorkers() {
     notEmpty_.notify_all();
     for (int i = threads_.size() - 1; i >= 0 ; --i) {
-        if (threads_[i]->joinable()) {
-            threads_[i]->join();
-            decrementWorkerCount();
-            threads_.pop_back();
-        }
+        decrementWorkerCount();
+        threads_.pop_back();
     }
 }
 
@@ -128,16 +124,20 @@ bool ThreadPoolExecutor::addWorker(Runnable::sptr task, bool core) {
                 }
             }
             if(compareAndIncrementWorkerCount(c)) {
-                {
-                    std::lock_guard<std::mutex> lock(mutex_);
-                    workQueues_.push_back(BlockingQueue<Runnable::sptr>());
-                    workQueues_.back().put(task);
-                }
                 wc = workerCountOf(c);
                 if (core || wc <= corePoolSize_) {
+                    {
+                        std::lock_guard<std::mutex> lock(mutex_);
+                        workQueues_[++submitId_ % corePoolSize_].put(task);
+                    }
                     threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::coreWorkerThread,
                                                      this, workQueues_.size() - 1), prefix_));
                 } else {
+                    {
+                        std::lock_guard<std::mutex> lock(mutex_);
+                        workQueues_.push_back(BlockingQueue<Runnable::sptr>());
+                        workQueues_.back().put(task);
+                    }
                     threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::workerThread,
                                                      this, workQueues_.size() - 1), prefix_));
                 }
@@ -175,15 +175,19 @@ bool ThreadPoolExecutor::addWorker(Runnable task, bool core) {
                 }
             }
             if(compareAndIncrementWorkerCount(c)) {
-                {
-                    std::lock_guard<std::mutex> lock(mutex_);
-                    workQueues_.push_back(BlockingQueue<Runnable::sptr>());
-                    workQueues_.back().put(std::make_shared<Runnable>(std::move(task)));
-                }
                 if (core) {
+                    {
+                        std::lock_guard<std::mutex> lock(mutex_);
+                        workQueues_[++submitId_ % corePoolSize_].put(std::make_shared<Runnable>(std::move(task)));
+                    }
                     threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::coreWorkerThread,
                                                      this, workQueues_.size() - 1), prefix_));
                 } else {
+                    {
+                        std::lock_guard<std::mutex> lock(mutex_);
+                        workQueues_.push_back(BlockingQueue<Runnable::sptr>());
+                        workQueues_.back().put(std::make_shared<Runnable>(std::move(task)));
+                    }
                     threads_.emplace_back(new Thread(std::bind(&ThreadPoolExecutor::workerThread,
                                                      this, workQueues_.size() - 1), prefix_));
                 }

@@ -7,6 +7,7 @@
 #include "thread.hpp"
 #include "blockingqueue.hpp"
 #include "runnable.hpp"
+#include "semaphore.hpp"
 
 /**
  * @brief 不再接受任务时的拒绝策略

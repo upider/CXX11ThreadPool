@@ -199,7 +199,11 @@ class Thread {
         /**
          * @brief ~Thread 析构函数
          */
-        virtual ~Thread() = default;
+        virtual ~Thread() {
+            if (thread_.joinable()) {
+                thread_.join();
+            }
+        }
 
     protected:
         /**

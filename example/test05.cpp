@@ -7,6 +7,7 @@
 int main(void)
 {
     ThreadPoolExecutor tpe(1, 2);
+    //tpe.preStartCoreThreads();
     tpe.submit([]() {
         std::cout << "task01" << "--tid : " << syscall(__NR_gettid) << std::endl;
     });
@@ -39,7 +40,7 @@ int main(void)
 
     tpe.submit([]() {
         std::cout << "task07" << "--tid : " << syscall(__NR_gettid) << std::endl;
-    }, false);
+    });
 
     sleep(10);
     std::cout << tpe.toString() << std::endl;

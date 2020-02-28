@@ -1,6 +1,8 @@
 #ifndef RUNNABLE_HPP
 #define RUNNABLE_HPP
 
+#include <iostream>
+#include <functional>
 #include <memory>
 
 /// @brief Runnable interface 重写operator()或传进lambda
@@ -103,14 +105,14 @@ class Runnable {
              *
              * @param std::move(f) 包装的函数
              */
-            functor_t(F&& f): _f(std::move(f)) {}
+            functor_t(F&& f): f_(std::move(f)) {}
             /**
              * @brief call 执行被包装的函数
              */
             void call() override {
-                _f();
+                f_();
             }
-            F _f;
+            F f_;
         };
 
         /**

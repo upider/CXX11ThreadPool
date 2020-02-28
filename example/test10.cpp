@@ -10,6 +10,12 @@ class R: public Runnable {
         }
 };
 
+int test() {
+    std::time_t tt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    std::cout << "4th " << std::asctime(std::localtime(&tt));
+    return 99999;
+}
+
 /**
  * @brief 重载TimerTask 完成任务
  */
@@ -54,7 +60,7 @@ int main(void)
 
     tpe.schedule([]() ->int {
         std::time_t tt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-        std::cout << "3ed " << std::asctime(std::localtime(&tt));
+        std::cout << "3rd " << std::asctime(std::localtime(&tt));
         return 999;
     }, std::chrono::seconds(3));
 
@@ -64,12 +70,24 @@ int main(void)
         return 999;
     }, std::chrono::seconds(2));
 
-    tpe.scheduleAtFixedRate([]() {
+    //在ScheduledThreadPoolExecutor中使用std::future
+    std::packaged_task<std::string()> p([]() ->std::string {
+        std::ostringstream os;
         std::time_t tt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-        std::cout << "4nd " << std::asctime(std::localtime(&tt));
+        std::cout << "4th " << std::asctime(std::localtime(&tt));
+        os << "4th schedule's the last time is " << std::asctime(std::localtime(&tt));
+        return os.str();
+    });
+    std::future<std::string> f(p.get_future());
+    tpe.scheduleAtFixedRate([&]() {
+        p();
+        p.reset();//每次执行后都要取消关联才能再次执行
     }, std::chrono::seconds(2), std::chrono::seconds(2));
 
-    std::this_thread::sleep_for(std::chrono::seconds(20));
+    tpe.scheduleAtFixedRate(test, std::chrono::seconds(2), std::chrono::seconds(2));
+
+    std::this_thread::sleep_for(std::chrono::seconds(10));
+    std::cout << f.get() << std::endl;
     tpe.stop();
     return 0;
 }

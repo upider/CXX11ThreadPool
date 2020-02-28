@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CPP11ThreadPool: semaphore.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="CPP.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CPP11ThreadPool
+   </div>
+   <div id="projectbrief">C++11线程池</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">semaphore.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SEMAPHORE_HPP</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SEMAPHORE_HPP</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;semaphore.h&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classSemaphore.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSemaphore.html">Semaphore</a> {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        sem_t sem_;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classSemaphore.html#a93794b9ab0c6c7c35acce0769bf67caf">   20</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSemaphore.html#a93794b9ab0c6c7c35acce0769bf67caf">post</a>() {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">return</span> sem_post(&amp;sem_);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classSemaphore.html#ab50da3ab3fdc7f56acc85cbdf248c98d">   29</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSemaphore.html#ab50da3ab3fdc7f56acc85cbdf248c98d">wait</a>() {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">return</span> sem_wait(&amp;sem_);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classSemaphore.html#acc15178e43d33745f4acc6e2b2cccf9b">   38</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSemaphore.html#acc15178e43d33745f4acc6e2b2cccf9b">tryWait</a>() {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> sem_trywait(&amp;sem_);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classSemaphore.html#a203e6b9f726ca5defc94379e9145278e">   50</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSemaphore.html#a203e6b9f726ca5defc94379e9145278e">timedWait</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> seconds, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nanoseconds) {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            timespec ts{seconds, nanoseconds};</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> sem_timedwait(&amp;sem_, &amp;ts);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classSemaphore.html#a34841feb22e781d7d10ee7205f56bd8e">   61</a></span>&#160;        <a class="code" href="classSemaphore.html#a34841feb22e781d7d10ee7205f56bd8e">Semaphore</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initSize = 0) {</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            sem_init(&amp;sem_, 0, initSize);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classSemaphore.html#a7039839a61ed189258fb0de6338848e3">   67</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classSemaphore.html#a7039839a61ed189258fb0de6338848e3">~Semaphore</a> () {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            sem_destroy(&amp;sem_);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="classSemaphore.html#a34841feb22e781d7d10ee7205f56bd8e">Semaphore</a>(<span class="keyword">const</span> <a class="code" href="classSemaphore.html">Semaphore</a>&amp;) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="classSemaphore.html#a34841feb22e781d7d10ee7205f56bd8e">Semaphore</a>(<span class="keyword">const</span> <a class="code" href="classSemaphore.html">Semaphore</a>&amp;&amp;) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="classSemaphore.html">Semaphore</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classSemaphore.html">Semaphore</a>&amp;) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="classSemaphore.html">Semaphore</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classSemaphore.html">Semaphore</a>&amp;&amp;) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SEMAPHORE_HPP */</span><span class="preprocessor"></span></div><div class="ttc" id="classSemaphore_html_a7039839a61ed189258fb0de6338848e3"><div class="ttname"><a href="classSemaphore.html#a7039839a61ed189258fb0de6338848e3">Semaphore::~Semaphore</a></div><div class="ttdeci">virtual ~Semaphore()</div><div class="ttdoc">~Semaphore 析构函数 </div><div class="ttdef"><b>Definition:</b> semaphore.hpp:67</div></div>
+<div class="ttc" id="classSemaphore_html"><div class="ttname"><a href="classSemaphore.html">Semaphore</a></div><div class="ttdoc">信号量 </div><div class="ttdef"><b>Definition:</b> semaphore.hpp:10</div></div>
+<div class="ttc" id="classSemaphore_html_ab50da3ab3fdc7f56acc85cbdf248c98d"><div class="ttname"><a href="classSemaphore.html#ab50da3ab3fdc7f56acc85cbdf248c98d">Semaphore::wait</a></div><div class="ttdeci">int wait()</div><div class="ttdoc">wait 信号量减一 </div><div class="ttdef"><b>Definition:</b> semaphore.hpp:29</div></div>
+<div class="ttc" id="classSemaphore_html_a93794b9ab0c6c7c35acce0769bf67caf"><div class="ttname"><a href="classSemaphore.html#a93794b9ab0c6c7c35acce0769bf67caf">Semaphore::post</a></div><div class="ttdeci">int post()</div><div class="ttdoc">post 信号量加一 </div><div class="ttdef"><b>Definition:</b> semaphore.hpp:20</div></div>
+<div class="ttc" id="classSemaphore_html_acc15178e43d33745f4acc6e2b2cccf9b"><div class="ttname"><a href="classSemaphore.html#acc15178e43d33745f4acc6e2b2cccf9b">Semaphore::tryWait</a></div><div class="ttdeci">int tryWait()</div><div class="ttdoc">tryWait 信号量减一,立即返回 </div><div class="ttdef"><b>Definition:</b> semaphore.hpp:38</div></div>
+<div class="ttc" id="classSemaphore_html_a203e6b9f726ca5defc94379e9145278e"><div class="ttname"><a href="classSemaphore.html#a203e6b9f726ca5defc94379e9145278e">Semaphore::timedWait</a></div><div class="ttdeci">int timedWait(unsigned int seconds, unsigned int nanoseconds)</div><div class="ttdoc">timedWait 信号量减一 </div><div class="ttdef"><b>Definition:</b> semaphore.hpp:50</div></div>
+<div class="ttc" id="classSemaphore_html_a34841feb22e781d7d10ee7205f56bd8e"><div class="ttname"><a href="classSemaphore.html#a34841feb22e781d7d10ee7205f56bd8e">Semaphore::Semaphore</a></div><div class="ttdeci">Semaphore(unsigned int initSize=0)</div><div class="ttdoc">Semaphore 构造函数 </div><div class="ttdef"><b>Definition:</b> semaphore.hpp:61</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

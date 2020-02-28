@@ -1,0 +1,127 @@
+\hypertarget{classSemaphore}{}\section{Semaphore类 参考}
+\label{classSemaphore}\index{Semaphore@{Semaphore}}
+
+
+信号量  
+
+
+
+
+{\ttfamily \#include $<$semaphore.\+hpp$>$}
+
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classSemaphore_a93794b9ab0c6c7c35acce0769bf67caf}{post} ()
+\begin{DoxyCompactList}\small\item\em post 信号量加一 \end{DoxyCompactList}\item 
+int \hyperlink{classSemaphore_ab50da3ab3fdc7f56acc85cbdf248c98d}{wait} ()
+\begin{DoxyCompactList}\small\item\em wait 信号量减一 \end{DoxyCompactList}\item 
+int \hyperlink{classSemaphore_acc15178e43d33745f4acc6e2b2cccf9b}{try\+Wait} ()
+\begin{DoxyCompactList}\small\item\em try\+Wait 信号量减一,立即返回 \end{DoxyCompactList}\item 
+int \hyperlink{classSemaphore_a203e6b9f726ca5defc94379e9145278e}{timed\+Wait} (unsigned int seconds, unsigned int nanoseconds)
+\begin{DoxyCompactList}\small\item\em timed\+Wait 信号量减一 \end{DoxyCompactList}\item 
+\hyperlink{classSemaphore_a34841feb22e781d7d10ee7205f56bd8e}{Semaphore} (unsigned int init\+Size=0)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classSemaphore}{Semaphore} 构造函数 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSemaphore_a7039839a61ed189258fb0de6338848e3}\label{classSemaphore_a7039839a61ed189258fb0de6338848e3}} 
+virtual \hyperlink{classSemaphore_a7039839a61ed189258fb0de6338848e3}{$\sim$\+Semaphore} ()
+\begin{DoxyCompactList}\small\item\em $\sim$\+Semaphore 析构函数 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSemaphore_a89fbc8358ec2936a0f90bf7144c5f02a}\label{classSemaphore_a89fbc8358ec2936a0f90bf7144c5f02a}} 
+{\bfseries Semaphore} (const \hyperlink{classSemaphore}{Semaphore} \&)=delete
+\item 
+\mbox{\Hypertarget{classSemaphore_abd3d859134189efbc4be845048dcda24}\label{classSemaphore_abd3d859134189efbc4be845048dcda24}} 
+{\bfseries Semaphore} (const \hyperlink{classSemaphore}{Semaphore} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classSemaphore_a807f887093da67cb0d4ad302850b9499}\label{classSemaphore_a807f887093da67cb0d4ad302850b9499}} 
+\hyperlink{classSemaphore}{Semaphore} \& {\bfseries operator=} (const \hyperlink{classSemaphore}{Semaphore} \&)=delete
+\item 
+\mbox{\Hypertarget{classSemaphore_a453616a4ed5693d85c71df144999c4d3}\label{classSemaphore_a453616a4ed5693d85c71df144999c4d3}} 
+\hyperlink{classSemaphore}{Semaphore} \& {\bfseries operator=} (const \hyperlink{classSemaphore}{Semaphore} \&\&)=delete
+\end{DoxyCompactItemize}
+
+
+\subsection{详细描述}
+信号量 
+
+\subsection{构造及析构函数说明}
+\mbox{\Hypertarget{classSemaphore_a34841feb22e781d7d10ee7205f56bd8e}\label{classSemaphore_a34841feb22e781d7d10ee7205f56bd8e}} 
+\index{Semaphore@{Semaphore}!Semaphore@{Semaphore}}
+\index{Semaphore@{Semaphore}!Semaphore@{Semaphore}}
+\subsubsection{\texorpdfstring{Semaphore()}{Semaphore()}}
+{\footnotesize\ttfamily Semaphore\+::\+Semaphore (\begin{DoxyParamCaption}\item[{unsigned int}]{init\+Size = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\hyperlink{classSemaphore}{Semaphore} 构造函数 
+
+
+\begin{DoxyParams}{参数}
+{\em init\+Size} & 信号量初值 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{成员函数说明}
+\mbox{\Hypertarget{classSemaphore_a93794b9ab0c6c7c35acce0769bf67caf}\label{classSemaphore_a93794b9ab0c6c7c35acce0769bf67caf}} 
+\index{Semaphore@{Semaphore}!post@{post}}
+\index{post@{post}!Semaphore@{Semaphore}}
+\subsubsection{\texorpdfstring{post()}{post()}}
+{\footnotesize\ttfamily int Semaphore\+::post (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+post 信号量加一 
+
+\begin{DoxyReturn}{返回}
+错误码 0表示成功 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSemaphore_a203e6b9f726ca5defc94379e9145278e}\label{classSemaphore_a203e6b9f726ca5defc94379e9145278e}} 
+\index{Semaphore@{Semaphore}!timed\+Wait@{timed\+Wait}}
+\index{timed\+Wait@{timed\+Wait}!Semaphore@{Semaphore}}
+\subsubsection{\texorpdfstring{timed\+Wait()}{timedWait()}}
+{\footnotesize\ttfamily int Semaphore\+::timed\+Wait (\begin{DoxyParamCaption}\item[{unsigned int}]{seconds,  }\item[{unsigned int}]{nanoseconds }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+timed\+Wait 信号量减一 
+
+
+\begin{DoxyParams}{参数}
+{\em seconds} & 等待时间－秒 \\
+\hline
+{\em nanoseconds} & 等待时间－纳秒\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+错误码 0表示成功 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSemaphore_acc15178e43d33745f4acc6e2b2cccf9b}\label{classSemaphore_acc15178e43d33745f4acc6e2b2cccf9b}} 
+\index{Semaphore@{Semaphore}!try\+Wait@{try\+Wait}}
+\index{try\+Wait@{try\+Wait}!Semaphore@{Semaphore}}
+\subsubsection{\texorpdfstring{try\+Wait()}{tryWait()}}
+{\footnotesize\ttfamily int Semaphore\+::try\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+try\+Wait 信号量减一,立即返回 
+
+\begin{DoxyReturn}{返回}
+错误码 0表示成功 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSemaphore_ab50da3ab3fdc7f56acc85cbdf248c98d}\label{classSemaphore_ab50da3ab3fdc7f56acc85cbdf248c98d}} 
+\index{Semaphore@{Semaphore}!wait@{wait}}
+\index{wait@{wait}!Semaphore@{Semaphore}}
+\subsubsection{\texorpdfstring{wait()}{wait()}}
+{\footnotesize\ttfamily int Semaphore\+::wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+wait 信号量减一 
+
+\begin{DoxyReturn}{返回}
+错误码 0表示成功 
+\end{DoxyReturn}
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+semaphore.\+hpp\end{DoxyCompactItemize}

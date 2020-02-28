@@ -5,6 +5,7 @@ var searchData=
   ['scheduleatfixedrate',['scheduleAtFixedRate',['../classScheduledThreadPoolExecutor.html#aebcb96fcb3f5bfc6e55ffcef9f38d60b',1,'ScheduledThreadPoolExecutor']]],
   ['scheduledthreadpoolexecutor',['ScheduledThreadPoolExecutor',['../classScheduledThreadPoolExecutor.html#a880b17439bcdcf9b7542925e24033691',1,'ScheduledThreadPoolExecutor']]],
   ['self',['self',['../classThread.html#a554185abbfacbcc4bf2e953cdddcbbba',1,'Thread']]],
+  ['semaphore',['Semaphore',['../classSemaphore.html#a34841feb22e781d7d10ee7205f56bd8e',1,'Semaphore']]],
   ['setmaxpoolsize',['setMaxPoolSize',['../classThreadPoolExecutor.html#ac5a10d336958ca43530b31bff81c9c4b',1,'ThreadPoolExecutor']]],
   ['setname',['setName',['../classThread.html#ae816904b2a3e248472813e17c2b12a71',1,'Thread']]],
   ['setprio',['setPrio',['../classThread.html#a96661f80f5fbd26042a24eafd675cd91',1,'Thread']]],

@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CPP11ThreadPool: Semaphore类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="CPP.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CPP11ThreadPool
+   </div>
+   <div id="projectbrief">C++11线程池</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classSemaphore-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">Semaphore类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>信号量  
+ <a href="classSemaphore.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="semaphore_8hpp_source.html">semaphore.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a93794b9ab0c6c7c35acce0769bf67caf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSemaphore.html#a93794b9ab0c6c7c35acce0769bf67caf">post</a> ()</td></tr>
+<tr class="memdesc:a93794b9ab0c6c7c35acce0769bf67caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">post 信号量加一  <a href="#a93794b9ab0c6c7c35acce0769bf67caf">更多...</a><br /></td></tr>
+<tr class="separator:a93794b9ab0c6c7c35acce0769bf67caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab50da3ab3fdc7f56acc85cbdf248c98d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSemaphore.html#ab50da3ab3fdc7f56acc85cbdf248c98d">wait</a> ()</td></tr>
+<tr class="memdesc:ab50da3ab3fdc7f56acc85cbdf248c98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">wait 信号量减一  <a href="#ab50da3ab3fdc7f56acc85cbdf248c98d">更多...</a><br /></td></tr>
+<tr class="separator:ab50da3ab3fdc7f56acc85cbdf248c98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc15178e43d33745f4acc6e2b2cccf9b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSemaphore.html#acc15178e43d33745f4acc6e2b2cccf9b">tryWait</a> ()</td></tr>
+<tr class="memdesc:acc15178e43d33745f4acc6e2b2cccf9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">tryWait 信号量减一,立即返回  <a href="#acc15178e43d33745f4acc6e2b2cccf9b">更多...</a><br /></td></tr>
+<tr class="separator:acc15178e43d33745f4acc6e2b2cccf9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a203e6b9f726ca5defc94379e9145278e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSemaphore.html#a203e6b9f726ca5defc94379e9145278e">timedWait</a> (unsigned int seconds, unsigned int nanoseconds)</td></tr>
+<tr class="memdesc:a203e6b9f726ca5defc94379e9145278e"><td class="mdescLeft">&#160;</td><td class="mdescRight">timedWait 信号量减一  <a href="#a203e6b9f726ca5defc94379e9145278e">更多...</a><br /></td></tr>
+<tr class="separator:a203e6b9f726ca5defc94379e9145278e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34841feb22e781d7d10ee7205f56bd8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSemaphore.html#a34841feb22e781d7d10ee7205f56bd8e">Semaphore</a> (unsigned int initSize=0)</td></tr>
+<tr class="memdesc:a34841feb22e781d7d10ee7205f56bd8e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classSemaphore.html" title="信号量 ">Semaphore</a> 构造函数  <a href="#a34841feb22e781d7d10ee7205f56bd8e">更多...</a><br /></td></tr>
+<tr class="separator:a34841feb22e781d7d10ee7205f56bd8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7039839a61ed189258fb0de6338848e3"><td class="memItemLeft" align="right" valign="top"><a id="a7039839a61ed189258fb0de6338848e3"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSemaphore.html#a7039839a61ed189258fb0de6338848e3">~Semaphore</a> ()</td></tr>
+<tr class="memdesc:a7039839a61ed189258fb0de6338848e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">~Semaphore 析构函数 <br /></td></tr>
+<tr class="separator:a7039839a61ed189258fb0de6338848e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89fbc8358ec2936a0f90bf7144c5f02a"><td class="memItemLeft" align="right" valign="top"><a id="a89fbc8358ec2936a0f90bf7144c5f02a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Semaphore</b> (const <a class="el" href="classSemaphore.html">Semaphore</a> &amp;)=delete</td></tr>
+<tr class="separator:a89fbc8358ec2936a0f90bf7144c5f02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3d859134189efbc4be845048dcda24"><td class="memItemLeft" align="right" valign="top"><a id="abd3d859134189efbc4be845048dcda24"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Semaphore</b> (const <a class="el" href="classSemaphore.html">Semaphore</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:abd3d859134189efbc4be845048dcda24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a807f887093da67cb0d4ad302850b9499"><td class="memItemLeft" align="right" valign="top"><a id="a807f887093da67cb0d4ad302850b9499"></a>
+<a class="el" href="classSemaphore.html">Semaphore</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classSemaphore.html">Semaphore</a> &amp;)=delete</td></tr>
+<tr class="separator:a807f887093da67cb0d4ad302850b9499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453616a4ed5693d85c71df144999c4d3"><td class="memItemLeft" align="right" valign="top"><a id="a453616a4ed5693d85c71df144999c4d3"></a>
+<a class="el" href="classSemaphore.html">Semaphore</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classSemaphore.html">Semaphore</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:a453616a4ed5693d85c71df144999c4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>信号量 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a34841feb22e781d7d10ee7205f56bd8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34841feb22e781d7d10ee7205f56bd8e">&#9670;&nbsp;</a></span>Semaphore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Semaphore::Semaphore </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>initSize</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classSemaphore.html" title="信号量 ">Semaphore</a> 构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initSize</td><td>信号量初值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a93794b9ab0c6c7c35acce0769bf67caf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93794b9ab0c6c7c35acce0769bf67caf">&#9670;&nbsp;</a></span>post()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Semaphore::post </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>post 信号量加一 </p>
+<dl class="section return"><dt>返回</dt><dd>错误码 0表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="a203e6b9f726ca5defc94379e9145278e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a203e6b9f726ca5defc94379e9145278e">&#9670;&nbsp;</a></span>timedWait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Semaphore::timedWait </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>seconds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>nanoseconds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>timedWait 信号量减一 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seconds</td><td>等待时间－秒 </td></tr>
+    <tr><td class="paramname">nanoseconds</td><td>等待时间－纳秒</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>错误码 0表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="acc15178e43d33745f4acc6e2b2cccf9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc15178e43d33745f4acc6e2b2cccf9b">&#9670;&nbsp;</a></span>tryWait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Semaphore::tryWait </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>tryWait 信号量减一,立即返回 </p>
+<dl class="section return"><dt>返回</dt><dd>错误码 0表示成功 </dd></dl>
+
+</div>
+</div>
+<a id="ab50da3ab3fdc7f56acc85cbdf248c98d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50da3ab3fdc7f56acc85cbdf248c98d">&#9670;&nbsp;</a></span>wait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Semaphore::wait </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>wait 信号量减一 </p>
+<dl class="section return"><dt>返回</dt><dd>错误码 0表示成功 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="semaphore_8hpp_source.html">semaphore.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

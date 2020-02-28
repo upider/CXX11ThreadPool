@@ -1,5 +1,5 @@
 <map id="类继承关系图" name="类继承关系图">
 <area shape="rect" id="node1" href="$classThreadPoolExecutor.html" title="线程池基本实现,每个线程都有一个任务队列 " alt="" coords="5,31,145,57"/>
-<area shape="rect" id="node2" href="$classScheduledThreadPoolExecutor.html" title="定时任务调度线程池 " alt="" coords="202,5,403,32"/>
+<area shape="rect" id="node2" href="$classScheduledThreadPoolExecutor.html" title="定时任务调度线程池,最大线程数和核心线程数相等 " alt="" coords="202,5,403,32"/>
 <area shape="rect" id="node3" href="$classWorkStealingThreadPoolExecutor.html" title="任务窃取线程池,从下一个线程的任务队列窃取任务 " alt="" coords="193,56,412,83"/>
 </map>

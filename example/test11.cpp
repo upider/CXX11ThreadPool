@@ -13,7 +13,8 @@ int main(int argc, char *argv[])
     });
 
     t.start();
-    t.join();
+	//不需要手动释放线程资源
+    //t.join();
 
     std::cout << future.get() << std::endl;
     return 0;

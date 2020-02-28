@@ -14,12 +14,49 @@
 	11. Thread类丰富了std::thread的功能,设置名称,id,检查是否存活,是否空闲等等
 	12. 任务窃取线程池
 	13. 定时调用线程池,任务队列采用vector形成小顶堆,时间最小排在前面
+	14. Thread类不需要手动释放(join或detach)
 
 ## 用法
 	1. 类似Java Executor
 	2. 例子:example文件夹下
 	3. 符合C++11标准
 	4. linux平台(可能会做跨平台)
+
+	5. Thread示例
+	```c
+	std::promise<int> promise;
+    std::future<int> future(promise.get_future());
+
+    Thread t([&promise]() {
+        std::cout << "thread start.." << std::endl;
+        promise.set_value(999);
+    });
+
+    t.start();
+	//不需要手动释放线程资源
+    //t.join();
+
+    std::cout << future.get() << std::endl;
+	```
+
+	6. ScheduledThreadPoolExecutor示例
+	```c
+    ScheduledThreadPoolExecutor tpe(3, "STPE");
+    tpe.preStartCoreThreads();
+	//在ScheduledThreadPoolExecutor中使用std::future
+    std::packaged_task<std::string()> p([]() ->std::string {
+        std::ostringstream os;
+        std::time_t tt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+        std::cout << "Task: " << std::asctime(std::localtime(&tt));
+        os << "Task schedule's the last time is " << std::asctime(std::localtime(&tt));
+        return os.str();
+    });
+    std::future<std::string> f(p.get_future());
+    tpe.scheduleAtFixedRate([&]() {
+        p();
+        p.reset();//每次执行后都要取消关联才能再次执行
+    }, std::chrono::seconds(2), std::chrono::seconds(2));
+	```
 
 ## 参考
 	1. JDK1.8源码

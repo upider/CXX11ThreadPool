@@ -1,3 +1,4 @@
 <map id="类继承关系图" name="类继承关系图">
-<area shape="rect" id="node1" href="$classRejectedExecutionHandler.html" title="不再接受任务时的拒绝策略 " alt="" coords="5,5,183,32"/>
+<area shape="rect" id="node1" href="$structFunctor__base.html" title="函数包装器虚基类 " alt="" coords="5,5,107,32"/>
+<area shape="rect" id="node2" href="$structFunctor__t.html" title="Functor_t\&lt; F \&gt;" alt="" coords="155,5,264,32"/>
 </map>

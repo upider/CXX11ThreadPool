@@ -15,7 +15,7 @@ var searchData=
   ['sptr',['sptr',['../classRunnable.html#abe8d3066c7305401d6f0aad8e70780f2',1,'Runnable::sptr()'],['../classThread.html#a430059e402325caaf1ed185fb520c9d2',1,'Thread::sptr()']]],
   ['start',['start',['../classThread.html#a3a36451e02a15180624cdd88212cb1ba',1,'Thread']]],
   ['stdid',['stdId',['../classThread.html#a231da16ab1825ee982c4aa43f78c1b22',1,'Thread']]],
-  ['stop',['stop',['../classThreadPoolExecutor.html#a588ec33baf402afd0e1c52b11d9234da',1,'ThreadPoolExecutor::stop() final'],['../classThreadPoolExecutor.html#ae3c0ff657b3c0d8bbaf7f10bfdf587ca',1,'ThreadPoolExecutor::STOP()']]],
+  ['stop',['STOP',['../classThreadPoolExecutor.html#ae3c0ff657b3c0d8bbaf7f10bfdf587ca',1,'ThreadPoolExecutor::STOP()'],['../classThreadPoolExecutor.html#a588ec33baf402afd0e1c52b11d9234da',1,'ThreadPoolExecutor::stop() final']]],
   ['stop_5f',['stop_',['../classThread.html#a091bdad0a084b3f2c659f8cdd5369d53',1,'Thread']]],
   ['submit',['submit',['../classThreadPoolExecutor.html#a94834ab6bedcc75111524fec4e928b3f',1,'ThreadPoolExecutor::submit()'],['../classWorkStealingThreadPoolExecutor.html#a7fa1b79c8be2b06a7952ccfd14aa7f6c',1,'WorkStealingThreadPoolExecutor::submit()']]],
   ['submitid_5f',['submitId_',['../classThreadPoolExecutor.html#a32da434f74911bcc1702eaafabfac368',1,'ThreadPoolExecutor']]]

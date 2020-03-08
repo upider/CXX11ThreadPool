@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CPP11ThreadPool: functor_wrapper.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="CPP.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CPP11ThreadPool
+   </div>
+   <div id="projectbrief">C++11线程池</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">functor_wrapper.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef FUNCTOR_WRAPPER_HPP</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define FUNCTOR_WRAPPER_HPP</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structFunctor__base.html">    9</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structFunctor__base.html">Functor_base</a> {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="structFunctor__base.html">Functor_base</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> call() = 0;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="structFunctor__base.html">Functor_base</a>() {}</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structFunctor__t.html">   16</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structFunctor__t.html">Functor_t</a>: <a class="code" href="structFunctor__base.html">Functor_base</a> {</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structFunctor__t.html#a1e788b8c1022f99a0e80b334b31383a2">   22</a></span>&#160;    <a class="code" href="structFunctor__t.html#a1e788b8c1022f99a0e80b334b31383a2">Functor_t</a>(F&amp;&amp; f): f_(std::move(f)) {}</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structFunctor__t.html#ab4fc359c4f5955cc2d6a86214a5545ce">   26</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structFunctor__t.html#ab4fc359c4f5955cc2d6a86214a5545ce">call</a>()<span class="keyword"> override </span>{</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        f_();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    F f_;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FUNCTOR_WRAPPER_HPP */</span><span class="preprocessor"></span></div><div class="ttc" id="structFunctor__base_html"><div class="ttname"><a href="structFunctor__base.html">Functor_base</a></div><div class="ttdoc">函数包装器虚基类 </div><div class="ttdef"><b>Definition:</b> functor_wrapper.hpp:9</div></div>
+<div class="ttc" id="structFunctor__t_html"><div class="ttname"><a href="structFunctor__t.html">Functor_t</a></div><div class="ttdef"><b>Definition:</b> functor_wrapper.hpp:16</div></div>
+<div class="ttc" id="structFunctor__t_html_ab4fc359c4f5955cc2d6a86214a5545ce"><div class="ttname"><a href="structFunctor__t.html#ab4fc359c4f5955cc2d6a86214a5545ce">Functor_t::call</a></div><div class="ttdeci">void call() override</div><div class="ttdoc">call 执行被包装的函数 </div><div class="ttdef"><b>Definition:</b> functor_wrapper.hpp:26</div></div>
+<div class="ttc" id="structFunctor__t_html_a1e788b8c1022f99a0e80b334b31383a2"><div class="ttname"><a href="structFunctor__t.html#a1e788b8c1022f99a0e80b334b31383a2">Functor_t::Functor_t</a></div><div class="ttdeci">Functor_t(F &amp;&amp;f)</div><div class="ttdoc">functor_t 构造函数 </div><div class="ttdef"><b>Definition:</b> functor_wrapper.hpp:22</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

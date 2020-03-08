@@ -9,13 +9,6 @@ C++11线程封装类,包含更丰富功能
 
 {\ttfamily \#include $<$thread.\+hpp$>$}
 
-\subsection*{类}
-\begin{DoxyCompactItemize}
-\item 
-struct \hyperlink{structThread_1_1Func__base}{Func\+\_\+base}
-\begin{DoxyCompactList}\small\item\em 包装传进来的lambda函数的虚基类 \end{DoxyCompactList}\item 
-struct \hyperlink{structThread_1_1Func__t}{Func\+\_\+t}
-\begin{DoxyCompactList}\small\item\em 包装传进来的lambda函数 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public 类型}
 \begin{DoxyCompactItemize}
 \item 
@@ -113,8 +106,8 @@ std\+::atomic\+\_\+bool \hyperlink{classThread_a535df3b8fc4ff9ca48f5a6d561162a36
 \mbox{\Hypertarget{classThread_ae7ed71c6b1f7782ecd4186005fd70760}\label{classThread_ae7ed71c6b1f7782ecd4186005fd70760}} 
 std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \hyperlink{classThread_ae7ed71c6b1f7782ecd4186005fd70760}{last\+Active\+Time\+\_\+} \{std\+::chrono\+::steady\+\_\+clock\+::now()\}
 \begin{DoxyCompactList}\small\item\em 上次活跃时间 \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classThread_a677202a7d90ebc5a6d4f8b1eab1a1eac}\label{classThread_a677202a7d90ebc5a6d4f8b1eab1a1eac}} 
-std\+::unique\+\_\+ptr$<$ \hyperlink{structThread_1_1Func__base}{Func\+\_\+base} $>$ \hyperlink{classThread_a677202a7d90ebc5a6d4f8b1eab1a1eac}{func\+\_\+uptr\+\_\+}
+\mbox{\Hypertarget{classThread_a4cf09d1f62096dd4aed7a3ee06212b81}\label{classThread_a4cf09d1f62096dd4aed7a3ee06212b81}} 
+std\+::unique\+\_\+ptr$<$ \hyperlink{structFunctor__base}{Functor\+\_\+base} $>$ \hyperlink{classThread_a4cf09d1f62096dd4aed7a3ee06212b81}{func\+\_\+uptr\+\_\+}
 \begin{DoxyCompactList}\small\item\em 函数封装 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 

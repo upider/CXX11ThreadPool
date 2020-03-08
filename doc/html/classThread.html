@@ -61,7 +61,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">类</a> &#124;
 <a href="#pub-types">Public 类型</a> &#124;
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pro-methods">Protected 成员函数</a> &#124;
@@ -77,15 +76,6 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="thread_8hpp_source.html">thread.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-类</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structThread_1_1Func__base.html">Func_base</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">包装传进来的lambda函数的虚基类  <a href="structThread_1_1Func__base.html#details">更多...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structThread_1_1Func__t.html">Func_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">包装传进来的lambda函数  <a href="structThread_1_1Func__t.html#details">更多...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public 类型</h2></td></tr>
 <tr class="memitem:a430059e402325caaf1ed185fb520c9d2"><td class="memItemLeft" align="right" valign="top"><a id="a430059e402325caaf1ed185fb520c9d2"></a>
@@ -212,10 +202,10 @@ std::atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#ae7ed71c6b1f7782ecd4186005fd70760">lastActiveTime_</a> {std::chrono::steady_clock::now()}</td></tr>
 <tr class="memdesc:ae7ed71c6b1f7782ecd4186005fd70760"><td class="mdescLeft">&#160;</td><td class="mdescRight">上次活跃时间 <br /></td></tr>
 <tr class="separator:ae7ed71c6b1f7782ecd4186005fd70760"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a677202a7d90ebc5a6d4f8b1eab1a1eac"><td class="memItemLeft" align="right" valign="top"><a id="a677202a7d90ebc5a6d4f8b1eab1a1eac"></a>
-std::unique_ptr&lt; <a class="el" href="structThread_1_1Func__base.html">Func_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a677202a7d90ebc5a6d4f8b1eab1a1eac">func_uptr_</a></td></tr>
-<tr class="memdesc:a677202a7d90ebc5a6d4f8b1eab1a1eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数封装 <br /></td></tr>
-<tr class="separator:a677202a7d90ebc5a6d4f8b1eab1a1eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cf09d1f62096dd4aed7a3ee06212b81"><td class="memItemLeft" align="right" valign="top"><a id="a4cf09d1f62096dd4aed7a3ee06212b81"></a>
+std::unique_ptr&lt; <a class="el" href="structFunctor__base.html">Functor_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThread.html#a4cf09d1f62096dd4aed7a3ee06212b81">func_uptr_</a></td></tr>
+<tr class="memdesc:a4cf09d1f62096dd4aed7a3ee06212b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数封装 <br /></td></tr>
+<tr class="separator:a4cf09d1f62096dd4aed7a3ee06212b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>C++11线程封装类,包含更丰富功能 </p>

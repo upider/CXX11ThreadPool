@@ -73,8 +73,8 @@ class WorkStealingThreadPoolExecutor: public ThreadPoolExecutor {
                 int c = ctl_.load();
                 if (!isRunning(c)) {
                     reject(Runnable(std::move(task)));
-                    return res;
                 }
+                return res;
             }
         }
 
@@ -98,7 +98,7 @@ WorkStealingThreadPoolExecutor::WorkStealingThreadPoolExecutor(int32_t corePoolS
         const std::vector<BlockingQueue<Runnable::sptr>>& workQueue,
         const RejectedExecutionHandler& handler,
         const std::string& prefix)
-    : ThreadPoolExecutor(corePoolSize, maxPoolSize, workQueue, handler) {}
+    : ThreadPoolExecutor(corePoolSize, maxPoolSize, workQueue, handler, prefix) {}
 
 WorkStealingThreadPoolExecutor::WorkStealingThreadPoolExecutor(int32_t corePoolSize,
         int32_t maxPoolSize,

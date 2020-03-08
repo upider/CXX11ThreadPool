@@ -1,8 +1,32 @@
 cmake_minimum_required(VERSION 3.10)
 project(thread_pool)
 
+add_definitions(-Wall -Wextra -std=c++11 -rdynamic)
 set(CMAKE_CXX_COMPILER "g++")
-add_compile_options(-std=c++11 -gdwarf-4)
+set(CMAKE_C_COMPILER "gcc")
+set(CXX_FLAGS -g -Wall -Wextra -Wconversion -std=c++11 -rdynamic)
+#-Werror
+#-DVALGRIND
+#-DCHECK_PTHREAD_RETURN_VALUE
+#-D_FILE_OFFSET_BITS=64
+#-Wconversion
+#-Wno-unused-parameter
+#-Wold-style-cast
+#-Woverloaded-virtual
+#-Wpointer-arith
+#-Wshadow
+#-Wwrite-strings
+#-march=native
+#-MMD
+#)
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+	list(APPEND CXX_FLAGS "-Wno-null-dereference")
+	list(APPEND CXX_FLAGS "-Wno-sign-conversion")
+	list(APPEND CXX_FLAGS "-Wno-unused-local-typedef")
+	list(APPEND CXX_FLAGS "-Wthread-safety")
+	list(REMOVE_ITEM CXX_FLAGS "-rdynamic")
+endif()
 
 aux_source_directory(src SRC)
 add_library(thread_pool SHARED ${SRC})
@@ -37,6 +61,10 @@ target_include_directories(test10 PUBLIC include)
 add_executable(test11 ./example/test11.cpp)
 target_link_libraries(test11 thread_pool)
 target_include_directories(test11 PUBLIC include)
+
+add_executable(rwlock_test ./example/rwlock_test.cpp)
+target_link_libraries(rwlock_test thread_pool)
+target_include_directories(rwlock_test PUBLIC include)
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

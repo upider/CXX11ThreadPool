@@ -197,14 +197,13 @@ class ThreadPoolExecutor {
             std::packaged_task<result_type()> task(std::move(f));
             std::future<result_type> res(task.get_future());
             if(addWorker(Runnable(std::move(task)), core)) {
-                return res;
             } else {
                 int c = ctl_.load();
                 if (!isRunning(c)) {
                     reject(Runnable(std::move(task)));
-                    return res;
                 }
             }
+            return res;
         }
 
         /**

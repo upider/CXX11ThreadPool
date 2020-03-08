@@ -35,7 +35,7 @@ struct TimerTask : public Runnable {
      *
      * @param rh 另一个TimerTask
      */
-    TimerTask(const TimerTask& rh)
+    explicit TimerTask(const TimerTask& rh)
         : initialDelay_(rh.initialDelay_),
           interval_(rh.interval_),
           fixedRate_(rh.fixedRate_),
@@ -195,7 +195,7 @@ class ScheduledThreadPoolExecutor: public ThreadPoolExecutor {
             int32_t rs = runStateOf(c);
             int32_t wc = workerCountOf(c);
             if (rs >= SHUTDOWN)
-                reject(f);
+                reject(*f);
             {
                 std::lock_guard<std::mutex> lock(mutex_);
                 timerTasks_.push_back(f);

@@ -50,7 +50,6 @@ int main(void)
 
     tpe.submit([]() ->int {
         std::cout << syscall(__NR_gettid)  << std::endl;
-        std::cout << __FILE__ << "-" << __LINE__ << std::endl;
         return 999;
     }, false);
 

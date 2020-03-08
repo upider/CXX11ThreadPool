@@ -59,13 +59,7 @@ ThreadPoolExecutor::ThreadPoolExecutor(int32_t corePoolSize,
         throw std::logic_error("parameter value is wrong");
 }
 
-ThreadPoolExecutor::~ThreadPoolExecutor() {
-    for (auto t : threads_) {
-        if (t->joinable()) {
-            t->join();
-        }
-    }
-}
+ThreadPoolExecutor::~ThreadPoolExecutor() {}
 
 bool ThreadPoolExecutor::keepNonCoreThreadAlive() const {
     return keepNonCoreThreadAlive_;
@@ -233,7 +227,7 @@ bool ThreadPoolExecutor::execute(Runnable& command, bool core) {
 bool ThreadPoolExecutor::execute(BlockingQueue<Runnable::sptr>& commands, bool core) {
     int32_t c = ctl_.load();
     if (core) {
-        for (int i = 0; i < commands.size(); ++i) {
+        for (unsigned int i = 0; i < commands.size(); ++i) {
             c = ctl_.load();
             auto command = commands.take();
             if(addWorker(command, core)) {

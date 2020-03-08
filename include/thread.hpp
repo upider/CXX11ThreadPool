@@ -12,6 +12,8 @@
 #include <sys/signal.h>
 #include <unistd.h>
 
+#include "functor_wrapper.hpp"
+
 /**
  * @brief stdTidToPthreadId std::thread::id转换为pthread_t
  *
@@ -118,51 +120,6 @@ class ThreadPoolExecutor;
  * @brief C++11线程封装类,包含更丰富功能
  */
 class Thread {
-    protected:
-        ///线程优先级
-        int                                    prio_;
-        ///-1表明线程已经执行完任务,unix底层的线程已经不存在了
-        pid_t                                  currentPid_{-1};
-        ///线程名前缀
-        std::string                            name_;
-        ///线程
-        std::thread                            thread_;
-        ///线程停止标志
-        std::atomic_bool                       stop_{true};
-        ///线程空闲标志
-        std::atomic_bool                       idle_{true};
-        ///让出时间片标志
-        std::atomic_bool                       yield_{false};
-        ///上次活跃时间
-        std::chrono::steady_clock::time_point  lastActiveTime_{std::chrono::steady_clock::now()};
-
-    protected:
-        /**
-         * @brief 包装传进来的lambda函数的虚基类
-         */
-        struct Func_base {
-            Func_base() = default;
-            virtual void call() = 0;
-            virtual ~Func_base() {}
-        };
-
-        template<typename FunctionType>
-        /**
-         * @brief 包装传进来的lambda函数
-         */
-        struct Func_t: Func_base {
-            Func_t(FunctionType&& f): _f(std::move(f)) {}
-            void call() override {
-                _f();
-            }
-            FunctionType _f;
-        };
-
-        /**
-         * @brief 函数封装
-         */
-        std::unique_ptr<Func_base> func_uptr_;
-
     public:
         /**
          * @brief std::shared_ptr<Thread>别名
@@ -194,7 +151,7 @@ class Thread {
          * @param pro 优先级
          */
         Thread(FunctionType f, const std::string& name = "", int pro = 20)
-            : prio_(pro), name_(name), func_uptr_(new Func_t<FunctionType>(std::move(f))) {}
+            : prio_(pro), name_(name), func_uptr_(new Functor_t<FunctionType>(std::move(f))) {}
 
         /**
          * @brief ~Thread 析构函数
@@ -240,9 +197,8 @@ class Thread {
             lastActiveTime_ = std::chrono::steady_clock::now();
             pthread_setschedprio(pthread_self(), prio_);
             try {
-                if (func_uptr_ == nullptr) {
-                }
                 func_uptr_->call();
+                func_uptr_.release();
             } catch(...) {
                 idle_.store(true, std::memory_order_relaxed);
                 throw;
@@ -394,6 +350,30 @@ class Thread {
         virtual int getPrio()final {
             return prio_;
         }
+
+    protected:
+        ///线程优先级
+        int                                    prio_;
+        ///-1表明线程已经执行完任务,unix底层的线程已经不存在了
+        pid_t                                  currentPid_{-1};
+        ///线程名前缀
+        std::string                            name_;
+        ///线程
+        std::thread                            thread_;
+        ///线程停止标志
+        std::atomic_bool                       stop_{true};
+        ///线程空闲标志
+        std::atomic_bool                       idle_{true};
+        ///让出时间片标志
+        std::atomic_bool                       yield_{false};
+        ///上次活跃时间
+        std::chrono::steady_clock::time_point  lastActiveTime_{std::chrono::steady_clock::now()};
+
+    protected:
+        /**
+         * @brief 函数封装
+         */
+        std::unique_ptr<Functor_base> func_uptr_;
 
     public:
         Thread(const Thread&&) = delete;

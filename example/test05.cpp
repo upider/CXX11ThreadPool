@@ -42,7 +42,7 @@ int main(void)
         std::cout << "task07" << "--tid : " << syscall(__NR_gettid) << std::endl;
     });
 
-    sleep(10);
+    sleep(3);
     std::cout << tpe.toString() << std::endl;
     tpe.stop();
     return 0;

@@ -23,6 +23,7 @@
 	4. linux平台(可能会做跨平台)
 
 	5. Thread示例
+
 	```c
 	std::promise<int> promise;
     std::future<int> future(promise.get_future());
@@ -40,6 +41,7 @@
 	```
 
 	6. ScheduledThreadPoolExecutor示例
+
 	```c
     ScheduledThreadPoolExecutor tpe(3, "STPE");
     tpe.preStartCoreThreads();
@@ -57,6 +59,13 @@
         p.reset();//每次执行后都要取消关联才能再次执行
     }, std::chrono::seconds(2), std::chrono::seconds(2));
 	```
+
+## 缺陷
+	1. 线程使用的任务队列有锁
+	2. 所有线程对任务执行的包装是一个Runnable类，对象构造比较耗时，可以改为std::function
+	3. 定时调用队列使用了sleep，会使线程睡眠，之后唤醒，切换耗时较大，可以使用epoll
+	4. 不能限制任务数量（限流）
+	不建议在生产环境使用
 
 ## 参考
 	1. JDK1.8源码

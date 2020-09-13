@@ -1,5 +1,7 @@
 # C++11线程池
 
+`如果你想要一个简单实用的线程池请看这里`：https://github.com/yzz-ihep/thread_cpp11
+
 ## 已经实现的功能
 
 	1. corePoolSize个数的核心线程(核心线程不会退出),并根据任务量最大扩展到maxPoolSize个
